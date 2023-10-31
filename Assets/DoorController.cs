@@ -3,7 +3,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour {
 
     public GameObject player;
-    public float distance = 10f;
+    public float distance = 2f;
     private Animator animator;
 
     private void Start()
