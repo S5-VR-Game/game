@@ -3421,13 +3421,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.6560015, y: 0.3361522, z: 0.1658761, w: 0.6550946}
+  m_LocalPosition: {x: -46.9, y: 51.6, z: 39.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 48.415, y: 97.503, z: 82.704}
 --- !u!1 &706969088 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7513745511465887812, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -6187,6 +6187,10 @@ PrefabInstance:
     - target: {fileID: 2018680082021171596, guid: 79ec5913d0f76524cad289aaf2df60f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348293572169805038, guid: 79ec5913d0f76524cad289aaf2df60f1, type: 3}
+      propertyPath: mouseSensitivity
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2480956471251032152, guid: 79ec5913d0f76524cad289aaf2df60f1, type: 3}
       propertyPath: m_Layer
