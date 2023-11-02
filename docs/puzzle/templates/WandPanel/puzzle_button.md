@@ -6,7 +6,7 @@
     -  Einen fancy Namen überlegen :)
 -->
 
-Knöpfe wiederholen
+Knöpfe wiederholen / Simon Says
 
 ---
 
