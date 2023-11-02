@@ -6,7 +6,7 @@ public class TextPanel : MonoBehaviour
     
     // block for defining used inputs
     private KeyCode togglePanel = KeyCode.I;
-
+    private KeyCode test = KeyCode.C;
 
     private const double defaultPosY = -120;
     private const double hiddenPosY = 130;
@@ -28,6 +28,13 @@ public class TextPanel : MonoBehaviour
         {
             toggleShow();
         }
+        
+        if (Input.GetKeyUp(test))
+        {
+            print("Testbutton pressed!");
+            queueText("testtest");
+        }
+
     }
 
     private void toggleShow()
@@ -36,8 +43,17 @@ public class TextPanel : MonoBehaviour
         {
             animator.SetBool("open", !animator.GetBool("open"));
             textControls.toggleState();
-            print(animator.GetBool("open"));
         }
+    }
+    
+    public void queueText(string textToShow)
+    {
+        if (!animator.GetBool("open"))
+        {
+            toggleShow();
+        }
+        
+        textControls.changeText(textToShow);
     }
     
 }

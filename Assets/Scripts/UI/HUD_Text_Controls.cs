@@ -11,7 +11,6 @@ public class HUD_Text_Controls : MonoBehaviour
     // block for defining used inputs
     private KeyCode nextPage = KeyCode.U;
     private KeyCode prevPage = KeyCode.Z;
-    private KeyCode test = KeyCode.C;
 
     private int currentPage = 1;
     private bool shown = false;
@@ -61,12 +60,6 @@ public class HUD_Text_Controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(test))
-        {
-            print("Testbutton pressed!");
-            queueText("testing text to show!");
-        }
-
         if (shown)
         {
             if (Input.GetKeyUp(prevPage))
@@ -89,7 +82,7 @@ public class HUD_Text_Controls : MonoBehaviour
         shown = !shown;
     }
 
-    public void queueText(string textToShow)
+    public void changeText(string textToShow)
     {
         textMesh.text = textToShow;
     }
