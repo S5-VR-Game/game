@@ -14,15 +14,6 @@
 
 ---
 
-# Kategorie
-
-<!---
-    - Andere Rätsel überprüfen, ob es bereits ähnliche Rätsel gibt und
-      gegebenenfalls in einer Kategorie anordnen
--->
-
----
-
 # Beschreibung
 
 <!---
