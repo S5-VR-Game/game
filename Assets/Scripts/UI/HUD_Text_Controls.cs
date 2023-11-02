@@ -7,19 +7,20 @@ public class HUD_Text_Controls : MonoBehaviour
     // block for used game objects
     private TextMeshProUGUI textMesh;
     private TextMeshProUGUI pageCountText;
-    private KeyCode test = KeyCode.C;
 
     // block for defining used inputs
     private KeyCode nextPage = KeyCode.U;
     private KeyCode prevPage = KeyCode.Z;
+    private KeyCode test = KeyCode.C;
 
     private int currentPage = 1;
+    private bool shown = false;
     
 
     void Start()
     {
         textMesh = gameObject.GetComponent<TextMeshProUGUI>();
-        pageCountText = GameObject.Find("HUD_Canvas/Panel/PageCount").GetComponent<TextMeshProUGUI>();
+        pageCountText = GameObject.Find("HUD_Canvas/TextPanel/PageCount").GetComponent<TextMeshProUGUI>();
         pageCountText.text = currentPage + " / " + textMesh.textInfo.pageCount;
     }
 
@@ -45,6 +46,7 @@ public class HUD_Text_Controls : MonoBehaviour
 
     private void updatePageCountText()
     {
+
         if (textMesh.textInfo.pageCount > 1)
         {
             textMesh.pageToDisplay = currentPage;
@@ -62,20 +64,35 @@ public class HUD_Text_Controls : MonoBehaviour
         if (Input.GetKeyUp(test))
         {
             print("Testbutton pressed!");
-            textMesh.text = "test";
-            turnPage(0);
+            queueText("testing text to show!");
         }
 
-        if (Input.GetKeyUp(prevPage))
+        if (shown)
         {
-            turnPage(-1);
+            if (Input.GetKeyUp(prevPage))
+            {
+                turnPage(-1);
+            }
+
+            if (Input.GetKeyUp(nextPage))
+            {
+                turnPage(1);
+            }
         }
 
-        if (Input.GetKeyUp(nextPage))
-        {
-            turnPage(1);
-        }
         
         updatePageCountText();
     }
+
+    public void toggleState()
+    {
+        shown = !shown;
+    }
+
+    public void queueText(string textToShow)
+    {
+        textMesh.text = textToShow;
+    }
+    
+    
 }
