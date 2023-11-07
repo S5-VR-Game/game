@@ -1,59 +1,82 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TextPanel : MonoBehaviour
+namespace UI
 {
-    private Animator animator;
-    
-    // block for defining used inputs
-    private KeyCode togglePanel = KeyCode.I;
-    private KeyCode test = KeyCode.C;
-
-    private const double defaultPosY = -120;
-    private const double hiddenPosY = 130;
-
-    public GameObject textField;
-    private HUD_Text_Controls textControls;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class TextPanel : MonoBehaviour
     {
-        animator = gameObject.GetComponent<Animator>();
-        textControls = textField.GetComponent<HUD_Text_Controls>();
-    }
+        private Animator animator;
+    
+        // block for defining used inputs
+        private KeyCode togglePanel = KeyCode.I;
+        private KeyCode test = KeyCode.C;
+        private KeyCode dismiss = KeyCode.D;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(togglePanel))
+        public GameObject textField;
+        private HUD_Text_Controls textControls;
+
+        private bool active = false;
+    
+        // Start is called before the first frame update
+        void Start()
         {
-            toggleShow();
+            animator = gameObject.GetComponent<Animator>();
+            textControls = textField.GetComponent<HUD_Text_Controls>();
         }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetKeyUp(togglePanel))
+            {
+                toggleShow();
+            }
         
-        if (Input.GetKeyUp(test))
-        {
-            print("Testbutton pressed!");
-            queueText("testtest");
+            if (Input.GetKeyUp(test))
+            {
+                print("Testbutton pressed!");
+                displayText("testtest");
+            }
+
+            if (Input.GetKeyUp(dismiss))
+            {
+                dismissText();
+            }
         }
 
-    }
+        private void toggleShow()
+        {
+            if (animator != null && active)
+            {
+                animator.SetBool("open", !animator.GetBool("open"));
+                textControls.toggleState();
+            }
+        }
 
-    private void toggleShow()
-    {
-        if (animator != null)
+        public void displayText(string textToShow)
         {
-            animator.SetBool("open", !animator.GetBool("open"));
-            textControls.toggleState();
+            
+            if (!animator.GetBool("open") && !active)
+            {
+                active = true;
+                textControls.changeText(textToShow);
+                toggleShow();
+            }
+
+            else if (!animator.GetBool("open"))
+            {
+
+            }
+        }
+
+        public void dismissText()
+        {
+            
+            if (animator.GetBool("open"))
+            {
+                toggleShow();
+            }
+            active = false;
         }
     }
-    
-    public void queueText(string textToShow)
-    {
-        if (!animator.GetBool("open"))
-        {
-            toggleShow();
-        }
-        
-        textControls.changeText(textToShow);
-    }
-    
 }
