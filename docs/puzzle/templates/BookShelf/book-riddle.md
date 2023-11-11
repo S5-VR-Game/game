@@ -18,6 +18,8 @@ Es soll einen abgesperrten Raum geben, in den der Spieler erst reinkommt, nachde
 bestehend aus 3 Zeichen, jedes Buch soll nummeriert sein (position des Passwortes) und eine Zahl beinhalten (Wert an Position)
 Wenn man dies in ein Terminal eingibt, wird ein bestimmter Raum entsperrt. 
 
+HUD-Beschreibung: Finde das Passwort für das Terminal heraus.
+
 ---
 
 # Ort
