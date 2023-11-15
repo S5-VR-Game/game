@@ -20,7 +20,7 @@ namespace UI
         // Start is called before the first frame update
         void Start()
         {
-            animator = gameObject.GetComponent<Animator>();
+            animator = gameObject.GetComponentInParent<Animator>();
             textControls = textField.GetComponent<HUD_Text_Controls>();
         }
 
@@ -49,6 +49,7 @@ namespace UI
             if (animator != null && active)
             {
                 animator.SetBool("open", !animator.GetBool("open"));
+                animator.SetBool("hide_mi", !animator.GetBool("hide_mi"));
                 textControls.toggleState();
             }
         }
