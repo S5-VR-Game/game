@@ -30,22 +30,25 @@ namespace UI
         {
             if (Input.GetKeyUp(togglePanel))
             {
-                toggleShow();
+                ToggleShow();
             }
         
-            if (Input.GetKeyUp(test))
-            {
-                print("Testbutton pressed!");
-                displayText("testtest");
-            }
+            // if (Input.GetKeyUp(test))
+            // {
+            //     print("Testbutton pressed!");
+            //     displayText("testtest");
+            // }
 
             if (Input.GetKeyUp(dismiss))
             {
-                dismissText();
+                DismissText();
             }
         }
-
-        private void toggleShow()
+        
+        /// <summary>
+        /// This method toggles the text panel visibility
+        /// </summary>
+        private void ToggleShow()
         {
             if (animator != null && active)
             {
@@ -58,7 +61,12 @@ namespace UI
             }
         }
 
-        public void displayText(string textToShow)
+        /// <summary>
+        /// Set a text to show on the text panel.
+        /// Can be a single string, text will be formatted by the panel.
+        /// </summary>
+        /// <param name="textToShow">string you want to show on the panel</param>
+        public void DisplayText(string textToShow)
         {
             
             if (!animator.GetBool("open"))
@@ -72,12 +80,17 @@ namespace UI
             textControls.changeText(textToShow);
         }
 
-        public void dismissText()
+        /// <summary>
+        /// Dismisses the current text and the text panel will be hidden.
+        /// <para />
+        /// Panel can't be opened again until new text is received.
+        /// </summary>
+        public void DismissText()
         {
             
             if (animator.GetBool("open"))
             {
-                toggleShow();
+                ToggleShow();
             }
 
             if (animator.GetBool("blink"))
