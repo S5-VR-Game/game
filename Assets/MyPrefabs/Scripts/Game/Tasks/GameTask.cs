@@ -13,9 +13,10 @@ namespace MyPrefabs.Scripts.Game.Tasks
         [SerializeField]
         [Delayed]
         public String taskName;
-        
-        protected bool isCompleted;
-        public event Action<GameTask> TaskCompleted;
+
+        protected TaskState currentTaskState;
+        public event Action<GameTask> TaskSuccessful;
+        public event Action<GameTask> TaskFailed;
         public event Action<GameTask> GameObjectDestroyed;
 
         /// <summary>
@@ -23,13 +24,36 @@ namespace MyPrefabs.Scripts.Game.Tasks
         /// </summary>
         public abstract void Initialize();
         
+        protected abstract TaskState CheckTaskState();
+
         /// <summary>
         /// Notifies the observer, that this task is completed and changes the internal completed state
         /// </summary>
-        protected void CompleteTask()
+        /// <param name="checkedTaskState"></param>
+        private void CompleteTask()
         {
-            isCompleted = true;
-            TaskCompleted?.Invoke(this);
+            switch (this.currentTaskState)
+            {
+                case TaskState.FAILED:
+                    TaskFailed?.Invoke(this);
+                    break;
+                case TaskState.SUCCESSFUL:
+                    TaskSuccessful?.Invoke(this);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Updates the TaskState and performs a completion if the Task is not ongoing anymore
+        /// </summary>
+        /// <param name="taskState">the new State of the Game</param>
+        protected void UpdateTask(TaskState taskState)
+        {
+            this.currentTaskState = taskState;
+            if (currentTaskState != TaskState.ONGOING)
+            {
+                CompleteTask();
+            }
         }
 
         /// <summary>
