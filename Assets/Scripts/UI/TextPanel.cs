@@ -16,6 +16,7 @@ namespace UI
         private HUD_Text_Controls textControls;
 
         private bool active = false;
+        private bool alert_dismissed = false;
     
         // Start is called before the first frame update
         void Start()
@@ -49,7 +50,10 @@ namespace UI
             if (animator != null && active)
             {
                 animator.SetBool("open", !animator.GetBool("open"));
-                animator.SetBool("hide_mi", !animator.GetBool("hide_mi"));
+                if (animator.GetBool("blink") == true)
+                {
+                    animator.SetBool("blink", false);
+                }
                 textControls.toggleState();
             }
         }
@@ -57,13 +61,15 @@ namespace UI
         public void displayText(string textToShow)
         {
             
-            if (!animator.GetBool("open") && !active)
+            if (!animator.GetBool("open"))
             {
-                active = true;
-                textControls.changeText(textToShow);
-                toggleShow();
+                // toggleShow();
+                animator.SetBool("blink", true);
+                print(animator.layerCount);
+                alert_dismissed = false;
             }
-            
+            active = true;
+            textControls.changeText(textToShow);
         }
 
         public void dismissText()
@@ -72,6 +78,12 @@ namespace UI
             if (animator.GetBool("open"))
             {
                 toggleShow();
+            }
+
+            if (animator.GetBool("blink"))
+            {
+                alert_dismissed = true;
+                animator.SetBool("blink", false);
             }
             active = false;
         }
