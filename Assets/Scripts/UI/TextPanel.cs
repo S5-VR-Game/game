@@ -62,11 +62,7 @@ namespace UI
                 textControls.changeText(textToShow);
                 toggleShow();
             }
-
-            else if (!animator.GetBool("open"))
-            {
-
-            }
+            
         }
 
         public void dismissText()
