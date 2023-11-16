@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace MyPrefabs.Scripts.Game.Tasks.ExampleTask
+namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
 {
     /// <summary>
     /// Example game task for proof-of-concept and demo purpose

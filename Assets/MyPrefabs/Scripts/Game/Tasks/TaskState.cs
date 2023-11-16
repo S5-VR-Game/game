@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace MyPrefabs.Scripts.Game.Tasks
 {
     /**
