@@ -17,6 +17,11 @@ namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
             
         }
 
+        protected override void BeforeStateCheck()
+        {
+            
+        }
+
         /// <summary>
         /// Checks the Task state by specific Conditions from the Task
         ///
@@ -26,6 +31,14 @@ namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
         protected override TaskState CheckTaskState()
         {
             return TaskState.Ongoing;
+        }
+
+        protected override void AfterStateCheck()
+        {
+            if (currentTaskState != TaskState.Ongoing)
+            {
+                DestroyGameObject();
+            }
         }
     }
 }

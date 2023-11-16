@@ -16,16 +16,16 @@ namespace MyPrefabs.Scripts.Game.Tasks
             if (remainingTime < 0 && currentTaskState == TaskState.Ongoing)
             {                    
                 // IMPORTANT NOTE: If the time is up, there needs to be Failed in Future!!!
-
                 UpdateTaskState(TaskState.Failed);
-                DestroyGameObject();
             }
             else
             {
+                BeforeStateCheck();
                 // checking task in the future on failure, ongoing or just success
                 UpdateTaskState(CheckTaskState());
                 remainingTime -= Time.deltaTime;
             }
+            AfterStateCheck();
         }
     }
 }
