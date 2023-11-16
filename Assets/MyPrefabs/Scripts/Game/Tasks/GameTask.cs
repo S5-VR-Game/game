@@ -54,7 +54,7 @@ namespace MyPrefabs.Scripts.Game.Tasks
         /// <summary>
         /// Template method based update procedure for processing game task logic and updating game task state
         /// </summary>
-        private void Update()
+        protected virtual void Update()
         {
             BeforeStateCheck();
             UpdateTaskState(CheckTaskState());
