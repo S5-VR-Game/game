@@ -50,9 +50,9 @@ namespace MyPrefabs.Scripts.Game
         }
         
         /// <summary>
-        /// Called when a game task is completed
+        /// Called when a game task is failed
         /// </summary>
-        /// <param name="task">completed game task</param>
+        /// <param name="task">failed game task</param>
         private void OnTaskFailed(GameTask task)
         {
             log.Log(logTAG,"task failed: " + task.taskName);

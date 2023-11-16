@@ -12,13 +12,13 @@ namespace MyPrefabs.Scripts.Game.Tasks
             {                    
                 // IMPORTANT NOTE: If the time is up, there needs to be Failed in Future!!!
 
-                UpdateTask(TaskState.Failed);
+                UpdateTaskState(TaskState.Failed);
                 DestroyGameObject();
             }
             else
             {
                 // checking task in the future on failure, ongoing or just success
-                UpdateTask(CheckTaskState());
+                UpdateTaskState(CheckTaskState());
                 remainingTime -= Time.deltaTime;
             }
         }

@@ -27,12 +27,13 @@ namespace MyPrefabs.Scripts.Game.Tasks
         protected abstract TaskState CheckTaskState();
 
         /// <summary>
-        /// Notifies the observer, that this task is completed and changes the internal completed state
+        /// Updates the TaskState and performs a completion if the task is not ongoing anymore
         /// </summary>
-        /// <param name="checkedTaskState"></param>
-        private void CompleteTask()
+        /// <param name="taskState">the new state of the game</param>
+        protected void UpdateTaskState(TaskState taskState)
         {
-            switch (this.currentTaskState)
+            currentTaskState = taskState;
+            switch (currentTaskState)
             {
                 case TaskState.Failed:
                     TaskFailed?.Invoke(this);
@@ -40,19 +41,6 @@ namespace MyPrefabs.Scripts.Game.Tasks
                 case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
                     break;
-            }
-        }
-
-        /// <summary>
-        /// Updates the TaskState and performs a completion if the Task is not ongoing anymore
-        /// </summary>
-        /// <param name="taskState">the new State of the Game</param>
-        protected void UpdateTask(TaskState taskState)
-        {
-            this.currentTaskState = taskState;
-            if (currentTaskState != TaskState.Ongoing)
-            {
-                CompleteTask();
             }
         }
 
