@@ -34,10 +34,10 @@ namespace MyPrefabs.Scripts.Game.Tasks
         {
             switch (this.currentTaskState)
             {
-                case TaskState.FAILED:
+                case TaskState.Failed:
                     TaskFailed?.Invoke(this);
                     break;
-                case TaskState.SUCCESSFUL:
+                case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
                     break;
             }
@@ -50,7 +50,7 @@ namespace MyPrefabs.Scripts.Game.Tasks
         protected void UpdateTask(TaskState taskState)
         {
             this.currentTaskState = taskState;
-            if (currentTaskState != TaskState.ONGOING)
+            if (currentTaskState != TaskState.Ongoing)
             {
                 CompleteTask();
             }

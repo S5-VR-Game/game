@@ -8,11 +8,11 @@ namespace MyPrefabs.Scripts.Game.Tasks
 
         private void Update()
         {
-            if (remainingTime < 0 && currentTaskState == TaskState.ONGOING)
+            if (remainingTime < 0 && currentTaskState == TaskState.Ongoing)
             {                    
                 // IMPORTANT NOTE: If the time is up, there needs to be Failed in Future!!!
 
-                UpdateTask(TaskState.FAILED);
+                UpdateTask(TaskState.Failed);
                 DestroyGameObject();
             }
             else

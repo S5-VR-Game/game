@@ -5,7 +5,7 @@ namespace MyPrefabs.Scripts.Game.Tasks
         private void Update()
         {
             TaskState currentCheckedTaskState = CheckTaskState();
-            if (currentCheckedTaskState != TaskState.ONGOING)
+            if (currentCheckedTaskState != TaskState.Ongoing)
             {
                 UpdateTask(currentCheckedTaskState);
                 DestroyGameObject();

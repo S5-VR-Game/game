@@ -20,7 +20,7 @@ namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
         /// <returns>The State whether it is ONGOING, FAILED or SUCCESSFUL</returns>
         protected override TaskState CheckTaskState()
         {
-            return TaskState.ONGOING;
+            return TaskState.Ongoing;
         }
     }
 }

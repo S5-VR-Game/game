@@ -5,6 +5,6 @@ namespace MyPrefabs.Scripts.Game.Tasks
      */
     public enum TaskState
     {
-        SUCCESSFUL, ONGOING, FAILED
+        Successful, Ongoing, Failed
     }
 }
