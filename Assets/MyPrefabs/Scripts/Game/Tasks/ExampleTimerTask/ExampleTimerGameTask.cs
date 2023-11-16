@@ -7,6 +7,11 @@ namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
     /// </summary>
     public class ExampleTimerGameTask : TimerTask
     {
+
+        public ExampleTimerGameTask() : base(initialTimerTime:5f)
+        {
+        }
+        
         public override void Initialize()
         {
             

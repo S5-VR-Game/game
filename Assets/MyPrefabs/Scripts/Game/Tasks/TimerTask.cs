@@ -4,7 +4,12 @@ namespace MyPrefabs.Scripts.Game.Tasks
 {
     public abstract class TimerTask : GameTask
     {
-        private float remainingTime = 5f;
+        protected float remainingTime;
+
+        protected TimerTask(float initialTimerTime)
+        {
+            remainingTime = initialTimerTime;
+        }
 
         private void Update()
         {
