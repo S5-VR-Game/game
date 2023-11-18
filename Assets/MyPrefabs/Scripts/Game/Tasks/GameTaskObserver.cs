@@ -23,7 +23,8 @@ namespace MyPrefabs.Scripts.Game
         /// <param name="task">game task to observe</param>
         public void registerGameTask(GameTask task)
         {
-            task.TaskCompleted += OnTaskCompleted;
+            task.TaskFailed += OnTaskFailed;
+            task.TaskSuccessful += OnTaskSuccessful;
             task.GameObjectDestroyed += OnTaskGameObjectDestroyed;
         }
 
@@ -33,7 +34,8 @@ namespace MyPrefabs.Scripts.Game
         /// <param name="task">game task to stop observing</param>
         public void deregisterGameTask(GameTask task)
         {
-            task.TaskCompleted -= OnTaskCompleted;
+            task.TaskFailed -= OnTaskFailed;
+            task.TaskSuccessful -= OnTaskSuccessful;
             task.GameObjectDestroyed -= OnTaskGameObjectDestroyed;
         }
 
@@ -42,9 +44,18 @@ namespace MyPrefabs.Scripts.Game
         /// Called when a game task is completed
         /// </summary>
         /// <param name="task">completed game task</param>
-        private void OnTaskCompleted(GameTask task)
+        private void OnTaskSuccessful(GameTask task)
         {
-            log.Log(logTAG,"task completed: " + task.taskName);
+            log.Log(logTAG,"task successful: " + task.taskName);
+        }
+        
+        /// <summary>
+        /// Called when a game task is failed
+        /// </summary>
+        /// <param name="task">failed game task</param>
+        private void OnTaskFailed(GameTask task)
+        {
+            log.Log(logTAG,"task failed: " + task.taskName);
         }
 
         /// <summary>
