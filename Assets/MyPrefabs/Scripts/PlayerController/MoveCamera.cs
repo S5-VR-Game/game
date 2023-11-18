@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCamera : MonoBehaviour
+namespace MyPrefabs.Scripts.PlayerController
 {
-    public Transform cameraPosition;
-
-    void Update()
+    public class MoveCamera : MonoBehaviour
     {
-        transform.position = cameraPosition.position;
+        public Transform cameraPosition;
+
+        private void Update()
+        {
+            transform.position = cameraPosition.position;
+        }
     }
 }

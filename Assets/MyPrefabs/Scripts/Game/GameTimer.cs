@@ -1,4 +1,3 @@
-using System;
 using MyPrefabs.Scripts.Game.Tasks;
 using MyPrefabs.Scripts.Logging;
 using UnityEngine;
@@ -12,9 +11,9 @@ namespace MyPrefabs.Scripts.Game
     /// </summary>
     public class GameTimer : MonoBehaviour
     {
-        private Logger log = new Logger(new LogHandler());
-        private String logTAG = "GameTimer";
-        
+        private readonly Logger m_LOG = new Logger(new LogHandler());
+        private const string LOGTag = "GameTimer";
+
         [SerializeField] private GameTaskFactory[] factories;
 
         [Header("Timer settings (every value in seconds)")]
@@ -30,42 +29,42 @@ namespace MyPrefabs.Scripts.Game
         [Header("Game settings")]
         [SerializeField][Range(0.0f, 1f)] public float difficulty = 0.3f;
         
-        private float remainingTime;
-        private float nextGameTaskTime; // if this time is reached, a new game task starts
-        private bool timerPaused;
-        private bool gameOver;
+        private float m_RemainingTime;
+        private float m_NextGameTaskTime; // if this time is reached, a new game task starts
+        private bool m_TimerPaused;
+        private bool m_GameOver;
 
         private void Start()
         {
-            remainingTime = initialGameTime;
-            nextGameTaskTime = GetNextTimeInterval();
+            m_RemainingTime = initialGameTime;
+            m_NextGameTaskTime = GetNextTimeInterval();
         }
 
         private void Update()
         {
-            if (remainingTime > 0)
+            if (m_RemainingTime > 0)
             {
-                if (!timerPaused)
+                if (!m_TimerPaused)
                 {
-                    remainingTime -= Time.deltaTime;
+                    m_RemainingTime -= Time.deltaTime;
 
                     // check whether new game task is reached
-                    if (remainingTime < nextGameTaskTime)
+                    if (m_RemainingTime < m_NextGameTaskTime)
                     {
                         // start game using random factory at the position of this game object
                         GameTask task = factories[Random.Range(0, factories.Length)].GetNewTask(transform.position);
-                        task.taskName += " at seconds: " + (int) remainingTime;
+                        task.taskName += " at seconds: " + (int) m_RemainingTime;
                     
                         // update next game task time
-                        nextGameTaskTime = GetNextTimeInterval();
+                        m_NextGameTaskTime = GetNextTimeInterval();
                     }
                 }
             }
-            else if (!gameOver)
+            else if (!m_GameOver)
             {
-                remainingTime = 0;
-                gameOver = true;
-                log.Log(logTAG, "game over");
+                m_RemainingTime = 0;
+                m_GameOver = true;
+                m_LOG.Log(LOGTag, "game over");
             }
         }
         
@@ -76,11 +75,11 @@ namespace MyPrefabs.Scripts.Game
         private float GetNextTimeInterval()
         {
             // determine time interval to next game task start 
-            float timeIntervalStart = difficultyTimeModifier * (1f - difficulty);
+            var timeIntervalStart = difficultyTimeModifier * (1f - difficulty);
             
-            float timeIntervalEnd = timeIntervalStart + randomTimeIntervalSize;
+            var timeIntervalEnd = timeIntervalStart + randomTimeIntervalSize;
             //  random value between interval start and end
-            return remainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
+            return m_RemainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace MyPrefabs.Scripts.Game
         /// </summary>
         public void PauseTimer()
         {
-            timerPaused = true;
+            m_TimerPaused = true;
         }
 
         /// <summary>
@@ -96,7 +95,7 @@ namespace MyPrefabs.Scripts.Game
         /// </summary>
         public void ResumeTimer()
         {
-            timerPaused = false;
+            m_TimerPaused = false;
         }
     }
 }

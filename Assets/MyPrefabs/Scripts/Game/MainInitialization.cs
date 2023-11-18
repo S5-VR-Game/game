@@ -9,9 +9,9 @@ namespace MyPrefabs.Scripts.Game
     /// </summary>
     public static class MainInitialization
     {
-        private static Logger log = new Logger(new LogHandler());
-        private static string logTAG = "MainInitialization";
-        
+        private static readonly Logger LOG = new Logger(new LogHandler());
+        private const string LOGTag = "MainInitialization";
+
         /// <summary>
         /// This method is called once at the game startup before any scene is loaded and could be used to initialize
         /// global objects e.g. Random
@@ -19,12 +19,12 @@ namespace MyPrefabs.Scripts.Game
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnBeforeSceneLoadRuntimeMethod()
         {
-            log.Log(logTAG,"MainInitialization started");
+            LOG.Log(LOGTag,"MainInitialization started");
             
             // for example: initialize the unity random object with a specific seed
             // Random.InitState(seed);
             
-            log.Log(logTAG, "MainInitialization finished");
+            LOG.Log(LOGTag, "MainInitialization finished");
         }
     }
 }

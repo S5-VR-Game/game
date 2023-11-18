@@ -11,7 +11,10 @@ namespace MyPrefabs.Scripts.Game.Tasks
             remainingTime = initialTimerTime;
         }
 
-        protected override void Update()
+        /// <summary>
+        /// Overriden update method for time limited tasks.
+        /// </summary>
+        protected sealed override void Update()
         {
             if (remainingTime < 0 && currentTaskState == TaskState.Ongoing)
             {                    

@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class DoorController : MonoBehaviour {
+namespace MyPrefabs.Scripts.Environment
+{
+    public class DoorController : MonoBehaviour {
 
-    public GameObject player;
-    public float distance = 2f;
-    private Animator animator;
+        public GameObject player;
+        public float distance = 2f;
+        private Animator m_Animator;
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
-
-    void Update () {
-        if (Vector3.Distance(player.transform.position, transform.position) <= distance)
+        private void Start()
         {
-            animator.SetBool("character_nearby", true);
+            m_Animator = GetComponent<Animator>();
         }
-        else
-        {
-            animator.SetBool("character_nearby", false);
+
+        private void Update () {
+            if (Vector3.Distance(player.transform.position, transform.position) <= distance)
+            {
+                m_Animator.SetBool("character_nearby", true);
+            }
+            else
+            {
+                m_Animator.SetBool("character_nearby", false);
+            }
         }
     }
 }

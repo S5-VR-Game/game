@@ -16,7 +16,7 @@ namespace MyPrefabs.Scripts.Game.Tasks
     {
         [SerializeField]
         [Delayed]
-        public String taskName;
+        public string taskName;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;

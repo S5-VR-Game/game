@@ -1,30 +1,33 @@
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+namespace MyPrefabs.Scripts.PlayerController
 {
-    public float mouseSensitivity = 100f;
-    
-    public Transform playerBody;
-    
-    float xRotation;
-
-    private void Start()
+    public class MouseLook : MonoBehaviour
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
+        public float mouseSensitivity = 100f;
+    
+        public Transform playerBody;
 
-    private void Update()
-    {
-        // get mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        private float m_XRotation;
 
-        xRotation -= mouseY;
-        // clamp to prevent from looking higher or lower than 90 degree
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        private void Update()
+        {
+            // get mouse input
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+            m_XRotation -= mouseY;
+            // clamp to prevent from looking higher or lower than 90 degree
+            m_XRotation = Mathf.Clamp(m_XRotation, -90f, 90f);
+
+            transform.localRotation = Quaternion.Euler(m_XRotation, 0f, 0f);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
     }
 }

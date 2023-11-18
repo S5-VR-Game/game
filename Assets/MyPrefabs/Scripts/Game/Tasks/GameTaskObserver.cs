@@ -9,19 +9,14 @@ namespace MyPrefabs.Scripts.Game
     /// </summary>
     public class GameTaskObserver : MonoBehaviour
     {
-        private Logger log;
-        private static string logTAG = "GameTaskObserver";
-        
-        void Start()
-        {
-            log = new Logger(new LogHandler());
-        }
+        private readonly Logger m_LOG = new Logger(new LogHandler());
+        private const string LOGTag = "GameTaskObserver";
 
         /// <summary>
         /// Lets this observer listen to events of the given game task
         /// </summary>
         /// <param name="task">game task to observe</param>
-        public void registerGameTask(GameTask task)
+        public void RegisterGameTask(GameTask task)
         {
             task.TaskFailed += OnTaskFailed;
             task.TaskSuccessful += OnTaskSuccessful;
@@ -32,7 +27,7 @@ namespace MyPrefabs.Scripts.Game
         /// Stops this observer to listen to events from the given game task
         /// </summary>
         /// <param name="task">game task to stop observing</param>
-        public void deregisterGameTask(GameTask task)
+        public void DeregisterGameTask(GameTask task)
         {
             task.TaskFailed -= OnTaskFailed;
             task.TaskSuccessful -= OnTaskSuccessful;
@@ -46,7 +41,7 @@ namespace MyPrefabs.Scripts.Game
         /// <param name="task">completed game task</param>
         private void OnTaskSuccessful(GameTask task)
         {
-            log.Log(logTAG,"task successful: " + task.taskName);
+            m_LOG.Log(LOGTag,"task successful: " + task.taskName);
         }
         
         /// <summary>
@@ -55,7 +50,7 @@ namespace MyPrefabs.Scripts.Game
         /// <param name="task">failed game task</param>
         private void OnTaskFailed(GameTask task)
         {
-            log.Log(logTAG,"task failed: " + task.taskName);
+            m_LOG.Log(LOGTag,"task failed: " + task.taskName);
         }
 
         /// <summary>
@@ -65,8 +60,8 @@ namespace MyPrefabs.Scripts.Game
         /// <param name="task"></param>
         private void OnTaskGameObjectDestroyed(GameTask task)
         {
-            log.Log(logTAG,"task game object destroyed: " + task.taskName);
-            deregisterGameTask(task);
+            m_LOG.Log(LOGTag,"task game object destroyed: " + task.taskName);
+            DeregisterGameTask(task);
         }
     }
 }

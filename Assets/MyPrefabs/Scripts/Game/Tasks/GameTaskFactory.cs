@@ -25,7 +25,7 @@ namespace MyPrefabs.Scripts.Game.Tasks
             newTask.Initialize();
             
             // register the new task
-            observer.registerGameTask(newTask);
+            observer.RegisterGameTask(newTask);
             
             return newTask;
         }

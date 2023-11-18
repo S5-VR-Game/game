@@ -1,36 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class PlayerCam : MonoBehaviour
+namespace MyPrefabs.Scripts.PlayerController
 {
-    public float sensX;
-    public float sensY;
-    
-    public Transform orientation;
-    
-    float xRotation;
-    float yRotation;
-
-    private void Start()
+    public class PlayerCam : MonoBehaviour
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
+        public float sensX;
+        public float sensY;
+    
+        public Transform orientation;
 
-    private void Update()
-    {
-        // get mouse
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * this.sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * this.sensY;
+        private float m_XRotation;
+        private float m_YRotation;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        private void Update()
+        {
+            // get mouse
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * this.sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * this.sensY;
+
+            m_YRotation += mouseX;
+            m_XRotation -= mouseY;
         
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            m_XRotation = Mathf.Clamp(m_XRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(m_XRotation, m_YRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, m_YRotation, 0);
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
         {
             
         }
-
+        
         /// <summary>
         /// Checks the Task state by specific Conditions from the Task
         ///
