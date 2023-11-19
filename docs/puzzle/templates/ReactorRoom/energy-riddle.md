@@ -56,6 +56,7 @@ Spieler müssen Energiekabel verbinden und Schalter richtig einstellen, um die E
 -->
 
 Das Rätsel ist erfolgreich gelöst, wenn alle Stationseinheiten ausreichend Energie erhalten.
+Das Rätsel schlägt fehl, wenn einer der Anschlüsse falsch ist.
 
 ---
 

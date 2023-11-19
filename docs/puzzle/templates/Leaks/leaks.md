@@ -61,6 +61,8 @@ Rätsel ist gelöst, wenn der Benutzer sämtliche Lecks gestopft hat.
 Ein Leck gilt als gestopft, wenn der User damit interagiert hat und
 anschließend den Barometer zurückgesetzt hat.
 
+Das Rätsel schlägt fehl, wenn der User es nicht in der bestimmten Zeit schafft.
+
 ---
 
 # Skalierungsparameter
