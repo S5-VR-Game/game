@@ -18,6 +18,9 @@ namespace MyPrefabs.Scripts.Game.Tasks
         [Delayed]
         public string taskName;
 
+        [SerializeField] private int integrityValue = 5;
+        private Integrity _integrity;
+
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
         public event Action<GameTask> TaskFailed;
@@ -51,6 +54,11 @@ namespace MyPrefabs.Scripts.Game.Tasks
         /// </summary>
         protected abstract void AfterStateCheck();
 
+        private void Start()
+        {
+            _integrity = FindObjectOfType<Integrity>();
+        }
+
         /// <summary>
         /// Template method based update procedure for processing game task logic and updating game task state
         /// </summary>
@@ -72,10 +80,16 @@ namespace MyPrefabs.Scripts.Game.Tasks
             {
                 case TaskState.Failed:
                     TaskFailed?.Invoke(this);
+                    _integrity.DecrementIntegrity(integrityValue);
                     break;
                 case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
+                    _integrity.IncrementIntegrity(integrityValue);
                     break;
+                case TaskState.Ongoing:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
