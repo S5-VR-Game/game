@@ -1,4 +1,6 @@
+using MyPrefabs.Scripts.Game.Observer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MyPrefabs.Scripts.Game.Tasks
 {
@@ -9,7 +11,8 @@ namespace MyPrefabs.Scripts.Game.Tasks
     public abstract class GameTaskFactory: MonoBehaviour
     {
         [Header("Game task observer")]
-        [SerializeField] public GameTaskObserver observer;
+        [SerializeField] public GameTaskObserver gameTaskObserver;
+        [SerializeField] public IntegrityObserver integrityObserver;
 
         /// <summary>
         /// Creates a new task using the implemented <see cref="CreateTask"/> method, initialize and
@@ -25,7 +28,8 @@ namespace MyPrefabs.Scripts.Game.Tasks
             newTask.Initialize();
             
             // register the new task
-            observer.RegisterGameTask(newTask);
+            gameTaskObserver.RegisterGameTask(newTask);
+            integrityObserver.RegisterGameTask(newTask);
             
             return newTask;
         }
