@@ -18,6 +18,8 @@ namespace Game.Tasks
         [Delayed]
         public string taskName;
 
+        [SerializeField] public int integrityValue = 5;
+
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
         public event Action<GameTask> TaskFailed;
@@ -76,6 +78,10 @@ namespace Game.Tasks
                 case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
                     break;
+                case TaskState.Ongoing:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 

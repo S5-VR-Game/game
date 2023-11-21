@@ -1,6 +1,7 @@
+using Game.Tasks;
 using UnityEngine;
 
-namespace Game.Tasks
+namespace Game.Observer
 {
     public abstract class AbstractObserver : MonoBehaviour
     {
