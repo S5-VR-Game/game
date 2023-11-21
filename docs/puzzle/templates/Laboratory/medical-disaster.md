@@ -58,7 +58,8 @@ das Drehen eines Ventiles.
 -->
 
 Rätsel erfolgreich gelöst, wenn der Spieler sämtliche Ventile geschlossen hat
-oder sonstige Interaktionen abgeschlossen sind.
+oder sonstige Interaktionen abgeschlossen sind. Rätsel schlägt fehl, wenn
+die Zeit abgelaufen ist.
 
 ---
 
