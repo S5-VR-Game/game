@@ -348,6 +348,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &28413030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28413014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1709cbc91a3854da87ad0f116380ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fractured: {fileID: 4119817919057948909, guid: b7cbd0273092df24eb3907ec2d4f399c, type: 3}
 --- !u!1001 &34459614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &153960766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1302,7 +1315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &254257762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1543,7 +1556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &286741785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5914438819300591039, guid: 56da4def130910545ab17d1512c74c99, type: 3}
@@ -1563,7 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &475018577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5005483044152629547, guid: bd3d7cc759122634a94de1894ebae702, type: 3}
@@ -1583,7 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &508525434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5223054260023913691, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -1603,7 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &540507537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5870,7 +5883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &681463012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8801,7 +8814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &947610140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8930,7 +8943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1017988917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10607,7 +10620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1255624466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10687,7 +10700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1320970189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11478,7 +11491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1613001135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13264,7 +13277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &1893868735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5583167009216503732, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -13284,7 +13297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &1922336887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1409426703251007841, guid: 45abd946068d6f44baadfb4a6a310562, type: 3}
@@ -13304,7 +13317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1922517523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13361,7 +13374,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5175909829843006713, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -13371,6 +13385,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7437889339238721774, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
       insertIndex: -1
       addedObject: {fileID: 28413024}
+    - targetCorrespondingSourceObject: {fileID: 7437889339238721774, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 28413030}
   m_SourcePrefab: {fileID: 100100000, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
 --- !u!1001 &1939334534
 PrefabInstance:
@@ -13516,7 +13533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1 &1945710878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5310102290046030302, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -13536,7 +13553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &1972953580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13891,7 +13908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &2082846051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14701,7 +14718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 77813249}
   distance: 5
-  permission: 1
+  m_Animator: {fileID: 0}
 --- !u!1001 &2146190760
 PrefabInstance:
   m_ObjectHideFlags: 0
