@@ -50,7 +50,8 @@ Paket suchen -> Paket nehmen und festhalten -> Paket ins Lager bringen und dort 
 
 Das Rätsel ist gelöst, wenn der Spieler alle Pakete gefunden und
 zurück ins Lager gebracht hat und sich die Pakete (Farbe entsprechend)
-an der richtigen Stelle befinden.
+an der richtigen Stelle befinden. Rätsel ist gescheitert, wenn die Pakete
+an der falschen Stelle stehen.
 
 ---
 
