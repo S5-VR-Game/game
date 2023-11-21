@@ -16,4 +16,6 @@ public class MovementScript : MonoBehaviour
         // Bewege das Objekt basierend auf der Bewegungsrichtung und der Geschwindigkeit
         transform.Translate(movement_direction * movement_speed * Time.deltaTime);
     }
+
+ 
 }
