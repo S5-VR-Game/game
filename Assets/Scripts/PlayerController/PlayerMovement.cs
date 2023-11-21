@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyPrefabs.Scripts.PlayerController
+namespace PlayerController
 {
     public class PlayerMovement : MonoBehaviour
     {

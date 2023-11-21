@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyPrefabs.Scripts.Environment
+namespace Environment
 {
     public class DoorController : MonoBehaviour {
 

@@ -1,8 +1,7 @@
-using MyPrefabs.Scripts.Game.Tasks;
-using MyPrefabs.Scripts.Logging;
+using Logging;
 using UnityEngine;
 
-namespace MyPrefabs.Scripts.Game
+namespace Game.Tasks
 {
     /// <summary>
     /// Observer for game task actions. 

@@ -1,4 +1,4 @@
-namespace MyPrefabs.Scripts.Game.Tasks
+namespace Game.Tasks
 {
     /**
      * This enum represents the state of a specific Task

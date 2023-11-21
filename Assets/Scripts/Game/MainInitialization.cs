@@ -1,7 +1,7 @@
-using MyPrefabs.Scripts.Logging;
+using Logging;
 using UnityEngine;
 
-namespace MyPrefabs.Scripts.Game
+namespace Game
 {
     /// <summary>
     /// Initialization class that should not be instantiated or referenced anywhere.

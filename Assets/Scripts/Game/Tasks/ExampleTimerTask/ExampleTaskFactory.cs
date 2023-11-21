@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
+namespace Game.Tasks.ExampleTimerTask
 {
     public class ExampleTaskFactory : GameTaskFactory
     {

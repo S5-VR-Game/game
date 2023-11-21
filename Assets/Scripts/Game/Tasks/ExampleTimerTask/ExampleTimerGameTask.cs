@@ -1,4 +1,4 @@
-namespace MyPrefabs.Scripts.Game.Tasks.ExampleTimerTask
+namespace Game.Tasks.ExampleTimerTask
 {
     /// <summary>
     /// Example game task for proof-of-concept and demo purpose

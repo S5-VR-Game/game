@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyPrefabs.Scripts.Game.Tasks
+namespace Game.Tasks
 {
     
     /// <summary>

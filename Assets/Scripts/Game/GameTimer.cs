@@ -1,9 +1,9 @@
-using MyPrefabs.Scripts.Game.Tasks;
-using MyPrefabs.Scripts.Logging;
+using Game.Tasks;
+using Logging;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace MyPrefabs.Scripts.Game
+namespace Game
 {
     /// <summary>
     /// Game timer, that determines, when the game is over. It starts new tasks in a random time interval, that can
