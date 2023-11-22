@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class RemoveFractured : MonoBehaviour
+public class DelayedSelfDestruction : MonoBehaviour
 {
-    private float timerRemaining = 5f;
+    public float delay;
 
     private void Update()
     {
-        if (timerRemaining >= 0f)
+        if (delay >= 0f)
         {
-            timerRemaining -= Time.deltaTime;
+            delay -= Time.deltaTime;
         }
         else
         { 

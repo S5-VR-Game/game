@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
+public class AsteroidMovement : MonoBehaviour
 {
     // Die Geschwindigkeit, mit der sich das Objekt in der x-Richtung bewegt
     public float movement_speed = 10.0f;
