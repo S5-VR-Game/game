@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
         homeprofile_button = GameObject.Find("HomeProfileButton").gameObject;
         vrprofile_button = GameObject.Find("VRProfileButton").gameObject;
-        size = GameObject.Find("Size").gameObject;
+        size = GameObject.Find("PlayerHeight").gameObject;
         back_button = GameObject.Find("BackButton").gameObject;
 
         homeprofile_button.SetActive(false);
@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()

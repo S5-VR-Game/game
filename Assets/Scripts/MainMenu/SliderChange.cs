@@ -1,19 +1,20 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SliderChange : MonoBehaviour
 {
 
-    public Slider size_slider;
+    public Slider player_height_slider;
 
-    private TextMeshProUGUI size_text;
+    private TextMeshProUGUI player_height_text;
 
     public void OnEnable()
     {
-        size_text = GameObject.Find("SizeText").GetComponent<TextMeshProUGUI>();
+        player_height_text = GameObject.Find("PlayerHeightText").GetComponent<TextMeshProUGUI>();
         //Adds a listener to the main slider and invokes a method when the value changes.
-        size_slider.onValueChanged.AddListener(delegate {
+        player_height_slider.onValueChanged.AddListener(delegate {
             ValueChangeCheck();
         });
     }
@@ -21,13 +22,8 @@ public class SliderChange : MonoBehaviour
     // Invoked when the value of the slider changes.
     public void ValueChangeCheck()
     {
-        if (size_text != null )
-        {
-            size_text.text = "Your size: " + size_slider.value + "cm";
-        } else
-        {
-            Debug.Log("No text found!");
-        }
-            
+        player_height_text.text = "Your size: " + player_height_slider.value + "cm";
+        float player_height = (((player_height_slider.value - 140) / 150) + 1);
+        PlayerPrefs.SetFloat("PlayerHeight", player_height);
     }
 }
