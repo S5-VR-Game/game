@@ -18525,7 +18525,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 23.479, y: 154.753, z: 1.39}
+  m_LocalEulerAnglesHint: {x: 3, y: 0, z: -4}
 --- !u!1001 &1826356516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19519,15 +19519,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5579520189904582381, guid: a80aac86211b8854a8a7daa328ab2c68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 154.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5579520189904582381, guid: a80aac86211b8854a8a7daa328ab2c68, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 54.7
+      value: -2.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 5579520189904582381, guid: a80aac86211b8854a8a7daa328ab2c68, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -64.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5579520189904582381, guid: a80aac86211b8854a8a7daa328ab2c68, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19592,8 +19592,6 @@ PlayableDirector:
     value: {fileID: 2041843613}
   - key: {fileID: 3381586107046080842, guid: 78f63cdca4f46c0418571458dc46cc19, type: 2}
     value: {fileID: 1767295334}
-  - key: {fileID: 3200293674444192996, guid: 78f63cdca4f46c0418571458dc46cc19, type: 2}
-    value: {fileID: 2041843611}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &2041843613

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class PlayEndscene : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayEndscene : MonoBehaviour
         if (timelineDirector != null)
         {
             timelineDirector.playOnAwake = false;
+            timelineDirector.stopped += OnTimelineStopped;
         }
         else
         {
@@ -52,5 +54,15 @@ public class PlayEndscene : MonoBehaviour
         {
             PlayTimeline();
         }
+    }
+
+    // returns to the main menu after playing the endscene
+    private void OnTimelineStopped(PlayableDirector director)
+    {
+        Debug.Log("Timeline wurde gestoppt.");
+
+        SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

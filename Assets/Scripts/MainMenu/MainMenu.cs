@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +12,12 @@ public class MainMenu : MonoBehaviour
     private GameObject size;
     private GameObject back_button;
 
-    public void Start()
+    void OnEnable()
+    {
+        SetupMainMenu();
+    }
+
+    public void SetupMainMenu()
     {
         play_button = GameObject.Find("PlayButton").gameObject;
         settings_button = GameObject.Find("SettingsButton").gameObject;
@@ -34,7 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
