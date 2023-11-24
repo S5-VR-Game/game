@@ -14970,7 +14970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timelineDirector: {fileID: 2041843612}
-  objectToAnimate: {fileID: 2041843611}
+  space_shuttle: {fileID: 2041843611}
   player: {fileID: 77813249}
 --- !u!114 &1270274875
 MonoBehaviour:
