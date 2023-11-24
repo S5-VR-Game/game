@@ -10,6 +10,7 @@ namespace PlayerController
     {
         [SerializeField] public bool isVrPlayerActive;
         [SerializeField] public GameObject vrPlayer;
+        [SerializeField] public GameObject xrOrigin;
         [SerializeField] public GameObject keyBoardPlayer;
         
         /// <summary>
@@ -25,6 +26,15 @@ namespace PlayerController
             {
                 vrPlayer.SetActive(false);
             }
+        }
+
+        /// <summary>
+        /// Returns the current player game object, which is either the xrOrigin or the keyboardPlayer.
+        /// This game object can be used to obtain the current player position, orientation, scale etc.
+        /// </summary>
+        public GameObject getPlayerGameObject()
+        {
+            return isVrPlayerActive ? xrOrigin : keyBoardPlayer;
         }
     }
 }

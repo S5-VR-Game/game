@@ -357,11 +357,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b3f36e835346747865afbf6cf62acf, type: 3}
---- !u!1 &77813249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2990651091329455635, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 9089731521770811532}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &89626153 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4449981112605114293, guid: 56da4def130910545ab17d1512c74c99, type: 3}
@@ -379,8 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
+--- !u!1 &146661559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5282834843901216626, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+  m_PrefabInstance: {fileID: 9089731521770811532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153960766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &254257762
 PrefabInstance:
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &286741785 stripped
 GameObject:
@@ -1450,7 +1450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &475018577 stripped
 GameObject:
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &508525434 stripped
 GameObject:
@@ -1488,7 +1488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &556362138
 PrefabInstance:
@@ -5745,6 +5745,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2045554378}
   m_SourcePrefab: {fileID: 100100000, guid: 5b6e0ea58f9cb2149b19a84079ad256a, type: 3}
+--- !u!114 &611283511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+  m_PrefabInstance: {fileID: 9089731521770811532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fc31ef241642808e70265053db124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &640831276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1287111174166965339, guid: af517388b7c1d66438296d26358fd99d, type: 3}
@@ -5762,7 +5773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &681463012
 PrefabInstance:
@@ -9002,7 +9013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &1013114009 stripped
 GameObject:
@@ -9021,7 +9032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &1017988917
 PrefabInstance:
@@ -10758,7 +10769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &1255624466
 PrefabInstance:
@@ -11498,7 +11509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &1613001135
 PrefabInstance:
@@ -13287,7 +13298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &1893868735 stripped
 GameObject:
@@ -13306,7 +13317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &1922336887 stripped
 GameObject:
@@ -13325,7 +13336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &1939334534
 PrefabInstance:
@@ -13461,7 +13472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1 &1945710878 stripped
 GameObject:
@@ -13480,7 +13491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &1961559437
 PrefabInstance:
@@ -13785,7 +13796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &2101913519
 PrefabInstance:
@@ -14529,7 +14540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00c0479333db9f4e9d71c8cfc981258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 77813249}
+  playerService: {fileID: 611283511}
   distance: 5
 --- !u!1001 &9089731521770811532
 PrefabInstance:
@@ -14624,8 +14635,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: xrOrigin
+      value: 
+      objectReference: {fileID: 146661559}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
