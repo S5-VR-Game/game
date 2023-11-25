@@ -1276,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3310790971348045713, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3516893246265306331, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_Name
       value: PlayerProfile
@@ -1868,7 +1872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 59804bcd39fb6fe4094a7c0ad767864c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 692fe84aeb37c044a8bfed9eb2327de4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
