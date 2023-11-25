@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVrPlayerActive: 0
   vrPlayer: {fileID: 5107246403631356085}
+  xrOrigin: {fileID: 5282834843901216626}
   keyBoardPlayer: {fileID: 2990651091329455635}
 --- !u!1001 &965065919577908095
 PrefabInstance:
@@ -249,5 +250,10 @@ Transform:
 --- !u!1 &5107246403631356085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 2566986154514802194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5282834843901216626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
   m_PrefabInstance: {fileID: 2566986154514802194}
   m_PrefabAsset: {fileID: 0}
