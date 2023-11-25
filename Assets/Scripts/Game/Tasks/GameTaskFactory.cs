@@ -1,4 +1,6 @@
+using Game.Observer;
 using UnityEngine;
+
 
 namespace Game.Tasks
 {
@@ -9,7 +11,8 @@ namespace Game.Tasks
     public abstract class GameTaskFactory: MonoBehaviour
     {
         [Header("Game task observer")]
-        [SerializeField] public GameTaskObserver observer;
+        [SerializeField] public GameTaskObserver gameTaskObserver;
+        [SerializeField] public IntegrityObserver integrityObserver;
 
         /// <summary>
         /// Creates a new task using the implemented <see cref="CreateTask"/> method, initialize and
@@ -25,7 +28,8 @@ namespace Game.Tasks
             newTask.Initialize();
             
             // register the new task
-            observer.RegisterGameTask(newTask);
+            gameTaskObserver.RegisterGameTask(newTask);
+            integrityObserver.RegisterGameTask(newTask);
             
             return newTask;
         }

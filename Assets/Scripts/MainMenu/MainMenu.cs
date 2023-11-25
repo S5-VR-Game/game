@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public Canvas canvas;
+
+    public GameObject keyboard_player;
+    public GameObject vr_player;
+
+    public GameObject player_profile;
+
     private GameObject play_button;
     private GameObject settings_button;
     private GameObject exit_button;
@@ -30,6 +37,23 @@ public class MainMenu : MonoBehaviour
         vrprofile_button.SetActive(false);
         size.SetActive(false);
         back_button.SetActive(false);
+
+        if(PlayerPrefs.GetString("CurrentPlayer", "Keyboard").Equals("Keyboard")) 
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            keyboard_player.SetActive(true);
+            vr_player.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (PlayerPrefs.GetString("CurrentPlayer", "VR").Equals("VR"))
+        {
+            canvas.renderMode = RenderMode.WorldSpace;
+            keyboard_player.SetActive(false);
+            vr_player.SetActive(true);
+        }
     }
 
     public void PlayGame()
@@ -63,5 +87,26 @@ public class MainMenu : MonoBehaviour
         vrprofile_button.SetActive(false);
         size.SetActive(false);
         back_button.SetActive(false);
+    }
+
+    public void ActivateKeyboardPlayer() 
+    {
+        vr_player.SetActive(false);
+        keyboard_player.SetActive(true);
+        PlayerPrefs.SetString("CurrentPlayer", "Keyboard");
+
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ActivateVRPlayer()
+    {
+        vr_player.SetActive(true);
+        keyboard_player.SetActive(false);
+        PlayerPrefs.SetString("CurrentPlayer", "VR");
+
+        canvas.renderMode = RenderMode.WorldSpace;
     }
 }
