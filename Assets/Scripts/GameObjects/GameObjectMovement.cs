@@ -7,14 +7,14 @@ public class GameObjectMovement : MonoBehaviour
     public float speed = 5f; // Die Geschwindigkeit des GameObjects
     public bool doCycle = true; // Steuert, ob ein Zyklus durchgeführt werden soll
 
-    private int currentPoint = 0;
-    private Vector3 startPosition; // Der Startpunkt des GameObjects
+    private int _currentPoint = 0;
+    private Vector3 _startPosition; // Der Startpunkt des GameObjects
 
-    void Start()
+    private void Start()
     {
         if (routePoints.Count > 0)
         {
-            startPosition = routePoints[0];
+            _startPosition = routePoints[0];
         }
         else
         {
@@ -25,26 +25,26 @@ public class GameObjectMovement : MonoBehaviour
     void Update()
     {
         // Bewege das GameObject zum nächsten Routenpunkt
-        transform.position = Vector3.MoveTowards(transform.position, routePoints[currentPoint], speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, routePoints[_currentPoint], speed * Time.deltaTime);
 
         // Wenn das GameObject den aktuellen Routenpunkt erreicht hat, gehe zum nächsten
-        if (Vector3.Distance(transform.position, routePoints[currentPoint]) < 0.1f)
+        if (Vector3.Distance(transform.position, routePoints[_currentPoint]) < 0.1f)
         {
             // Überprüfe, ob das letzte Routenpunkt erreicht wurde und doCycle true ist,
             // wenn ja, setze den aktuellen Punkt auf den Anfangspunkt zurück
-            if (currentPoint == routePoints.Count - 1 && doCycle)
+            if (_currentPoint == routePoints.Count - 1 && doCycle)
             {
-                currentPoint = 0;
+                _currentPoint = 0;
             }
             else
             {
                 // Ansonsten erhöhe den aktuellen Punkt
-                currentPoint++;
+                _currentPoint++;
 
                 // Wenn der Zyklus deaktiviert ist, stelle sicher, dass currentPoint nicht über die Länge der Routenpunkte geht
-                if (!doCycle && currentPoint >= routePoints.Count)
+                if (!doCycle && _currentPoint >= routePoints.Count)
                 {
-                    currentPoint = routePoints.Count - 1;
+                    _currentPoint = routePoints.Count - 1;
                 }
             }
         }

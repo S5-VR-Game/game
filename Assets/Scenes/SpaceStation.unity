@@ -16469,7 +16469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83b29cd26d715b4aa1a51085b601128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeline_director: {fileID: 1448810285}
+  timelineDirector: {fileID: 1448810285}
   scene: {fileID: 1448810284}
 --- !u!1001 &1473242413
 PrefabInstance:
