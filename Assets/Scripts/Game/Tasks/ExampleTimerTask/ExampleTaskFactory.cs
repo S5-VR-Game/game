@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Tasks.ExampleTimerTask
 {
     public class ExampleTaskFactory : GameTaskFactory
     {
-        [FormerlySerializedAs("exampleTaskPrefab")] [SerializeField] private ExampleTimerGameTask exampleTimerTaskPrefab;
+        [SerializeField] private ExampleTimerGameTask exampleTimerTaskPrefab;
         
         protected override GameTask CreateTask(Vector3 position)
         {
