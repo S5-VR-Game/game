@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Tasks
@@ -24,6 +25,12 @@ namespace Game.Tasks
         public event Action<GameTask> TaskSuccessful;
         public event Action<GameTask> TaskFailed;
         public event Action<GameTask> GameObjectDestroyed;
+
+        /// <summary>
+        /// List of game objects, that are linked to this task and should be destroyed, when this task is destroyed
+        /// by the <see cref="DestroyTask"/> method.
+        /// </summary>
+        private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
 
         /// <summary>
         /// Initializes the game task. Called when the game task is created.
@@ -86,11 +93,38 @@ namespace Game.Tasks
         }
 
         /// <summary>
-        /// Removes the game object and all its components from the scene
+        /// Adds the given game object to a list of game objects, which are linked to this task and will be destroyed,
+        /// when this task is finished.
         /// </summary>
-        protected void DestroyGameObject()
+        /// <param name="gameObjectToLink">game object to be linked</param>
+        public void AddLinkedGameObject(GameObject gameObjectToLink)
+        {
+            m_LinkedGameObjects.Add(gameObjectToLink);
+        }
+        
+        /// <summary>
+        /// Removes the given game object from the list of linked game objects
+        /// </summary>
+        /// <param name="gameObjectToUnlink">game object to be unlinked</param>
+        public void RemoveLinkedGameObject(GameObject gameObjectToUnlink)
+        {
+            m_LinkedGameObjects.Remove(gameObjectToUnlink);
+        }
+
+        /// <summary>
+        /// Removes the game object and all its linked game objects from the scene
+        /// </summary>
+        protected void DestroyTask()
         {
             GameObjectDestroyed?.Invoke(this);
+            
+            // destroy all linked game objects
+            foreach (var linkedGameObject in m_LinkedGameObjects)
+            {
+                Destroy(linkedGameObject);
+            }
+            m_LinkedGameObjects.Clear();
+            
             Destroy(gameObject);
         }
     }

@@ -1,4 +1,3 @@
-using System.Linq;
 using Game.Tasks;
 using Logging;
 using UnityEngine;
@@ -15,8 +14,7 @@ namespace Game
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTimer";
 
-        [SerializeField] private GameTaskFactory[] factories;
-        [SerializeField] private TaskSpawnPoint[] taskSpawnPoints;
+        [SerializeField] public GeneralGameTaskFactory[] factories;
 
         [Header("Timer settings (every value in seconds)")] [SerializeField]
         public float initialGameTime = 60;
@@ -54,7 +52,7 @@ namespace Game
                     // check whether new game task is reached
                     if (m_RemainingTime < m_NextGameTaskTime)
                     {
-                        AllocateRandomTask();
+                        TrySpawnRandomTask();
 
                         // update next game task time
                         m_NextGameTaskTime = GetNextTimeInterval();
@@ -70,42 +68,22 @@ namespace Game
         }
 
         /// <summary>
-        /// Tries to spawn a random task at a random spawn point. If all spawn points are occupied the method ends
-        /// with no new allocated game task.
-        /// If a available spawn point was found, the method will create and allocate a random task.
+        /// Tries to spawn a task by looping through a random order of factories and try if any factory can spawn a task
         /// </summary>
-        private void AllocateRandomTask()
+        private void TrySpawnRandomTask()
         {
-            // shuffle factories and spawn points to have random decision of task and spawn point 
-            taskSpawnPoints.Shuffle();
+            // shuffle factories in order to spawn random task type
             factories.Shuffle();
-
-            // search for first spawn point, that is not occupied
-            foreach (var spawnPoint in taskSpawnPoints)
-            {
-                if (spawnPoint.isOccupied)
+            
+            // try to spawn a task and abort loop if succeeded
+            foreach (var factory in factories)
+            { 
+                bool spawnSuccess = factory.TrySpawnTask();
+                if (spawnSuccess)
                 {
-                    continue;
-                }
-                
-                // search for first factory matching the allocatableTasks of the spawn point
-                foreach (var factory in factories)
-                {
-                    if (spawnPoint.allocatableTasks.Contains(factory.taskType))
-                    {
-                        // create task at spawn point position 
-                        GameTask newTask = factory.GetNewTask(spawnPoint.GetSpawnPosition());
-                        spawnPoint.Allocate(newTask);
-                        newTask.taskName += " at seconds: " + (int)m_RemainingTime;
-                        
-                        // stop searching to allocate only one task
-                        return;
-                    }
+                    break;
                 }
             }
-            
-            // all spawnPoint are occupied and no task could be allocated
-            m_LOG.Log(LOGTag, "all spawn points are occupied, no task was allocated");
         }
 
         /// <summary>

@@ -4,22 +4,17 @@ namespace Game.Tasks
 {
     /// <summary>
     /// Organizes a spawn point to keep track of the current state, whether it is occupied or not.
-    /// This script also provides a field to define, which tasks are allowed to spawn at this spawn point.
+    /// As this script extends from <see cref="MonoBehaviour"/>, the position of the according game object can serve
+    /// as the spawn point position. The position vector can be obtained via <see cref="GetSpawnPosition"/>
     /// </summary>
     public class TaskSpawnPoint : MonoBehaviour
     {
-        /// <summary>
-        /// Defines, which tasks should be allowed to allocate to this spawn point.
-        /// The value(s) depends on the environment, where the spawn point is placed at.
-        /// E.g. a spawn point in the laboratory may allow to spawn a chemical task, but may not allow to spawn a
-        /// transportation task, as the contexts (laboratory and transportation) are not matching.
-        /// </summary>
-        [SerializeField] public TaskType[] allocatableTasks;
+        public bool isOccupied { get; private set; }
 
-        public bool isOccupied { get; private set;  }
-        
         /// <summary>
-        /// Marks the spawn point as occupied and registers the <see cref="GameTask.GameObjectDestroyed"/> action to be observed by the <see cref="Deallocate"/> function
+        /// Marks the spawn point as occupied and registers the <see cref="GameTask.GameObjectDestroyed"/> action to be
+        /// observed by the <see cref="Deallocate"/> function. This allows this spawn point to be automatically
+        /// deallocated, when the game task object is destroyed using the <see cref="GameTask.DestroyTask"/> method.
         /// </summary>
         /// <param name="gameTask">game task, which occupies this spawn point</param>
         public void Allocate(GameTask gameTask)
@@ -27,11 +22,11 @@ namespace Game.Tasks
             isOccupied = true;
             gameTask.GameObjectDestroyed += Deallocate;
         }
-        
+
         /// <summary>
         /// Marks the spawn point as not-occupied.
         /// </summary>
-        private void Deallocate(GameTask gameTask)
+        public void Deallocate(GameTask gameTask)
         {
             isOccupied = false;
         }

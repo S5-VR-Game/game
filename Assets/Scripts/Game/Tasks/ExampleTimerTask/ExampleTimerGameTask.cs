@@ -37,7 +37,7 @@ namespace Game.Tasks.ExampleTimerTask
         {
             if (currentTaskState != TaskState.Ongoing)
             {
-                DestroyGameObject();
+                DestroyTask();
             }
         }
     }

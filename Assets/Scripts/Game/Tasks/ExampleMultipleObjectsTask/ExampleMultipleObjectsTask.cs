@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Game.Tasks.ExampleMultipleObjectsTask
 {
     /// <summary>
@@ -10,7 +7,6 @@ namespace Game.Tasks.ExampleMultipleObjectsTask
     /// </summary>
     public class ExampleMultipleObjectsTask : TimerTask
     {
-        public List<GameObject> customSpawnedObjects = new List<GameObject>();
 
         public ExampleMultipleObjectsTask() : base(initialTimerTime:7f)
         {
@@ -41,11 +37,7 @@ namespace Game.Tasks.ExampleMultipleObjectsTask
         {
             if (currentTaskState != TaskState.Ongoing)
             {
-                foreach (var obj in customSpawnedObjects)
-                {
-                    Destroy(obj);
-                }
-                DestroyGameObject();
+                DestroyTask();
             }
         }
     }
