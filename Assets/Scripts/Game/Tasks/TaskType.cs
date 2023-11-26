@@ -2,6 +2,7 @@ namespace Game.Tasks
 {
     public enum TaskType
     {
-        Example
+        Example,
+        ExampleMultipleObjects
     }
 }
