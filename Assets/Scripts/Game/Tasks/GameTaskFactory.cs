@@ -13,6 +13,13 @@ namespace Game.Tasks
         [Header("Game task observer")]
         [SerializeField] public GameTaskObserver gameTaskObserver;
         [SerializeField] public IntegrityObserver integrityObserver;
+        
+        public readonly TaskType taskType;
+
+        protected GameTaskFactory(TaskType taskType)
+        {
+            this.taskType = taskType;
+        }
 
         /// <summary>
         /// Creates a new task using the implemented <see cref="CreateTask"/> method, initialize and
