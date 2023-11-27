@@ -1,13 +1,18 @@
 using System;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.XR;
 using Vector3 = UnityEngine.Vector3;
 
 namespace PlayerController
 {
+    /// <summary>
+    /// This class represents the Movement of the
+    /// VR Player while shaking VR Controllers
+    /// </summary>
     public class VRShakeMovement : MonoBehaviour
     {
+        public CharacterController vrCharacterController;
+        
         public XRNode inputSource;
         public float shakeThreshold = 0.2f;
         public float movementSpeed = 3.0f;
@@ -29,9 +34,12 @@ namespace PlayerController
             }
         }
 
+        /// <summary>
+        /// moves the vr player forward by one unit.
+        /// </summary>
         private void MoveForward()
         {
-            transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
+            vrCharacterController.transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
         }
     }
 }
