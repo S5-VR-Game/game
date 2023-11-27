@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVrPlayerActive: 0
   vrPlayer: {fileID: 5107246403631356085}
+  xrOrigin: {fileID: 0}
   keyBoardPlayer: {fileID: 2990651091329455635}
 --- !u!1001 &965065919577908095
 PrefabInstance:

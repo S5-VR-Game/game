@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangePlayerHeight : MonoBehaviour
+namespace PlayerController
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ChangePlayerHeight : MonoBehaviour
     {
-        // selected height of the player in the main menu settings
-        float select_player_height = PlayerPrefs.GetFloat("PlayerHeight", 0.0f);
+        // Start is called before the first frame update
+        private void Start()
+        {
+            // selected height of the player in the main menu settings
+            var selectedPlayerHeight = PlayerPrefs.GetFloat("PlayerHeight", 1.2f);
 
-        // stores the current transform component of the player
-        Transform object_transform = transform;
+            // stores the current transform component of the player
+            var objectTransform = transform;
 
-        // current scaling
-        Vector3 current_scaling = object_transform.localScale;
+            // current scaling
+            var currentScaling = objectTransform.localScale;
 
-        // calculate new scaling
-        Vector3 new_scaling = new Vector3(
-            current_scaling.x,
-            current_scaling.y * select_player_height,
-            current_scaling.z
-        ); ;
+            // calculate new scaling
+            var newScaling = new Vector3(
+                currentScaling.x,
+                currentScaling.y * selectedPlayerHeight,
+                currentScaling.z
+            ); 
 
-        // Setzen der neuen Skalierung
-        object_transform.localScale = new_scaling;
+            // sets the new scaling
+            objectTransform.localScale = newScaling;
+        }
     }
 }
