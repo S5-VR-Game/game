@@ -11,11 +11,11 @@ namespace PlayerController
     /// </summary>
     public class VRShakeMovement : MonoBehaviour
     {
-        public CharacterController vrCharacterController;
+        [SerializeField] public CharacterController vrCharacterController;
         
-        public XRNode inputSource;
-        public float shakeThreshold = 0.2f;
-        public float movementSpeed = 3.0f;
+        [SerializeField] public XRNode inputSource;
+        [SerializeField] public float shakeThreshold = 0.2f;
+        [SerializeField] public float movementSpeed = 3.0f;
 
         private Vector3 _lastControllerPosition;
 
