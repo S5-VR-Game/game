@@ -35,7 +35,7 @@ namespace PlayerController
         }
 
         /// <summary>
-        /// moves the vr player forward by one unit.
+        /// moves the vr player forward by one unit of time and speed
         /// </summary>
         private void MoveForward()
         {
