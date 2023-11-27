@@ -1,27 +1,24 @@
 using UnityEngine;
+using PlayerController;
 
 namespace Environment
 {
     public class DoorController : MonoBehaviour {
 
-        public GameObject player;
+        public PlayerProfileService playerService;
         public float distance = 2f;
-        private Animator m_Animator;
+        private Animator _mAnimator;
 
         private void Start()
         {
-            m_Animator = GetComponent<Animator>();
+            _mAnimator = GetComponent<Animator>();
         }
 
-        private void Update () {
-            if (Vector3.Distance(player.transform.position, transform.position) <= distance)
-            {
-                m_Animator.SetBool("character_nearby", true);
-            }
-            else
-            {
-                m_Animator.SetBool("character_nearby", false);
-            }
+        private void Update ()
+        {
+            _mAnimator.SetBool("character_nearby",
+                Vector3.Distance(playerService.getPlayerGameObject().transform.position, transform.position) <=
+                distance);
         }
     }
 }
