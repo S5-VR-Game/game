@@ -1,14 +1,14 @@
-namespace Game.Tasks.ExampleTimerTask
+namespace Game.Tasks.ExampleMultipleObjectsTask
 {
     /// <summary>
     /// Example game task for proof-of-concept and demo purpose
     ///
-    /// Completes and removes itself after 5 seconds
+    /// Completes and removes itself after 7 seconds
     /// </summary>
-    public class ExampleTimerGameTask : TimerTask
+    public class ExampleMultipleObjectsTask : TimerTask
     {
 
-        public ExampleTimerGameTask() : base(initialTimerTime:5f)
+        public ExampleMultipleObjectsTask() : base(initialTimerTime:7f)
         {
         }
         
