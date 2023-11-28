@@ -45,53 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   integrityValue: 100
---- !u!1 &4727568132041672508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2635433601303536631}
-  - component: {fileID: 3334235391833179007}
-  m_Layer: 0
-  m_Name: ExampleTaskFactory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2635433601303536631
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4727568132041672508}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7144069949640085782}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3334235391833179007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4727568132041672508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931b8ac88001465c952e857537bd0694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameTaskObserver: {fileID: 822869670583254559}
-  integrityObserver: {fileID: 8919326314240518745}
-  exampleTimerTaskPrefab: {fileID: 2690412901208245910, guid: b1dde8e8df8d3c148a66bb0a05f739e1, type: 3}
 --- !u!1 &6319590453848367357
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,8 +106,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2635433601303536631}
+  m_Children: []
   m_Father: {fileID: 5180088002400095127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6982286081276334097
@@ -243,7 +195,7 @@ GameObject:
   - component: {fileID: 5180088002400095127}
   - component: {fileID: 3769836651817287872}
   m_Layer: 0
-  m_Name: GameTimer
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,9 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605b4f4b44a147ed9c18f11f806bf685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factories:
-  - {fileID: 3334235391833179007}
-  taskSpawnPoints: []
+  factories: []
   initialGameTime: 60
   difficultyTimeModifier: 10
   minTimeIntervalBetweenTasks: 10

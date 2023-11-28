@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7660693972446692800}
   - component: {fileID: 214866324584874997}
   m_Layer: 0
-  m_Name: GameTaskSpawnpoint
+  m_Name: TaskSpawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
