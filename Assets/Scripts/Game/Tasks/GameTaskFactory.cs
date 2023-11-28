@@ -24,7 +24,7 @@ namespace Game.Tasks
         /// <see cref="GeneralGameTaskFactory"/> for further documentation about why this method is not
         /// documented here directly.
         /// </summary>
-        public abstract bool TrySpawnTask();
+        public abstract bool TrySpawnTask(Difficulty difficulty);
     }
     
     /// <summary>
@@ -52,7 +52,7 @@ namespace Game.Tasks
         /// Furthermore the new task is also registered to the observer instances.
         /// </summary>
         /// <returns>true, if a game task is spawned and false, if no task was created due to no available spawn points</returns>
-        public override bool TrySpawnTask()
+        public override bool TrySpawnTask(Difficulty difficulty)
         {
             // shuffle list to get random spawn points
             spawnPoints.Shuffle();
@@ -66,6 +66,7 @@ namespace Game.Tasks
                 
                 // create task to spawn at this spawn point
                 GameTask newTask = CreateTask(spawnPoint);
+                newTask.difficulty = difficulty;
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);

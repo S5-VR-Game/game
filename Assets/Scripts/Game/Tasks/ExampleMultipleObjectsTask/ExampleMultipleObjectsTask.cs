@@ -8,7 +8,8 @@ namespace Game.Tasks.ExampleMultipleObjectsTask
     public class ExampleMultipleObjectsTask : TimerTask
     {
 
-        public ExampleMultipleObjectsTask() : base(initialTimerTime:7f)
+        public ExampleMultipleObjectsTask() : base(initialTimerTime:7f, taskName: "ExampleMultipleObjectsTask",
+            taskDescription: "Example Description")
         {
         }
         

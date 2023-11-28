@@ -1,7 +1,6 @@
 using Game.Tasks;
 using Logging;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -77,8 +76,8 @@ namespace Game
             
             // try to spawn a task and abort loop if succeeded
             foreach (var factory in factories)
-            { 
-                bool spawnSuccess = factory.TrySpawnTask();
+            {
+                bool spawnSuccess = factory.TrySpawnTask(difficulty);
                 if (spawnSuccess)
                 {
                     break;

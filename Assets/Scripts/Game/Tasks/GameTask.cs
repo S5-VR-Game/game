@@ -15,11 +15,17 @@ namespace Game.Tasks
     /// </summary>
     public abstract class GameTask : MonoBehaviour
     {
-        [SerializeField]
-        [Delayed]
-        public string taskName;
+        protected const int k_DefaultIntegrityValue = 5;
 
-        [SerializeField] public int integrityValue = 5;
+        public string taskName { get; protected set; }
+        public string taskDescription { get; protected set; }
+        public int integrityValue { get; protected set; }
+        
+        /// <summary>
+        /// Provides the current game difficulty value. The difficulty of the task should adapt on this value.
+        /// </summary>
+        [NonSerialized]
+        public Difficulty difficulty;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
@@ -31,6 +37,19 @@ namespace Game.Tasks
         /// by the <see cref="DestroyTask"/> method.
         /// </summary>
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
+        
+        /// <summary>
+        /// Constructor to set initial values for this task.
+        /// </summary>
+        /// <param name="taskName">name for this task</param>
+        /// <param name="taskDescription">description for this task</param>
+        /// <param name="integrityValue">integrity value, which is added/subtracted to global integrity on task success/failuire</param>
+        protected GameTask(string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue)
+        {
+            this.taskName = taskName;
+            this.taskDescription = taskDescription;
+            this.integrityValue = integrityValue;
+        }
 
         /// <summary>
         /// Initializes the game task. Called when the game task is created.

@@ -7,21 +7,19 @@ namespace Game.Tasks.ExampleTimerTask
     /// </summary>
     public class ExampleTimerGameTask : TimerTask
     {
-
-        public ExampleTimerGameTask() : base(initialTimerTime:5f)
+        public ExampleTimerGameTask() : base(initialTimerTime: 5f, taskName: "ExampleTimerTask",
+            taskDescription: "Example Description")
         {
         }
-        
+
         public override void Initialize()
         {
-            
         }
 
         protected override void BeforeStateCheck()
         {
-            
         }
-        
+
         /// <summary>
         /// Checks the Task state by specific Conditions from the Task
         ///
