@@ -14,21 +14,21 @@ namespace Game
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTimer";
 
-        [SerializeField] public GeneralGameTaskFactory[] factories;
-
         [Header("Timer settings (every value in seconds)")] [SerializeField]
-        public float initialGameTime = 60;
+        private float initialGameTime = 60;
 
-        [SerializeField] public float difficultyTimeModifier = 10;
-        [SerializeField] public float minTimeIntervalBetweenTasks = 10;
+        [SerializeField] private float difficultyTimeModifier = 10;
+        [SerializeField] private float minTimeIntervalBetweenTasks = 10;
 
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
-        [SerializeField] public float randomTimeIntervalSize = 15;
+        [SerializeField] private float randomTimeIntervalSize = 15;
 
         // higher difficulty value will result in higher chance to have less time between game task start times
-        [Header("Game settings")] [SerializeField] [Range(0.0f, 1f)]
-        public float difficulty = 0.3f;
+        [Header("Game dependencies")] [SerializeField]
+        private Difficulty difficulty;
+
+        [SerializeField] private GeneralGameTaskFactory[] factories;
 
         private float m_RemainingTime;
         private float m_NextGameTaskTime; // if this time is reached, a new game task starts
@@ -93,7 +93,7 @@ namespace Game
         private float GetNextTimeInterval()
         {
             // determine time interval to next game task start 
-            var timeIntervalStart = difficultyTimeModifier * (1f - difficulty);
+            var timeIntervalStart = difficultyTimeModifier * (1f - difficulty.GetValue());
 
             var timeIntervalEnd = timeIntervalStart + randomTimeIntervalSize;
             //  random value between interval start and end
