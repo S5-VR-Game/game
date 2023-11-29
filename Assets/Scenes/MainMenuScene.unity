@@ -675,8 +675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 155030147}
-  keyboardPlayer: {fileID: 613082560}
-  vrPlayer: {fileID: 1953797037}
   playButton: {fileID: 982062639}
   settingsButton: {fileID: 588233069}
   exitButton: {fileID: 1464067443}
@@ -815,11 +813,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588233069}
   m_CullTransparentMesh: 1
---- !u!1 &613082560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2990651091329455635, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 1006441921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &613082563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1254059540207477491, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
@@ -1243,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2439,11 +2432,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913305036}
   m_CullTransparentMesh: 1
---- !u!1 &1953797037 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5107246403631356085, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 1006441921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015851948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5282834843901216626, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}

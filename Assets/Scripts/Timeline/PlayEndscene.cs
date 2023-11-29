@@ -27,7 +27,7 @@ namespace Timeline
         // way to start the endscene (NEED TO CHANGE AFTERWARS AFTER GETTING THE WIN CONDITION!)
         private void Update()
         {
-            if (!(Vector3.Distance(playerService.getPlayerGameObject().transform.position, transform.position) <=
+            if (!(Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <=
                   Distance)) return;
             // starts the end-scene
             timelineDirector.Play();

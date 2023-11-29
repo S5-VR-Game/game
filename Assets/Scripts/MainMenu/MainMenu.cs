@@ -7,9 +7,6 @@ namespace MainMenu
     {
         public Canvas canvas;
 
-        public GameObject keyboardPlayer;
-        public GameObject vrPlayer;
-
         public GameObject playButton;
         public GameObject settingsButton;
         public GameObject exitButton;
@@ -17,8 +14,9 @@ namespace MainMenu
         public GameObject height;
         public GameObject backButton;
 
-        private void Start()
+        private void OnEnable()
         {
+            Debug.Log("MAIN MENU LOADED!");
             SetupMainMenu();
         }
 
