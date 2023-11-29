@@ -1,6 +1,8 @@
+using System;
 using Game.Tasks;
 using Logging;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -29,27 +31,33 @@ namespace Game
 
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
-        private float m_RemainingTime;
         private float m_NextGameTaskTime; // if this time is reached, a new game task starts
-        private bool m_TimerPaused;
-        private bool m_GameOver;
+
+        /// <summary>
+        /// Event action, which is invoked, when the game timer reaches zero and the game ends 
+        /// </summary>
+        public event Action OnTimeOver;
+
+        public bool timerPaused { get; private set; }
+        public float remainingTime { get; private set; }
+        public bool timeOver { get; private set; }
 
         private void Start()
         {
-            m_RemainingTime = initialGameTime;
+            remainingTime = initialGameTime;
             m_NextGameTaskTime = GetNextTimeInterval();
         }
 
         private void Update()
         {
-            if (m_RemainingTime > 0)
+            if (remainingTime > 0)
             {
-                if (!m_TimerPaused)
+                if (!timerPaused)
                 {
-                    m_RemainingTime -= Time.deltaTime;
+                    remainingTime -= Time.deltaTime;
 
                     // check whether new game task is reached
-                    if (m_RemainingTime < m_NextGameTaskTime)
+                    if (remainingTime < m_NextGameTaskTime)
                     {
                         TrySpawnRandomTask();
 
@@ -58,10 +66,11 @@ namespace Game
                     }
                 }
             }
-            else if (!m_GameOver)
+            else if (!timeOver)
             {
-                m_RemainingTime = 0;
-                m_GameOver = true;
+                remainingTime = 0;
+                timeOver = true;
+                OnTimeOver?.Invoke();
                 m_LOG.Log(LOGTag, "game over");
             }
         }
@@ -73,7 +82,7 @@ namespace Game
         {
             // shuffle factories in order to spawn random task type
             factories.Shuffle();
-            
+
             // try to spawn a task and abort loop if succeeded
             foreach (var factory in factories)
             {
@@ -96,7 +105,7 @@ namespace Game
 
             var timeIntervalEnd = timeIntervalStart + randomTimeIntervalSize;
             //  random value between interval start and end
-            return m_RemainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
+            return remainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
         }
 
         /// <summary>
@@ -104,7 +113,7 @@ namespace Game
         /// </summary>
         public void PauseTimer()
         {
-            m_TimerPaused = true;
+            timerPaused = true;
         }
 
         /// <summary>
@@ -112,7 +121,7 @@ namespace Game
         /// </summary>
         public void ResumeTimer()
         {
-            m_TimerPaused = false;
+            timerPaused = false;
         }
     }
 }
