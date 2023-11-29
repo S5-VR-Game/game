@@ -6,7 +6,12 @@ namespace Game.Tasks
     {
         protected float remainingTime;
 
-        protected TimerTask(float initialTimerTime)
+        protected TimerTask(
+            float initialTimerTime,
+            string taskName,
+            string taskDescription,
+            int integrityValue = k_DefaultIntegrityValue
+        ) : base(taskName: taskName, taskDescription: taskDescription, integrityValue: integrityValue)
         {
             remainingTime = initialTimerTime;
         }

@@ -8,7 +8,7 @@ namespace PlayerController
         private void Start()
         {
             // selected height of the player in the main menu settings
-            var selectedPlayerHeight = PlayerPrefs.GetFloat("PlayerHeight", 1.2f);
+            var selectedPlayerHeight = PlayerPrefs.GetFloat("PlayerHeight", 1.6f);
 
             // stores the current transform component of the player
             var objectTransform = transform;
