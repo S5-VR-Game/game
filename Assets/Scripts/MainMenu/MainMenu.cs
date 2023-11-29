@@ -14,8 +14,6 @@ namespace MainMenu
         public GameObject settingsButton;
         public GameObject exitButton;
 
-        public GameObject homeButton;
-        public GameObject vrButton;
         public GameObject height;
         public GameObject backButton;
 
@@ -42,8 +40,6 @@ namespace MainMenu
             }
 
             // disables the settings-buttons
-            homeButton.SetActive(false);
-            vrButton.SetActive(false);
             height.SetActive(false);
             backButton.SetActive(false);
         }
@@ -68,9 +64,7 @@ namespace MainMenu
             playButton.SetActive(false);
             settingsButton.SetActive(false);
             exitButton.SetActive(false);
-            homeButton.SetActive(true);
-            vrButton.SetActive(true);
-            height.SetActive(true);     
+            height.SetActive(true);
             backButton.SetActive(true);
         }
 
@@ -81,33 +75,9 @@ namespace MainMenu
             playButton.SetActive(true);
             settingsButton.SetActive(true);
             exitButton.SetActive(true);
-            homeButton.SetActive(false);
-            vrButton.SetActive(false);
             height.SetActive(false);
             backButton.SetActive(false);
         }
 
-        // activates the keyboard-profile and disables the vr-profile
-        public void ActivateKeyboardPlayer() 
-        {
-            vrPlayer.SetActive(false);
-            keyboardPlayer.SetActive(true);
-            PlayerPrefs.SetString("CurrentPlayer", "Keyboard");
-
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-
-        // activates the vr-profile and disables the keyboard-profile
-        public void ActivateVRPlayer()
-        {
-            vrPlayer.SetActive(true);
-            keyboardPlayer.SetActive(false);
-            PlayerPrefs.SetString("CurrentPlayer", "VR");
-
-            canvas.renderMode = RenderMode.WorldSpace;
-        }
     }
 }
