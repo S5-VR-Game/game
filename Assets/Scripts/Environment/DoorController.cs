@@ -17,7 +17,7 @@ namespace Environment
         private void Update ()
         {
             _mAnimator.SetBool("character_nearby",
-                Vector3.Distance(playerService.getPlayerGameObject().transform.position, transform.position) <=
+                Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <=
                 distance);
         }
     }
