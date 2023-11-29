@@ -1,9 +1,6 @@
 using System;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.XR;
-using Vector3 = UnityEngine.Vector3;
 
 namespace PlayerController
 {
@@ -50,8 +47,6 @@ namespace PlayerController
                 _lastControllerLeftPosition = InputTracking.GetLocalPosition(leftController);
                 timer = _defaultTimer;
             }
-
-            
         }
 
         /// <summary>
