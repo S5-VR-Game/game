@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR;
 using Vector3 = UnityEngine.Vector3;
 
@@ -12,26 +14,44 @@ namespace PlayerController
     public class VRShakeMovement : MonoBehaviour
     {
         [SerializeField] public CharacterController vrCharacterController;
+        [SerializeField] public Transform direction;
         
-        [SerializeField] public XRNode inputSource;
+        [SerializeField] public XRNode rightController;
+        [SerializeField] public XRNode leftController;
         [SerializeField] public float shakeThreshold = 0.2f;
         [SerializeField] public float movementSpeed = 3.0f;
 
-        private Vector3 _lastControllerPosition;
+        private Vector3 _lastControllerLeftPosition;
+        private Vector3 _lastControllerRightPosition;
 
-        [Obsolete("Obsolete")]
+        [SerializeField] public float timer = 0.2f;
+        private float _defaultTimer;
+
         private void Start()
         {
-            _lastControllerPosition = InputTracking.GetLocalPosition(inputSource);
+            _defaultTimer = timer;
         }
 
-        [Obsolete("Obsolete")]
+        [Obsolete]
         private void Update()
         {
-            if (Vector3.Distance(_lastControllerPosition, InputTracking.GetLocalPosition(inputSource)) > shakeThreshold)
+            if (timer > 0)
             {
-                MoveForward();
+                timer -= Time.deltaTime;
+                if (Vector3.Distance(_lastControllerRightPosition, InputTracking.GetLocalPosition(rightController)) > shakeThreshold
+                    || Vector3.Distance(_lastControllerLeftPosition, InputTracking.GetLocalPosition(leftController)) > shakeThreshold)
+                {
+                    MoveForward();
+                }
             }
+            else
+            {
+                _lastControllerRightPosition = InputTracking.GetLocalPosition(rightController);
+                _lastControllerLeftPosition = InputTracking.GetLocalPosition(leftController);
+                timer = _defaultTimer;
+            }
+
+            
         }
 
         /// <summary>
@@ -39,7 +59,7 @@ namespace PlayerController
         /// </summary>
         private void MoveForward()
         {
-            vrCharacterController.transform.Translate(Vector3.forward * (movementSpeed * Time.deltaTime));
+            vrCharacterController.Move(direction.forward * (movementSpeed * Time.deltaTime));
         }
     }
 }
