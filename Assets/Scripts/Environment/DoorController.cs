@@ -15,7 +15,7 @@ namespace Environment
         }
 
         private void Update () {
-            if (Vector3.Distance(playerService.getPlayerGameObject().transform.position, transform.position) <= distance)
+            if (Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <= distance)
             {
                 m_Animator.SetBool("character_nearby", true);
             }
