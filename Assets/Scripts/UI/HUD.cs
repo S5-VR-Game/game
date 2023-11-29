@@ -15,6 +15,7 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        iIndicator.changeBar(0.238f);
+        // test changing integrity value
+        // iIndicator.changeBar(0.238f);
     }
 }
