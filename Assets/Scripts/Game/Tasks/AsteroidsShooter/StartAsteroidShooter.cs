@@ -45,7 +45,7 @@ namespace Game.Tasks.AsteroidsShooter
         protected override TaskState CheckTaskState()
         {
             // checks if the time is over and the player has hits left
-            if (spawnAsteroidsScript.taskOverTime)
+            if (spawnAsteroidsScript.taskOverAmount)
             {
                 return TaskState.Successful;
             }

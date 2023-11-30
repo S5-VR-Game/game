@@ -1,4 +1,5 @@
 using System;
+using Logging;
 using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
@@ -6,6 +7,9 @@ namespace Game.Tasks.AsteroidsShooter
     // class used to handle the collision of asteroids and the wall
     public class CountSpaceStationHits : MonoBehaviour
     {
+        private readonly Logger m_LOG = new Logger(new LogHandler());
+        private const string LOGTag = "CountSpaceStationHits";
+        
         public Difficulty difficulty; // stores the selected difficulty-value
         public SpawnAsteroids spawnAsteroidsScript; 
         
@@ -39,7 +43,7 @@ namespace Game.Tasks.AsteroidsShooter
             }
             else if(hitCounter < maxHitCounter) // checks if the amount of hits on the wall are lower than the limit
             {
-                Debug.Log("Hit! Hits left: " + (maxHitCounter - hitCounter));
+                m_LOG.Log(LOGTag, "Hit! Hits left: " + (maxHitCounter - hitCounter));
             }
         }
 
@@ -50,15 +54,15 @@ namespace Game.Tasks.AsteroidsShooter
             {
                 case SeparatedDifficulty.Easy:
                     maxHitCounter = 5;
-                    Debug.Log("Max Hits: " + maxHitCounter);
+                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
                     break;
                 case SeparatedDifficulty.Medium:
                     maxHitCounter = 3;
-                    Debug.Log("Max Hits: " + maxHitCounter);
+                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
                     break;
                 case SeparatedDifficulty.Hard:
                     maxHitCounter = 1;
-                    Debug.Log("Max Hits: " + maxHitCounter);
+                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

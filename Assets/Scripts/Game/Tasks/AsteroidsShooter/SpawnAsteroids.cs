@@ -1,5 +1,7 @@
 using System;
+using Logging;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game.Tasks.AsteroidsShooter
@@ -7,6 +9,8 @@ namespace Game.Tasks.AsteroidsShooter
     // method to handle the asteroid-spawning and moving to the player
     public class SpawnAsteroids : MonoBehaviour
     {
+        private readonly Logger m_LOG = new Logger(new LogHandler());
+        private const string LOGTag = "SpawnAsteroids";
         public GameObject rock; // stores the prefab of the used asteroid
         
         // possible positions for the asteroid to spawn
@@ -30,23 +34,21 @@ namespace Game.Tasks.AsteroidsShooter
         public Difficulty difficulty; // stores the selected difficulty-value
         
         private float spawnTime; // stores the time remaining until the next asteroid will spawn
-        private float playingTime; // stores the time this task is played
         
         private float spawnInterval; // stores the value of the interval between two asteroid-spawns
         private float projectileSpeed; // stores the speed of the projectile
-        private float gameTime; // stores the time this task should run
+        private int amountAsteroid; // stores the amount of asteroids spawning
         
         private bool running = true; // stores the value if the task is running
         
         [HideInInspector]
-        public bool taskOverTime; // = true, when the time of the task is over
+        public bool taskOverAmount; // = true, when the time of the task is over
         private void Start()
         {
             SetupDifficulty();
 
             // sets the default starting values
             spawnTime = spawnInterval;
-            playingTime = 0f;
             running = true;
             
             spawnPositions = new[] { spawnPos1, spawnPos2, spawnPos3, spawnPos4, spawnPos5, spawnPos6, spawnPos7, spawnPos8 };
@@ -78,14 +80,15 @@ namespace Game.Tasks.AsteroidsShooter
 
                     // interval of creating new asteroids
                     spawnTime = spawnInterval;
-                    playingTime += spawnInterval;
 
+                    amountAsteroid--; // reduces the amount of asteroids spawning by one
+                    
                     // Check if the playing time exceeds the game time
-                    if (playingTime >= gameTime)
+                    if (amountAsteroid <= 0)
                     {
                         running = false;
-                        taskOverTime = true;
-                        Debug.Log("Time is over! Stopped spawning new asteroids");
+                        taskOverAmount = true;
+                        m_LOG.Log(LOGTag, "Max. amount of asteroids spawned! Stopped spawning new asteroids");
                     }
                 }
             }
@@ -119,20 +122,20 @@ namespace Game.Tasks.AsteroidsShooter
                 case SeparatedDifficulty.Easy:
                     spawnInterval = 2.5f;
                     projectileSpeed = 3f;
-                    gameTime = 20f;
-                    Debug.Log("Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", GameTime: " + gameTime);
+                    amountAsteroid = 20;
+                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
                     break;
                 case SeparatedDifficulty.Medium:
                     spawnInterval = 2f;
                     projectileSpeed = 4f;
-                    gameTime = 25f;
-                    Debug.Log("Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", GameTime: " + gameTime);
+                    amountAsteroid = 25;
+                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
                     break;
                 case SeparatedDifficulty.Hard:
                     spawnInterval = 1.5f;
                     projectileSpeed = 5f;
-                    gameTime = 30f;
-                    Debug.Log("Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", GameTime: " + gameTime);
+                    amountAsteroid = 30;
+                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -142,7 +145,7 @@ namespace Game.Tasks.AsteroidsShooter
         // function used to stop the task if too many asteroid hitted the wall.
         public void StopAsteroidSpawningLost()
         {
-            Debug.Log("You lost because too many asteroids hit the wall!");
+            m_LOG.Log(LOGTag, "You lost because too many asteroids hit the wall!");
             running = false;
         }
     }

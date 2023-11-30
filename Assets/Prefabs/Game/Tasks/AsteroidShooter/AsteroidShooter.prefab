@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 2114449973333691421}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,7 +131,7 @@ MonoBehaviour:
   endPoint2: {fileID: 6695752633821170682}
   endPoint3: {fileID: 4419350537335611543}
   endPoint4: {fileID: 6653286583706676457}
-  difficulty: 2
+  difficulty: {fileID: 0}
   taskOverTime: 0
 --- !u!1 &3616056897652627870
 GameObject:
@@ -336,8 +336,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4585500865456172734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -18.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7541159870441229437}
@@ -587,37 +587,6 @@ MonoBehaviour:
   projectileSpeed: 10
   leftController: 0
   rightController: 0
---- !u!1 &4743877004245094549
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 630998796812155653}
-  m_Layer: 0
-  m_Name: PlayerPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &630998796812155653
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4743877004245094549}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.85, z: -20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7072170952756532269}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5855159233309315551
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 5855159233309315551}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -737,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc15df596b0e39f489bc6a452aaf3d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 2
+  difficulty: {fileID: 0}
   spawnAsteroidsScript: {fileID: 7924681591478478125}
   taskOverWall: 0
 --- !u!54 &8375248020461159473
@@ -916,11 +885,10 @@ Transform:
   m_GameObject: {fileID: 8557072923420806920}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 630998796812155653}
   - {fileID: 9125336510983724380}
   - {fileID: 7757174699200488562}
   - {fileID: 8385012019252698936}
