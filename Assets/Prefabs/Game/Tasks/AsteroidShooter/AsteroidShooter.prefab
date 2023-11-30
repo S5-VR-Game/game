@@ -427,6 +427,10 @@ MonoBehaviour:
   crosshairRectTransform: {fileID: 7541159870441229437}
   canvasRectTransform: {fileID: 9125336510983724380}
   playerProfileService: {fileID: 0}
+  controllerTransform: {fileID: 0}
+  canvasLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &4658307662965751542
 GameObject:
   m_ObjectHideFlags: 0

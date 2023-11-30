@@ -240,7 +240,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairRectTransform: {fileID: 1697120279}
   canvasRectTransform: {fileID: 523568467}
-  camera: {fileID: 1104974236}
+  playerProfileService: {fileID: 0}
+  controllerTransform: {fileID: 0}
+  canvasLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &632549230
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc15df596b0e39f489bc6a452aaf3d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 0
+  difficulty: {fileID: 0}
   spawnAsteroidsScript: {fileID: 1921183409}
+  taskOverWall: 0
 --- !u!65 &632549232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -734,6 +739,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7058737211264273361, guid: 28c70c1d2f304eb438a8d7a52b61280e, type: 3}
   camera: {fileID: 1104974234}
   projectileSpeed: 10
+  leftController: 0
+  rightController: 0
 --- !u!1 &1921183408
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,19 +771,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rock: {fileID: 2746130058158584518, guid: 758715f6310e6884d923a2a5381b13ac, type: 3}
-  spawnPos1: {x: 3, y: 1, z: 20}
-  spawnPos2: {x: 1, y: 3, z: 20}
-  spawnPos3: {x: -3, y: 1, z: 20}
-  spawnPos4: {x: -1, y: 3, z: 20}
-  spawnPos5: {x: -1, y: -3, z: 20}
-  spawnPos6: {x: -3, y: -1, z: 20}
-  spawnPos7: {x: 3, y: -1, z: 20}
-  spawnPos8: {x: 1, y: -3, z: 20}
-  endPoint1: {x: 5, y: 0, z: 0}
-  endPoint2: {x: 0, y: 5, z: 0}
-  endPoint3: {x: -5, y: 0, z: 0}
-  endPoint4: {x: 0, y: -5, z: 0}
-  difficulty: 2
+  spawnPos1: {fileID: 0}
+  spawnPos2: {fileID: 0}
+  spawnPos3: {fileID: 0}
+  spawnPos4: {fileID: 0}
+  spawnPos5: {fileID: 0}
+  spawnPos6: {fileID: 0}
+  spawnPos7: {fileID: 0}
+  spawnPos8: {fileID: 0}
+  endPoint1: {fileID: 0}
+  endPoint2: {fileID: 0}
+  endPoint3: {fileID: 0}
+  endPoint4: {fileID: 0}
+  difficulty: {fileID: 0}
+  taskOverAmount: 0
 --- !u!4 &1921183410
 Transform:
   m_ObjectHideFlags: 0
