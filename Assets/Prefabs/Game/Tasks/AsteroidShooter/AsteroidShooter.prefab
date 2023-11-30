@@ -132,7 +132,7 @@ MonoBehaviour:
   endPoint3: {fileID: 4419350537335611543}
   endPoint4: {fileID: 6653286583706676457}
   difficulty: {fileID: 0}
-  taskOverTime: 0
+  taskOverAmount: 0
 --- !u!1 &3616056897652627870
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7072170952756532269}
+  - {fileID: 5995135297348460344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7070919542467976534
@@ -425,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairRectTransform: {fileID: 7541159870441229437}
   canvasRectTransform: {fileID: 9125336510983724380}
-  camera: {fileID: 0}
+  playerProfileService: {fileID: 0}
 --- !u!1 &4658307662965751542
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,3 +958,114 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7000318478745297032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &9158745698998102674
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1848155907132952069}
+    m_Modifications:
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5001328368701837688}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTaskAsteroidShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Tasks.AsteroidsShooter.StartAsteroidShooterTaskButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864231980027574769, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_Name
+      value: TableStartButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 673825428107623475, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5001328368701837688}
+  m_SourcePrefab: {fileID: 100100000, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+--- !u!4 &5995135297348460344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+  m_PrefabInstance: {fileID: 9158745698998102674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8521811153814410913 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 673825428107623475, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+  m_PrefabInstance: {fileID: 9158745698998102674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5001328368701837688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521811153814410913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd674dace68eef945bc1b0077cb4a019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAsteroidShooterScript: {fileID: 7070919542467976534}

@@ -4,8 +4,6 @@ using UnityEngine;
 namespace Game.Tasks.AsteroidsShooter
 {
     // class used to control the asteroid-shooter
-    // IMPORTANT: THIS SCRIPT BELONGS TO AN OBJECT OUTSIDE THE ASTEROID-SHOOTER-PREFAB AND SHOULD NEVER ATTACH
-    // TO AN OBJECT THAT COULD BE DEACTIVATED!
     public class StartAsteroidShooter : GameTask
     {
         public GameObject asteroidShooterScene; // needs the prefab of the asteroid-shooter
@@ -15,7 +13,7 @@ namespace Game.Tasks.AsteroidsShooter
         public CrosshairMouseMovement crosshairMouseMovement;
         public PlayerProfileService playerProfileService;
         
-        private bool started;
+        private bool _started;
         
         public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description")
         {
@@ -34,11 +32,11 @@ namespace Game.Tasks.AsteroidsShooter
         protected override void BeforeStateCheck()
         {
             // check if player is nearby
-            if (!started && Vector3.Distance(playerProfileService.GetPlayerGameObject().transform.position, transform.position) < 5)
+            if (!_started && !playerProfileService.GetIsVrPlayerActive() && Vector3.Distance(playerProfileService.GetPlayerGameObject().transform.position, transform.position) < 5)
             {
                 // activate shooter scene
                 asteroidShooterScene.SetActive(true);
-                started = true;
+                _started = true;
             }
         }
 
@@ -65,6 +63,11 @@ namespace Game.Tasks.AsteroidsShooter
             {
                 DestroyTask();
             }
+        }
+
+        public void StartTask()
+        {
+            asteroidShooterScene.SetActive(true);
         }
     }
 }

@@ -1,7 +1,5 @@
 using PlayerController;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.XR;
 
 namespace Game.Tasks.AsteroidsShooter
 {
@@ -11,14 +9,8 @@ namespace Game.Tasks.AsteroidsShooter
         // objects of the canvas and the crosshair
         public RectTransform crosshairRectTransform;
         public RectTransform canvasRectTransform;
-
-        public XRNode pointingNode = XRNode.RightHand;
-        public PlayerProfileService playerProfileService;
-
         
-        public XRController controller; // Weise den Controller im Unity-Editor zu
-        public float pointerLength = 10f; // Länge des Pointer-Strahls
-        private LineRenderer lineRenderer;
+        public PlayerProfileService playerProfileService;
         
         private void Update()
         {
