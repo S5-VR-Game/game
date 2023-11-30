@@ -430,7 +430,7 @@ MonoBehaviour:
   controllerTransform: {fileID: 0}
   canvasLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
 --- !u!1 &4658307662965751542
 GameObject:
   m_ObjectHideFlags: 0
