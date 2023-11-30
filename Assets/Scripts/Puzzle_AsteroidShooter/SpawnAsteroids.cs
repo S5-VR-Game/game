@@ -8,7 +8,6 @@ namespace Puzzle_AsteroidShooter
     public class SpawnAsteroids : MonoBehaviour
     {
         public GameObject rock; // stores the prefab of the used asteroid
-        public new GameObject camera; // stores the object of the used camera
         
         // possible positions for the asteroid to spawn
         public Transform spawnPos1;

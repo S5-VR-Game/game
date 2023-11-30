@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace PlayerController
 {
@@ -16,7 +18,7 @@ namespace PlayerController
         /// <summary>
         /// Deactivates the player that should not be used during the game.
         /// </summary>
-        private void Start()
+        private void OnEnable()
         {
             UpdateActivePlayer();
         }
@@ -26,15 +28,21 @@ namespace PlayerController
         /// </summary>
         private void UpdateActivePlayer()
         {
-            keyBoardPlayer.SetActive(!isVrPlayerActive);
-            vrPlayer.SetActive(isVrPlayerActive);
-            if (isVrPlayerActive)
+            if (SceneManager.GetActiveScene().name.Equals("MainMenuScene"))
             {
-                PlayerPrefs.SetString("CurrentPlayer", "VR");
+                PlayerPrefs.SetString("CurrentPlayer", isVrPlayerActive ? "VR" : "Keyboard");
+                Debug.Log("CurrentPlayer is" + PlayerPrefs.GetString("CurrentPlayer"));
+            }
+
+            if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
+            {
+                keyBoardPlayer.SetActive(false);
+                vrPlayer.SetActive(true);
             }
             else
             {
-                PlayerPrefs.SetString("CurrentPlayer", "Keyboard");
+                keyBoardPlayer.SetActive(true);
+                vrPlayer.SetActive(false);
             }
         }
 

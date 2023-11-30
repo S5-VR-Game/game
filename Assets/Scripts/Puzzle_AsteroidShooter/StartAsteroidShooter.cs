@@ -52,7 +52,7 @@ namespace Puzzle_AsteroidShooter
 
             // Press P to Start it
             // TODO need to be removed after adding the TASK-LOGIC
-            if (Input.GetKey(KeyCode.P) && !_started)
+            if (Input.GetKey(KeyCode.O) && !_started)
             {
                 _started = true;
                 Debug.Log("START!");
