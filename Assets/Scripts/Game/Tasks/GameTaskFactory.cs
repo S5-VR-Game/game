@@ -43,6 +43,8 @@ namespace Game.Tasks
         [Header("Observer")]
         [SerializeField] public GameTaskObserver gameTaskObserver;
         [SerializeField] public IntegrityObserver integrityObserver;
+
+        public HUD hud;
         
         [SerializeField] public T[] spawnPoints;
 
@@ -70,6 +72,9 @@ namespace Game.Tasks
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
+                
+                // send task to HUD
+                hud.registerNewTask(newTask, spawnPoint.GetSpawnPosition());
             
                 // initialize task with its own logic
                 newTask.Initialize();

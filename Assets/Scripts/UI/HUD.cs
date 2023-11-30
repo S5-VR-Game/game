@@ -92,7 +92,13 @@ public class HUD : MonoBehaviour
     public void registerNewTask(GameTask task, Vector3 spawnLocation)
     {
         navigator.InitializeMarker(task, spawnLocation);
+        
+        task.GameObjectDestroyed += (gameTask) =>
+        {
+            navigator.DismissMarker(gameTask);
+        };
     }
+    
 
     public Camera ParentCamera()
     {

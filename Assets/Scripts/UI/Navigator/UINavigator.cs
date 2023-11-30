@@ -18,8 +18,7 @@ public class UINavigator : MonoBehaviour
     {
         compassBarTransform = gameObject.GetComponent<RectTransform>();
 
-
-        InitializeMarker(null, new Vector3(10, 10, 10));
+        
     }
 
     // Update is called once per frame
@@ -108,6 +107,7 @@ public class UINavigator : MonoBehaviour
         }
 
         markers.Remove(markerToRemove);
+        Destroy(markerToRemove.gameObject);
     }
     
     
