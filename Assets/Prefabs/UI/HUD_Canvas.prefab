@@ -823,6 +823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iIndicator: {fileID: 7781178679242064349}
+  uiTextBox: {fileID: 1428020826556334785}
+  timerPanel: {fileID: 7885058422957603002}
 --- !u!1 &4006708389963398776
 GameObject:
   m_ObjectHideFlags: 0

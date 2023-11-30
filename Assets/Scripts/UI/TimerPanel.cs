@@ -46,7 +46,7 @@ public class TimerPanel : MonoBehaviour
         }
     }
 
-    void UpdateTime(float newTime)
+    public void UpdateTime(float newTime)
     {
         _timerSecond = newTime;
     }
