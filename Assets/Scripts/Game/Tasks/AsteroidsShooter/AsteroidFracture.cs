@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Puzzle_AsteroidShooter
+namespace Game.Tasks.AsteroidsShooter
 {
     // class used to destroy the collided asteroid and spawn the fractured
     public class AsteroidFracture : MonoBehaviour

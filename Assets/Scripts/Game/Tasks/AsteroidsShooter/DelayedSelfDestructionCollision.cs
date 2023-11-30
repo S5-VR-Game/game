@@ -1,17 +1,17 @@
 using UnityEngine;
 
-namespace Puzzle_AsteroidShooter
+namespace Game.Tasks.AsteroidsShooter
 {
     public class DelayedSelfDestructionCollision : MonoBehaviour
     {
         public float delay; // stores the value of the delay when the game-object gets destroyed
 
-        private bool _collided; // stores the value if the object is collided with something
+        private bool collided; // stores the value if the object is collided with something
 
         // times the self-desctruction
         private void Update()
         {
-            if (!_collided) return;
+            if (!collided) return;
             if (delay >= 0f)
             {
                 delay -= Time.deltaTime;
@@ -25,7 +25,7 @@ namespace Puzzle_AsteroidShooter
         // gets called at the start of the collision 
         private void OnCollisionEnter(Collision collision)
         {
-            _collided = true;
+            collided = true;
         }
         
         

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Puzzle_AsteroidShooter
+namespace Game.Tasks.AsteroidsShooter
 {
     // class used to change color of the projectile
     public class ChangeProjectileColor : MonoBehaviour

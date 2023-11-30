@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Puzzle_AsteroidShooter
+namespace Game.Tasks.AsteroidsShooter
 {
     public class RockFractureExplode : MonoBehaviour
     {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -14,13 +15,23 @@ namespace PlayerController
         [SerializeField] private GameObject vrPlayer;
         [SerializeField] private GameObject xrOrigin;
         [SerializeField] private GameObject keyBoardPlayer;
-        
+        [SerializeField] private Camera vrCamera;
+        [SerializeField] private Camera keyboardCamera;
+
         /// <summary>
         /// Deactivates the player that should not be used during the game.
         /// </summary>
         private void OnEnable()
         {
-            UpdateActivePlayer();
+            if (SceneManager.GetActiveScene().name.Equals("MainMenuScene"))
+            {
+                SetIsVrPlayerActive(isVrPlayerActive);
+            }
+            else
+            {
+                isVrPlayerActive = PlayerPrefs.GetString("CurrentPlayer").Equals("VR");
+                UpdateActivePlayer();
+            }
         }
 
         /// <summary>
@@ -28,22 +39,8 @@ namespace PlayerController
         /// </summary>
         private void UpdateActivePlayer()
         {
-            if (SceneManager.GetActiveScene().name.Equals("MainMenuScene"))
-            {
-                PlayerPrefs.SetString("CurrentPlayer", isVrPlayerActive ? "VR" : "Keyboard");
-                Debug.Log("CurrentPlayer is" + PlayerPrefs.GetString("CurrentPlayer"));
-            }
-
-            if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
-            {
-                keyBoardPlayer.SetActive(false);
-                vrPlayer.SetActive(true);
-            }
-            else
-            {
-                keyBoardPlayer.SetActive(true);
-                vrPlayer.SetActive(false);
-            }
+            keyBoardPlayer.SetActive(!isVrPlayerActive);
+            vrPlayer.SetActive(isVrPlayerActive);
         }
 
         /// <summary>
@@ -53,6 +50,14 @@ namespace PlayerController
         public GameObject GetPlayerGameObject()
         {
             return isVrPlayerActive ? xrOrigin : keyBoardPlayer;
+        }
+
+        /// <summary>
+        /// Returns the current player camera
+        /// </summary>
+        public Camera GetPlayerCamera()
+        {
+            return isVrPlayerActive ? vrCamera : keyboardCamera;
         }
 
         public bool GetIsVrPlayerActive()
@@ -69,6 +74,8 @@ namespace PlayerController
         public void SetIsVrPlayerActive(bool vrPlayerActive)
         {
             isVrPlayerActive = vrPlayerActive;
+            PlayerPrefs.SetString("CurrentPlayer", isVrPlayerActive ? "VR" : "Keyboard");
+
             UpdateActivePlayer();
         }
     }

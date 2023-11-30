@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Puzzle_AsteroidShooter
+namespace Game.Tasks.AsteroidsShooter
 {
     // class used to track movement of the mouse for the crosshair
     public class CrosshairMouseMovement : MonoBehaviour
@@ -8,23 +8,13 @@ namespace Puzzle_AsteroidShooter
         // objects of the canvas and the crosshair
         public RectTransform crosshairRectTransform;
         public RectTransform canvasRectTransform;
-        
-        // stores the objects of the cameras used for both profiles
-        public Camera cameraKeyboard;
-        public Camera cameraVR;
-        
-        // stores the used camera-object
-        private Camera _usedCamera;
-        
-        private void OnEnable()
-        {
-            _usedCamera = GetUsedCamera();
-        }
+
+        public Camera camera;
 
         private void Update()
         {
             Vector2 mousePosition = Input.mousePosition;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, _usedCamera, out mousePosition);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, camera, out mousePosition);
 
             var newPosition = mousePosition;
 
@@ -44,12 +34,5 @@ namespace Puzzle_AsteroidShooter
 
             crosshairRectTransform.anchoredPosition = newPosition;
         }
-        
-        // returns the used camera depending on the profile
-        private Camera GetUsedCamera()
-        {
-            return PlayerPrefs.GetString("CurrentPlayer").Equals("Keyboard") ? cameraKeyboard : cameraVR;
-        }
-        
     }
 }
