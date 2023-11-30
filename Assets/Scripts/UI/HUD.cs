@@ -10,6 +10,8 @@ public class HUD : MonoBehaviour
     public TextPanel uiTextBox;
     public TimerPanel timerPanel;
 
+    private List<ObjectiveMarker> markers;
+
     private bool initializedCorrectly = false;
 
     // Start is called before the first frame update
