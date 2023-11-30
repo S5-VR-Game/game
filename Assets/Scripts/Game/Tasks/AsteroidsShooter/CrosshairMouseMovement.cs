@@ -1,4 +1,7 @@
+using PlayerController;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.XR;
 
 namespace Game.Tasks.AsteroidsShooter
 {
@@ -9,30 +12,46 @@ namespace Game.Tasks.AsteroidsShooter
         public RectTransform crosshairRectTransform;
         public RectTransform canvasRectTransform;
 
-        public Camera camera;
+        public XRNode pointingNode = XRNode.RightHand;
+        public PlayerProfileService playerProfileService;
 
+        
+        public XRController controller; // Weise den Controller im Unity-Editor zu
+        public float pointerLength = 10f; // Länge des Pointer-Strahls
+        private LineRenderer lineRenderer;
+        
         private void Update()
         {
-            Vector2 mousePosition = Input.mousePosition;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, camera, out mousePosition);
+            
+            if (playerProfileService.GetIsVrPlayerActive())
+            {
+                
 
-            var newPosition = mousePosition;
+            }
+            else
+            {
+                Vector2 mousePosition = Input.mousePosition;
+            
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, playerProfileService.GetPlayerCamera(), out mousePosition);
 
-            // calculates the screen-size and the ratio
-            var sizeDelta = canvasRectTransform.sizeDelta;
-            var delta = crosshairRectTransform.sizeDelta;
+                var newPosition = mousePosition;
 
-            // limits the movement of the crosshair to the canvas-size
-            var minX = -sizeDelta.x / 2.0f + delta.x / 2.0f;
-            var maxX = sizeDelta.x / 2.0f - delta.x / 2.0f;
-            var minY = -sizeDelta.y / 2.0f + delta.y / 2.0f;
-            var maxY = sizeDelta.y / 2.0f - delta.y / 2.0f;
+                // calculates the screen-size and the ratio
+                var sizeDelta = canvasRectTransform.sizeDelta;
+                var delta = crosshairRectTransform.sizeDelta;
 
-            // calculates and sets the new position
-            newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
-            newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+                // limits the movement of the crosshair to the canvas-size
+                var minX = -sizeDelta.x / 2.0f + delta.x / 2.0f;
+                var maxX = sizeDelta.x / 2.0f - delta.x / 2.0f;
+                var minY = -sizeDelta.y / 2.0f + delta.y / 2.0f;
+                var maxY = sizeDelta.y / 2.0f - delta.y / 2.0f;
 
-            crosshairRectTransform.anchoredPosition = newPosition;
+                // calculates and sets the new position
+                newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+                newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+                crosshairRectTransform.anchoredPosition = newPosition;   
+            }
         }
     }
 }

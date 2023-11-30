@@ -24,7 +24,7 @@ namespace Game.Tasks.AsteroidsShooter
         public override void Initialize()
         {
             shootProjectile.camera = playerProfileService.GetPlayerCamera();
-            crosshairMouseMovement.camera = playerProfileService.GetPlayerCamera();
+            crosshairMouseMovement.playerProfileService = playerProfileService;
             countSpaceStationHitsScript.difficulty = difficulty;
             spawnAsteroidsScript.difficulty = difficulty;
 
