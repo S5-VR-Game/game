@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Tasks;
 using UI;
 using UnityEngine;
 
@@ -9,15 +10,16 @@ public class HUD : MonoBehaviour
     public IntegrityIndicator iIndicator;
     public TextPanel uiTextBox;
     public TimerPanel timerPanel;
+    public UINavigator navigator;
 
-    private List<ObjectiveMarker> markers;
+    private Camera cam;
 
     private bool initializedCorrectly = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (iIndicator != null && uiTextBox != null && timerPanel != null)
+        if (iIndicator != null && uiTextBox != null && timerPanel != null && navigator != null)
         {
             initializedCorrectly = true;
             Debug.Log("HUD Objects set correctly!");
@@ -27,12 +29,14 @@ public class HUD : MonoBehaviour
         {
             Debug.Log("HUD Objects not set correctly!");
         }
+
+        cam = gameObject.GetComponentInParent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        navigator.UpdateMarkers(gameObject.GetComponentInParent<RectTransform>());
     }
 
     /// <summary>
@@ -82,5 +86,16 @@ public class HUD : MonoBehaviour
     public void UpdateTime(float val)
     {
         timerPanel.UpdateTime(val);
+    }
+
+
+    public void registerNewTask(GameTask task, Vector3 spawnLocation)
+    {
+        navigator.InitializeMarker(task, spawnLocation);
+    }
+
+    public Camera ParentCamera()
+    {
+        return cam;
     }
 }
