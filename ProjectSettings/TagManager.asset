@@ -8,6 +8,7 @@ TagManager:
   - Anchor
   - Bullet
   - Asteroid
+  - Canvas
   layers:
   - Default
   - TransparentFX

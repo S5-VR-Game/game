@@ -2690,7 +2690,9 @@ MonoBehaviour:
   - {fileID: 942882716}
   asteroidShooterTaskPrefab: {fileID: 7070919542467976534, guid: cbc13aea1e9d7ef44ba8a9d008a79adc, type: 3}
   playerProfileService: {fileID: 1140929251}
-  controllerTransform: {fileID: 850439938}
+  rightController: 5
+  leftController: 4
+  useRightController: 1
 --- !u!1001 &215314424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9009,11 +9011,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractured: {fileID: 4119817919057948909, guid: b7cbd0273092df24eb3907ec2d4f399c, type: 3}
---- !u!4 &850439938 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6811413919338249902, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 2005136588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &857875185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21974,6 +21971,10 @@ PrefabInstance:
     - target: {fileID: 6811413919242231338, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7447489329516643809, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447489329516643809, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_LocalPosition.x

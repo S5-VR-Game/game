@@ -9,9 +9,9 @@ namespace Game.Tasks.AsteroidsShooter
         public GameObject asteroidShooterScene; // needs the prefab of the asteroid-shooter
         public SpawnAsteroids spawnAsteroidsScript; // needs the script SpawnAsteroids
         public CountSpaceStationHits countSpaceStationHitsScript; // needs the script CountSpaceStationHits
-        public ShootProjectile shootProjectile;
-        public CrosshairMouseMovement crosshairMouseMovement;
-        public PlayerProfileService playerProfileService;
+        public ShootProjectile shootProjectile; // stores the script reference to ShootProjectile
+        public CrosshairMouseMovement crosshairMouseMovement; // stores the script-reference to CrosshairMouseMouvement
+        public PlayerProfileService playerProfileService; // stores the reference to player-profile
         
         private bool _started;
         

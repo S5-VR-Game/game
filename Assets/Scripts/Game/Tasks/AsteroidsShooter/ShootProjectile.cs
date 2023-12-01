@@ -1,23 +1,20 @@
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Game.Tasks.AsteroidsShooter
 {
     // class used to shoot projectiles from the crosshair
     public class ShootProjectile : MonoBehaviour
     {
-        // stores the prefab of the projectile
-        public GameObject projectilePrefab;
+        public GameObject projectilePrefab; // stores the prefab of the projectile
         
-        // stores the object of the camera 
-        public Camera camera;
+        public Camera camera; // stores the object of the camera 
         
         public float projectileSpeed = 10f; // movement-speed of the bullet 
 
-        // stores the object of the left and right vr-controller
-        public XRNode leftController;
-        public XRNode rightController;
-
+        public XRController controller;
+        
         private void Update()
         {
             // checks if current player is keyboard-profile and player uses left-click
@@ -31,8 +28,8 @@ namespace Game.Tasks.AsteroidsShooter
             // checks if current player is vr-profile and player uses trigger-button
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                if (!Input.GetButton("Trigger" + (int)leftController) &&
-                    !Input.GetButton("Trigger" + (int)rightController))
+                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton,
+                        out var triggerButtonPressed) && triggerButtonPressed)
                 {
                     CalculateProjectileDirection();
                 }
