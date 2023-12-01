@@ -13,7 +13,7 @@ namespace Game.Tasks.AsteroidsShooter
         
         public float projectileSpeed = 10f; // movement-speed of the bullet 
 
-        public XRController controller;
+        public XRNode controller;
         
         private void Update()
         {
@@ -28,7 +28,8 @@ namespace Game.Tasks.AsteroidsShooter
             // checks if current player is vr-profile and player uses trigger-button
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                if (controller.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton,
+                var device = InputDevices.GetDeviceAtXRNode(controller);
+                if (device.TryGetFeatureValue(CommonUsages.triggerButton,
                         out var triggerButtonPressed) && triggerButtonPressed)
                 {
                     CalculateProjectileDirection();

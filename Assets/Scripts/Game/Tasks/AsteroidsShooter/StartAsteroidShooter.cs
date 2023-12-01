@@ -1,5 +1,7 @@
 using PlayerController;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 namespace Game.Tasks.AsteroidsShooter
 {
@@ -12,6 +14,7 @@ namespace Game.Tasks.AsteroidsShooter
         public ShootProjectile shootProjectile; // stores the script reference to ShootProjectile
         public CrosshairMouseMovement crosshairMouseMovement; // stores the script-reference to CrosshairMouseMouvement
         public PlayerProfileService playerProfileService; // stores the reference to player-profile
+        public GameObject locomotiveSystemMove;
         
         private bool _started;
         
@@ -54,6 +57,7 @@ namespace Game.Tasks.AsteroidsShooter
                 return TaskState.Failed;
             }
 
+            // else: returns that the task is still running
             return TaskState.Ongoing;
         }
 
@@ -61,6 +65,9 @@ namespace Game.Tasks.AsteroidsShooter
         {
             if (currentTaskState != TaskState.Ongoing)
             {
+                // activates the movement of the vr-player
+                locomotiveSystemMove.SetActive(true);
+                
                 DestroyTask();
             }
         }
@@ -68,6 +75,11 @@ namespace Game.Tasks.AsteroidsShooter
         public void StartTask()
         {
             asteroidShooterScene.SetActive(true);
+            if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
+            {
+                // deactivates the movement of the vr-player
+                locomotiveSystemMove.SetActive(false);
+            }
         }
     }
 }

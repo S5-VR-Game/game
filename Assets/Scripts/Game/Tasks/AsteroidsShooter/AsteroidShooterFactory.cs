@@ -10,23 +10,23 @@ namespace Game.Tasks.AsteroidsShooter
 
         [SerializeField] private StartAsteroidShooter asteroidShooterTaskPrefab;
         [SerializeField] private PlayerProfileService playerProfileService;
-        [SerializeField] private XRNode rightController;
         [SerializeField] private XRNode leftController;
-        [SerializeField] private bool useRightController = true;
+        [SerializeField] private GameObject locomotiveSystemMove;
         
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
             GameObject instance = Instantiate(asteroidShooterTaskPrefab.gameObject, spawnPoint.GetSpawnPosition(), spawnPoint.GetRotation());
             StartAsteroidShooter asteroidShooterGameTask = instance.GetComponent<StartAsteroidShooter>();
             asteroidShooterGameTask.playerProfileService = playerProfileService;
-            asteroidShooterGameTask.crosshairMouseMovement.controller = GetControllerSide();
+            asteroidShooterGameTask.crosshairMouseMovement.controller = leftController;
+            asteroidShooterGameTask.shootProjectile.controller = leftController;
+            
+            if(PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
+            {
+                asteroidShooterGameTask.locomotiveSystemMove = locomotiveSystemMove;
+            }
             
             return asteroidShooterGameTask;
-        }
-
-        private XRNode GetControllerSide()
-        {
-            return useRightController ? rightController : leftController;
         }
     }
 }
