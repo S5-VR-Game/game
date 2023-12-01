@@ -11,11 +11,8 @@ namespace Game.Tasks.StorageRiddle
         
         private int _maxAmountDeliveryBoxes;
         
-        public new Difficulty difficulty;
-        
         public HandleBoxDelivery handleBoxDeliveryScript;
         public SpawnBoxes spawnBoxesScript;
-        public GameObject storageRiddleGameObject;
         
         public StartStorageRiddle() : base(initialTimerTime: 60f, taskName: "Storage Riddle", 
             taskDescription: "Storage Riddle", integrityValue: 10)
@@ -28,8 +25,6 @@ namespace Game.Tasks.StorageRiddle
             
             handleBoxDeliveryScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
             spawnBoxesScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
-            
-            storageRiddleGameObject.SetActive(false);
         }
 
         protected override void BeforeStateCheck()
@@ -41,11 +36,12 @@ namespace Game.Tasks.StorageRiddle
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
                 return handleBoxDeliveryScript.IsTaskFinished() ? TaskState.Successful : TaskState.Ongoing;
-            } 
+            }
 
+            return TaskState.Ongoing;
             // keyboard-player wins directly without playing
             // complete VR-Task, useless to implement with keyboard
-            return TaskState.Successful;
+            ///return TaskState.Successful;
         }
 
 
@@ -76,11 +72,6 @@ namespace Game.Tasks.StorageRiddle
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-
-        public void StartTask()
-        {
-            storageRiddleGameObject.SetActive(true);
         }
     }
 }

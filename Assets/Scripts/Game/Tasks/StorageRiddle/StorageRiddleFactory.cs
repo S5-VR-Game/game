@@ -1,13 +1,11 @@
-using PlayerController;
 using UnityEngine;
 
 namespace Game.Tasks.StorageRiddle
 {
-    public class AsteroidShooterFactory : GameTaskFactory<TaskSpawnPoint>
+    public class StorageRiddleFactory : GameTaskFactory<TaskSpawnPoint>
     {
 
         [SerializeField] private GameObject storageRiddleGameObject;
-        [SerializeField] private PlayerProfileService playerProfileService;
         
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Tasks.StorageRiddle
 {
@@ -7,36 +8,48 @@ namespace Game.Tasks.StorageRiddle
     {
         public GameObject boxPrefab;
         
+        [HideInInspector]
         public int maxAmountDeliveryBoxes;
         
-        public static Transform SpawnPos1;
-        public static Transform SpawnPos2;
-        public static Transform SpawnPos3;
-        public static Transform SpawnPos4;
-        public static Transform SpawnPos5;
-        public static Transform SpawnPos6;
-        public static Transform SpawnPos7;
-        public static Transform SpawnPos8;
-        public static Transform SpawnPos9;
-        public static Transform SpawnPos10;
-        public static Transform SpawnPos11;
-        public static Transform SpawnPos12;
-        private readonly List<Transform> _possibleSpawnPositions = new (){ SpawnPos1, SpawnPos2, SpawnPos3, SpawnPos4, 
-            SpawnPos5, SpawnPos6, SpawnPos7, SpawnPos8, SpawnPos9, SpawnPos10, SpawnPos11, SpawnPos12};
-        
+        public Transform spawnPos1;
+        public Transform spawnPos2;
+        public Transform spawnPos3;
+        public Transform spawnPos4;
+        public Transform spawnPos5;
+        public Transform spawnPos6;
+        public Transform spawnPos7;
+        public Transform spawnPos8;
+        public Transform spawnPos9;
+        public Transform spawnPos10;
+        public Transform spawnPos11;
+        public Transform spawnPos12;
+        private readonly List<Transform> _possibleSpawnPositions = new();
         
         private void Start()
         {
+            _possibleSpawnPositions.Add(spawnPos1);
+            _possibleSpawnPositions.Add(spawnPos2);
+            _possibleSpawnPositions.Add(spawnPos3);
+            _possibleSpawnPositions.Add(spawnPos4);
+            _possibleSpawnPositions.Add(spawnPos5);
+            _possibleSpawnPositions.Add(spawnPos6);
+            _possibleSpawnPositions.Add(spawnPos7);
+            _possibleSpawnPositions.Add(spawnPos8);
+            _possibleSpawnPositions.Add(spawnPos9);
+            _possibleSpawnPositions.Add(spawnPos10);
+            _possibleSpawnPositions.Add(spawnPos11);
+            _possibleSpawnPositions.Add(spawnPos12);
+            
             for (var i = 0; i < maxAmountDeliveryBoxes; i++)
             {
                 var boxPosition = _possibleSpawnPositions[Random.Range(0, _possibleSpawnPositions.Count)];
                 
                 _possibleSpawnPositions.Remove(boxPosition);
-
+                
                 Instantiate(boxPrefab, boxPosition.position, new Quaternion());
+                Debug.Log("Box spawned");
             }
         }
-        
     }
     
 }

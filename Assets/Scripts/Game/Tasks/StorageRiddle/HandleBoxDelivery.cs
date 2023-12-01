@@ -4,6 +4,7 @@ namespace Game.Tasks.StorageRiddle
 {
     public class HandleBoxDelivery : MonoBehaviour
     {
+        [HideInInspector]
         public int maxAmountDeliveryBoxes;
         
         private int _amountDeliveredBoxes;
