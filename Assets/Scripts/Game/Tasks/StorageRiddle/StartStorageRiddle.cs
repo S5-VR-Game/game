@@ -15,21 +15,21 @@ namespace Game.Tasks.StorageRiddle
         
         public HandleBoxDelivery handleBoxDeliveryScript;
         public SpawnBoxes spawnBoxesScript;
+        public GameObject storageRiddleGameObject;
         
-        public StartStorageRiddle(float initialTimerTime, string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue) : base(initialTimerTime, taskName, taskDescription, integrityValue)
+        public StartStorageRiddle() : base(initialTimerTime: 60f, taskName: "Storage Riddle", 
+            taskDescription: "Storage Riddle", integrityValue: 10)
         {
         }
-
-        // Update is called once per frame
+        
         public override void Initialize()
         {
             SetupDifficulty();
             
             handleBoxDeliveryScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
-            handleBoxDeliveryScript.m_LOG = m_LOG;
-            handleBoxDeliveryScript.LOGTag = LOGTag;
-
             spawnBoxesScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
+            
+            storageRiddleGameObject.SetActive(false);
         }
 
         protected override void BeforeStateCheck()
@@ -38,17 +38,23 @@ namespace Game.Tasks.StorageRiddle
 
         protected override TaskState CheckTaskState()
         {
-            if (handleBoxDeliveryScript.IsTaskFinished()) return TaskState.Successful;
-            return TaskState.Ongoing;
+            if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
+            {
+                return handleBoxDeliveryScript.IsTaskFinished() ? TaskState.Successful : TaskState.Ongoing;
+            } 
+
+            // keyboard-player wins directly without playing
+            // complete VR-Task, useless to implement with keyboard
+            return TaskState.Successful;
         }
+
 
         protected override void AfterStateCheck()
         {
-        }
-
-        void Update()
-        {
-        
+            if (currentTaskState != TaskState.Ongoing)
+            {
+                DestroyTask();
+            }
         }
         
         private void SetupDifficulty()
@@ -70,7 +76,11 @@ namespace Game.Tasks.StorageRiddle
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
+        }
+
+        public void StartTask()
+        {
+            storageRiddleGameObject.SetActive(true);
         }
     }
 }

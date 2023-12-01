@@ -29,18 +29,14 @@ namespace Game.Tasks.StorageRiddle
         {
             for (var i = 0; i < maxAmountDeliveryBoxes; i++)
             {
-                var boxPosition = GetRandomBoxSpawn();
+                var boxPosition = _possibleSpawnPositions[Random.Range(0, _possibleSpawnPositions.Count)];
+                
                 _possibleSpawnPositions.Remove(boxPosition);
 
                 Instantiate(boxPrefab, boxPosition.position, new Quaternion());
             }
         }
         
-        
-        private Transform GetRandomBoxSpawn()
-        {
-            return _possibleSpawnPositions[Random.Range(0, _possibleSpawnPositions.Count)];
-        }
     }
     
 }
