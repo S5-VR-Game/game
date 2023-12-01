@@ -63,8 +63,11 @@ namespace Game.Tasks.AsteroidsShooter
         {
             if (currentTaskState != TaskState.Ongoing)
             {
-                // activates the movement of the vr-player
-                locomotiveSystemMove.SetActive(true);
+                if (locomotiveSystemMove != null)
+                {
+                    // activates the movement of the vr-player
+                    locomotiveSystemMove.SetActive(true);
+                }
                 
                 DestroyTask();
             }
@@ -75,8 +78,11 @@ namespace Game.Tasks.AsteroidsShooter
             asteroidShooterScene.SetActive(true);
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                // deactivates the movement of the vr-player
-                locomotiveSystemMove.SetActive(false);
+                if (locomotiveSystemMove != null)
+                {
+                    // deactivates the movement of the vr-player
+                    locomotiveSystemMove.SetActive(false);
+                }
             }
         }
     }
