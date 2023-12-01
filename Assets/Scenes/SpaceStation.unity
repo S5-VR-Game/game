@@ -2690,9 +2690,8 @@ MonoBehaviour:
   - {fileID: 942882716}
   asteroidShooterTaskPrefab: {fileID: 7070919542467976534, guid: cbc13aea1e9d7ef44ba8a9d008a79adc, type: 3}
   playerProfileService: {fileID: 1140929251}
-  rightController: 5
   leftController: 4
-  useRightController: 1
+  locomotiveSystemMove: {fileID: 2005136589}
 --- !u!1001 &215314424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21968,6 +21967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerProfile
       objectReference: {fileID: 0}
+    - target: {fileID: 6675474904105888926, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6811413919242231338, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22032,6 +22035,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1140929250}
   m_SourcePrefab: {fileID: 100100000, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+--- !u!1 &2005136589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6793859753166770643, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+  m_PrefabInstance: {fileID: 2005136588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2036612748
 PrefabInstance:
   m_ObjectHideFlags: 0
