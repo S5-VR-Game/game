@@ -1,7 +1,5 @@
 using PlayerController;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 namespace Game.Tasks.AsteroidsShooter
 {
