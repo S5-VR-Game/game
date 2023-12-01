@@ -278,6 +278,7 @@ MonoBehaviour:
   shootProjectile: {fileID: 3790864744464189540}
   crosshairMouseMovement: {fileID: 4032180597314399965}
   playerProfileService: {fileID: 0}
+  locomotiveSystemMove: {fileID: 0}
 --- !u!1 &4501447066227644689
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +412,9 @@ MonoBehaviour:
   crosshairRectTransform: {fileID: 7541159870441229437}
   canvasRectTransform: {fileID: 9125336510983724380}
   playerProfileService: {fileID: 0}
-  xrController: {fileID: 0}
+  controller: 0
+  sensitivity: 0.1
+  centerThreshold: 0.1
 --- !u!114 &2063218284473574035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +720,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7058737211264273361, guid: 3a6373cf70282a443a9648fd5d4ae6ed, type: 3}
   camera: {fileID: 0}
   projectileSpeed: 10
+  controller: 0
 --- !u!1 &5855159233309315551
 GameObject:
   m_ObjectHideFlags: 0
