@@ -5,7 +5,7 @@ namespace Game.Tasks.StorageRiddle
     public class StorageRiddleFactory : GameTaskFactory<TaskSpawnPoint>
     {
 
-        [SerializeField] private GameObject storageRiddleGameObject;
+        [SerializeField] private GameObject storageRiddleGameObject; // stores the game-object of the prefab 
         
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {

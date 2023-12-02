@@ -4,25 +4,28 @@ using UnityEngine;
 
 namespace Game.Tasks.StorageRiddle
 {
+    // class used to manage the process of the task
     public class StartStorageRiddle : TimerTask
     {
+        // Logger
         private Logger m_LOG = new (new LogHandler());
         private const string LOGTag = "StorageRiddle";
         
-        private int _maxAmountDeliveryBoxes;
+        private int _maxAmountDeliveryBoxes; // amount how many boxes should be spawned in
         
         public HandleBoxDelivery handleBoxDeliveryScript;
         public SpawnBoxes spawnBoxesScript;
         
-        public StartStorageRiddle() : base(initialTimerTime: 60f, taskName: "Storage Riddle", 
+        public StartStorageRiddle() : base(initialTimerTime: 90f, taskName: "Storage Riddle", 
             taskDescription: "Storage Riddle", integrityValue: 10)
         {
         }
         
         public override void Initialize()
         {
-            SetupDifficulty();
+            SetupDifficulty(); // sets the variables depending on the difficulty
             
+            // sets the variable in the subclasses
             handleBoxDeliveryScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
             spawnBoxesScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
         }
@@ -31,6 +34,9 @@ namespace Game.Tasks.StorageRiddle
         {
         }
 
+        // sets the state of the task
+        // if isTaskedFinished() returns true: TaskState.Successful
+        // else: TaskState.Ongoing
         protected override TaskState CheckTaskState()
         {
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
@@ -39,12 +45,9 @@ namespace Game.Tasks.StorageRiddle
             }
 
             return TaskState.Ongoing;
-            // keyboard-player wins directly without playing
-            // complete VR-Task, useless to implement with keyboard
-            ///return TaskState.Successful;
         }
 
-
+        // destroys task if it is done
         protected override void AfterStateCheck()
         {
             if (currentTaskState != TaskState.Ongoing)
@@ -53,6 +56,7 @@ namespace Game.Tasks.StorageRiddle
             }
         }
         
+        // sets the amount how many boxes used in this task depending on the selected difficulty
         private void SetupDifficulty()
         {
             switch (difficulty.GetSeparatedDifficulty())

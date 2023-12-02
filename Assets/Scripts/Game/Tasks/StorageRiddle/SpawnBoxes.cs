@@ -4,13 +4,15 @@ using Random = UnityEngine.Random;
 
 namespace Game.Tasks.StorageRiddle
 {
+    // class handles the spawning of the boxes and its position 
     public class SpawnBoxes : MonoBehaviour
     {
-        public GameObject boxPrefab;
+        public GameObject boxPrefab; // prefab of the box spawned in the task
         
         [HideInInspector]
-        public int maxAmountDeliveryBoxes;
+        public int maxAmountDeliveryBoxes; // value how many boxes should be placed on the given platform
         
+        // stores the possible spawn-points of the boxes
         public Transform spawnPos1;
         public Transform spawnPos2;
         public Transform spawnPos3;
@@ -40,6 +42,7 @@ namespace Game.Tasks.StorageRiddle
             _possibleSpawnPositions.Add(spawnPos11);
             _possibleSpawnPositions.Add(spawnPos12);
             
+            // places boxes (spawned amount depends on the amount set by the difficulty) on randomized positions
             for (var i = 0; i < maxAmountDeliveryBoxes; i++)
             {
                 var boxPosition = _possibleSpawnPositions[Random.Range(0, _possibleSpawnPositions.Count)];
@@ -47,7 +50,7 @@ namespace Game.Tasks.StorageRiddle
                 _possibleSpawnPositions.Remove(boxPosition);
                 
                 Instantiate(boxPrefab, boxPosition.position, new Quaternion());
-                Debug.Log("Box spawned");
+                Debug.Log("Box " + i + " spawned.");
             }
         }
     }
