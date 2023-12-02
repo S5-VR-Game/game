@@ -16049,11 +16049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractured: {fileID: 4119817919057948909, guid: b7cbd0273092df24eb3907ec2d4f399c, type: 3}
---- !u!4 &1320106603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1190962255604273934, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 2005136588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1320970189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21598,25 +21593,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2543097971443498235, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
-      propertyPath: rotator
-      value: 
-      objectReference: {fileID: 1320106603}
     - target: {fileID: 3327577356148893411, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
       propertyPath: m_Name
       value: MedicalDisaster
-      objectReference: {fileID: 0}
-    - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21657,10 +21636,6 @@ PrefabInstance:
     - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4441708669889450033, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7721350410836808806, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
       propertyPath: m_LocalRotation.w
