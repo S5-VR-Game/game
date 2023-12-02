@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4977432501729377324}
-  - component: {fileID: 7965640997221296774}
+  - component: {fileID: 2550288680437652081}
   m_Layer: 0
-  m_Name: Ingredient
+  m_Name: WateringLiquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,10 +30,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7502517591565333763}
+  - {fileID: 12085950987483137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7965640997221296774
+--- !u!114 &2550288680437652081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 195388087988499570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f10968478a83a49b5bb941f7b2e183, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a67cda0071daa4abfb33f7938cc00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liquidColorAdaption: {fileID: 8830049157786909789}
---- !u!1001 &3246303145039415599
+  liquidColorAdaption: {fileID: 1350544462658367839}
+--- !u!1001 &4988181230788903981
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -103,15 +103,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ab54a4f10248c4daec1fa0a5ee6bd6, type: 3}
---- !u!4 &7502517591565333763 stripped
+--- !u!4 &12085950987483137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4977432501729377324, guid: 53ab54a4f10248c4daec1fa0a5ee6bd6, type: 3}
-  m_PrefabInstance: {fileID: 3246303145039415599}
+  m_PrefabInstance: {fileID: 4988181230788903981}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8830049157786909789 stripped
+--- !u!114 &1350544462658367839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6307165307386393970, guid: 53ab54a4f10248c4daec1fa0a5ee6bd6, type: 3}
-  m_PrefabInstance: {fileID: 3246303145039415599}
+  m_PrefabInstance: {fileID: 4988181230788903981}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
