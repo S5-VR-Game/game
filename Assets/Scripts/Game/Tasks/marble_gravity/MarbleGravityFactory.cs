@@ -10,11 +10,13 @@ namespace Game.Tasks.marble_gravity
     {
         public MarbleGravity marbleGravity;
         
+        // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
             var transform1 = spawnPoint.transform;
             var riddle = Instantiate(marbleGravity.gameObject, transform1.position, transform1.rotation);
-            return null;
+            var task = riddle.GetComponent<MarbleGravity>();
+            return task;
         }
     }
 }
