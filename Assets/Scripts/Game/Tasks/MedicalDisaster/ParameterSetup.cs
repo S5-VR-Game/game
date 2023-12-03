@@ -1,5 +1,8 @@
 namespace Game.Tasks.MedicalDisaster
 {
+    /// <summary>
+    /// Medical Disaster task parameters. Used to setup the difficulty of the task.
+    /// </summary>
     public record MedicalDisasterParameters
     {
         public readonly int valveCount;
