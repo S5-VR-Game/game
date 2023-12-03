@@ -11,11 +11,13 @@ namespace Game.Tasks.marble_gravity
     /// </summary>
     public class WallSwitcher : MonoBehaviour
     {
-        private const string Name = "sphere";
         public GameObject wall;
         private void OnCollisionExit(Collision other)
         {
-            if (!other.gameObject.name.Equals(Name)) return;
+            if (!other.gameObject.CompareTag("Sphere_Collider"))
+            {
+                return;
+            }
             Destroy(wall);
             Destroy(gameObject);
         }
