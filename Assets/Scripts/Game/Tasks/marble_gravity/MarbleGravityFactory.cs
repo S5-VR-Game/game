@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Game.Tasks.marble_gravity
 {
     /// <summary>
@@ -10,6 +12,8 @@ namespace Game.Tasks.marble_gravity
         
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
+            var transform1 = spawnPoint.transform;
+            var riddle = Instantiate(marbleGravity.gameObject, transform1.position, transform1.rotation);
             return null;
         }
     }
