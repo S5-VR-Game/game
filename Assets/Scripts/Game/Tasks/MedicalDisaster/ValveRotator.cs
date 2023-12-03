@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Game.Tasks.MedicalDisaster
 {
+    /// <summary>
+    /// Test class to rotate the valve game object based on the rotation of the rotator game object
+    /// </summary>
     public class ValveRotator : MonoBehaviour
     {
         [SerializeField] private Transform rotator;
