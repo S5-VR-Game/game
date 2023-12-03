@@ -9,22 +9,17 @@ namespace Game.Tasks.marble_gravity
     public class MarbleGravity : TimerTask
     {
         public GameObject taskPrefab;
-        private const string SphereName = "sphere";
-        private const string GoalName = "goal";
-
-        private Collider _sphereCollider;
-        private Collider _goalCollider;
+        private bool _isFinished = false;
         
         
-        public MarbleGravity(float initialTimerTime, string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue) : base(initialTimerTime, taskName, taskDescription, integrityValue)
+        public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble blyat", 10)
         {
-            // no implementation required
+            
         }
 
         public override void Initialize()
         {
-            _sphereCollider = GetSphereCollider();
-            _goalCollider = GetGoalCollider();
+            // no implementation required
         }
 
         protected override void BeforeStateCheck()
@@ -34,12 +29,7 @@ namespace Game.Tasks.marble_gravity
 
         protected override TaskState CheckTaskState()
         {
-            if (IsFinished())
-            {
-                return TaskState.Successful;
-            }
-
-            return TaskState.Ongoing;
+            return _isFinished ? TaskState.Successful : TaskState.Ongoing;
         }
 
         protected override void AfterStateCheck()
@@ -50,25 +40,9 @@ namespace Game.Tasks.marble_gravity
             }
         }
 
-        /// <summary>
-        /// Determines whether the Marble Gravity game is finished or not
-        /// </summary>
-        /// <returns>true, if that is the case, false otherwise</returns>
-        private bool IsFinished()
+        public void SetFinished(bool newFinished)
         {
-            return _sphereCollider.bounds.Intersects(_goalCollider.bounds);
-        }
-
-        // ReSharper disable Unity.PerformanceAnalysis
-        private Collider GetSphereCollider()
-        {
-            return taskPrefab.transform.Find(SphereName).gameObject.GetComponent<Collider>();
-        }
-
-        // ReSharper disable Unity.PerformanceAnalysis
-        private Collider GetGoalCollider()
-        {
-            return taskPrefab.transform.Find(GoalName).gameObject.GetComponent<Collider>();
+            _isFinished = newFinished;
         }
     }
 }
