@@ -1,5 +1,6 @@
 using Game.Observer;
 using Logging;
+using PlayerController;
 using UnityEngine;
 
 namespace Game.Tasks
@@ -20,11 +21,18 @@ namespace Game.Tasks
     public abstract class GeneralGameTaskFactory : MonoBehaviour
     {
         /// <summary>
-        /// See <see cref="GameTaskFactory{T}.TrySpawnTask()"/> and class documentation
-        /// <see cref="GeneralGameTaskFactory"/> for further documentation about why this method is not
-        /// documented here directly.
+        /// Tries to spawn a new game task at a random spawn point of the list <see cref="GameTaskFactory{T}.spawnPoints"/>. If all spawn
+        /// points are currently occupied, the method will not create a game task and return false.
+        /// Furthermore the new task is also registered to the observer instances.
         /// </summary>
-        public abstract bool TrySpawnTask(Difficulty difficulty);
+        /// <returns>true, if a game task is spawned and false, if no task was created due to no available spawn points</returns>
+        public abstract bool TrySpawnTask();
+        
+        /// <summary>
+        /// Initializes the factory with the given game initialization data
+        /// </summary>
+        /// <param name="initializationData">class that contains all necessary data for factory initialization</param>
+        public abstract void Initialize(FactoryInitializationData initializationData);
     }
     
     /// <summary>
@@ -40,19 +48,23 @@ namespace Game.Tasks
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskFactory";
         
-        [Header("Observer")]
-        [SerializeField] public GameTaskObserver gameTaskObserver;
-        [SerializeField] public IntegrityObserver integrityObserver;
+        // game data references
+        private Difficulty m_Difficulty;
+        private PlayerProfileService m_PlayerProfileService;
+        private GameTaskObserver m_GameTaskObserver;
+        private IntegrityObserver m_IntegrityObserver;
         
-        [SerializeField] public T[] spawnPoints;
+        [SerializeField] private T[] spawnPoints;
 
-        /// <summary>
-        /// Tries to spawn a new game task at a random spawn point of the list <see cref="spawnPoints"/>. If all spawn
-        /// points are currently occupied, the method will not create a game task and return false.
-        /// Furthermore the new task is also registered to the observer instances.
-        /// </summary>
-        /// <returns>true, if a game task is spawned and false, if no task was created due to no available spawn points</returns>
-        public override bool TrySpawnTask(Difficulty difficulty)
+        public override void Initialize(FactoryInitializationData initializationData)
+        {
+            m_Difficulty = initializationData.difficulty;
+            m_PlayerProfileService = initializationData.playerProfileService;
+            m_GameTaskObserver = initializationData.gameTaskObserver;
+            m_IntegrityObserver = initializationData.integrityObserver;
+        }
+        
+        public override bool TrySpawnTask()
         {
             // shuffle list to get random spawn points
             spawnPoints.Shuffle();
@@ -66,7 +78,10 @@ namespace Game.Tasks
                 
                 // create task to spawn at this spawn point
                 GameTask newTask = CreateTask(spawnPoint);
-                newTask.difficulty = difficulty;
+                
+                // assign game related data to task
+                newTask.difficulty = m_Difficulty;
+                newTask.playerProfileService = m_PlayerProfileService;
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
@@ -75,8 +90,8 @@ namespace Game.Tasks
                 newTask.Initialize();
             
                 // register the new task
-                gameTaskObserver.RegisterGameTask(newTask);
-                integrityObserver.RegisterGameTask(newTask);
+                m_GameTaskObserver.RegisterGameTask(newTask);
+                m_IntegrityObserver.RegisterGameTask(newTask);
 
                 m_LOG.Log(LOGTag, "task spawned successfully");
                 return true;
