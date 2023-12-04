@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace Game.Tasks.marble_gravity
 {
@@ -10,8 +11,8 @@ namespace Game.Tasks.marble_gravity
     {
         public GameObject taskPrefab;
         private bool _isFinished = false;
-        
-        
+        private const float RotationSpeed = 4.0f;
+
         public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble blyat", 10)
         {
             
@@ -24,11 +25,24 @@ namespace Game.Tasks.marble_gravity
 
         protected override void BeforeStateCheck()
         {
-            // no implementation required
+            if (!InputDevices.GetDeviceAtXRNode(XRNode.RightHand).isValid)
+            {
+                return;
+            }
+            if (Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetKeyDown(KeyCode.JoystickButton1))
+            {
+                transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);
+            }
         }
 
         protected override TaskState CheckTaskState()
         {
+            
             return _isFinished ? TaskState.Successful : TaskState.Ongoing;
         }
 
