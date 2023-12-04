@@ -1,6 +1,5 @@
 using PlayerController;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Tasks.marble_gravity
 {
@@ -10,10 +9,9 @@ namespace Game.Tasks.marble_gravity
     /// </summary>
     public class MarbleGravityFactory : GameTaskFactory<TaskSpawnPoint>
     {
-        [SerializeField] private PlayerProfileService playerProfileService;
-        public MarbleGravity marbleGravity;
         public PlayerProfileService playerProfileService;
-        [FormerlySerializedAs("_difficulty")] [SerializeField] private Difficulty difficulty;
+        public MarbleGravity marbleGravity;
+        [SerializeField] private Difficulty difficulty;
         
         // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
