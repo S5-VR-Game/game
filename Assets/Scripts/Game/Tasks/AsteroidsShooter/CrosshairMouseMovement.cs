@@ -18,7 +18,6 @@ namespace Game.Tasks.AsteroidsShooter
         // value of the sensitivity, how fast the crosshair should move in vr
         // threshold to reset crosshair if the tilt is lower than this value
         public float sensitivity = 0.1f;
-        public float centerThreshold = 0.1f;
         
         private void Update()
         {
@@ -27,10 +26,10 @@ namespace Game.Tasks.AsteroidsShooter
             {
                 var device = InputDevices.GetDeviceAtXRNode(controller);
 
-                if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var rightThumbstickValue))
+                if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out var leftThumbstickValue))
                 {
                     // calculation stuff to set the position of the crosshair (do not ask!)
-                    var displacement = rightThumbstickValue * sensitivity;
+                    var displacement = leftThumbstickValue * sensitivity;
                     
                     var anchoredPosition = crosshairRectTransform.anchoredPosition;
                     anchoredPosition += displacement;
@@ -42,12 +41,9 @@ namespace Game.Tasks.AsteroidsShooter
                     var rect1 = canvasRectTransform.rect;
                     clampedPosition.y = Mathf.Clamp(clampedPosition.y, rect1.min.y, rect1.max.y);
                     crosshairRectTransform.anchoredPosition = clampedPosition;
-                    
-                    // resets the joystick if the magnitude value is lower than the threshold
-                    if (displacement.magnitude < centerThreshold)
-                    {
-                        crosshairRectTransform.anchoredPosition = Vector2.zero;
-                    }
+
+                    Debug.Log($"clamped: {clampedPosition}");
+
                 }
             }
             // if keyboard-player is active

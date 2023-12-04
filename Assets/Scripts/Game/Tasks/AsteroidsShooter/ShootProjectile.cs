@@ -10,9 +10,11 @@ namespace Game.Tasks.AsteroidsShooter
         
         public Camera camera; // stores the object of the camera 
         
-        public float projectileSpeed = 10f; // movement-speed of the bullet 
+        public float projectileSpeed = 20f; // movement-speed of the bullet 
 
         public XRNode controller;
+
+        private bool lastTrigger = false;
         
         private void Update()
         {
@@ -22,16 +24,27 @@ namespace Game.Tasks.AsteroidsShooter
                 if (Input.GetMouseButtonDown(0))
                 {
                     CalculateProjectileDirection();
+                    
                 }
             } 
             // checks if current player is vr-profile and player uses trigger-button
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
+                bool triggered = false;
+
                 var device = InputDevices.GetDeviceAtXRNode(controller);
-                if (device.TryGetFeatureValue(CommonUsages.triggerButton,
-                        out var triggerButtonPressed) && triggerButtonPressed)
+                triggered = (device.TryGetFeatureValue(CommonUsages.triggerButton,
+                    out var triggerState) && triggerState);
+                 
+                
+                if (triggered != lastTrigger)
                 {
-                    CalculateProjectileDirection();
+                    if (triggered)
+                    {
+                        CalculateProjectileDirection();
+                    }
+
+                    lastTrigger = triggered;
                 }
             } 
         }

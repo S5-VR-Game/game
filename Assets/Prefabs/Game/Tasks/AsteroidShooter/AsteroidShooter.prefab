@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 856137825485299247}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -20}
+  m_LocalPosition: {x: 2, y: 5, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -158,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 3616056897652627870}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: -20}
+  m_LocalPosition: {x: -2, y: 5, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -412,9 +412,8 @@ MonoBehaviour:
   crosshairRectTransform: {fileID: 7541159870441229437}
   canvasRectTransform: {fileID: 9125336510983724380}
   playerProfileService: {fileID: 0}
-  controller: 0
-  sensitivity: 0.1
-  centerThreshold: 0.1
+  controller: 4
+  sensitivity: 0.05
 --- !u!114 &2063218284473574035
 MonoBehaviour:
   m_ObjectHideFlags: 0
