@@ -12,7 +12,7 @@ namespace Game.Tasks.marble_gravity
     public class WallSwitcher : MonoBehaviour
     {
         public GameObject wall;
-        private void OnCollisionExit(Collision other)
+        private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Sphere_Collider"))
             {

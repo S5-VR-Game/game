@@ -10,6 +10,7 @@ namespace Game.Tasks.marble_gravity
     /// </summary>
     public class MarbleGravityFactory : GameTaskFactory<TaskSpawnPoint>
     {
+        [SerializeField] private PlayerProfileService playerProfileService;
         public MarbleGravity marbleGravity;
         public PlayerProfileService playerProfileService;
         [FormerlySerializedAs("_difficulty")] [SerializeField] private Difficulty difficulty;
