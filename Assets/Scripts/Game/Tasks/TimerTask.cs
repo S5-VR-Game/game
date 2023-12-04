@@ -5,7 +5,7 @@ namespace Game.Tasks
     public abstract class TimerTask : GameTask
     {
         protected float remainingTime;
-        [SerializeField] protected bool timerStarted;
+        protected bool _timerStarted;
 
         protected TimerTask(
             float initialTimerTime,
@@ -35,9 +35,9 @@ namespace Game.Tasks
         /// </summary>
         protected sealed override void Update()
         {
-            if (!timerStarted)
+            if (!_timerStarted)
             {
-                timerStarted = TimerStartCondition();
+                _timerStarted = TimerStartCondition();
                 return;
             }
             if (remainingTime < 0 && currentTaskState == TaskState.Ongoing)
