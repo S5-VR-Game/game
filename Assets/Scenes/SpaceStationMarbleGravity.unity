@@ -9066,6 +9066,7 @@ MonoBehaviour:
   integrityObserver: {fileID: 1344499815}
   spawnPoints:
   - {fileID: 1379415927}
+  playerProfileService: {fileID: 1140929251}
   marbleGravity: {fileID: 2610378861606336938, guid: e1e99c33b27093786a3c1ebac60c42ff, type: 3}
   difficulty: {fileID: 412867707}
 --- !u!1001 &883443637
@@ -16501,7 +16502,7 @@ Transform:
   m_GameObject: {fileID: 1379415925}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 18.302, y: 1.249, z: -2.717}
+  m_LocalPosition: {x: 19.071, y: 1.96, z: -2.717}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16892,7 +16893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &1448810285
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -21812,6 +21813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerProfile
       objectReference: {fileID: 0}
+    - target: {fileID: 6675474904105888926, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7447489329516643809, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21854,7 +21859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
