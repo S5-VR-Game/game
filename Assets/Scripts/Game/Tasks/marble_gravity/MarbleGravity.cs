@@ -1,4 +1,6 @@
+using PlayerController;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR;
 
 namespace Game.Tasks.marble_gravity
@@ -10,7 +12,8 @@ namespace Game.Tasks.marble_gravity
     public class MarbleGravity : TimerTask
     {
         public GameObject taskPrefab;
-        private bool _isFinished = false;
+        public PlayerProfileService playerProfileService;
+        private bool _isFinished;
         private const float RotationSpeed = 4.0f;
 
         public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble blyat", 10)
@@ -29,6 +32,9 @@ namespace Game.Tasks.marble_gravity
             {
                 return;
             }
+
+            if (!(Vector3.Distance(playerProfileService.GetPlayerGameObject().transform.position,
+                    transform.position) <= 1.0f)) return;
             if (Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 transform.Rotate(Vector3.up, RotationSpeed * Time.deltaTime);

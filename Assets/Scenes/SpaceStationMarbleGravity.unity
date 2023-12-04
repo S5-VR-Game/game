@@ -9067,6 +9067,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1379415927}
   marbleGravity: {fileID: 2610378861606336938, guid: e1e99c33b27093786a3c1ebac60c42ff, type: 3}
+  playerProfileService: {fileID: 1140929251}
   difficulty: {fileID: 412867707}
 --- !u!1001 &883443637
 PrefabInstance:
