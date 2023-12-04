@@ -10,11 +10,11 @@ public class ButtonSequenceLogic : GameTask
     private int[] colorSequence;
     private bool done = false;
     private int level = 0;
-    const int sequenceLenght = 9;
+    const int sequenceLenght = 3;
     
     public override void Initialize()
     {
-        
+        colorSequence = new int[sequenceLenght];
         //create Sequence
         for (int i = 0; i < sequenceLenght; i++)
         {
@@ -42,7 +42,10 @@ public class ButtonSequenceLogic : GameTask
 
     protected override void AfterStateCheck()
     {
-        
+        if (currentTaskState != TaskState.Ongoing)
+        {
+            DestroyTask();
+        }
     }
     
     //compares the pressed button with the next Color in the Sequence
@@ -50,12 +53,12 @@ public class ButtonSequenceLogic : GameTask
     {
         if (color == (ColorCode) colorSequence[level])
         {
-            if (level == sequenceLenght)
+            if (level == sequenceLenght - 1)
             {
                 done = true;
                 print("done");
             }
-            level =+ 1;
+            level ++;
         }
         else
         {
