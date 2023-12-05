@@ -48,9 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valveMeshRenderer: {fileID: 3007826185437409561}
-  valveTransform: {fileID: 7357301748940721494}
+  valve: {fileID: 5968058734241933783}
   requiredRotationCount: 3
-  requireClockwiseRotation: 1
 --- !u!1 &4240680009207986422
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +460,38 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_ClampedMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3908515454979555302}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRotationChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Tasks.MedicalDisaster.Valve, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7747212461105437970, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
       propertyPath: m_Name
       value: Valve
@@ -475,6 +506,17 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5969510473563378890, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
   m_PrefabInstance: {fileID: 8892929069002614227}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5968058734241933783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3006374936094510084, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
+  m_PrefabInstance: {fileID: 8892929069002614227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e888dc0064d84d041818fa202b52d6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7357301748940721494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2121306659184552069, guid: 6cd64c3681461a043ab59de19b38b474, type: 3}
