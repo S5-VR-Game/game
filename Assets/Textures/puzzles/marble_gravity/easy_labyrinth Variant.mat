@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hard_labyrinth Variant
+  m_Name: easy_labyrinth Variant
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 3780671244086486322, guid: 4640c9069a2c09915b8fef60c483a71d, type: 3}
+  m_Parent: {fileID: 9185737683893222716, guid: 2e0f58430db5b0d7dac717b91a626713, type: 3}
   m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -29,5 +29,5 @@ Material:
     - _Mode: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.1}
   m_BuildTextureStacks: []

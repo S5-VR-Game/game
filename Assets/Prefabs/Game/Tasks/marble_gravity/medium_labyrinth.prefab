@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3913b8ac172a277f3b96b7fcaaf39860, type: 2}
+    - target: {fileID: 826729105753876448, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a10b3f25abfba531aeee10715d8a62b, type: 2}
     - target: {fileID: 919132149155446097, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}
       propertyPath: m_Name
       value: medium_labyrinth
@@ -321,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aea9a779c4ee8a7dc18ca78d9e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProfileService: {fileID: 0}
   taskPrefab: {fileID: 2839930189506935058}
 --- !u!1 &3028341816382269411 stripped
 GameObject:

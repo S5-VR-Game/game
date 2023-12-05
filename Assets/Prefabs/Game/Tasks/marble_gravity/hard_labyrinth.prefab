@@ -84,10 +84,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b9011bd7583c0a4e5a22b3c65384c2d1, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 4640c9069a2c09915b8fef60c483a71d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a10b3f25abfba531aeee10715d8a62b, type: 2}
     - target: {fileID: -3830953719416414921, guid: 4640c9069a2c09915b8fef60c483a71d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e6df22eb9bee42d79a146aed902b897d, type: 2}
+      objectReference: {fileID: 2100000, guid: 203814a3502198545a1780dc3fadd9af, type: 2}
     - target: {fileID: -3571431337791291141, guid: 4640c9069a2c09915b8fef60c483a71d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -568,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aea9a779c4ee8a7dc18ca78d9e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerProfileService: {fileID: 0}
   taskPrefab: {fileID: 4580945157012535495}
 --- !u!1 &4727396737824395987 stripped
 GameObject:

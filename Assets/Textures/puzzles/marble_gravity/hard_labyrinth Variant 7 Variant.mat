@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hard_labyrinth Variant
+  m_Name: hard_labyrinth Variant 7 Variant
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 3780671244086486322, guid: 4640c9069a2c09915b8fef60c483a71d, type: 3}
-  m_ModifiedSerializedProperties: 16
+  m_Parent: {fileID: 2100000, guid: e6df22eb9bee42d79a146aed902b897d, type: 2}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -24,10 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _DstBlend: 0
-    - _Mode: 0
-    - _ZWrite: 1
+    m_Floats: []
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.0049114227, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
