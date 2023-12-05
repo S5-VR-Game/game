@@ -10,6 +10,7 @@ namespace Game.Tasks.MixingIngredients
     public class WateringLiquidSpawner : RotateDownSpawner<WateringLiquid>
     {
         [SerializeField] private LiquidColorAdaption spawnerColorAdaption;
+        [SerializeField] private Transform bottlePosition;
 
         private void Start()
         {
@@ -21,6 +22,11 @@ namespace Game.Tasks.MixingIngredients
             spawningEnabled = true;
             spawnerColorAdaption.SetActive(true);
             spawnerColorAdaption.UpdateColor(MixingIngredients.WateringLiquidColor);
+        }
+        
+        public Vector3 GetBottlePosition()
+        {
+            return bottlePosition.position;
         }
     }
 }

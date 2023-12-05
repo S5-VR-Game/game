@@ -35,12 +35,9 @@ namespace Game.Tasks.MixingIngredients
             var scalarProduct = Vector3.Dot(rotationTransform.up, Vector3.down);
             if (!m_FacingDown && scalarProduct > rotationResetThreshold)
             {
-                // spawn a prefab and lock spawning to prevent spawning multiple objects
+                // spawn a prefab and lock spawning by rotating to prevent spawning multiple objects
+                Spawn();
                 m_FacingDown = true;
-                T newObject = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
-                
-                OnGameObjectSpawnedEvent?.Invoke(newObject.GameObject());
-                OnSpawned(newObject);
             }
             else if (scalarProduct < -rotationResetThreshold)
             {
@@ -51,6 +48,28 @@ namespace Game.Tasks.MixingIngredients
 
         protected virtual void OnSpawned(T newObject)
         {
+        }
+
+        /// <summary>
+        /// Spawn the prefab if the game object is facing down. This method ignores whether spawning is locked or not
+        /// </summary>
+        public void SpawnManually()
+        {
+            if (m_FacingDown)
+            {
+                Spawn();
+            }
+        }
+
+        /// <summary>
+        /// Spawns the prefab at the spawn point
+        /// </summary>
+        private void Spawn()
+        {
+            T newObject = Instantiate(prefab, spawnPoint.position, Quaternion.identity);;
+                
+            OnGameObjectSpawnedEvent?.Invoke(newObject.GameObject());
+            OnSpawned(newObject);
         }
     }
 }

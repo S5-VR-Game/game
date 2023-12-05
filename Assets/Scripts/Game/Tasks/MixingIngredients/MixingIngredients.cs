@@ -39,6 +39,8 @@ namespace Game.Tasks.MixingIngredients
         /// </summary>
         private const int MaxIngredientQuantity = 5;
 
+        private const float WateringBottleFillDistance = 0.25f;
+
         public static readonly Color WateringLiquidColor = Color.white;
 
         /// <summary>
@@ -53,6 +55,7 @@ namespace Game.Tasks.MixingIngredients
 
         [SerializeField] private IngredientsDetection ingredientsDetection;
         [SerializeField] private WateringBottleDetection wateringBottleDetection;
+        [SerializeField] private Transform wateringBottleNearbyCheck;
         [SerializeField] private LiquidColorAdaption liquidColorAdaption;
         [NonSerialized] public WateringLiquidSpawner wateringLiquidSpawner;
         
@@ -62,6 +65,7 @@ namespace Game.Tasks.MixingIngredients
         private readonly Dictionary<IngredientType, int> m_ValidIngredients = new();
         private bool m_WrongIngredientDetected;
         private bool m_AllIngredientsDetected;
+        private bool m_WateringBottleFilledUp;
         private bool m_TaskCompleted;
 
         public MixingIngredients() : base(Name, Description)
@@ -80,6 +84,7 @@ namespace Game.Tasks.MixingIngredients
             
             // register event handlers
             ingredientsDetection.OnIngredientDetected += OnIngredientDetected;
+            // TODO could be removed in future after testing in vr, if distance calculation is working properly in vr, when the bottle is grabbed
             wateringBottleDetection.OnWateringSpawnerDetected += OnWateringSpawnerFillTry;
         }
 
@@ -123,8 +128,9 @@ namespace Game.Tasks.MixingIngredients
         private void OnWateringSpawnerFillTry()
         {
             // only allow filling up, if all ingredients are detected
-            if (m_AllIngredientsDetected)
+            if (!m_WateringBottleFilledUp && m_AllIngredientsDetected)
             {
+                m_WateringBottleFilledUp = true;
                 wateringLiquidSpawner.FillLiquid();
             }
         }
@@ -176,6 +182,14 @@ namespace Game.Tasks.MixingIngredients
 
         protected override void BeforeStateCheck()
         {
+            // check if watering bottle is nearby with distance check, because collision detection is not working when
+            // grab interactable object is grabbed in vr
+            if (Vector3.Distance(wateringBottleNearbyCheck.position, wateringLiquidSpawner.GetBottlePosition()) <=
+                WateringBottleFillDistance)
+            {
+                // watering bottle is nearby, allow filling up
+                OnWateringSpawnerFillTry();
+            }
         }
 
         protected override TaskState CheckTaskState()
