@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class ButtonSequenceLogic : GameTask
 {
-    private int[] colorSequence;
+    public static int[] colorSequence;
     private bool done = false;
     private int level = 0;
-    const int sequenceLenght = 3;
+    const int sequenceLenght = 9;
     
     public override void Initialize()
     {

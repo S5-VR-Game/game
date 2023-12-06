@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7fa550bd05f51499cc63999b6ba7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeComponents:
+  cubeComponents:
   - {fileID: 7790835893761565867}
   - {fileID: 7507943331241700862}
   - {fileID: 1791260716528331841}
@@ -1531,24 +1531,24 @@ MonoBehaviour:
   - {fileID: 8291613073649766768}
   - {fileID: 2804961257293016252}
   - {fileID: 2910477922547718814}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 942850762096568761}
+  - {fileID: 5395648665312749588}
+  - {fileID: 2399822217400394295}
+  - {fileID: 1002328507714105887}
+  - {fileID: 5857739870571754719}
+  - {fileID: 2106177473192009028}
+  - {fileID: 4855110702392126646}
+  - {fileID: 6463453373933812351}
+  - {fileID: 3404055786738086492}
+  - {fileID: 3140153512085767192}
+  - {fileID: 7514289052234647229}
+  - {fileID: 1007432809259652240}
+  - {fileID: 4534847191579925129}
+  - {fileID: 1164207483345392706}
+  - {fileID: 4995612772233315929}
+  - {fileID: 7490366661365195180}
+  - {fileID: 8716107876167506834}
+  - {fileID: 4393070030488557088}
 --- !u!1 &1556742314587873084
 GameObject:
   m_ObjectHideFlags: 0
