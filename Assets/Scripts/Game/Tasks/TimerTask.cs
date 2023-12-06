@@ -5,7 +5,7 @@ namespace Game.Tasks
     public abstract class TimerTask : GameTask
     {
         protected float remainingTime;
-        protected bool _timerStarted;
+        private bool _timerStarted;
 
         protected TimerTask(
             float initialTimerTime,
@@ -25,7 +25,7 @@ namespace Game.Tasks
         /// a subclass.
         /// </summary>
         /// <returns>true, if that's the case, false otherwise</returns>
-        protected bool TimerStartCondition()
+        protected virtual bool TimerStartCondition()
         {
             return true;
         }
