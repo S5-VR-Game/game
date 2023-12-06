@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PlayerController;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,12 +13,14 @@ namespace Game.Tasks.MedicalDisaster
     {
         private const string TaskName = "Medical Disaster";
         private const string TaskDescription = "Medical Disaster Description";
-        private const float InitialTimerTime = 60;
+        private const float InitialTimerTime = 600;
 
         // parameters for different difficulties
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
         private readonly MedicalDisasterParameters m_MediumParameters = new(4, 1, 3);
         private readonly MedicalDisasterParameters m_HardParameters = new(6, 2, 4);
+
+        public PlayerProfileService playerProfileService;
         
         /// <summary>
         /// List of all available valves, which is used to pick random valves, that the user has to close. 
@@ -49,6 +52,7 @@ namespace Game.Tasks.MedicalDisaster
             {
                 openValve.gameObject.SetActive(true);
                 openValve.requiredRotationCount = Random.Range(parameterSetup.minValveRotation, parameterSetup.maxValveRotation + 1);
+                openValve.playerProfileService = playerProfileService;
                 openValve.OnValveRotationCompleted += () => openValves.Remove(openValve);
             }
         }

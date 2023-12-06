@@ -14979,6 +14979,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1913378715}
   medicalDisasterPrefab: {fileID: 6458550353022305103, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
+  playerProfileService: {fileID: 1140929251}
 --- !u!1001 &1029942698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21844,7 +21845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
