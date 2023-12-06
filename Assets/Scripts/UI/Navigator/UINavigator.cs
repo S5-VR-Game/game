@@ -11,6 +11,8 @@ public class UINavigator : MonoBehaviour
     public HUD parentHUD;
     public GameObject markerPrefab;
 
+    private Camera parent_cam;
+
     public float zThreshold;
 
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class UINavigator : MonoBehaviour
     {
         compassBarTransform = gameObject.GetComponent<RectTransform>();
 
-        
+        parent_cam = parentHUD.ParentCamera();
     }
 
     // Update is called once per frame
@@ -38,6 +40,8 @@ public class UINavigator : MonoBehaviour
 
     void UpdateMarkerPosition(ObjectiveMarker marker, Camera cam)
     {
+        // marker tranform in 2D space for keyboard player
+        
         Transform cameraTransform = cam.transform;
         
         RectTransform markerTransform = marker.GetCanvas().GetComponent<RectTransform>();
@@ -46,9 +50,11 @@ public class UINavigator : MonoBehaviour
         Vector3 direction = marker.GetTaskLocation() - cameraTransform.position;
         float angle = Vector2.SignedAngle(new Vector2(direction.x, direction.z),
             new Vector2(cameraTransform.transform.forward.x, cameraTransform.transform.forward.z));
-
+        
         float compassPositionX = Mathf.Clamp(2 * angle / cam.fieldOfView, -1, 1);
         markerTransform.anchoredPosition = new Vector2(compassBarTransform.rect.width / 2 * compassPositionX, transform.position.y);
+
+        marker.transform.rotation = cam.transform.rotation;
     }
 
     void CheckPointer(ObjectiveMarker marker, Vector3 playerLocation)
@@ -76,7 +82,8 @@ public class UINavigator : MonoBehaviour
     public void InitializeMarker(GameTask task, Vector3 location)
     {
         GameObject marker = Instantiate(markerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        marker.transform.position = new Vector3(transform.position.x,0,0);
+        marker.transform.position = GetComponentInParent<Transform>().position;
+        marker.transform.localScale = new Vector3(0.001f,0.001f,0.001f);
         ObjectiveMarker newMarker = marker.GetComponent<ObjectiveMarker>();
         
         // create new marker and set as child of this object
