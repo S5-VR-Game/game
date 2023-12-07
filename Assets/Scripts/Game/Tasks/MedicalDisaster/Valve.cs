@@ -18,17 +18,23 @@ namespace Game.Tasks.MedicalDisaster
         public int requiredRotationCount = 3;
         public event Action OnValveRotationCompleted;
 
+        private bool m_HalfRotation;
         private bool m_ValveRotationCompleted;
         private int m_RotationCount;
         [NonSerialized] public PlayerProfileService playerProfileService;
 
-
+        private Quaternion lastControllerRotation;
+        
         private readonly Color m_ClosedColor = Color.red;
         private readonly Color m_OpenedColor = Color.green;
+
+        private const float ControllerRotationFactor = 2f;
+        private const float RotationThreshold = 0.7f;
 
         private void Start()
         {
             valveMeshRenderer.material.color = m_ClosedColor;
+            lastControllerRotation = playerProfileService.GetRightVrController().localRotation;
         }
 
         private void Update()
@@ -36,12 +42,38 @@ namespace Game.Tasks.MedicalDisaster
             if (valve.isSelected)
             {
                 // get rotations
-                var valveRotation = valve.transform.localRotation;
-                var newRotation = playerProfileService.GetRightVrController().localRotation.eulerAngles;
-                // combine rotations of controller and valve
-                newRotation.Set(newRotation.z, valveRotation.y, valveRotation.z);
+                //var newRotation = playerProfileService.GetRightVrController().localRotation.eulerAngles;
+                var rotationDifference = lastControllerRotation *
+                                         Quaternion.Inverse(playerProfileService.GetRightVrController().localRotation);
                 // update valve transform to match controller rotation
-                valve.transform.localRotation = Quaternion.Euler(newRotation);
+                valve.transform.Rotate(new Vector3(rotationDifference.eulerAngles.z * ControllerRotationFactor, 0, 0));
+
+                CheckValveRotation();
+            }
+
+            lastControllerRotation = playerProfileService.GetRightVrController().localRotation;
+        }
+
+        private void CheckValveRotation()
+        {
+            var valveTransform = valve.transform;
+            // check if half rotation is completed
+            if (!m_HalfRotation && valveTransform.rotation.z <= -RotationThreshold)
+            {
+                m_HalfRotation = true;
+            }
+            else if (m_HalfRotation && valveTransform.rotation.z >= 0)
+            {
+                // full rotation completed
+                m_HalfRotation = false;
+                m_RotationCount++;
+                if (!m_ValveRotationCompleted && m_RotationCount >= requiredRotationCount)
+                {
+                    // valve rotation goal reached
+                    m_ValveRotationCompleted = true;
+                    OnValveRotationCompleted?.Invoke();
+                    valveMeshRenderer.material.color = m_OpenedColor;
+                }
             }
         }
 
