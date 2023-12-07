@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 3769836651817287872}
   - component: {fileID: 2766555538743404404}
   - component: {fileID: 8327690461323679888}
+  - component: {fileID: 7562419852456309897}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -193,6 +194,9 @@ MonoBehaviour:
   minTimeIntervalBetweenTasks: 10
   randomTimeIntervalSize: 15
   difficulty: {fileID: 2766555538743404404}
+  playerProfileService: {fileID: 0}
+  gameTaskObserver: {fileID: 822869670583254559}
+  integrityObserver: {fileID: 8919326314240518745}
   factories: []
 --- !u!114 &2766555538743404404
 MonoBehaviour:
@@ -220,6 +224,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   integrityValue: 100
+--- !u!114 &7562419852456309897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935988648039381092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3ef31ddc6a4f6b8bccabacc6644516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTimer: {fileID: 3769836651817287872}
+  integrity: {fileID: 8327690461323679888}
+  difficulty: {fileID: 2766555538743404404}
+  currentGameState: 0
 --- !u!1 &8433711160787168467
 GameObject:
   m_ObjectHideFlags: 0
