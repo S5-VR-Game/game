@@ -1,6 +1,5 @@
 using System;
 using PlayerController;
-using Unity.VRTemplate;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -25,24 +24,45 @@ namespace Game.Tasks.MedicalDisaster
 
         private Quaternion lastControllerRotation;
         
-        private readonly Color m_ClosedColor = Color.red;
-        private readonly Color m_OpenedColor = Color.green;
+        private readonly Color m_GradientStart = Color.red;
+        private readonly Color m_GradientMiddle = Color.yellow;
+        private readonly Color m_GradientEnd = Color.green;
+        private readonly Color m_FinishedColor = Color.white;
+
+        private Gradient m_ValveGradient;
 
         private const float ControllerRotationFactor = 2f;
         private const float RotationThreshold = 0.7f;
+        
+        private float completeRotationProgress;
 
         private void Start()
         {
-            valveMeshRenderer.material.color = m_ClosedColor;
+            valveMeshRenderer.material.color = m_GradientStart;
             lastControllerRotation = playerProfileService.GetRightVrController().localRotation;
+            
+            // build gradient
+            m_ValveGradient = new Gradient();
+            
+            var colors = new GradientColorKey[3];
+            colors[0] = new GradientColorKey(m_GradientStart, 0.0f);
+            colors[1] = new GradientColorKey(m_GradientMiddle, 0.5f);
+            colors[2] = new GradientColorKey(m_GradientEnd, 1.0f);
+
+            var alphas = new GradientAlphaKey[2];
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
+
+            m_ValveGradient.SetKeys(colors, alphas);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (valve.isSelected)
             {
+                var currentRotation = playerProfileService.GetRightVrController().localRotation;
                 // get rotation difference from last controller rotation
-                var rotationDifference = lastControllerRotation * Quaternion.Inverse(playerProfileService.GetRightVrController().localRotation);
+                var rotationDifference = Quaternion.Inverse(lastControllerRotation * Quaternion.Inverse(currentRotation));
                 // update valve transform
                 valve.transform.Rotate(new Vector3(rotationDifference.eulerAngles.z * ControllerRotationFactor, 0, 0));
 
@@ -63,27 +83,41 @@ namespace Game.Tasks.MedicalDisaster
             if (!m_HalfRotation && valveTransform.rotation.z <= -RotationThreshold)
             {
                 m_HalfRotation = true;
+                OnHalfRotated();
             }
             else if (m_HalfRotation && valveTransform.rotation.z >= 0)
             {
                 // full rotation completed
                 m_HalfRotation = false;
                 m_RotationCount++;
+                OnHalfRotated();
                 if (!m_ValveRotationCompleted && m_RotationCount >= requiredRotationCount)
                 {
                     // valve rotation goal reached
                     m_ValveRotationCompleted = true;
                     OnValveRotationCompleted?.Invoke();
-                    valveMeshRenderer.material.color = m_OpenedColor;
+                    valveMeshRenderer.material.color = m_FinishedColor;
+                    valve.enabled = false;
                 }
             }
         }
 
-        public void OnRotationChanged()
+        /// <summary>
+        /// Called, when the valve is turned half a circle. Updates the internal progress value and applies
+        /// current gradient value to valve color. 
+        /// </summary>
+        private void OnHalfRotated()
         {
-            // TODO test if screw mechanic can be implemented using xr knob
-            // print(valve.value);
-            valveMeshRenderer.material.color = m_OpenedColor;
+            if (completeRotationProgress > 1)
+            {
+                return;
+            }
+            
+            // add half circle to progress
+            completeRotationProgress += 1f/(requiredRotationCount*2);
+
+            // apply current gradient value
+            valveMeshRenderer.material.color = m_ValveGradient.Evaluate(completeRotationProgress);
         }
     }
 }
