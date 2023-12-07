@@ -41,11 +41,9 @@ namespace Game.Tasks.MedicalDisaster
         {
             if (valve.isSelected)
             {
-                // get rotations
-                //var newRotation = playerProfileService.GetRightVrController().localRotation.eulerAngles;
-                var rotationDifference = lastControllerRotation *
-                                         Quaternion.Inverse(playerProfileService.GetRightVrController().localRotation);
-                // update valve transform to match controller rotation
+                // get rotation difference from last controller rotation
+                var rotationDifference = lastControllerRotation * Quaternion.Inverse(playerProfileService.GetRightVrController().localRotation);
+                // update valve transform
                 valve.transform.Rotate(new Vector3(rotationDifference.eulerAngles.z * ControllerRotationFactor, 0, 0));
 
                 CheckValveRotation();
@@ -54,6 +52,10 @@ namespace Game.Tasks.MedicalDisaster
             lastControllerRotation = playerProfileService.GetRightVrController().localRotation;
         }
 
+        /// <summary>
+        /// Checks is the valve is rotated and invokes the <see cref="OnValveRotationCompleted"/> event, when rotation
+        /// goal is reached.
+        /// </summary>
         private void CheckValveRotation()
         {
             var valveTransform = valve.transform;
