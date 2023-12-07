@@ -45,7 +45,7 @@ namespace Game.Tasks.MedicalDisaster
         private void Start()
         {
             valveMeshRenderer.material.color = m_GradientStart;
-            m_LastControllerRotation = GetRotationController().localRotation;
+            m_LastControllerRotation = GetRotationController().rotation;
             
             // build gradient
             m_ValveGradient = new Gradient();
@@ -66,7 +66,7 @@ namespace Game.Tasks.MedicalDisaster
         {
             if (valve.isSelected)
             {
-                var currentRotation = GetRotationController().localRotation;
+                var currentRotation = GetRotationController().rotation;
                 // get rotation difference from last controller rotation
                 var rotationDifference = Quaternion.Inverse(m_LastControllerRotation * Quaternion.Inverse(currentRotation));
                 // update valve transform
@@ -75,7 +75,7 @@ namespace Game.Tasks.MedicalDisaster
                 CheckValveRotation();
             }
 
-            m_LastControllerRotation = GetRotationController().localRotation;
+            m_LastControllerRotation = GetRotationController().rotation;
         }
 
         /// <summary>
