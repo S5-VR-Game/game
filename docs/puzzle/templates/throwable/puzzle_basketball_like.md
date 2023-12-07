@@ -12,7 +12,7 @@
     -  Einen fancy Namen überlegen :)
 -->
 
-Baskeltball?
+Basketball
 
 ---
 
@@ -24,7 +24,7 @@ Baskeltball?
     - Dieser Abschnitt kann dem Spieler im HUD angezeigt werden.
 -->
 
-Befördere diesen Gegenstand in den markierten Kontainer (wefen geht auch :) ), verwende den Gravity Knopf um den Gegenstand schwerelos zu machen.
+Befördere diesen Gegenstand in den markierten Container (wefen geht auch :) ), verwende den Gravity Knopf um den Gegenstand schwerelos zu machen.
 
 ---
 
@@ -44,10 +44,10 @@ Befördere diesen Gegenstand in den markierten Kontainer (wefen geht auch :) ), 
     - Exakte Beschreibung der benötigten Schritte/Aufgaben des Spielers 
 -->
 
-Der Spieler bekommt z.B. einen Ball, dieser soll in einen Kontainer (Eimer/Loch in der Wand Kiste) befördert werden,
-der grade aufläuchtet/seine Farbe ändert, ..
-Beim Ball-Spawn befindet sich ein Knopf, der bei dem Ball die schwerelosigkeit triggert (toggelt zwischen mit/ohne Erdanziehungskraft)
-Wurde ein Kontainer getroffen, despawnt der Ball der Spieler erhält einen Punkt und ein neuer erscheint. 
+Der Spieler bekommt z.B. einen Ball, dieser soll in einen Container (Eimer/Loch in der Wand Kiste) befördert werden,
+der gerade aufläuchtet/seine Farbe ändert, ..
+Beim Ball-Spawn befindet sich ein Knopf, der bei dem Ball die Schwerelosigkeit triggert (toggelt zwischen mit/ohne Erdanziehungskraft)
+Wurde ein Container getroffen, despawnt der Ball der Spieler erhält einen Punkt und ein neuer erscheint. 
 
 
 ---
@@ -76,7 +76,7 @@ Das Spiel ist "gelöst" wenn die Zielpunktzahl erreicht ist.
 -->
 
 Schwierigkeit kann eingestellt werden:
-    - indem die ervorderliche Punktzahl erreicht wurde
-    - die Würfe für die Kontainer komplizierter ist (andere Position)
+    - indem die erforderliche Punktzahl erreicht wurde
+    - die Würfe für die Container komplizierter ist (andere Position)
     
     
