@@ -33,10 +33,19 @@ namespace Game.Tasks.MedicalDisaster
         private readonly Color m_FinishedColor = Color.white;
         private Gradient m_ValveGradient;
 
+        /// <summary>
+        /// Determines the transform, which is used to rotate the valve
+        /// </summary>
+        /// <returns>right hand controller by default to rotate the valve</returns>
+        private Transform GetRotationController()
+        {
+            return playerProfileService.GetRightVrController();
+        }
+        
         private void Start()
         {
             valveMeshRenderer.material.color = m_GradientStart;
-            m_LastControllerRotation = playerProfileService.GetRightVrController().localRotation;
+            m_LastControllerRotation = GetRotationController().localRotation;
             
             // build gradient
             m_ValveGradient = new Gradient();
@@ -57,7 +66,7 @@ namespace Game.Tasks.MedicalDisaster
         {
             if (valve.isSelected)
             {
-                var currentRotation = playerProfileService.GetRightVrController().localRotation;
+                var currentRotation = GetRotationController().localRotation;
                 // get rotation difference from last controller rotation
                 var rotationDifference = Quaternion.Inverse(m_LastControllerRotation * Quaternion.Inverse(currentRotation));
                 // update valve transform
@@ -66,7 +75,7 @@ namespace Game.Tasks.MedicalDisaster
                 CheckValveRotation();
             }
 
-            m_LastControllerRotation = playerProfileService.GetRightVrController().localRotation;
+            m_LastControllerRotation = GetRotationController().localRotation;
         }
 
         /// <summary>
