@@ -11,8 +11,8 @@ namespace Game.Tasks.EnergyCore
         {
             if (!other.gameObject.CompareTag("EnergyCell")) return;
 
-            if (!ManageEnergyCore.GetColor(other.collider.gameObject)
-                    .Equals(ManageEnergyCore.GetColor(gameObject))) return;
+            if (!ManageEnergyCoreColors.GetColor(other.collider.gameObject)
+                    .Equals(ManageEnergyCoreColors.GetColor(gameObject))) return;
             startEnergyCoreTaskScript.finishedEnergyCoreCounter++;
             
             Destroy(energyCore);

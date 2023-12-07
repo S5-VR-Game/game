@@ -3,23 +3,22 @@ using UnityEngine;
 
 namespace Game.Tasks.EnergyCore
 {
-    public class ManageEnergyCore : MonoBehaviour
+    public class ManageEnergyCoreColors : MonoBehaviour
     {
         public GameObject energyCoreRed;
         public GameObject energyCoreBlue;
         public GameObject energyCoreGreen;
         public GameObject energyCoreYellow;
-        public GameObject energyCoreGray;
         public GameObject energyCoreMagenta;
         public GameObject energyCoreCyan;
-
+        public GameObject energyCoreEmpty;
+        
         public GameObject energyCell1;
         public GameObject energyCell2;
         public GameObject energyCell3;
         public GameObject energyCell4;
         public GameObject energyCell5;
         public GameObject energyCell6;
-        public GameObject energyCell7;
         
         private void Start()
         {
@@ -27,9 +26,10 @@ namespace Game.Tasks.EnergyCore
             SetColor(energyCoreBlue, Color.blue);
             SetColor(energyCoreYellow, Color.yellow);
             SetColor(energyCoreGreen, Color.green);
-            SetColor(energyCoreGray, Color.gray);
             SetColor(energyCoreMagenta, Color.magenta);
             SetColor(energyCoreCyan, Color.cyan);
+            
+            SetColor(energyCoreEmpty, Color.white);
             
             var colors = new List<Color>
             {
@@ -39,7 +39,6 @@ namespace Game.Tasks.EnergyCore
                 Color.yellow,
                 Color.cyan,
                 Color.magenta,
-                Color.gray
             };
 
             SetColor(energyCell1, SelectRandomColor(colors));
@@ -48,7 +47,6 @@ namespace Game.Tasks.EnergyCore
             SetColor(energyCell4, SelectRandomColor(colors));
             SetColor(energyCell5, SelectRandomColor(colors));
             SetColor(energyCell6, SelectRandomColor(colors));
-            SetColor(energyCell7, SelectRandomColor(colors));
         }
 
 
