@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using PlayerController;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,8 +18,6 @@ namespace Game.Tasks.MedicalDisaster
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
         private readonly MedicalDisasterParameters m_MediumParameters = new(4, 1, 3);
         private readonly MedicalDisasterParameters m_HardParameters = new(6, 2, 4);
-
-        public PlayerProfileService playerProfileService;
         
         /// <summary>
         /// List of all available valves, which is used to pick random valves, that the user has to close. 
