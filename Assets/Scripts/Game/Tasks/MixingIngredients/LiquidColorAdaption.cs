@@ -8,7 +8,7 @@ namespace Game.Tasks.MixingIngredients
     public class LiquidColorAdaption : MonoBehaviour
     {
         [SerializeField] private MeshRenderer liquidMeshRenderer;
-        private static readonly int LiquidColor1Attribute = Shader.PropertyToID("_Color1");
+        private static readonly int LiquidColor1Attribute = Shader.PropertyToID("_Color");
 
         /// <summary>
         /// Changes liquid "Color1" attribute to given color
