@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 6374084129168641088}
   - component: {fileID: 1116247822664668843}
   - component: {fileID: 8494216924536453369}
+  - component: {fileID: 7819187700887893043}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: EnergyCell
@@ -872,7 +873,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7819187700887893043}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -997,6 +1010,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &7819187700887893043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874868007223820538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &1484753056201249915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1038,7 @@ GameObject:
   - component: {fileID: 626239083340232786}
   - component: {fileID: 1192526639576272056}
   - component: {fileID: 2257972907535217333}
+  - component: {fileID: 2274068807553451762}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: EnergyCell
@@ -1183,7 +1210,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2274068807553451762}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1308,6 +1347,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &2274068807553451762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484753056201249915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &2255013282917098111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1624,7 @@ GameObject:
   - component: {fileID: 4124092248433156776}
   - component: {fileID: 5652310358366940262}
   - component: {fileID: 4226580309554604091}
+  - component: {fileID: 3165495076445165410}
   m_Layer: 0
   m_Name: Sphere (5)
   m_TagString: EnergyCell
@@ -1743,7 +1796,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3165495076445165410}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1868,6 +1933,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &3165495076445165410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533176788473502116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &3997763834203462807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,13 +2149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishedEnergyCoreCounter: 0
-  energyCoreCollision1: {fileID: 1985979377904301264}
-  energyCoreCollision2: {fileID: 3313012902223607007}
-  energyCoreCollision3: {fileID: 949478194622936351}
-  energyCoreCollision4: {fileID: 6737037526962791837}
-  energyCoreCollision5: {fileID: 5224967443869903804}
-  energyCoreCollision6: {fileID: 9004139867528461628}
-  energyCoreCollision7: {fileID: 3447642949336543025}
+  energyCoreCollision1: {fileID: 0}
+  energyCoreCollision2: {fileID: 0}
+  energyCoreCollision3: {fileID: 0}
+  energyCoreCollision4: {fileID: 0}
+  energyCoreCollision5: {fileID: 0}
+  energyCoreCollision6: {fileID: 0}
+  energyCoreCollision7: {fileID: 0}
 --- !u!114 &123846879647733316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2316,7 @@ GameObject:
   - component: {fileID: 1157470905922494982}
   - component: {fileID: 4507399730909214041}
   - component: {fileID: 2036981810098900405}
+  - component: {fileID: 1966737727307393600}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: EnergyCell
@@ -2409,7 +2488,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1966737727307393600}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -2534,6 +2625,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &1966737727307393600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739622414343541109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &5633491062312739785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2653,7 @@ GameObject:
   - component: {fileID: 5422017065984073634}
   - component: {fileID: 3103470745807905046}
   - component: {fileID: 8344940913485993304}
+  - component: {fileID: 3087490048921036987}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: EnergyCell
@@ -2702,7 +2807,19 @@ MonoBehaviour:
   m_AllowGazeAssistance: 0
   m_FirstHoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_LastHoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -2720,7 +2837,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3087490048921036987}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -2845,6 +2974,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &3087490048921036987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633491062312739785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &5696514563041320832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3251,7 @@ GameObject:
   - component: {fileID: 2679481080315259077}
   - component: {fileID: 8013886552792408834}
   - component: {fileID: 2298884580632199265}
+  - component: {fileID: 6341786354631127666}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: EnergyCell
@@ -3280,7 +3423,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6341786354631127666}
+        m_TargetAssemblyTypeName: Game.Tasks.EnergyCore.EnergyCellSelection, Assembly-CSharp
+        m_MethodName: OnEnergyCellSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -3405,6 +3560,19 @@ MonoBehaviour:
   m_MinimumScaleRatio: 0.25
   m_MaximumScaleRatio: 2
   m_ScaleMultiplier: 0.25
+--- !u!114 &6341786354631127666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961633920179853703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbe3ca88ab34e758f013c7629442302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCoreManager: {fileID: 123846879647733316}
 --- !u!1 &6392740746770177941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,33 +4414,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1985979377904301264}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
 --- !u!1 &2080321294078040290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 16770827329338089}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1985979377904301264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080321294078040290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 6113850537592970875}
---- !u!1 &6113850537592970875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 16770827329338089}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6393931644008571939 stripped
@@ -4339,38 +4485,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6737037526962791837}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
 --- !u!1 &159545490172875419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 2221273025582149776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6737037526962791837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159545490172875419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 5346012851133322242}
 --- !u!4 &5067629313628859994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 2221273025582149776}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5346012851133322242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 2221273025582149776}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2996556367167562289
@@ -4432,38 +4556,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9004139867528461628}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
 --- !u!1 &3850777693126328378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 2996556367167562289}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9004139867528461628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3850777693126328378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 9040622702804043427}
 --- !u!4 &8148615007487819003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 2996556367167562289}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9040622702804043427 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 2996556367167562289}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4614039173743557748
@@ -4525,16 +4627,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 949478194622936351}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
---- !u!1 &1507310044893026534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 4614039173743557748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1767669588393714366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
@@ -4545,20 +4639,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 4614039173743557748}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &949478194622936351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696010307368033919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 1507310044893026534}
 --- !u!1001 &4904698502084604583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4618,16 +4698,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5224967443869903804}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
---- !u!1 &1221508062601680437 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 4904698502084604583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2058328938226904173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
@@ -4638,20 +4710,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 4904698502084604583}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5224967443869903804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410206143202365612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 1221508062601680437}
 --- !u!1001 &6543117098775254809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4711,19 +4769,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3313012902223607007}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
 --- !u!4 &165938686755064275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 6543117098775254809}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1021899321509557131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 6543117098775254809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5055448494550463762 stripped
@@ -4731,20 +4781,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 6543117098775254809}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3313012902223607007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5055448494550463762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 1021899321509557131}
 --- !u!1001 &8452230825808981667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4804,16 +4840,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3447642949336543025}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
---- !u!1 &2427173525194394161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6116827626310116498, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
-  m_PrefabInstance: {fileID: 8452230825808981667}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3300013906205618281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377196091264163530, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
@@ -4824,17 +4852,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2082173531029643787, guid: 7bb6ed14f9052654eb4fd105e311615d, type: 3}
   m_PrefabInstance: {fileID: 8452230825808981667}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3447642949336543025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7613624256102747304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bfe1c0fb294eb4eaa405ecf913881f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEnergyCoreTaskScript: {fileID: 0}
-  energyCore: {fileID: 2427173525194394161}

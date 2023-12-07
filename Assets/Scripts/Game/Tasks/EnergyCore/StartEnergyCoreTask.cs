@@ -5,13 +5,13 @@ namespace Game.Tasks.EnergyCore
     public class StartEnergyCoreTask : TimerTask
     {
         public int finishedEnergyCoreCounter;
-        public EnergyCoreCollision energyCoreCollision1;
-        public EnergyCoreCollision energyCoreCollision2;
-        public EnergyCoreCollision energyCoreCollision3;
-        public EnergyCoreCollision energyCoreCollision4;
-        public EnergyCoreCollision energyCoreCollision5;
-        public EnergyCoreCollision energyCoreCollision6;
-        public EnergyCoreCollision energyCoreCollision7;
+        public EnergyCoreManager energyCoreCollision1;
+        public EnergyCoreManager energyCoreCollision2;
+        public EnergyCoreManager energyCoreCollision3;
+        public EnergyCoreManager energyCoreCollision4;
+        public EnergyCoreManager energyCoreCollision5;
+        public EnergyCoreManager energyCoreCollision6;
+        public EnergyCoreManager energyCoreCollision7;
         
         public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
             integrityValue : 10)
@@ -20,14 +20,6 @@ namespace Game.Tasks.EnergyCore
 
         public override void Initialize()
         {
-            energyCoreCollision1.startEnergyCoreTaskScript = this;
-            energyCoreCollision2.startEnergyCoreTaskScript = this;
-            energyCoreCollision3.startEnergyCoreTaskScript = this;
-            energyCoreCollision4.startEnergyCoreTaskScript = this;
-            energyCoreCollision5.startEnergyCoreTaskScript = this;
-            energyCoreCollision6.startEnergyCoreTaskScript = this;
-            energyCoreCollision7.startEnergyCoreTaskScript = this;
-            
             remainingTime = difficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => 90f,

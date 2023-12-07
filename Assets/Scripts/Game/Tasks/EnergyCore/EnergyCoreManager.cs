@@ -7,39 +7,42 @@ namespace Game.Tasks.EnergyCore
 {
     public class EnergyCoreManager : MonoBehaviour
     {
+        private StartEnergyCoreTask startEnergyCoreTaskScript;
+        
         public GameObject[] energyCores; // stores the objects of the filled cores and the empty one (last index)
         public GameObject[] energyCells; // stores the objects of the cells to put in the cores
 
-        private List<GameObject> _emptyCores = new(); // stores the reference to the empty cells (max two possible)
+        private readonly List<GameObject> emptyCores = new(); // stores the reference to the empty cells (max two possible)
         
-        private XRGrabInteractable[] _cellGrabInteractables; // stores the reference to the XRGrabInteractable script of 
+        private XRGrabInteractable[] cellGrabInteractables; // stores the reference to the XRGrabInteractable script of 
                                                              // of each energy cell
         
-        private bool _energyCellInCore = true; // value to set: true, if picked up energy cell is back in a core
+        private bool energyCellInCore = true; // value to set: true, if picked up energy cell is back in a core
                                                //               false, if the picked up energy cell is still grabbed
         
         private void Start()
         {
-            _cellGrabInteractables = new XRGrabInteractable[energyCells.Length]; 
+            startEnergyCoreTaskScript = GetComponent<StartEnergyCoreTask>();
+            
+            cellGrabInteractables = new XRGrabInteractable[energyCells.Length]; 
             
             for (var i = 0; i < energyCells.Length; i++)
             {
                 // adds each reference of the grab-script to the array and adds listener if the cell is picked up
-                _cellGrabInteractables[i] = energyCells[i].GetComponent<XRGrabInteractable>();
-                _cellGrabInteractables[i].selectEntered.AddListener(OnEnergyCellSelected);
+                cellGrabInteractables[i] = energyCells[i].GetComponent<XRGrabInteractable>();
             }
             
-            _emptyCores.Add(energyCores[^1]); // adds the reference of the empty core to the array 
+            emptyCores.Add(energyCores[^1]); // adds the reference of the empty core to the array 
         }
 
         // function disables grabInteractable-script from all cells which are remaining in cores
-        private void OnEnergyCellSelected(SelectEnterEventArgs args)
+        public void OnEnergyCellSelected()
         {
-            if (!_energyCellInCore) return;
+            if (!energyCellInCore) return;
             
-            _energyCellInCore = false; 
+            energyCellInCore = false; 
             
-            foreach (var grabInteractable in _cellGrabInteractables)
+            foreach (var grabInteractable in cellGrabInteractables)
             {
                 // deactivates the grabInteractable-script of each cell (except from the picked up)
                 if (!grabInteractable.isSelected)
@@ -52,25 +55,21 @@ namespace Game.Tasks.EnergyCore
         // checks if collision between cell and core happened
         private void OnCollisionEnter(Collision collision)
         {
-            foreach (var core in energyCores)
+            foreach (var emptyCore in emptyCores)
             {
-                if (collision.collider.gameObject == core) // if current core is the one which triggered the event
-                {
-                    foreach (var emptyCore in _emptyCores)
-                    {
-                        if (collision.collider.gameObject == emptyCore) // if current core has no cell
-                        {
-                            _emptyCores.Remove(emptyCore); // core is not empty anymore, removed from list
-                            _energyCellInCore = true; // allows other cells to get picked up
+                if (collision.collider.gameObject == emptyCore) // if current core has no cell
+                { 
+                    emptyCores.Remove(emptyCore); // core is not empty anymore, removed from list
+                    energyCellInCore = true; // allows other cells to get picked up
                             
-                            //activates all grabInteractable-scripts
-                            foreach (var grabInteractable in _cellGrabInteractables)
-                            {
-                                grabInteractable.enabled = true;
-                            }
-                        }    
+                    HandleCollision(emptyCore, collision);
+                    
+                    //activates all grabInteractable-scripts
+                    foreach (var grabInteractable in cellGrabInteractables)
+                    {
+                        grabInteractable.enabled = true;
                     }
-                }
+                }    
             }
         }
 
@@ -79,7 +78,22 @@ namespace Game.Tasks.EnergyCore
         {
             if (energyCores.Any(core => collision.collider.gameObject == core))
             {
-                _emptyCores.Add(collision.collider.gameObject);
+                emptyCores.Add(collision.collider.gameObject);
+            }
+        }
+
+        private void HandleCollision(GameObject energyCore, Collision other)
+        {
+            if (!other.gameObject.CompareTag("EnergyCell")) return;
+                      
+            if (!ManageEnergyCoreColors.GetColor(other.gameObject)
+                    .Equals(ManageEnergyCoreColors.GetColor(gameObject))) return;
+            
+            if (emptyCores.Contains(other.collider.gameObject))
+            { 
+                startEnergyCoreTaskScript.finishedEnergyCoreCounter++;
+                Destroy(energyCore);
+                Destroy(other.gameObject);
             }
         }
     }
