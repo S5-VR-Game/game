@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.XR.CoreUtils;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Game.Tasks.BookRiddle
 {
     /// <summary>
-    /// This class is used to spawn a certain Book Riddle
+    /// This class is there for book summoning.
     /// </summary>
     public class BookRiddleFactory : GameTaskFactory<TaskSpawnPoint>
     {
@@ -15,65 +14,80 @@ namespace Game.Tasks.BookRiddle
         [SerializeField] private Transform[] bookSpawnPoints;
         [SerializeField] private GameObject bookPrefab;
         [SerializeField] private Material[] allBookMaterials;
-        
-        private const int MaxRandomDigit = 10;
-        private const int MaxDigitsAndColors = 4;
-        private static readonly Random Rand = new(new Random().Next());
 
-        
+        private const int MaxDigitsAndColors = 4;
+
         // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
             var transform1 = spawnPoint.transform;
             var riddle = Instantiate(bookRiddlePrefab, transform1.position, transform1.rotation);
-            var task = riddle.GetComponent<BookRiddle>();
-            SpawnBooks(bookSpawnPoints, riddle.transform, task);
-            return task;
+            var bookRiddle = riddle.GetComponent<BookRiddle>();
+            SpawnBooks(bookSpawnPoints, riddle.transform, bookRiddle);
+            return bookRiddle;
         }
-        
-        /// <summary>
-        /// Spawns all the books needed and provides their parent transform
-        /// </summary>
-        /// <param name="spawnPoints">All The spawn-points for the books</param>
-        /// <param name="parent">the Parent transform of the riddle</param>
-        /// <param name="riddle"></param>
-        private void SpawnBooks(Transform [] spawnPoints, Transform parent, BookRiddle riddle)
+
+        private void SpawnBooks(Transform[] spawnPoints, Transform parent, BookRiddle bookRiddle)
         {
             spawnPoints.Shuffle();
             var bookRiddleSolution = new BookRiddleSolution();
+
             for (var i = 0; i < spawnPoints.Length; i++)
             {
-                var currentSpawnPoint = spawnPoints[i];
-                var currentNewBook =
-                    Instantiate(bookPrefab, currentSpawnPoint.position, currentSpawnPoint.rotation);
-                currentNewBook.transform.parent = parent;
-                if (i < MaxDigitsAndColors)
-                {
-                    currentNewBook.GetComponentInChildren<TextMeshPro>().text = "" + GetRandomDigit();
-                }
-
-                var bookHalves = new List<GameObject>();
-                currentNewBook.GetChildGameObjects(bookHalves);
-
-                foreach (var half in bookHalves)
-                {
-                    var bookRenderer = half.GetComponent<Renderer>();
-                    var currentBookMaterials = bookRenderer.materials;
-                    currentBookMaterials[0] = allBookMaterials[i % MaxDigitsAndColors];
-                    bookRenderer.materials = currentBookMaterials;
-                }
-
+                var currentNewBook = SetUpCurrentBook(spawnPoints[i], parent, i, bookRiddleSolution);
+                AddMaterialToCurrentBook(currentNewBook, i);
             }
-            riddle.solution = bookRiddleSolution;
+
+            Debug.Log(bookRiddleSolution);
+            bookRiddle.solution = bookRiddleSolution;
+        }
+
+        /// <summary>
+        /// Sets up the spawnPoint and parent of a certain book
+        /// And Constructs the Solution-object.
+        /// </summary>
+        /// <param name="spawnPoint">The spawn-point of the book</param>
+        /// <param name="parent">The parent Object</param>
+        /// <param name="index">The current Spawn-point Index</param>
+        /// <param name="bookRiddleSolution">The Solution that gets constructed.</param>
+        /// <returns></returns>
+        private GameObject SetUpCurrentBook(Transform spawnPoint, Transform parent, int index, BookRiddleSolution bookRiddleSolution)
+        {
+            var currentNewBook = Instantiate(bookPrefab, spawnPoint.position, spawnPoint.rotation, parent);
+
+            if (index >= MaxDigitsAndColors)
+            {
+                return currentNewBook;
+            }
+            var digit = GetRandomDigit();
+            currentNewBook.GetComponentInChildren<TextMeshPro>().text = digit.ToString();
+            bookRiddleSolution.GetSolutionMap().Add(allBookMaterials[index].ToString(), digit);
+
+            return currentNewBook;
+        }
+
+        /// <summary>
+        /// Adds the missing material to a certain book
+        /// </summary>
+        /// <param name="currentNewBook">The book that needs material</param>
+        /// <param name="index">The color Index</param>
+        private void AddMaterialToCurrentBook(GameObject currentNewBook, int index)
+        {
+            var bookHalves = new List<GameObject>();
+            currentNewBook.GetChildGameObjects(bookHalves);
+
+            foreach (var half in bookHalves)
+            {
+                var bookRenderer = half.GetComponent<Renderer>();
+                var currentBookMaterials = bookRenderer.materials;
+                currentBookMaterials[0] = allBookMaterials[index % MaxDigitsAndColors];
+                bookRenderer.materials = currentBookMaterials;
+            }
         }
         
-        /// <summary>
-        /// Returns a random digit
-        /// </summary>
-        /// <returns>Random digit as Integer</returns>
         private static int GetRandomDigit()
         {
-            return Rand.Next(MaxRandomDigit);
+            return Random.Range(0, 10);
         }
     }
 }

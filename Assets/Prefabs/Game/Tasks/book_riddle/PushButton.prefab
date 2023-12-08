@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2043066480405472099}
   - component: {fileID: 377291013443947822}
   m_Layer: 0
-  m_Name: Push Button
+  m_Name: PushButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
