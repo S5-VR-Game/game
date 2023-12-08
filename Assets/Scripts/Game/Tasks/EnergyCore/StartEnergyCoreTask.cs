@@ -2,6 +2,7 @@
 
 namespace Game.Tasks.EnergyCore
 {
+    // control-script of the energycore-task
     public class StartEnergyCoreTask : TimerTask
     {
         public int finishedEnergyCoreCounter;
@@ -13,6 +14,7 @@ namespace Game.Tasks.EnergyCore
 
         public override void Initialize()
         {
+            // sets the starting time depending on the used difficulty
             remainingTime = difficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => 90f,
@@ -28,7 +30,8 @@ namespace Game.Tasks.EnergyCore
 
         protected override TaskState CheckTaskState()
         {
-            return finishedEnergyCoreCounter >= 7 ? TaskState.Successful : TaskState.Ongoing;
+            // 6 = all cells are placed in the right core
+            return finishedEnergyCoreCounter >= 6 ? TaskState.Successful : TaskState.Ongoing;
         }
 
         protected override void AfterStateCheck()
