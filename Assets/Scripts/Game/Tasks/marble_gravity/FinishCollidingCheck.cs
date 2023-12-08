@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game.Tasks.marble_gravity
@@ -11,7 +10,7 @@ namespace Game.Tasks.marble_gravity
         {
             if (other.gameObject.CompareTag("Sphere_Collider"))
             {
-                Debug.Log("Should be COllliding");
+                Debug.Log("Should be Colliding");
                 marbleGravity.SetFinished(true);
             }
         }

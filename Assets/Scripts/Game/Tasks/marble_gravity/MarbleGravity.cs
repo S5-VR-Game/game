@@ -1,6 +1,5 @@
 using PlayerController;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.XR;
 
 namespace Game.Tasks.marble_gravity
@@ -13,11 +12,11 @@ namespace Game.Tasks.marble_gravity
     {
         public PlayerProfileService playerProfileService;
         public GameObject taskPrefab;
-        private bool _isFinished = false;
+        private bool _isFinished;
         private const float RotationSpeed = 50.0f;
         private const float ControlDistance = 4.0f;
 
-        public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble blyat", 10)
+        public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble riddle", 10)
         {
             
         }

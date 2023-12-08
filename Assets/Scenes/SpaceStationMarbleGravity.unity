@@ -1579,6 +1579,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerService: {fileID: 1140929251}
   distance: 5
+--- !u!1 &111432005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111432006}
+  m_Layer: 0
+  m_Name: MarbleSpawnPoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111432006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111432005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -67.841, y: 14.123, z: 7.094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1344499817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &136453035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8680,11 +8711,73 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &709400610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 709400611}
+  m_Layer: 0
+  m_Name: MarbleSpawnPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &709400611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709400610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 11.907, y: 2.153, z: 15.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1344499817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &730255868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4030326048459444, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
   m_PrefabInstance: {fileID: 1898750960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &733500685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733500686}
+  m_Layer: 0
+  m_Name: MarbleSpawnPoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &733500686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733500685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -28.16, y: 2.116, z: 35.097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1344499817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &745125224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15211,6 +15304,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerService: {fileID: 1140929251}
   distance: 5
+--- !u!1 &1135721828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135721829}
+  m_Layer: 0
+  m_Name: MarbleSpawnPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135721829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135721828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 62.443, y: 5.655, z: 8.150684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1344499817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140929249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3516893246265306331, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
@@ -16254,6 +16378,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1379415926}
+    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 709400611}
+    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1135721829}
+    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 111432006}
+    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1572625177}
+    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 733500686}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
 --- !u!114 &1344499815 stripped
@@ -17949,6 +18088,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1821723267}
   m_SourcePrefab: {fileID: 100100000, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
+--- !u!1 &1572625176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572625177}
+  m_Layer: 0
+  m_Name: MarbleSpawnPoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1572625177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572625176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: -49.842, y: 1.89, z: -0.44835794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1344499817}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1579173630
 PrefabInstance:
   m_ObjectHideFlags: 0
