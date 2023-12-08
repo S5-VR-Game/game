@@ -88,6 +88,10 @@ namespace Game.Tasks.BookRiddle
             bookRiddle.SetBookRiddleState(SolutionIsCorrect() ? TaskState.Successful : TaskState.Failed);
         }
 
+        /// <summary>
+        /// Checks the numbers with the solution and determines whether it is correct or not
+        /// </summary>
+        /// <returns>true if given sequence is correct, false otherwise</returns>
         private bool SolutionIsCorrect()
         {
             var solutionMap = _solution.GetSolutionMap();
