@@ -16331,6 +16331,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: playerProfileService
+      value: 
+      objectReference: {fileID: 1140929251}
+    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[0]
       value: 
       objectReference: {fileID: 1414088840}
@@ -16863,8 +16867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cba73403e954e71bb692f5faa4f226a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTaskObserver: {fileID: 2015477480}
-  integrityObserver: {fileID: 1641031568}
   spawnPoints:
   - {fileID: 1608977701}
   bookRiddlePrefab: {fileID: 3163423363439133189, guid: deaeb87f859f1aba6adb161c4f6fbeb8, type: 3}
@@ -19242,17 +19244,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 475018583}
   m_SourcePrefab: {fileID: 100100000, guid: bd3d7cc759122634a94de1894ebae702, type: 3}
---- !u!114 &1641031568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8919326314240518745, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 1344499814}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c1c7f01acf4a07b37368f229a4090a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1649013863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22149,17 +22140,6 @@ Transform:
   - {fileID: 471440252}
   m_Father: {fileID: 1344499815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2015477480 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 1344499814}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9419b1dca02e94ea1891786639e032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2036612748
 PrefabInstance:
   m_ObjectHideFlags: 0

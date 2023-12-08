@@ -56,6 +56,7 @@ namespace Game
                 gameTaskObserver, integrityObserver);
             foreach (var factory in factories)
             {
+                print(difficulty);
                 factory.Initialize(factoryInitializationData);
             }
         }

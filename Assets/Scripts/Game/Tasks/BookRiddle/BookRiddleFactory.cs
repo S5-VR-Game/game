@@ -24,7 +24,7 @@ namespace Game.Tasks.BookRiddle
             var transform1 = spawnPoint.transform;
             var riddle = Instantiate(bookRiddlePrefab, transform1.position, transform1.rotation);
             var task = riddle.GetComponent<BookRiddle>();
-            // SpawnBooks(bookSpawnPoints, riddle.transform, task);
+            SpawnBooks(bookSpawnPoints, riddle.transform, task);
             return task;
         }
         
