@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using Game.Tasks;
 using Prefabs.Game.Tasks.Button_testing;
 using UnityEngine;
@@ -7,16 +8,29 @@ using UnityEngine;
 
 public class ButtonSequenceLogic : GameTask
 {
+    public GameObject cube;
     public static int[] colorSequence;
     private bool done = false;
     private int level = 0;
-    const int sequenceLenght = 9;
+    int sequenceLenght;
     
     public override void Initialize()
     {
+        if (difficulty.GetValue() == 0f)
+        {
+            sequenceLenght = 9;
+        } else if (difficulty.GetValue() == 0.5f)
+        {
+            sequenceLenght = 18;
+        }
+        else if (difficulty.GetValue() == 1.0f)
+        {
+            sequenceLenght = 27;
+        }
+
         colorSequence = new int[sequenceLenght];
         //create Sequence
-        for (int i = 0; i < sequenceLenght; i++)
+        for (var i = 0; i < sequenceLenght; i++)
         {
             colorSequence[i] = Random.Range(0, 4);
             print(colorSequence[i]);

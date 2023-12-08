@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PushButton Variant 2
+  m_Name: PushButton Blue
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 7390553463975553142, guid: 7ab6f3b0fd1a6ba41b2a47766c16613f, type: 3}
   m_ModifiedSerializedProperties: 0
@@ -26,5 +26,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.7169812, g: 0.69718266, b: 0.20630117, a: 1}
+    - _Color: {r: 0.27171594, g: 0.33099228, b: 0.8113208, a: 1}
   m_BuildTextureStacks: []
