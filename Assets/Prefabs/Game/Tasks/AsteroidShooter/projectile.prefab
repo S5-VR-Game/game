@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1811201373560998350}
   - component: {fileID: 2664517590383714387}
   - component: {fileID: 1235190692122208204}
+  - component: {fileID: 6033817645929605871}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -119,6 +120,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0.52460635, g: 1, b: 0, a: 1}
+--- !u!122 &6033817645929605871
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721006717194734608}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278255494
+  m_Size: 0.2
 --- !u!1 &7058737211264273361
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,4 +242,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  willDestroy: 0
