@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,94 +6,73 @@ namespace Game.Tasks.EnergyCore
 {
     public class EnergyCoreManager : MonoBehaviour
     {
-        private StartEnergyCoreTask startEnergyCoreTaskScript;
+        private StartEnergyCoreTask _startEnergyCoreTaskScript;
         
         public GameObject[] energyCores; // stores the objects of the filled cores and the empty one (last index)
         public GameObject[] energyCells; // stores the objects of the cells to put in the cores
 
-        private readonly List<GameObject> emptyCores = new(); // stores the reference to the empty cells (max two possible)
+        private readonly List<GameObject> _emptyCores = new(); // stores the reference to the empty cells (max two possible)
         
-        private XRGrabInteractable[] cellGrabInteractables; // stores the reference to the XRGrabInteractable script of 
-                                                             // of each energy cell
-        
-        private bool energyCellInCore = true; // value to set: true, if picked up energy cell is back in a core
+        private bool _energyCellInCore = true; // value to set: true, if picked up energy cell is back in a core
                                                //               false, if the picked up energy cell is still grabbed
-        
+                                               
         private void Start()
         {
-            startEnergyCoreTaskScript = GetComponent<StartEnergyCoreTask>();
+            _startEnergyCoreTaskScript = GetComponent<StartEnergyCoreTask>(); 
             
-            cellGrabInteractables = new XRGrabInteractable[energyCells.Length]; 
-            
-            for (var i = 0; i < energyCells.Length; i++)
-            {
-                // adds each reference of the grab-script to the array and adds listener if the cell is picked up
-                cellGrabInteractables[i] = energyCells[i].GetComponent<XRGrabInteractable>();
-            }
-            
-            emptyCores.Add(energyCores[^1]); // adds the reference of the empty core to the array 
+            _emptyCores.Add(energyCores[^1]); // adds the reference of the empty core to the array 
         }
 
         // function disables grabInteractable-script from all cells which are remaining in cores
         public void OnEnergyCellSelected()
         {
-            if (!energyCellInCore) return;
+            if (!_energyCellInCore) return;
             
-            energyCellInCore = false; 
-            
-            foreach (var grabInteractable in cellGrabInteractables)
+            _energyCellInCore = false;
+
+            foreach (var energyCell in energyCells)
             {
-                // deactivates the grabInteractable-script of each cell (except from the picked up)
-                if (!grabInteractable.isSelected)
+                if (energyCell != null)
                 {
-                    grabInteractable.enabled = false;
+                    if (energyCell.GetComponent<XRGrabInteractable>().isSelected)
+                        energyCell.GetComponent<XRGrabInteractable>().enabled = false;
                 }
             }
         }
 
         // checks if collision between cell and core happened
-        private void OnCollisionEnter(Collision collision)
+        public void TriggerOnCollisionEnter(GameObject core, GameObject cell)
         {
-            foreach (var emptyCore in emptyCores)
+            if (!_emptyCores.Contains(core)) return; // checks if core is empty
+
+            _energyCellInCore = true; // allows other cells to get picked up
+
+            if (!ManageEnergyCoreColors.GetColor(core)
+                    .Equals(ManageEnergyCoreColors.GetColor(cell)))
+                return; // checks if core and cell have the same color
+
+            _emptyCores.Remove(core); // core is not empty anymore, removed from list
+
+            _startEnergyCoreTaskScript.finishedEnergyCoreCounter++; // adds one to the counter: 7 = win
+
+            Destroy(core); // destroys the core
+            Destroy(cell); // and the cell if both have the same color
+
+            //activates all grabInteractable-scripts
+            foreach (var energyCell in energyCells)
             {
-                if (collision.collider.gameObject == emptyCore) // if current core has no cell
-                { 
-                    emptyCores.Remove(emptyCore); // core is not empty anymore, removed from list
-                    energyCellInCore = true; // allows other cells to get picked up
-                            
-                    HandleCollision(emptyCore, collision);
-                    
-                    //activates all grabInteractable-scripts
-                    foreach (var grabInteractable in cellGrabInteractables)
-                    {
-                        grabInteractable.enabled = true;
-                    }
-                }    
+                if (energyCell != null)
+                {
+                    energyCell.GetComponent<XRGrabInteractable>().enabled = true;
+                }
             }
         }
 
         // checks if the cell is picked up from the core
-        private void OnCollisionExit(Collision collision)
+        public void TriggerOnCollisionExit(GameObject core)
         {
-            if (energyCores.Any(core => collision.collider.gameObject == core))
-            {
-                emptyCores.Add(collision.collider.gameObject);
-            }
-        }
-
-        private void HandleCollision(GameObject energyCore, Collision other)
-        {
-            if (!other.gameObject.CompareTag("EnergyCell")) return;
-                      
-            if (!ManageEnergyCoreColors.GetColor(other.gameObject)
-                    .Equals(ManageEnergyCoreColors.GetColor(gameObject))) return;
-            
-            if (emptyCores.Contains(other.collider.gameObject))
-            { 
-                startEnergyCoreTaskScript.finishedEnergyCoreCounter++;
-                Destroy(energyCore);
-                Destroy(other.gameObject);
-            }
+            Debug.Log("Added Core " + core + " to empty cores.");
+            _emptyCores.Add(core);
         }
     }
 }
