@@ -5,8 +5,9 @@ namespace Game.Tasks.BookRiddle
     
     public class BookRiddle : TimerTask
     {
-        public BookRiddle bookRiddle;
         public GameObject taskPrefab;
+
+        public BookRiddleSolution solution { get; set; }
         
         public BookRiddle() : base(120, "Book Riddle", "Solve this book riddle", 10)
         {
@@ -29,7 +30,7 @@ namespace Game.Tasks.BookRiddle
 
         protected override void AfterStateCheck()
         {
-            // not implemented yet;
+            
         }
     }
 }
