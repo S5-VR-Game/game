@@ -18,7 +18,7 @@ namespace Game.Tasks.BookRiddle
         
         private const int MaxRandomDigit = 10;
         private const int MaxDigitsAndColors = 4;
-        private static readonly Random Rand = new();
+        private static readonly Random Rand = new(new Random().Next());
 
         
         // ReSharper disable Unity.PerformanceAnalysis
