@@ -59,6 +59,7 @@ namespace Game.Tasks
             // search for non-occupied spawn point
             foreach (var spawnPoint in spawnPoints)
             {
+                print("Spawn Point Occupied: " + spawnPoint.isOccupied);
                 if (spawnPoint.isOccupied)
                 {
                     continue;
