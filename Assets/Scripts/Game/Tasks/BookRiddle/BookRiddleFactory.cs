@@ -36,8 +36,6 @@ namespace Game.Tasks.BookRiddle
         /// </summary>
         /// <param name="spawnPoints">All The spawn-points for the books</param>
         /// <param name="parent">the Parent transform of the riddle</param>
-        /// <param name="materials"></param>
-        /// <param name="bookPrefab"></param>
         /// <param name="riddle"></param>
         private void SpawnBooks(Transform [] spawnPoints, Transform parent, BookRiddle riddle)
         {
