@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class ButtonSequenceLogic : GameTask
 {
+    
     public GameObject cube;
     public static int[] colorSequence;
     private bool done = false;
@@ -16,6 +17,7 @@ public class ButtonSequenceLogic : GameTask
     
     public override void Initialize()
     {
+        difficulty.SetValue(1);
         if (difficulty.GetValue() == 0f)
         {
             sequenceLenght = 9;

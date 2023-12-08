@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7640232595082393694}
   - component: {fileID: 547804931291893688}
   - component: {fileID: 7599024323331231972}
-  - component: {fileID: 5710635136072817333}
   m_Layer: 0
   m_Name: Quad_Easy
   m_TagString: Untagged
@@ -107,22 +106,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5710635136072817333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3225273231391340465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27bc166dabf83274c91d98d7132c7a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pictures:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &3264536589367707086
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +118,6 @@ GameObject:
   - component: {fileID: 5880195704699117662}
   - component: {fileID: 7005963149201070343}
   - component: {fileID: 8445355359452802972}
-  - component: {fileID: 745528547734492526}
   m_Layer: 0
   m_Name: Quad_Medium
   m_TagString: Untagged
@@ -230,22 +212,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &745528547734492526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3264536589367707086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27bc166dabf83274c91d98d7132c7a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pictures:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &3749654851119697140
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +224,6 @@ GameObject:
   - component: {fileID: 5008107813837570861}
   - component: {fileID: 4273998992832240298}
   - component: {fileID: 4440441602213142121}
-  - component: {fileID: 6950485697884729988}
   m_Layer: 0
   m_Name: Quad_Hard
   m_TagString: Untagged
@@ -353,22 +318,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &6950485697884729988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749654851119697140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27bc166dabf83274c91d98d7132c7a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pictures:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &8650032276316519386
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27bc166dabf83274c91d98d7132c7a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logic: {fileID: 0}
   pictures:
   - {fileID: 3225273231391340465}
   - {fileID: 3264536589367707086}

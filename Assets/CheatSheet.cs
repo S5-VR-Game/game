@@ -5,27 +5,16 @@ using UnityEngine;
 using Game;
 public class CheatSheet : MonoBehaviour
 {
+    public ButtonSequenceLogic logic;
     public GameObject[] pictures = new GameObject[3];
     // Start is called before the first frame update
-    void Start(Difficulty difficulty)
+    void Start()
     {
-        
-        if (difficulty.GetValue() == 0f)
-        {
-            pictures[0].GetComponent<Renderer>().enabled = true;
-            pictures[1].GetComponent<Renderer>().enabled = false;
-            pictures[2].GetComponent<Renderer>().enabled = false;
-        } else if (difficulty.GetValue() == 0.5f)
-        {
-            pictures[0].GetComponent<Renderer>().enabled = false;
-            pictures[1].GetComponent<Renderer>().enabled = true;
-            pictures[2].GetComponent<Renderer>().enabled = false;
-        } else if (difficulty.GetValue() == 1.0f)
-        {
-            pictures[0].GetComponent<Renderer>().enabled = false;
-            pictures[1].GetComponent<Renderer>().enabled = false;
-            pictures[2].GetComponent<Renderer>().enabled = true;
-        }
+        var seperatedDifficulty = logic.difficulty.GetSeparatedDifficulty();
+        pictures[0].SetActive(seperatedDifficulty == SeparatedDifficulty.Easy);
+        pictures[1].SetActive(seperatedDifficulty == SeparatedDifficulty.Medium);
+        pictures[2].SetActive(seperatedDifficulty == SeparatedDifficulty.Hard);
+  
     }
 
     // Update is called once per frame
