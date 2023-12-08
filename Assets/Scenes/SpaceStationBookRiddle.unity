@@ -16880,6 +16880,11 @@ MonoBehaviour:
   - {fileID: 626567139}
   - {fileID: 471440252}
   bookPrefab: {fileID: 1453119054425985737, guid: 116ddaedfdadc8e7bae85f203d7c9c7b, type: 3}
+  allBookMaterials:
+  - {fileID: 2100000, guid: d92ff39c1fecd8d83865dee821624c20, type: 2}
+  - {fileID: 2100000, guid: 18868a09b7a51fc55948a00efb6c18d4, type: 2}
+  - {fileID: 2100000, guid: e937871ec89aed4a28c0f936d52db57a, type: 2}
+  - {fileID: 2100000, guid: f680505878d48c3549f422f0b4e0ad57, type: 2}
 --- !u!4 &1414088842
 Transform:
   m_ObjectHideFlags: 0
