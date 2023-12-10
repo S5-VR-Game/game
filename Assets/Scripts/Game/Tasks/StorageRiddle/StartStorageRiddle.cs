@@ -16,7 +16,7 @@ namespace Game.Tasks.StorageRiddle
         public HandleBoxDelivery handleBoxDeliveryScript;
         public SpawnBoxes spawnBoxesScript;
         
-        public StartStorageRiddle() : base(initialTimerTime: 90f, taskName: "Storage Riddle", 
+        public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
             taskDescription: "Storage Riddle", integrityValue: 10)
         {
         }
