@@ -7,11 +7,14 @@ TagManager:
   - TrackingObject
   - EnergyCell
   - DeliveryBox
+  - Bullet
+  - Asteroid
+  - Canvas
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Canvas
   - Water
   - UI
   - 
