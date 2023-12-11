@@ -54,7 +54,7 @@ namespace Sound
             {
                 var movement = Input.GetAxis("Vertical") + Input.GetAxis("Horizontal");
 
-                if (movement != 0f)
+                if (movement != 0f) // if the player is not standing still
                 {
                     if (!_audioSource.isPlaying)
                     {

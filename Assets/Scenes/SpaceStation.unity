@@ -9092,6 +9092,22 @@ MonoBehaviour:
   playSoundTrigger: 2
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
+--- !u!114 &830077148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830077132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 29ebed5fe207f7d40b78c35f1f06674f, type: 3}
+  playSoundTrigger: 4
+  playerProfileService: {fileID: 1140929251}
+  playerDistance: 0
 --- !u!1001 &857875185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22094,9 +22110,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 830077143}
+    - targetCorrespondingSourceObject: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830077148}
     - targetCorrespondingSourceObject: {fileID: 3389726810833500967, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031999514}
+    - targetCorrespondingSourceObject: {fileID: 3389726810833500967, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031999520}
   m_SourcePrefab: {fileID: 100100000, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
 --- !u!1 &2031999501 stripped
 GameObject:
@@ -22117,6 +22139,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 44000667476316a46ba3cf6164556c73, type: 3}
   playSoundTrigger: 2
+  playerProfileService: {fileID: 1140929251}
+  playerDistance: 0
+--- !u!114 &2031999520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031999501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 29ebed5fe207f7d40b78c35f1f06674f, type: 3}
+  playSoundTrigger: 4
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
 --- !u!1001 &2036612748
