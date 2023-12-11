@@ -39,5 +39,14 @@ namespace Game.Tasks
         {
             return transform.position;
         }
+
+        /// <summary>
+        /// Provides the rotation vector of this spawn point
+        /// </summary>
+        /// <returns>rotation of this spawn point</returns>
+        public Quaternion GetRotation()
+        {
+            return transform.rotation;
+        }
     }
 }

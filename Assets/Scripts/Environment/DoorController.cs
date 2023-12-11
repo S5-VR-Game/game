@@ -6,17 +6,17 @@ namespace Environment
     public class DoorController : MonoBehaviour {
 
         public PlayerProfileService playerService;
-        public float distance = 2f;
-        private Animator _mAnimator;
+        public float distance = 5f;
+        private Animator m_Animator;
 
         private void Start()
         {
-            _mAnimator = GetComponent<Animator>();
+            m_Animator = GetComponent<Animator>();
         }
 
-        private void Update ()
+        protected virtual void Update ()
         {
-            _mAnimator.SetBool("character_nearby",
+            m_Animator.SetBool("character_nearby",
                 Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <=
                 distance);
         }

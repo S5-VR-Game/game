@@ -12,6 +12,7 @@ namespace Game.Tasks.ExampleMultipleObjectsTask
         [Header("Prefabs")] [SerializeField] private GameObject customSpawnObject1Prefab;
         [SerializeField] private GameObject customSpawnObject2Prefab;
 
+        // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(ExampleMultipleObjectsSpawnPoint spawnPoint)
         {
             // create a Prefab instance and get the example task component

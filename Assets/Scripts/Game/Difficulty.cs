@@ -27,7 +27,7 @@ namespace Game
         [Range(MinValue, MaxValue)]
         public float initialDifficultyValue = 0.5f;
         
-        public Difficulty()
+        private void Start()
         {
             m_DifficultyValue = initialDifficultyValue;
         }
@@ -37,6 +37,15 @@ namespace Game
         public float GetMinValue() => MinValue;
         
         public float GetValue() => m_DifficultyValue;
+
+        /// <summary>
+        /// Returns difficulty as percentage according to <see cref="MinValue"/> and <see cref="MaxValue"/>
+        /// </summary>
+        /// <returns>value in interval [0;1], that indicates the percentage of difficulty</returns>
+        public float GetPercentage()
+        {
+            return (m_DifficultyValue-MinValue) / (MaxValue - MinValue);
+        }
 
         /// <summary>
         /// Checks if the given new value is within the <see cref="MinValue"/> and <see cref="MaxValue"/> range and
