@@ -10,6 +10,8 @@ TagManager:
   - Bullet
   - Asteroid
   - Canvas
+  - Sphere_Collider
+  - Goal_Collider
   layers:
   - Default
   - TransparentFX
