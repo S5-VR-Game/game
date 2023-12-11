@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TrackingObject
   - EnergyCell
+  - DeliveryBox
   layers:
   - Default
   - TransparentFX
