@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsDetection: {fileID: 8545377065235067732}
-  wateringBottleDetection: {fileID: 0}
   wateringBottleNearbyCheck: {fileID: 7426655267699701929}
   liquidColorAdaption: {fileID: 9096223240422473235}
 --- !u!114 &9096223240422473235
@@ -172,7 +171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1610008612406352, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1744068169883194, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Name
@@ -225,7 +224,7 @@ PrefabInstance:
     - target: {fileID: 23009453789200548, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c1e47b6215620142ac4e287e1dec45c, type: 2}
+      objectReference: {fileID: 2100000, guid: 2f13ad6aff544ed48b01ef8f65194a76, type: 2}
     - target: {fileID: 23091174126897196, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game.Tasks.MixingIngredients
@@ -41,7 +43,7 @@ namespace Game.Tasks.MixingIngredients
 
         private const float WateringBottleFillDistance = 0.5f;
 
-        public static readonly Color WateringLiquidColor = Color.white;
+        [NonSerialized] public Color wateringLiquidColor;
 
         /// <summary>
         /// All available ingredient types. A specific number of ingredients will be randomly selected from this array
@@ -54,7 +56,6 @@ namespace Game.Tasks.MixingIngredients
         };
 
         [SerializeField] private IngredientsDetection ingredientsDetection;
-        [SerializeField] private WateringBottleDetection wateringBottleDetection;
         [SerializeField] private Transform wateringBottleNearbyCheck;
         [SerializeField] private LiquidColorAdaption liquidColorAdaption;
         [NonSerialized] public WateringLiquidSpawner wateringLiquidSpawner;
@@ -67,6 +68,8 @@ namespace Game.Tasks.MixingIngredients
         private bool m_AllIngredientsDetected;
         private bool m_WateringBottleFilledUp;
         private bool m_TaskCompleted;
+        private int validIngredientsCounter;
+        private int ingredientsCount;
 
         public MixingIngredients() : base(Name, Description)
         {
@@ -79,13 +82,14 @@ namespace Game.Tasks.MixingIngredients
                 // MaxIngredients must not be greater than the length of available ingredients
                 throw new ArgumentOutOfRangeException();
             }
+            
+            // initialize watering color with random color
+            wateringLiquidColor = Random.ColorHSV();
 
             DetermineValidIngredients();
             
             // register event handlers
             ingredientsDetection.OnIngredientDetected += OnIngredientDetected;
-            // TODO could be removed in future after testing in vr, if distance calculation is working properly in vr, when the bottle is grabbed
-            wateringBottleDetection.OnWateringSpawnerDetected += OnWateringSpawnerFillTry;
         }
 
         /// <summary>
@@ -97,6 +101,8 @@ namespace Game.Tasks.MixingIngredients
             // check if ingredient is valid
             if (m_ValidIngredients.ContainsKey(ingredient))
             {
+                validIngredientsCounter++;
+                
                 // decrement ingredient quantity to keep track of the remaining ingredients
                 m_ValidIngredients[ingredient]--;
                 
@@ -106,12 +112,13 @@ namespace Game.Tasks.MixingIngredients
                     m_ValidIngredients.Remove(ingredient);
                 }
                 
+                // apply new average color
+                liquidColorAdaption.UpdateColor(wateringLiquidColor.WithAlpha(validIngredientsCounter/(float)ingredientsCount));
+                
                 // check if all ingredients are detected
                 if (m_ValidIngredients.Count == 0)
                 {
                     // colorize liquid of main container
-                    liquidColorAdaption.SetActive(true);
-                    liquidColorAdaption.UpdateColor(Color.white);
                     m_AllIngredientsDetected = true;
                 }
             }
@@ -131,7 +138,7 @@ namespace Game.Tasks.MixingIngredients
             if (!m_WateringBottleFilledUp && m_AllIngredientsDetected)
             {
                 m_WateringBottleFilledUp = true;
-                wateringLiquidSpawner.FillLiquid();
+                wateringLiquidSpawner.FillLiquid(wateringLiquidColor);
             }
         }
 
@@ -161,6 +168,7 @@ namespace Game.Tasks.MixingIngredients
             {
                 var randomQuantity = Random.Range(MinIngredientQuantity, MaxIngredientQuantity);
                 m_ValidIngredients.Add(IngredientTypes[index], 1 + (int)(randomQuantity * difficultyPercentage));
+                ingredientsCount += randomQuantity;
             }
         }
 
