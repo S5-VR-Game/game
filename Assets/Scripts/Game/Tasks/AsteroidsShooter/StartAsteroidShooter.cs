@@ -11,8 +11,6 @@ namespace Game.Tasks.AsteroidsShooter
         public CountSpaceStationHits countSpaceStationHitsScript; // needs the script CountSpaceStationHits
         public ShootProjectile shootProjectile; // stores the script reference to ShootProjectile
         public CrosshairMouseMovement crosshairMouseMovement; // stores the script-reference to CrosshairMouseMouvement
-        public PlayerProfileService playerProfileService; // stores the reference to player-profile
-        public GameObject locomotiveSystemMove;
         
         private bool _started;
         
@@ -63,11 +61,8 @@ namespace Game.Tasks.AsteroidsShooter
         {
             if (currentTaskState != TaskState.Ongoing)
             {
-                if (locomotiveSystemMove != null)
-                {
-                    // activates the movement of the vr-player
-                    locomotiveSystemMove.SetActive(true);
-                }
+                // activates the movement of the vr-player
+                playerProfileService.SetVRMovementActive(true);
                 
                 DestroyTask();
             }
@@ -78,11 +73,8 @@ namespace Game.Tasks.AsteroidsShooter
             asteroidShooterScene.SetActive(true);
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                if (locomotiveSystemMove != null)
-                {
-                    // deactivates the movement of the vr-player
-                    locomotiveSystemMove.SetActive(false);
-                }
+                // deactivates the movement of the vr-player
+                playerProfileService.SetVRMovementActive(false);
             }
         }
     }

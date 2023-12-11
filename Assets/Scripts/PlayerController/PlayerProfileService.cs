@@ -19,6 +19,7 @@ namespace PlayerController
         [SerializeField] private Transform rightVrController;
         [SerializeField] private Camera vrCamera;
         [SerializeField] private Camera keyboardCamera;
+        [SerializeField] private GameObject locomotiveSystemMove;
         
         /// <summary>
         /// Deactivates the player that should not be used during the game.
@@ -97,6 +98,18 @@ namespace PlayerController
         public Transform GetRightVrController()
         {
             return rightVrController;
+        }
+
+        /// <summary>
+        /// Actives or deactivates the vr movement. This will only be changed if the current player is a vr player.
+        /// </summary>
+        /// <param name="active">if true, the vr movement will be deactivated, otherwise activated</param>
+        public void SetVRMovementActive(bool active)
+        {
+            if (isVrPlayerActive)
+            {
+                locomotiveSystemMove.SetActive(active);
+            }
         }
     }
 }
