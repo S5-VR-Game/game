@@ -28,7 +28,9 @@ namespace Game.Tasks
         /// </summary>
         public void Deallocate(GameTask gameTask)
         {
+            Debug.Log("Deallocated gameTask");
             isOccupied = false;
+            Debug.Log("isOccupied: " + isOccupied);
         }
 
         /// <summary>
