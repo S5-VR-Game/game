@@ -13,7 +13,8 @@ namespace Sound
             FunctionCall,
             Collision,
             PlayerMovement,
-            PlayerDistance
+            PlayerDistance,
+            Permanent
         }
 
         public PlaySoundTrigger playSoundTrigger;
@@ -25,6 +26,7 @@ namespace Sound
             if (audioClip != null)
             {
                 _audioSource.clip = audioClip;
+                _audioSource.playOnAwake = false;
             }
             else
             {
@@ -75,6 +77,15 @@ namespace Sound
                     }
                 }
             }
+
+            if (playSoundTrigger.Equals(PlaySoundTrigger.Permanent))
+            {
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.Play();
+                    _audioSource.volume = 0.5f;
+                }
+            }
         }
 
         private void OnCollisionEnter(Collision other)
@@ -89,17 +100,6 @@ namespace Sound
         {
             if (!playSoundTrigger.Equals(PlaySoundTrigger.FunctionCall)) return;
             _audioSource.Play();
-        }
-
-        private System.Collections.IEnumerator PlayAudio()
-        {
-            _isPlaying = true;
-            
-            _audioSource.PlayOneShot(audioClip);
-            
-            yield return new WaitForSeconds(audioClip.length);
-
-            _isPlaying = false;
         }
     }
 }
