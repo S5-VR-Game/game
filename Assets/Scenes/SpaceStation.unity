@@ -17079,16 +17079,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: playerProfileService
       value: 
       objectReference: {fileID: 1140929251}
-    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-      propertyPath: randomTimeIntervalSize
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[0]
       value: 
@@ -17117,10 +17113,6 @@ PrefabInstance:
       propertyPath: factories.Array.data[6]
       value: 
       objectReference: {fileID: 2103604246}
-    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-      propertyPath: minTimeIntervalBetweenTasks
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
