@@ -1,5 +1,4 @@
 using System;
-using MyPrefabs.Scripts.Game;
 using UnityEngine;
 
 namespace Game

@@ -42,6 +42,12 @@ namespace Game
         /// </summary>
         public event Action OnTimeOver;
 
+        /// <summary>
+        /// Event action, which is invoked, when the game timer changed.
+        /// The float parameter represents the remaining time in seconds.
+        /// </summary>
+        public event Action<float> OnTimeChanged;
+
         public bool timerPaused { get; private set; }
         public float remainingTime { get; private set; }
         public bool timeOver { get; private set; }
@@ -67,6 +73,7 @@ namespace Game
                 if (!timerPaused)
                 {
                     remainingTime -= Time.deltaTime;
+                    OnTimeChanged?.Invoke(remainingTime);
 
                     // check whether new game task is reached
                     if (remainingTime < m_NextGameTaskTime)
@@ -104,6 +111,7 @@ namespace Game
                     break;
                 }
             }
+            m_LOG.Log(LOGTag, "all spawn points of all factories are occupied, no task was spawned");
         }
 
         /// <summary>

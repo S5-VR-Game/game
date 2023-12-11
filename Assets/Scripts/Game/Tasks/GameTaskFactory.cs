@@ -85,6 +85,9 @@ namespace Game.Tasks
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
+                
+                // send task to HUD
+                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition());
             
                 // initialize task with its own logic
                 newTask.Initialize();
@@ -98,7 +101,6 @@ namespace Game.Tasks
             }
             
             // all spawnPoint are occupied and no task could be spawned
-            m_LOG.Log(LOGTag, "all spawn points are occupied, no task was spawned");
             return false;
         }
 

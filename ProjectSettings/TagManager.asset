@@ -3,12 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TrackingObject
+  - EnergyCell
+  - DeliveryBox
+  - Bullet
+  - Asteroid
+  - Canvas
+  - Sphere_Collider
+  - Goal_Collider
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Canvas
   - Water
   - UI
   - 
