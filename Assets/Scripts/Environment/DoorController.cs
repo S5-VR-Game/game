@@ -11,13 +11,13 @@ namespace Environment
         private Animator _mAnimator;
 
         private bool _isDoorOpen;
-        private DoorOpeningSound _doorOpeningSound;
+        private DoorOpeningClosingSound _doorOpeningClosingSound;
             
         private void Start()
         {
             _mAnimator = GetComponent<Animator>();
 
-            _doorOpeningSound = GetComponent<DoorOpeningSound>();
+            _doorOpeningClosingSound = GetComponent<DoorOpeningClosingSound>();
         }
 
         private void Update ()
@@ -31,7 +31,7 @@ namespace Environment
             if (shouldOpen == _isDoorOpen) return;
             
             _isDoorOpen = shouldOpen;
-            _doorOpeningSound.PlayDoorSoundOnce();
+            _doorOpeningClosingSound.PlayDoorSoundOnce();
         }
     }
 }

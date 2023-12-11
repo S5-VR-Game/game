@@ -2,7 +2,7 @@
 
 namespace Sound
 {
-    public class DoorOpeningSound : MonoBehaviour
+    public class DoorOpeningClosingSound : MonoBehaviour
     {
         public AudioClip audioClip;  // stores the played audio file
         private AudioSource _audioSource;
