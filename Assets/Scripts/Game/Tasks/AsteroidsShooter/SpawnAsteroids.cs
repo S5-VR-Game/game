@@ -1,7 +1,6 @@
 using System;
 using Logging;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game.Tasks.AsteroidsShooter

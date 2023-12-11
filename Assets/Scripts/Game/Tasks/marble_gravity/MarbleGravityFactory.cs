@@ -1,6 +1,3 @@
-using PlayerController;
-using UnityEngine;
-
 namespace Game.Tasks.marble_gravity
 {
     /// <summary>
