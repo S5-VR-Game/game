@@ -39,7 +39,7 @@ namespace Game.Tasks.MixingIngredients
         /// </summary>
         private const int MaxIngredientQuantity = 5;
 
-        private const float WateringBottleFillDistance = 0.25f;
+        private const float WateringBottleFillDistance = 0.5f;
 
         public static readonly Color WateringLiquidColor = Color.white;
 

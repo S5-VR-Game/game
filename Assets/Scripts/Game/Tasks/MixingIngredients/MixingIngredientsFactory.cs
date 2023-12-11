@@ -28,7 +28,7 @@ namespace Game.Tasks.MixingIngredients
                 Quaternion.identity);
 
             // spawn recipe text
-            RecipeText recipeText = Instantiate(recipeTextPrefab, spawnPoint.recipeSpawnPoint.position, Quaternion.identity);
+            RecipeText recipeText = Instantiate(recipeTextPrefab, spawnPoint.recipeSpawnPoint.position, spawnPoint.recipeSpawnPoint.rotation);
             recipeText.mixingIngredientsTask = mixingIngredientsTask;
             mixingIngredientsTask.AddLinkedGameObject(recipeText.gameObject);
 

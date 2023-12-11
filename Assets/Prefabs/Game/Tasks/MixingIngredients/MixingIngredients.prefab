@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 667200792725214433}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1548, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.125, y: 0.001, z: 0.125}
+  m_Size: {x: 0.15, y: 0.001, z: 0.15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8545377065235067732
 MonoBehaviour:
@@ -97,72 +97,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7526151342416134295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4740895732632248818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4779989940750613227}
-  - component: {fileID: 679924797728513710}
-  - component: {fileID: 8851497864319472398}
-  m_Layer: 0
-  m_Name: WateringBottleCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4779989940750613227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4740895732632248818}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7526151342416134295}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &679924797728513710
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4740895732632248818}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.001, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8851497864319472398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4740895732632248818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82c9220134645bcaefa794d0df8c10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5809620989908732266
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +130,6 @@ Transform:
   m_Children:
   - {fileID: 7343194202757581836}
   - {fileID: 7043474856245821766}
-  - {fileID: 4779989940750613227}
   - {fileID: 7426655267699701929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -213,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsDetection: {fileID: 8545377065235067732}
-  wateringBottleDetection: {fileID: 8851497864319472398}
+  wateringBottleDetection: {fileID: 0}
   wateringBottleNearbyCheck: {fileID: 7426655267699701929}
   liquidColorAdaption: {fileID: 9096223240422473235}
 --- !u!114 &9096223240422473235
