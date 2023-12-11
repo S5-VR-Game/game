@@ -10,7 +10,6 @@ namespace Game.Tasks.marble_gravity
     /// </summary>
     public class MarbleGravity : TimerTask
     {
-        public PlayerProfileService playerProfileService;
         public GameObject taskPrefab;
         private bool _isFinished;
         private const float RotationSpeed = 50.0f;
