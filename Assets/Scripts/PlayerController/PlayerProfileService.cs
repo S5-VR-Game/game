@@ -12,6 +12,8 @@ namespace PlayerController
         [SerializeField] private GameObject vrPlayer;
         [SerializeField] private GameObject xrOrigin;
         [SerializeField] private GameObject keyBoardPlayer;
+        [SerializeField] private Transform leftVrController;
+        [SerializeField] private Transform rightVrController;
         
         /// <summary>
         /// Deactivates the player that should not be used during the game.
@@ -62,6 +64,24 @@ namespace PlayerController
         {
             isVrPlayerActive = vrPlayerActive;
             UpdateActivePlayer();
+        }
+
+        /// <summary>
+        /// Getter for left vr controller
+        /// </summary>
+        /// <returns>transform of the left vr controller</returns>
+        public Transform GetLeftVrController()
+        {
+            return leftVrController;
+        }
+
+        /// <summary>
+        /// Getter for right vr controller
+        /// </summary>
+        /// <returns>transform of the right vr controller</returns>
+        public Transform GetRightVrController()
+        {
+            return rightVrController;
         }
     }
 }
