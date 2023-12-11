@@ -3288,7 +3288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a058d79679cb4ac7a189f8e3976c7671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookRiddle: {fileID: 0}
+  bookRiddle: {fileID: 8268717698166278687}
 --- !u!1 &3176712973521360142
 GameObject:
   m_ObjectHideFlags: 0
