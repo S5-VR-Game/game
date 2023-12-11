@@ -325,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aea9a779c4ee8a7dc18ca78d9e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerProfileService: {fileID: 0}
   taskPrefab: {fileID: 2839930189506935058}
 --- !u!1 &3028341816382269411 stripped
 GameObject:
