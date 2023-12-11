@@ -27,11 +27,8 @@ namespace Game.Tasks.marble_gravity
 
         protected override void BeforeStateCheck()
         {
-            
-            print(Vector3.Distance(playerProfileService.GetPlayerGameObject().transform.position, transform.position));
             if (Vector3.Distance(playerProfileService.GetPlayerGameObject().transform.position, transform.position) > ControlDistance)
             {
-                print("greater");
                 return;
             }
             if (!InputDevices.GetDeviceAtXRNode(XRNode.RightHand).isValid)

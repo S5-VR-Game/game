@@ -142,7 +142,6 @@ namespace Game.Tasks
         /// </summary>
         protected void DestroyTask()
         {
-            Debug.Log("DestroyTask()");
             GameObjectDestroyed?.Invoke(this);
             
             // destroy all linked game objects

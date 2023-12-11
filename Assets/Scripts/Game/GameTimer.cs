@@ -56,7 +56,6 @@ namespace Game
                 gameTaskObserver, integrityObserver);
             foreach (var factory in factories)
             {
-                print(difficulty);
                 factory.Initialize(factoryInitializationData);
             }
         }
@@ -105,6 +104,7 @@ namespace Game
                     break;
                 }
             }
+            m_LOG.Log(LOGTag, "all spawn points of all factories are occupied, no task was spawned");
         }
 
         /// <summary>

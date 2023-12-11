@@ -59,8 +59,6 @@ namespace Game.Tasks
         public override void Initialize(FactoryInitializationData initializationData)
         {
             m_Difficulty = initializationData.difficulty;
-            print("InitializationData: " + initializationData.difficulty);
-            print("m_Difficulty: " +m_Difficulty);
             m_PlayerProfileService = initializationData.playerProfileService;
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
@@ -73,7 +71,6 @@ namespace Game.Tasks
             // search for non-occupied spawn point
             foreach (var spawnPoint in spawnPoints)
             {
-                print("Spawn Point Occupied: " + spawnPoint.isOccupied);
                 if (spawnPoint.isOccupied)
                 {
                     continue;
@@ -83,7 +80,6 @@ namespace Game.Tasks
                 GameTask newTask = CreateTask(spawnPoint);
                 
                 // assign game related data to task
-                print(m_Difficulty);
                 newTask.difficulty = m_Difficulty;
                 newTask.playerProfileService = m_PlayerProfileService;
                 
@@ -102,7 +98,6 @@ namespace Game.Tasks
             }
             
             // all spawnPoint are occupied and no task could be spawned
-            m_LOG.Log(LOGTag, "all spawn points are occupied, no task was spawned");
             return false;
         }
 
