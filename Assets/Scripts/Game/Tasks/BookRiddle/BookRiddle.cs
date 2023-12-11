@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Tasks.BookRiddle
@@ -16,7 +17,7 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolution solution { get; set; }
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
-        public BookRiddle() : base(5, "Book Riddle", "Solve this book riddle\n" +
+        public BookRiddle() : base(180, "Book Riddle", "Solve this book riddle\n" +
                                                        "find a cluster in the book and type in the correct code.", 5)
         {
         }

@@ -52,7 +52,7 @@ namespace Game.Tasks.BookRiddle
         /// <summary>
         /// Switches the Animation
         /// </summary>
-        private void SwitchAnimation()
+        public void SwitchAnimation()
         {
             _currentState = !_currentState;
             animator.SetBool(OpenBook, _currentState);

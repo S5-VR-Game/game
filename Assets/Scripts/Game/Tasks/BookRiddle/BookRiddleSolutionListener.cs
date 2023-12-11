@@ -8,7 +8,7 @@ namespace Game.Tasks.BookRiddle
     /// </summary>
     public class BookRiddleSolutionListener : MonoBehaviour
     {
-        private BookRiddleSolution _solution;
+        private BookRiddleSolution solution;
         [SerializeField] private BookRiddle bookRiddle;
 
         private const int InitialRed = 0;
@@ -16,23 +16,33 @@ namespace Game.Tasks.BookRiddle
         private const int InitialYellow = 0;
         private const int InitialGreen = 0;
 
-        private const string RedString = "red_cover";
-        private const string BlueString = "blue_cover";
-        private const string YellowString = "yellow_cover";
-        private const string GreenString = "green_cover";
+        private const string RedString = "red_cover (UnityEngine.Material)";
+        private const string BlueString = "blue_cover (UnityEngine.Material)";
+        private const string YellowString = "yellow_cover (UnityEngine.Material)";
+        private const string GreenString = "green_cover (UnityEngine.Material)";
 
         private int _currentRed = InitialRed;
         private int _currentBlue = InitialBlue;
         private int _currentYellow = InitialYellow;
         private int _currentGreen = InitialGreen;
 
+        private void Update()
+        {
+            Debug.Log("Current Red: " + _currentRed);
+            Debug.Log("Current Blue: " + _currentBlue);
+            Debug.Log("Current Yellow: " + _currentYellow);
+            Debug.Log("Current Green: " + _currentGreen);
+        }
+
         /// <summary>
         /// Setter-Method for the Solution
         /// </summary>
-        /// <param name="solution">The current Solution of this riddle</param>
-        public void SetBookRiddleSolution(BookRiddleSolution solution)
+        /// <param name="newSolution">The current Solution of this riddle</param>
+        public void SetBookRiddleSolution(BookRiddleSolution newSolution)
         {
-            _solution = solution;
+            solution = newSolution;
+            Debug.Log(newSolution);
+            Debug.Log(solution);
         }
 
         public void IncrementRed()
@@ -94,7 +104,8 @@ namespace Game.Tasks.BookRiddle
         /// <returns>true if given sequence is correct, false otherwise</returns>
         private bool SolutionIsCorrect()
         {
-            var solutionMap = _solution.GetSolutionMap();
+            Debug.Log(solution);
+            var solutionMap = solution.GetSolutionMap();
             var solutionRed = solutionMap[RedString];
             var solutionBlue = solutionMap[BlueString];
             var solutionYellow = solutionMap[YellowString];
