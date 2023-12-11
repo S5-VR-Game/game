@@ -13,7 +13,14 @@ namespace Game
         private const string LOGTag = "Integrity";
         public event Action<int> OnIntegrityChanged;
 
+        private int m_InitialIntegrityValue;
+
         [SerializeField] private int integrityValue = 100;
+
+        private void Start()
+        {
+            m_InitialIntegrityValue = integrityValue;
+        }
 
         /// <summary>
         /// Delivers the current Integrity-value so that it can be
@@ -53,6 +60,15 @@ namespace Game
         {
             m_LOG.Log(LOGTag, "new integrity value: " + integrityValue);
             OnIntegrityChanged?.Invoke(integrityValue);
+        }
+
+        /// <summary>
+        /// Returns the current integrity value as a percentage of the initial integrity value.
+        /// </summary>
+        /// <returns>percentage value in interval [0;1]</returns>
+        public float GetCurrentIntegrityPercentage()
+        {
+            return (float) integrityValue / m_InitialIntegrityValue;
         }
     }
 }

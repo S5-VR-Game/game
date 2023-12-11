@@ -20,6 +20,8 @@ namespace PlayerController
         [SerializeField] private Camera vrCamera;
         [SerializeField] private Camera keyboardCamera;
         [SerializeField] private GameObject locomotiveSystemMove;
+        [SerializeField] private HUD vrPlayerHUD;
+        [SerializeField] private HUD keyboardPlayerHUD;
         
         /// <summary>
         /// Deactivates the player that should not be used during the game.
@@ -110,6 +112,19 @@ namespace PlayerController
             {
                 locomotiveSystemMove.SetActive(active);
             }
+        }
+        
+        /// <summary>
+        /// Returns the HUD reference according to the current player
+        /// </summary>
+        /// <returns>vr player hud, if <see cref="isVrPlayerActive"/> and the keyboard player hud otherwise</returns>
+        public HUD GetHUD()
+        {
+            if (isVrPlayerActive)
+            {
+                return vrPlayerHUD;
+            }
+            return keyboardPlayerHUD;
         }
     }
 }

@@ -53,8 +53,6 @@ namespace Game.Tasks
         private PlayerProfileService m_PlayerProfileService;
         private GameTaskObserver m_GameTaskObserver;
         private IntegrityObserver m_IntegrityObserver;
-
-        public HUD hud;
         
         [SerializeField] private T[] spawnPoints;
 
@@ -89,7 +87,7 @@ namespace Game.Tasks
                 spawnPoint.Allocate(newTask);
                 
                 // send task to HUD
-                hud.registerNewTask(newTask, spawnPoint.GetSpawnPosition());
+                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition());
             
                 // initialize task with its own logic
                 newTask.Initialize();
