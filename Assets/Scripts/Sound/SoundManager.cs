@@ -62,7 +62,17 @@ namespace Sound
                 if (Vector3.Distance(gameObject.transform.position,
                         playerProfileService.GetPlayerGameObject().transform.position) <= playerDistance && !_isPlaying)
                 {
-                    StartCoroutine(PlayAudio());
+                    if (!_audioSource.isPlaying)
+                    {
+                        _audioSource.Play();
+                    }
+                }
+                else
+                {
+                    if (_audioSource.isPlaying)
+                    {
+                        _audioSource.Stop();
+                    }
                 }
             }
         }
