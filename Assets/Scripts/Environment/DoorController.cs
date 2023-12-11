@@ -1,5 +1,6 @@
 using UnityEngine;
 using PlayerController;
+using Sound;
 
 namespace Environment
 {
@@ -9,9 +10,14 @@ namespace Environment
         public float distance = 2f;
         private Animator _mAnimator;
 
+        private bool _isDoorOpen;
+        private DoorOpeningSound _doorOpeningSound;
+            
         private void Start()
         {
             _mAnimator = GetComponent<Animator>();
+
+            _doorOpeningSound = GetComponent<DoorOpeningSound>();
         }
 
         private void Update ()
@@ -19,6 +25,13 @@ namespace Environment
             _mAnimator.SetBool("character_nearby",
                 Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <=
                 distance);
+
+            var shouldOpen = _mAnimator.GetBool("character_nearby");
+
+            if (shouldOpen == _isDoorOpen) return;
+            
+            _isDoorOpen = shouldOpen;
+            _doorOpeningSound.PlayDoorSoundOnce();
         }
     }
 }
