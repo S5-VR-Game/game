@@ -38,7 +38,6 @@ namespace Game.Tasks.BookRiddle
                 AddMaterialToCurrentBook(currentNewBook, i);
             }
 
-            Debug.Log(bookRiddleSolution);
             bookRiddle.solution = bookRiddleSolution;
         }
 

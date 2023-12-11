@@ -26,14 +26,6 @@ namespace Game.Tasks.BookRiddle
         private int _currentYellow = InitialYellow;
         private int _currentGreen = InitialGreen;
 
-        private void Update()
-        {
-            Debug.Log("Current Red: " + _currentRed);
-            Debug.Log("Current Blue: " + _currentBlue);
-            Debug.Log("Current Yellow: " + _currentYellow);
-            Debug.Log("Current Green: " + _currentGreen);
-        }
-
         /// <summary>
         /// Setter-Method for the Solution
         /// </summary>
@@ -41,8 +33,6 @@ namespace Game.Tasks.BookRiddle
         public void SetBookRiddleSolution(BookRiddleSolution newSolution)
         {
             solution = newSolution;
-            Debug.Log(newSolution);
-            Debug.Log(solution);
         }
 
         public void IncrementRed()
@@ -104,7 +94,6 @@ namespace Game.Tasks.BookRiddle
         /// <returns>true if given sequence is correct, false otherwise</returns>
         private bool SolutionIsCorrect()
         {
-            Debug.Log(solution);
             var solutionMap = solution.GetSolutionMap();
             var solutionRed = solutionMap[RedString];
             var solutionBlue = solutionMap[BlueString];
