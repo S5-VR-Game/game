@@ -20,7 +20,7 @@ public class ButtonSequenceLogic : GameTask
     
     public override void Initialize()
     {
-        //difficulty.SetValue(1);
+        difficulty.SetValue(1);
         if (difficulty.GetValue() == 0f)
         {
             

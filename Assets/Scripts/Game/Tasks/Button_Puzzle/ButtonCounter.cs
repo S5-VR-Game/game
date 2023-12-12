@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class ButtonCounter : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro textField;
-
     [SerializeField] private ButtonSequenceLogic logic;
     // Start is called before the first frame update
     void Start()
@@ -38,8 +36,6 @@ public class ButtonCounter : MonoBehaviour
 
     public void Test(int color)
     {
-        textField.text = color.ToString();
-        print(color.ToString());
         logic.ButtonCheck((ColorCode)color);
     }
 }
