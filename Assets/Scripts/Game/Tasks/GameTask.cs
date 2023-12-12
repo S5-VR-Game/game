@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using PlayerController;
+using Sound;
 using UnityEngine;
 
 namespace Game.Tasks
@@ -16,6 +17,10 @@ namespace Game.Tasks
     /// </summary>
     public abstract class GameTask : MonoBehaviour
     {
+        public SoundManager playFailureSoundManager;
+        
+        public SoundManager playSuccessSoundManager;
+        
         protected const int k_DefaultIntegrityValue = 5;
 
         public string taskName { get; protected set; }
@@ -107,9 +112,11 @@ namespace Game.Tasks
             {
                 case TaskState.Failed:
                     TaskFailed?.Invoke(this);
+                    playFailureSoundManager.PlaySound();
                     break;
                 case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
+                    playSuccessSoundManager.PlaySound();
                     break;
                 case TaskState.Ongoing:
                     break;

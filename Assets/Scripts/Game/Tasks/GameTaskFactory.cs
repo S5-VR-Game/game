@@ -1,7 +1,9 @@
 using Game.Observer;
 using Logging;
 using PlayerController;
+using Sound;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Tasks
 {
@@ -45,6 +47,13 @@ namespace Game.Tasks
     /// </typeparam>
     public abstract class GameTaskFactory<T>: GeneralGameTaskFactory where T : TaskSpawnPoint
     {
+        // sound-manager-scripts to play sounds for tasks
+        [SerializeField] private SoundManager taskFailureSoundManager;
+        
+        [SerializeField] private SoundManager taskSuccessSoundManager;
+
+        [SerializeField] private SoundManager taskSpawningSoundManager;
+        
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskFactory";
         
@@ -83,6 +92,9 @@ namespace Game.Tasks
                 newTask.difficulty = m_Difficulty;
                 newTask.playerProfileService = m_PlayerProfileService;
                 
+                newTask.playFailureSoundManager = taskFailureSoundManager;
+                newTask.playSuccessSoundManager = taskSuccessSoundManager;
+                
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
                 
@@ -91,6 +103,9 @@ namespace Game.Tasks
             
                 // initialize task with its own logic
                 newTask.Initialize();
+                
+                // plays sound when task is spawning
+                taskSpawningSoundManager.PlaySound();
             
                 // register the new task
                 m_GameTaskObserver.RegisterGameTask(newTask);
