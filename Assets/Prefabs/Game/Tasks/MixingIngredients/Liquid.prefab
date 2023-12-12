@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 772845103609305211}
   - component: {fileID: 3868989599022890987}
   - component: {fileID: 4864494586011927224}
+  - component: {fileID: -3089396185643144220}
   m_Layer: 0
   m_Name: Liquid
   m_TagString: Untagged
@@ -249,6 +250,23 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-3089396185643144220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195388087988499570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 9676a5d22a383b34eb702e8588acebcc, type: 3}
+  volumeSound: 0.2
+  playSoundTrigger: 1
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &2388929791579813212
 GameObject:
   m_ObjectHideFlags: 0

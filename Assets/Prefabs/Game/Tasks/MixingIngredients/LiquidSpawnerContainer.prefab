@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8394117400216543829}
   - component: {fileID: 753912870731172936}
   - component: {fileID: 5241903606208456983}
+  - component: {fileID: 8178694764248396526}
   m_Layer: 0
   m_Name: LiquidSpawnerContainer
   m_TagString: Untagged
@@ -254,6 +255,23 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &8178694764248396526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3098642403761906367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 0a899a45729927140b0f2966846a8d89, type: 3}
+  volumeSound: 0.3
+  playSoundTrigger: 1
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &6057830965883097638
 GameObject:
   m_ObjectHideFlags: 0

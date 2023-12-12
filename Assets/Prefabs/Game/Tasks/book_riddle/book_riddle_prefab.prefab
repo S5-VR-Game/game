@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 6508849863167026091}
   - component: {fileID: 8969110874377413427}
   - component: {fileID: 1789798925468383977}
+  - component: {fileID: 6457175040738411962}
   m_Layer: 0
   m_Name: yellow_count
   m_TagString: Untagged
@@ -444,7 +445,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6457175040738411962}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -549,6 +562,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &6457175040738411962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487218529054425403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &627025800445762591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1248,7 @@ GameObject:
   - component: {fileID: 4149905016723953923}
   - component: {fileID: 3895985307409839530}
   - component: {fileID: 5241471089257452410}
+  - component: {fileID: 1509981432842183012}
   m_Layer: 0
   m_Name: red_count
   m_TagString: Untagged
@@ -1313,7 +1344,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1509981432842183012}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -1418,6 +1461,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &1509981432842183012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216377702600036824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &1243424155797324376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,6 +2081,7 @@ GameObject:
   - component: {fileID: 2774074305217020399}
   - component: {fileID: 4326961154974646326}
   - component: {fileID: 1900630492360224582}
+  - component: {fileID: 5096387956644169441}
   m_Layer: 0
   m_Name: yellow_reset
   m_TagString: Untagged
@@ -2116,7 +2177,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5096387956644169441}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -2221,6 +2294,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &5096387956644169441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944492245449650877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &2016052045372948494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2778,7 @@ GameObject:
   - component: {fileID: 5204477748690898294}
   - component: {fileID: 1467802720637089932}
   - component: {fileID: 3164174034628890995}
+  - component: {fileID: 7118495821755177993}
   m_Layer: 0
   m_Name: confirm_button
   m_TagString: Untagged
@@ -2783,7 +2874,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7118495821755177993}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -2888,6 +2991,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &7118495821755177993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351501122962121264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &2397676642098698959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1c0757d5684b4390bb5421605be147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playFailureSoundManager: {fileID: 0}
+  playSuccessSoundManager: {fileID: 0}
   taskPrefab: {fileID: 3163423363439133189}
   bookRiddleSolutionListener: {fileID: 3291130546586517210}
 --- !u!114 &3291130546586517210
@@ -4184,6 +4306,7 @@ GameObject:
   - component: {fileID: 5419331889293473514}
   - component: {fileID: 2043066480405472099}
   - component: {fileID: 377291013443947822}
+  - component: {fileID: 5359879281648957905}
   m_Layer: 0
   m_Name: full_reset
   m_TagString: Untagged
@@ -4279,7 +4402,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5359879281648957905}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -4384,6 +4519,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &5359879281648957905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922582553321831162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &5124201045053154123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4549,7 @@ GameObject:
   - component: {fileID: 4710625015134349851}
   - component: {fileID: 7410826931019244660}
   - component: {fileID: 7398784251772378095}
+  - component: {fileID: 3271885598014598217}
   m_Layer: 0
   m_Name: blue_reset
   m_TagString: Untagged
@@ -4492,7 +4645,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3271885598014598217}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -4597,6 +4762,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &3271885598014598217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124201045053154123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &5163550751902482202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,6 +5548,7 @@ GameObject:
   - component: {fileID: 7157282332647800569}
   - component: {fileID: 8780464339612190316}
   - component: {fileID: 4075082171247470906}
+  - component: {fileID: 2083445177404801840}
   m_Layer: 0
   m_Name: green_reset
   m_TagString: Untagged
@@ -5461,7 +5644,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2083445177404801840}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -5566,6 +5761,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &2083445177404801840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494111447111270662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &6516082692045273492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,6 +5824,7 @@ GameObject:
   - component: {fileID: 5834363602795009448}
   - component: {fileID: 5077534570797158079}
   - component: {fileID: 2715306095024588873}
+  - component: {fileID: 7755888750063046611}
   m_Layer: 0
   m_Name: blue_count
   m_TagString: Untagged
@@ -5707,7 +5920,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7755888750063046611}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -5812,6 +6037,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &7755888750063046611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588393476066122211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &6659762667150965186
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,6 +7122,7 @@ GameObject:
   - component: {fileID: 7539699722234290701}
   - component: {fileID: 5254108831283480103}
   - component: {fileID: 8654651108342761680}
+  - component: {fileID: 9032545780207983287}
   m_Layer: 0
   m_Name: red_reset
   m_TagString: Untagged
@@ -6975,7 +7218,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9032545780207983287}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -7080,6 +7335,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &9032545780207983287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8477623261832116771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &8490474671036744677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7093,6 +7365,7 @@ GameObject:
   - component: {fileID: 6448388159877014091}
   - component: {fileID: 7090576267475579803}
   - component: {fileID: 597450009120695654}
+  - component: {fileID: 1867829979227959753}
   m_Layer: 0
   m_Name: green_count
   m_TagString: Untagged
@@ -7188,7 +7461,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867829979227959753}
+        m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
@@ -7293,6 +7578,23 @@ MonoBehaviour:
   m_ApplyIfChildIsTarget: 1
   m_ClampToMaxDistance: 1
   m_MaxDistance: 0.045
+--- !u!114 &1867829979227959753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490474671036744677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &8589798805454126450
 GameObject:
   m_ObjectHideFlags: 0
