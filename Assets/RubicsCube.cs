@@ -20,10 +20,10 @@ public class RubicsCube : MonoBehaviour
         {
             //calls method based on difficulty
             case SeparatedDifficulty.Easy:
-                Easy_MediumColor(0);
+                EasyColor();
                 break;
             case SeparatedDifficulty.Medium:
-                Easy_MediumColor(1);
+                MediumColor();
                 break;
             case SeparatedDifficulty.Hard:
                 HardColor();
@@ -46,15 +46,26 @@ public class RubicsCube : MonoBehaviour
         };
     }
     // colors the Cube for easy and medium mode
-    private void Easy_MediumColor(int difficulty)
+    private void EasyColor()
     {
-        var amount = difficulty == 0 ? 9 : 18;
+        
         {
             
         }
-        for (var i = 0; i < amount; i++)
+        for (var i = 0; i < 9; i++)
         {
             var materialCube = cubeComponents[i + 9].GetComponent<MeshRenderer>();
+            materialCube.material.color = GiveColor(i);
+        }
+        
+    }
+    
+    private void MediumColor()
+    {
+
+        for (var i = 0; i < 18; i++)
+        {
+            var materialCube = cubeComponents[i].GetComponent<MeshRenderer>();
             materialCube.material.color = GiveColor(i);
         }
         
