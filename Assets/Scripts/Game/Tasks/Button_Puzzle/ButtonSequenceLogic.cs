@@ -10,16 +10,20 @@ public class ButtonSequenceLogic : GameTask
 {
     
     public GameObject cube;
+    
     public static int[] colorSequence;
     private bool done = false;
     private int level = 0;
     int sequenceLenght;
+    public ShaderGraphProgressBar progressBar;
+    public float stepSize;
     
     public override void Initialize()
     {
         difficulty.SetValue(1);
         if (difficulty.GetValue() == 0f)
         {
+            
             sequenceLenght = 9;
         } else if (difficulty.GetValue() == 0.5f)
         {
@@ -30,6 +34,8 @@ public class ButtonSequenceLogic : GameTask
             sequenceLenght = 27;
         }
 
+        stepSize = 2 / sequenceLenght;
+
         colorSequence = new int[sequenceLenght];
         //create Sequence
         for (var i = 0; i < sequenceLenght; i++)
@@ -37,6 +43,8 @@ public class ButtonSequenceLogic : GameTask
             colorSequence[i] = Random.Range(0, 4);
             print(colorSequence[i]);
         }
+
+        progressBar.ChangeValue(1f);
     }
 
     protected override void BeforeStateCheck()
@@ -71,6 +79,7 @@ public class ButtonSequenceLogic : GameTask
         {
             if (level == sequenceLenght - 1)
             {
+                
                 done = true;
                 print("done");
             }
@@ -81,6 +90,8 @@ public class ButtonSequenceLogic : GameTask
             print("reset");
             level = 0;
         }
+        print(level * stepSize - 1f);
+        progressBar.ChangeValue(level * stepSize - 1f);
     }
 
     public ButtonSequenceLogic() : base("ButtonSequence", "description")
