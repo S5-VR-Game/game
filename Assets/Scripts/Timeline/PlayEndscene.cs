@@ -1,3 +1,4 @@
+using Game;
 using PlayerController;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -13,24 +14,30 @@ namespace Timeline
         public PlayerProfileService playerService;
         private const float Distance = 3f;
 
+        [SerializeField] private GameInformation gameInformation;
+
         private void Start()
         {
             if (timelineDirector == null) return;
-            
+
             // setting to deactivate that the end-scene is played after its game object creation
             timelineDirector.playOnAwake = false;
-            
+
             // activates the function OnTimelineStopped() after the timeline ends
             timelineDirector.stopped += OnTimelineStopped;
         }
 
-        // way to start the endscene (NEED TO CHANGE AFTERWARS AFTER GETTING THE WIN CONDITION!)
+        // way to start the endscene
         private void Update()
         {
             if (!(Vector3.Distance(playerService.GetPlayerGameObject().transform.position, transform.position) <=
                   Distance)) return;
-            // starts the end-scene
-            timelineDirector.Play();
+            
+            if (gameInformation.currentGameState == GameState.GameWon)
+            {
+                // starts the end-scene
+                timelineDirector.Play();
+            }
         }
 
         // returns to the main menu after playing the end-scene
@@ -39,7 +46,7 @@ namespace Timeline
         {
             SceneManager.LoadScene(0);
             if (!PlayerPrefs.GetString("CurrentPlayer", "Keyboard").Equals("Keyboard")) return;
-        
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

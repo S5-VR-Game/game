@@ -1,5 +1,4 @@
 using Game.Tasks;
-using MyPrefabs.Scripts.Game;
 using UnityEngine;
 
 namespace Game.Observer

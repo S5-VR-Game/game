@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PlayerController;
 using UnityEngine;
 
 namespace Game.Tasks
@@ -26,6 +27,12 @@ namespace Game.Tasks
         /// </summary>
         [NonSerialized]
         public Difficulty difficulty;
+        
+        /// <summary>
+        /// Provides the current player profile service instance. This can be used to access the current player
+        /// </summary>
+        [NonSerialized]
+        public PlayerProfileService playerProfileService;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
