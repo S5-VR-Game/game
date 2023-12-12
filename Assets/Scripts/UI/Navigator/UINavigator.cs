@@ -51,8 +51,8 @@ public class UINavigator : MonoBehaviour
         float angle = Vector2.SignedAngle(new Vector2(direction.x, direction.z),
             new Vector2(cameraTransform.transform.forward.x, cameraTransform.transform.forward.z));
         
-        float compassPositionX = Mathf.Clamp(1 * angle / cam.fieldOfView, -1, 1);
-        markerTransform.anchoredPosition = new Vector2(compassBarTransform.rect.width / 1.0f * compassPositionX, transform.position.y);
+        float compassPositionX = Mathf.Clamp(2.0f * angle / cam.fieldOfView, -1, 1);
+        markerTransform.anchoredPosition = new Vector2(compassBarTransform.rect.width / 2.1f * compassPositionX, transform.position.y);
 
         marker.transform.rotation = cam.transform.rotation;
     }
