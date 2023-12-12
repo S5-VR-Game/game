@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Game;
 using Game.Tasks;
 using Prefabs.Game.Tasks.Button_testing;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class ButtonSequenceLogic : GameTask
@@ -12,33 +12,28 @@ public class ButtonSequenceLogic : GameTask
     public GameObject cube;
     
     public static int[] colorSequence;
-    private bool done = false;
-    private int level = 0;
-    int sequenceLenght;
+    private bool _done;
+    private int _level;
+    private int _sequenceLenght;
     public ShaderGraphProgressBar progressBar;
-    private float stepSize;
+    private float _stepSize;
     
     public override void Initialize()
     {
-        difficulty.SetValue(1);
-        if (difficulty.GetValue() == 0f)
+        // crates sequence lenght based on difficulty
+        _sequenceLenght = difficulty.GetSeparatedDifficulty() switch
         {
-            
-            sequenceLenght = 9;
-        } else if (difficulty.GetValue() == 0.5f)
-        {
-            sequenceLenght = 18;
-        }
-        else if (difficulty.GetValue() == 1.0f)
-        {
-            sequenceLenght = 27;
-        }
+            SeparatedDifficulty.Easy => 9,
+            SeparatedDifficulty.Medium => 18,
+            SeparatedDifficulty.Hard => 27,
+            _ => throw new ArgumentOutOfRangeException()
+        };
 
-        stepSize = 2.0f / (float)sequenceLenght;
-
-        colorSequence = new int[sequenceLenght];
+        //calculates step size for the progress bar
+        _stepSize = 2.0f / _sequenceLenght;
         //create Sequence
-        for (var i = 0; i < sequenceLenght; i++)
+        colorSequence = new int[_sequenceLenght];
+        for (var i = 0; i < _sequenceLenght; i++)
         {
             colorSequence[i] = Random.Range(0, 4);
             print(colorSequence[i]);
@@ -54,14 +49,7 @@ public class ButtonSequenceLogic : GameTask
 
     protected override TaskState CheckTaskState()
     {
-        if (done)
-        {
-            return TaskState.Successful;
-        }
-        else
-        {
-            return TaskState.Ongoing;
-        }
+        return _done ? TaskState.Successful : TaskState.Ongoing;
     }
 
     protected override void AfterStateCheck()
@@ -75,25 +63,25 @@ public class ButtonSequenceLogic : GameTask
     //compares the pressed button with the next Color in the Sequence
     public void ButtonCheck(ColorCode color)
     {
-        if (color == (ColorCode) colorSequence[level])
+        if (color == (ColorCode) colorSequence[_level])
         {
-            if (level == sequenceLenght - 1)
+            if (_level == _sequenceLenght - 1)
             {
-                
-                done = true;
-                print("done");
+                _done = true;
             }
-            level ++;
+            _level ++;
         }
         else
         {
-            print("reset");
-            level = 0;
+            _level = 0;
         }
-        //print("level: " + level);
-        //print("steps: " + stepSize);
-        //print("calc: " + ((float)level * stepSize - 1f));
-        progressBar.ChangeValue((float)level * stepSize - 1f);
+        progressBar.ChangeValue(_level * _stepSize - 1f);
+    }
+    
+    //is triggered if a button is pressed
+    public void ButtonPress(int color)
+    {
+        ButtonCheck((ColorCode)color);
     }
 
     public ButtonSequenceLogic() : base("ButtonSequence", "description")

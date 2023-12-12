@@ -33,7 +33,8 @@ public class ButtonCounter : MonoBehaviour
             Test(3);
         }  
     }
-
+    
+    //is triggered if a button is pressed
     public void Test(int color)
     {
         logic.ButtonCheck((ColorCode)color);

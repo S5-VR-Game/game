@@ -14,15 +14,16 @@ public class RubicsCube : MonoBehaviour
     public Material[] colors = new Material[4];
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         switch (logic.difficulty.GetSeparatedDifficulty())
         {
+            //calls method based on difficulty
             case SeparatedDifficulty.Easy:
-                EasyColor();
+                Easy_MediumColor(0);
                 break;
             case SeparatedDifficulty.Medium:
-                MediumColor();
+                Easy_MediumColor(1);
                 break;
             case SeparatedDifficulty.Hard:
                 HardColor();
@@ -32,13 +33,8 @@ public class RubicsCube : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private Color GiveColor(int pos)
+    //returns a color based on given int
+    private static Color GiveColor(int pos)
     {
         return ButtonSequenceLogic.colorSequence[pos] switch
         {
@@ -49,32 +45,24 @@ public class RubicsCube : MonoBehaviour
             _ => black
         };
     }
-
-    private void EasyColor()
+    // colors the Cube for easy and medium mode
+    private void Easy_MediumColor(int difficulty)
     {
-        for (var i = 0; i < 9; i++)
+        var amount = difficulty == 0 ? 9 : 18;
+        {
+            
+        }
+        for (var i = 0; i < amount; i++)
         {
             var materialCube = cubeComponents[i + 9].GetComponent<MeshRenderer>();
             materialCube.material.color = GiveColor(i);
-            print("easy");
-
         }
         
     }
 
-    private void MediumColor()
-    {
-        for (var i = 0; i < 18; i++)
-        {
-            var materialCube = cubeComponents[i].GetComponent<MeshRenderer>();
-            materialCube.material.color = GiveColor(i);
-            print("medium");
-        }
-    }
-
+    // colors the Cube for hard mode
     private void HardColor()
     {
-        print("hard");
         // Color TopSide and Front-TopRow
         for (var i = 0; i < 9 + 3; i++)
         {
