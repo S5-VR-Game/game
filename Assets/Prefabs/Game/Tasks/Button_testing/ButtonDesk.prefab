@@ -56,7 +56,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 3553526114064840385}
   progressBar: {fileID: 2985359830806098658}
-  stepSize: 0
 --- !u!114 &4147732890739579896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +96,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4225299361838194659}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.813}
+  m_LocalPosition: {x: 0, y: 0, z: 1.134}
   m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,7 +104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.888, y: 1.223}
+  m_AnchoredPosition: {x: 0.26, y: 1.223}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3753895752951248619
@@ -661,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FillRate: 1
   capsule: {fileID: 7424519569250591087}
+  objectMaterial: {fileID: 2100000, guid: ffd372cd5dea694bfb0d545293097373, type: 2}
 --- !u!1 &7424519569250591087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6656315416527324178, guid: f3964b257a8ba2d4ca367d693329d788, type: 3}
@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 1045738858118613738}
     - target: {fileID: 8650032276316519386, guid: 64a139888d0283747915fc68b5e3a801, type: 3}
       propertyPath: m_Name
-      value: CheatSheetHard
+      value: CheatSheet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
