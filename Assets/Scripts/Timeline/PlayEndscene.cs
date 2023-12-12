@@ -16,13 +16,16 @@ namespace Timeline
 
         [SerializeField] private GameInformation gameInformation;
 
+        public Transform endScenePlayerPosition;
+        public PlayerProfileService playerProfileService;
+        
         private void Start()
         {
             if (timelineDirector == null) return;
-
+            
             // setting to deactivate that the end-scene is played after its game object creation
             timelineDirector.playOnAwake = false;
-
+            
             // activates the function OnTimelineStopped() after the timeline ends
             timelineDirector.stopped += OnTimelineStopped;
         }
@@ -35,6 +38,12 @@ namespace Timeline
             
             if (gameInformation.currentGameState == GameState.GameWon)
             {
+                playerProfileService.SetVRMovementActive(false);
+            
+                playerProfileService.GetPlayerGameObject().transform.position = endScenePlayerPosition.position;    
+                
+                playerProfileService.GetHUD().gameObject.SetActive(false);
+                
                 // starts the end-scene
                 timelineDirector.Play();
             }
@@ -46,7 +55,7 @@ namespace Timeline
         {
             SceneManager.LoadScene(0);
             if (!PlayerPrefs.GetString("CurrentPlayer", "Keyboard").Equals("Keyboard")) return;
-
+            
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

@@ -1235,13 +1235,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: vrPlayerHUD
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: keyboardPlayerHUD
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1765556737870566886, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
     - {fileID: 8322324469930562510, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+    - {fileID: 1944167630057885541, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+    - {fileID: 7350778541532409106, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1254059540207477491, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       insertIndex: -1
