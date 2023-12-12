@@ -8,7 +8,10 @@ namespace Sound
     {
         public AudioClip audioClip;  // stores the played audio file
         private AudioSource _audioSource; // stores the audio-source (needed to play the sound)
-
+        
+        [Tooltip("sets the volume (from 0 (silent) to 1 (loud)")]
+        public float volumeSound; //sets the volume
+        
         // enum to decide when the sound should be played
         public enum PlaySoundTrigger
         {
@@ -38,6 +41,7 @@ namespace Sound
             if (audioClip != null)
             {
                 _audioSource.clip = audioClip;
+                _audioSource.volume = volumeSound;
                 _audioSource.playOnAwake = false;
             }
             else
@@ -98,7 +102,6 @@ namespace Sound
                 if (!_audioSource.isPlaying)
                 {
                     _audioSource.Play();
-                    _audioSource.volume = 0.5f;
                 }
             }
         }
