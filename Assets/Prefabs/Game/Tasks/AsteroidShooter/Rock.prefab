@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractured: {fileID: 6516070941938034013, guid: 7fbe87ae54e3a8e4da7ac444490fa02d, type: 3}
-  soundManager: {fileID: 5275392050052841577}
 --- !u!114 &-2174718574190793696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 0b1fdea22e5c70d4083a9735b99e35a7, type: 3}
-  volumeSound: 1
+  volumeSound: 0.8
   playSoundTrigger: 0
   playerProfileService: {fileID: 0}
   playerDistance: 0

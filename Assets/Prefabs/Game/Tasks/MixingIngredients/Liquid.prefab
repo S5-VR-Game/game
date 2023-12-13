@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 9676a5d22a383b34eb702e8588acebcc, type: 3}
-  volumeSound: 0.2
+  volumeSound: 1
   playSoundTrigger: 1
   playerProfileService: {fileID: 0}
   playerDistance: 0

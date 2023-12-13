@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: cefb72c77840f3340a16677647e9e030, type: 3}
-  volumeSound: 0.1
+  volumeSound: 0.4
   playSoundTrigger: 1
   playerProfileService: {fileID: 0}
   playerDistance: 0
