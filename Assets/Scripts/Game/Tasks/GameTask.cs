@@ -112,11 +112,9 @@ namespace Game.Tasks
             {
                 case TaskState.Failed:
                     TaskFailed?.Invoke(this);
-                    playFailureSoundManager.PlaySound();
                     break;
                 case TaskState.Successful:
                     TaskSuccessful?.Invoke(this);
-                    playSuccessSoundManager.PlaySound();
                     break;
                 case TaskState.Ongoing:
                     break;

@@ -3,6 +3,7 @@ using Game.Observer;
 using Game.Tasks;
 using Logging;
 using PlayerController;
+using Sound;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -35,6 +36,8 @@ namespace Game
         
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
+        [SerializeField] private SoundManager _taskSpawningSoundManager;
+        
         private float m_NextGameTaskTime; // if this time is reached, a new game task starts
 
         /// <summary>
@@ -108,6 +111,7 @@ namespace Game
                 bool spawnSuccess = factory.TrySpawnTask();
                 if (spawnSuccess)
                 {
+                    _taskSpawningSoundManager.PlaySound();
                     break;
                 }
             }
