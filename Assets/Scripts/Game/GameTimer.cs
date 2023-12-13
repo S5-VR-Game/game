@@ -1,6 +1,10 @@
+using System;
+using Game.Observer;
 using Game.Tasks;
 using Logging;
+using PlayerController;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game
 {
@@ -13,43 +17,66 @@ namespace Game
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTimer";
 
-        [Header("Timer settings (every value in seconds)")] [SerializeField]
-        private float initialGameTime = 60;
-
+        [Header("Timer settings (every value in seconds)")] 
+        
+        [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
         [SerializeField] private float minTimeIntervalBetweenTasks = 10;
-
+        
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
         [SerializeField] private float randomTimeIntervalSize = 15;
 
-        // higher difficulty value will result in higher chance to have less time between game task start times
-        [Header("Game dependencies")] [SerializeField]
-        private Difficulty difficulty;
-
+        [Header("Game dependencies")] 
+        [SerializeField] private Difficulty difficulty;
+        [SerializeField] private PlayerProfileService playerProfileService;
+        [SerializeField] private GameTaskObserver gameTaskObserver;
+        [SerializeField] private IntegrityObserver integrityObserver;
+        
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
-        private float m_RemainingTime;
         private float m_NextGameTaskTime; // if this time is reached, a new game task starts
-        private bool m_TimerPaused;
-        private bool m_GameOver;
+
+        /// <summary>
+        /// Event action, which is invoked, when the game timer reaches zero and the game ends 
+        /// </summary>
+        public event Action OnTimeOver;
+
+        /// <summary>
+        /// Event action, which is invoked, when the game timer changed.
+        /// The float parameter represents the remaining time in seconds.
+        /// </summary>
+        public event Action<float> OnTimeChanged;
+
+        public bool timerPaused { get; private set; }
+        public float remainingTime { get; private set; }
+        public bool timeOver { get; private set; }
 
         private void Start()
         {
-            m_RemainingTime = initialGameTime;
+            remainingTime = initialGameTime;
             m_NextGameTaskTime = GetNextTimeInterval();
+
+            // initialize factories
+            var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
+                gameTaskObserver, integrityObserver);
+            foreach (var factory in factories)
+            {
+                factory.Initialize(factoryInitializationData);
+            }
         }
 
         private void Update()
         {
-            if (m_RemainingTime > 0)
+            if (remainingTime > 0)
             {
-                if (!m_TimerPaused)
+                if (!timerPaused)
                 {
-                    m_RemainingTime -= Time.deltaTime;
+                    remainingTime -= Time.deltaTime;
+                    OnTimeChanged?.Invoke(remainingTime);
 
                     // check whether new game task is reached
-                    if (m_RemainingTime < m_NextGameTaskTime)
+                    if (remainingTime < m_NextGameTaskTime)
                     {
                         TrySpawnRandomTask();
 
@@ -58,10 +85,11 @@ namespace Game
                     }
                 }
             }
-            else if (!m_GameOver)
+            else if (!timeOver)
             {
-                m_RemainingTime = 0;
-                m_GameOver = true;
+                remainingTime = 0;
+                timeOver = true;
+                OnTimeOver?.Invoke();
                 m_LOG.Log(LOGTag, "game over");
             }
         }
@@ -73,16 +101,17 @@ namespace Game
         {
             // shuffle factories in order to spawn random task type
             factories.Shuffle();
-            
+
             // try to spawn a task and abort loop if succeeded
             foreach (var factory in factories)
             {
-                bool spawnSuccess = factory.TrySpawnTask(difficulty);
+                bool spawnSuccess = factory.TrySpawnTask();
                 if (spawnSuccess)
                 {
                     break;
                 }
             }
+            m_LOG.Log(LOGTag, "all spawn points of all factories are occupied, no task was spawned");
         }
 
         /// <summary>
@@ -96,7 +125,7 @@ namespace Game
 
             var timeIntervalEnd = timeIntervalStart + randomTimeIntervalSize;
             //  random value between interval start and end
-            return m_RemainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
+            return remainingTime - minTimeIntervalBetweenTasks - Random.Range(timeIntervalStart, timeIntervalEnd);
         }
 
         /// <summary>
@@ -104,7 +133,7 @@ namespace Game
         /// </summary>
         public void PauseTimer()
         {
-            m_TimerPaused = true;
+            timerPaused = true;
         }
 
         /// <summary>
@@ -112,7 +141,7 @@ namespace Game
         /// </summary>
         public void ResumeTimer()
         {
-            m_TimerPaused = false;
+            timerPaused = false;
         }
     }
 }

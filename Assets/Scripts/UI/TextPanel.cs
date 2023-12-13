@@ -33,11 +33,11 @@ namespace UI
                 ToggleShow();
             }
         
-            // if (Input.GetKeyUp(test))
-            // {
-            //     print("Testbutton pressed!");
-            //     displayText("testtest");
-            // }
+            if (Input.GetKeyUp(test))
+            {
+                print("Testbutton pressed!");
+                DisplayText("testtest");
+            }
 
             if (Input.GetKeyUp(dismiss))
             {
