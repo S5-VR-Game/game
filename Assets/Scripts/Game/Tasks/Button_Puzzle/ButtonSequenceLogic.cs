@@ -36,7 +36,6 @@ public class ButtonSequenceLogic : GameTask
         for (var i = 0; i < _sequenceLenght; i++)
         {
             colorSequence[i] = Random.Range(0, 4);
-            print(colorSequence[i]);
         }
 
         progressBar.ChangeValue(0f);
@@ -60,7 +59,10 @@ public class ButtonSequenceLogic : GameTask
         }
     }
     
-    //compares the pressed button with the next Color in the Sequence
+    /// <summary>
+    /// compares the pressed button with the next Color in the Sequence
+    /// </summary>
+    /// <param name="color"> the color of the pressed button</param>
     public void ButtonCheck(ColorCode color)
     {
         if (color == (ColorCode) colorSequence[_level])
@@ -78,7 +80,10 @@ public class ButtonSequenceLogic : GameTask
         progressBar.ChangeValue(_level * _stepSize - 1f);
     }
     
-    //is triggered if a button is pressed
+    /// <summary>
+    /// is triggered if a button is pressed
+    /// </summary>
+    /// <param name="color"></param>
     public void ButtonPress(int color)
     {
         ButtonCheck((ColorCode)color);

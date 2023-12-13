@@ -8,7 +8,7 @@ namespace Game.Tasks.Button_Puzzle
         [SerializeField] private ButtonSequenceLogic prefab;
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
-            return Instantiate(prefab, spawnPoint.GetSpawnPosition(), Quaternion.identity);
+            return Instantiate(prefab, spawnPoint.GetSpawnPosition(), spawnPoint.GetRotation());
         }
     }
 }

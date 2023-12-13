@@ -3554,13 +3554,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508178414}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 33.47, y: 0, z: -9.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 870113291}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &508525434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5223054260023913691, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -23435,6 +23435,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447489329516643809, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: isVrPlayerActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
