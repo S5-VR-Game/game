@@ -123,17 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &392654519 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+--- !u!4 &334763124 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
   m_PrefabInstance: {fileID: 1225201943}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9419b1dca02e94ea1891786639e032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &419973577
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,8 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dceef4762da480bb6e7171357657309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTaskObserver: {fileID: 392654519}
-  integrityObserver: {fileID: 1513460696}
   spawnPoints:
   - {fileID: 1294557183}
   prefab: {fileID: 1045738858118613738, guid: a139f71e70912dc4b8bc343ac81a251e, type: 3}
@@ -277,11 +269,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 125.963, y: -31.938995, z: -1.5690002}
---- !u!4 &1131086734 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 1225201943}
+--- !u!114 &1058965288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+  m_PrefabInstance: {fileID: 1782340415}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fc31ef241642808e70265053db124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1225201943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,6 +292,10 @@ PrefabInstance:
       propertyPath: factories.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: playerProfileService
+      value: 
+      objectReference: {fileID: 1058965288}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: randomTimeIntervalSize
       value: 5
@@ -353,12 +355,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1294557184}
     - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 419973579}
-    - targetCorrespondingSourceObject: {fileID: 6567031688976337414, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1294557184}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
 --- !u!1 &1294557182
@@ -403,7 +405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1131086734}
+  m_Father: {fileID: 334763124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1425647451
 GameObject:
@@ -511,17 +513,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1513460696 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8919326314240518745, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 1225201943}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c1c7f01acf4a07b37368f229a4090a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1782340415
 PrefabInstance:
   m_ObjectHideFlags: 0
