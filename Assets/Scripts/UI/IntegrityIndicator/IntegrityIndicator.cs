@@ -25,12 +25,7 @@ public class IntegrityIndicator : MonoBehaviour
     {
         if (iBar != null)
         {
-            print("Bar could be assigned.");
             barTransform = iBar.getTransform();
-        }
-        else
-        {
-            print("Bar could not be assigned.");
         }
 
         rightIndent = GetComponentInParent<RectTransform>().sizeDelta.x;
