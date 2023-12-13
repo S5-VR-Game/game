@@ -17,10 +17,6 @@ namespace Game.Tasks
     /// </summary>
     public abstract class GameTask : MonoBehaviour
     {
-        public SoundManager playFailureSoundManager;
-        
-        public SoundManager playSuccessSoundManager;
-        
         protected const int k_DefaultIntegrityValue = 5;
 
         public string taskName { get; protected set; }
