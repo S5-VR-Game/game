@@ -18,7 +18,7 @@ public class IntegrityIndicator : MonoBehaviour
     
     private readonly KeyCode increase = KeyCode.UpArrow;
     private readonly KeyCode decrease = KeyCode.DownArrow;
-    private float current_percentage = 0.0f;
+    private float current_percentage = 1.0f;
     
     // Start is called before the first frame update
     void Start()
