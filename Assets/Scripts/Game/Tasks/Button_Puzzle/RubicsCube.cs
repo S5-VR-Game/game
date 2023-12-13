@@ -33,7 +33,12 @@ public class RubicsCube : MonoBehaviour
         }
     }
 
-    //returns a color based on given int
+    
+    /// <summary>
+    /// returns a color based on given int 
+    /// </summary>
+    /// <param name="pos"> number of the given color </param>
+    /// <returns></returns>
     private static Color GiveColor(int pos)
     {
         return ButtonSequenceLogic.colorSequence[pos] switch
@@ -45,33 +50,35 @@ public class RubicsCube : MonoBehaviour
             _ => black
         };
     }
-    // colors the Cube for easy and medium mode
+    
+    /// <summary>
+    /// colors the Cube for easy mode 
+    /// </summary>
     private void EasyColor()
     {
-        
-        {
-            
-        }
         for (var i = 0; i < 9; i++)
         {
             var materialCube = cubeComponents[i + 9].GetComponent<MeshRenderer>();
             materialCube.material.color = GiveColor(i);
         }
-        
     }
     
+    /// <summary>
+    /// colors the Cube for medium mode
+    /// </summary>
     private void MediumColor()
     {
-
         for (var i = 0; i < 18; i++)
         {
             var materialCube = cubeComponents[i].GetComponent<MeshRenderer>();
             materialCube.material.color = GiveColor(i);
         }
-        
     }
 
-    // colors the Cube for hard mode
+    
+    /// <summary>
+    /// colors the Cube for hard mode 
+    /// </summary>
     private void HardColor()
     {
         // Color TopSide and Front-TopRow
@@ -117,5 +124,4 @@ public class RubicsCube : MonoBehaviour
             materialCube.material.color = GiveColor(i + 24);
         }
     }
-
 }

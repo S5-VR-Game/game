@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI
@@ -9,7 +8,6 @@ namespace UI
     
         // block for defining used inputs
         private KeyCode togglePanel = KeyCode.I;
-        private KeyCode test = KeyCode.C;
         private KeyCode dismiss = KeyCode.D;
 
         public GameObject textField;
@@ -28,15 +26,10 @@ namespace UI
         // Update is called once per frame
         void Update()
         {
+            // TODO assign controller buttons to toggle and dismiss ui text
             if (Input.GetKeyUp(togglePanel))
             {
                 ToggleShow();
-            }
-        
-            if (Input.GetKeyUp(test))
-            {
-                print("Testbutton pressed!");
-                DisplayText("testtest");
             }
 
             if (Input.GetKeyUp(dismiss))
@@ -73,7 +66,6 @@ namespace UI
             {
                 // toggleShow();
                 animator.SetBool("blink", true);
-                print(animator.layerCount);
                 alert_dismissed = false;
             }
             active = true;

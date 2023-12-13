@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using Game.Tasks;
+using Logging;
 using UI;
 using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
+    private readonly Logger m_LOG = new Logger(new LogHandler());
+    private const string LOGTag = "HUD";
 
     public IntegrityIndicator iIndicator;
     public TextPanel uiTextBox;
@@ -22,12 +23,12 @@ public class HUD : MonoBehaviour
         if (iIndicator != null && uiTextBox != null && timerPanel != null && navigator != null)
         {
             initializedCorrectly = true;
-            Debug.Log("HUD Objects set correctly!");
+            m_LOG.Log(LOGTag, "HUD Objects set correctly!");
             
         }
         else
         {
-            Debug.Log("HUD Objects not set correctly!");
+            m_LOG.Log(LOGTag, "HUD Objects not set correctly!");
         }
 
         cam = gameObject.GetComponentInParent<Camera>();

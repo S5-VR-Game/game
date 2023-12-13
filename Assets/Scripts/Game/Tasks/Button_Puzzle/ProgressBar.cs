@@ -19,7 +19,12 @@ public class ShaderGraphProgressBar : MonoBehaviour
         objectMaterial.SetFloat("_FillRate", _FillRate);  
     }
 
-    //enables changing the value of progress bar
+    
+    /// <summary>
+    /// enables changing the value of progress bar 
+    /// </summary>
+    /// <param name="value"> new value for the progress bar </param>
+    
     public void ChangeValue(float value) 
     {
         _FillRate = value;

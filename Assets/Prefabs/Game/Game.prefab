@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 2766555538743404404}
   - component: {fileID: 8327690461323679888}
   - component: {fileID: 7562419852456309897}
+  - component: {fileID: 6719862717524418656}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -208,6 +209,21 @@ MonoBehaviour:
   integrity: {fileID: 8327690461323679888}
   difficulty: {fileID: 2766555538743404404}
   currentGameState: 0
+--- !u!114 &6719862717524418656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935988648039381092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4178a0d2efad344a96d376298001ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProfileService: {fileID: 0}
+  integrity: {fileID: 8327690461323679888}
+  gameTimer: {fileID: 3769836651817287872}
 --- !u!1 &8433711160787168467
 GameObject:
   m_ObjectHideFlags: 0

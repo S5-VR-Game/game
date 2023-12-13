@@ -108,7 +108,7 @@ namespace Game
                 bool spawnSuccess = factory.TrySpawnTask();
                 if (spawnSuccess)
                 {
-                    break;
+                    return;
                 }
             }
             m_LOG.Log(LOGTag, "all spawn points of all factories are occupied, no task was spawned");
