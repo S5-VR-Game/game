@@ -5,7 +5,7 @@ namespace Game.Tasks.BookRiddle
     /// <summary>
     /// This class represents the Book-Riddle-Logic
     /// </summary>
-    public class BookRiddle : TimerTask
+    public class BookRiddle : GameTask
     {
         /// <summary>
         /// Object that represents the Task, which
@@ -16,7 +16,7 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolution solution { get; set; }
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
-        public BookRiddle() : base(180, "Book Riddle", "Solve this book riddle\n" +
+        public BookRiddle() : base("Book Riddle", "Solve this book riddle\n" +
                                                        "find a cluster in the book and type in the correct code.", 5)
         {
         }
