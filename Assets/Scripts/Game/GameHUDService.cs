@@ -17,20 +17,7 @@ namespace Game
         {
             gameTimer.OnTimeChanged += OnTimeChanged;
             // deactivated due to workaround (see below)
-            // integrity.OnIntegrityChanged += OnIntegrityChanged;
-        }
-
-        private void Update()
-        {
-            // workaround to update integrity indicator on HUD
-            // if UpdateIntegrityIndicator is invoked multiple times with the same value, the bar will update
-            // its value, if invoked once only, the bar will not be updated correctly
-            // this seems to be a bug in the changeBar method of the integrity indicator
-            // (maybe a error with the Mathf.Lerp call and the over-time calculation, if only invoked once compared to
-            // invoked multiple times with the same parameter?!)
-            // TODO if the bug is fixed, register the OnIntegrityChanged method in the start method
-            // or remove the unused listener method if the bug can not be fixed
-            playerProfileService.GetHUD().UpdateIntegrityIndicator(integrity.GetCurrentIntegrityPercentage());
+            integrity.OnIntegrityChanged += OnIntegrityChanged;
         }
 
         /// <summary>

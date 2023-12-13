@@ -18,19 +18,14 @@ public class IntegrityIndicator : MonoBehaviour
     
     private readonly KeyCode increase = KeyCode.UpArrow;
     private readonly KeyCode decrease = KeyCode.DownArrow;
-    private float current_percentage = 0.0f;
+    private float current_percentage = 1.0f;
     
     // Start is called before the first frame update
     void Start()
     {
         if (iBar != null)
         {
-            print("Bar could be assigned.");
             barTransform = iBar.getTransform();
-        }
-        else
-        {
-            print("Bar could not be assigned.");
         }
 
         rightIndent = GetComponentInParent<RectTransform>().sizeDelta.x;
