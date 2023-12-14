@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Game.Tasks.leaks_riddle
@@ -8,6 +7,8 @@ namespace Game.Tasks.leaks_riddle
     {
         [SerializeField] private GameObject buttonNode;
         [SerializeField] private Material confirmedMaterial;
+        private readonly List<GameObject> _leaks = new();
+        
         
         private bool _canPressButtonToFinishTask;
         private bool _finished;
@@ -19,6 +20,18 @@ namespace Game.Tasks.leaks_riddle
             
         }
 
+        public void RegisterLeak(GameObject leak)
+        {
+            _leaks.Add(leak);
+        }
+
+        public void UnregisterLeak(GameObject leak)
+        {
+            _leaks.Remove(leak);
+        }
+        
+        
+
         /// <summary>
         /// This method listens to a button and can only be pressed if all leaks
         /// have disappeared successfully.
@@ -27,30 +40,20 @@ namespace Game.Tasks.leaks_riddle
         {
             if (!_canPressButtonToFinishTask) return;
             _finished = true;
-            ShowButtonIsAbleToPress();
         }
 
         private void ShowButtonIsAbleToPress()
         {
-            var buttonRenderer = buttonNode.GetComponent<Renderer>();
-            var materials = buttonRenderer.materials;
-            materials[0] = confirmedMaterial;
-        }
-
-        /// <summary>
-        /// Retrieves all GameObjects as a List that are still tagged with leaks.
-        /// </summary>
-        /// <returns></returns>
-        private List<GameObject> GetAllLeftLeaks()
-        {
-            var childTransforms = gameObject.GetComponentsInChildren<Transform>(true);
-            return (from childTransform in childTransforms where childTransform.CompareTag($"leak") 
-                select childTransform.gameObject).ToList();
+            var bookRenderer = buttonNode.GetComponent<Renderer>();
+            var currentBookMaterials = bookRenderer.materials;
+            currentBookMaterials[0] = confirmedMaterial;
+            bookRenderer.materials = currentBookMaterials;
+            Debug.Log("XXXXXXX");
         }
 
         private bool CanFinishTask()
         {
-            return GetAllLeftLeaks().Count == 0;
+            return _leaks.Count == 0;
         }
 
         public override void Initialize()
@@ -62,11 +65,15 @@ namespace Game.Tasks.leaks_riddle
         protected override void BeforeStateCheck()
         {
             _canPressButtonToFinishTask = CanFinishTask();
+            if (CanFinishTask())
+            {
+                ShowButtonIsAbleToPress();
+            }
         }
         
         protected override TaskState CheckTaskState()
         {
-            return _finished ? TaskState.Successful : TaskState.Failed;
+            return _finished ? TaskState.Successful : TaskState.Ongoing;
         }
 
         
