@@ -48,7 +48,6 @@ namespace Game.Tasks.leaks_riddle
             var currentBookMaterials = bookRenderer.materials;
             currentBookMaterials[0] = confirmedMaterial;
             bookRenderer.materials = currentBookMaterials;
-            Debug.Log("XXXXXXX");
         }
 
         private bool CanFinishTask()
