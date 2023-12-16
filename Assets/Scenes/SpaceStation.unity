@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
+  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3548,6 +3548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &508178414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,6 +3578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &508178416
 Transform:
   m_ObjectHideFlags: 0
@@ -9161,6 +9163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734668759}
   - component: {fileID: 734668760}
+  - component: {fileID: 734668761}
   m_Layer: 0
   m_Name: MedicalDisasterSpawnPoint1
   m_TagString: Untagged
@@ -9195,6 +9198,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 734668761}
+--- !u!65 &734668761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734668758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1001 &745125224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13806,6 +13831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1013114009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1920449188707948386, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -15793,6 +15819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1029942698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16342,6 +16369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1236737386
 GameObject:
   m_ObjectHideFlags: 0
@@ -17353,6 +17381,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: initialGameTime
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
       value: 9
@@ -18393,6 +18425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1477313347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19130,6 +19163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1511840716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19291,6 +19325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1530439221
 GameObject:
   m_ObjectHideFlags: 0
@@ -19332,6 +19367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532761268}
   - component: {fileID: 1532761269}
+  - component: {fileID: 1532761270}
   m_Layer: 0
   m_Name: MixingIngredientsSpawnPoint1
   m_TagString: Untagged
@@ -19370,6 +19406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9382dddbada4c6392b146ee8d366d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 1532761270}
   recipeSpawnPoint: {fileID: 1162545954}
   ingredientContainerSpawnPoints:
   - {fileID: 2132106275}
@@ -19379,6 +19416,27 @@ MonoBehaviour:
   - {fileID: 1296902297}
   plantToWaterSpawnPoint: {fileID: 117140801}
   wateringBottleSpawnPoint: {fileID: 726439948}
+--- !u!65 &1532761270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532761267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.747276, y: 1, z: 3.9018173}
+  m_Center: {x: 4.373638, y: 0, z: 0.17699623}
 --- !u!1001 &1549815486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20955,6 +21013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1700595996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22040,6 +22099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &1719076931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
@@ -22220,6 +22280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1767264025
 GameObject:
   m_ObjectHideFlags: 0
@@ -23843,6 +23904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &2029090400
 Transform:
   m_ObjectHideFlags: 0
