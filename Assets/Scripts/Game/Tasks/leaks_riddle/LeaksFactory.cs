@@ -7,7 +7,6 @@ namespace Game.Tasks.leaks_riddle
         [SerializeField] private GameObject leaksRiddlePrefab;
         [SerializeField] private Transform[] leakSpawnPoints;
         [SerializeField] private GameObject leakPrefab;
-        [SerializeField] private Difficulty difficulty;
 
         private const int EasyNumberSpawnPoints = 3;
         private const int MediumNumberSpawnPoints = 5;
@@ -45,7 +44,7 @@ namespace Game.Tasks.leaks_riddle
         /// <returns>The amount of leaks to be spawned according to the difficulty.</returns>
         private int ReceiveAmountOfSpawnPointsAccordingToDifficulty()
         {
-            return difficulty.GetSeparatedDifficulty() switch
+            return mDifficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => EasyNumberSpawnPoints,
                 SeparatedDifficulty.Medium => MediumNumberSpawnPoints,

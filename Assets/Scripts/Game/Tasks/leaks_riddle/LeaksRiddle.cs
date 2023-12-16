@@ -20,11 +20,20 @@ namespace Game.Tasks.leaks_riddle
             
         }
 
+        /// <summary>
+        /// Registers a leak within the leak riddle
+        /// </summary>
+        /// <param name="leak">The leak that was spawned and needs to be watched.</param>
         public void RegisterLeak(GameObject leak)
         {
             _leaks.Add(leak);
         }
 
+        /// <summary>
+        /// Removes the Leak from the Riddle, it is called from the outside
+        /// when a leak is colliding with the duct tape.
+        /// </summary>
+        /// <param name="leak">The leak that was fixed during the game.</param>
         public void UnregisterLeak(GameObject leak)
         {
             _leaks.Remove(leak);
@@ -42,6 +51,9 @@ namespace Game.Tasks.leaks_riddle
             _finished = true;
         }
 
+        /// <summary>
+        /// Sets the Button of the hall to "ready"
+        /// </summary>
         private void ShowButtonIsAbleToPress()
         {
             var bookRenderer = buttonNode.GetComponent<Renderer>();
@@ -50,6 +62,9 @@ namespace Game.Tasks.leaks_riddle
             bookRenderer.materials = currentBookMaterials;
         }
 
+        /// <summary>
+        /// Checks if a task can be finished with a button press.
+        /// </summary>
         private bool CanFinishTask()
         {
             return _leaks.Count == 0;
