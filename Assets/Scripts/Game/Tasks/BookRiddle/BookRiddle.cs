@@ -17,7 +17,7 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
         public BookRiddle() : base("Book Riddle", "Solve this book riddle\n" +
-                                                       "find a cluster in the book and type in the correct code.", 5)
+                                                       "find a cluster in the book and type in the correct code.", 35)
         {
         }
 
