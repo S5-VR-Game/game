@@ -14,7 +14,8 @@ namespace Game.Tasks.marble_gravity
         private const float RotationSpeed = 50.0f;
         private const float ControlDistance = 4.0f;
 
-        public MarbleGravity() : base(120, "Marble Gravity :)", "solve the marble riddle", 10)
+        public MarbleGravity() : base(120, "Marble Gravity", "solve the marble riddle\n" +
+                                                             "and get to the blue cube.", 15)
         {
             
         }
