@@ -1,6 +1,6 @@
 ﻿<h2>Sounds: </h2>
 
-_ asteroid_explode: https://pixabay.com/de/sound-effects/explosion-6055/
+- asteroid_explode: https://pixabay.com/de/sound-effects/explosion-6055/
 - book_falling: https://pixabay.com/de/sound-effects/book-hits-floor-79952/ <br>
 - button_press: https://pixabay.com/de/sound-effects/button-press-85188/ <br>
 - door_opening_closing: https://pixabay.com/de/sound-effects/spaceship-door-opening-43604/ <br>
