@@ -55,18 +55,7 @@ namespace Game.Tasks.MedicalDisaster
             m_InitialParticleEmissionRate = valveSmokeParticleSystem.emission.rateOverTime;
             
             // build gradient
-            m_ValveGradient = new Gradient();
-            
-            var colors = new GradientColorKey[3];
-            colors[0] = new GradientColorKey(m_GradientStart, 0.0f);
-            colors[1] = new GradientColorKey(m_GradientMiddle, 0.5f);
-            colors[2] = new GradientColorKey(m_GradientEnd, 1.0f);
-
-            var alphas = new GradientAlphaKey[2];
-            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
-            alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
-
-            m_ValveGradient.SetKeys(colors, alphas);
+            m_ValveGradient = MedicalDisaster.BuildSimpleGradient(m_GradientStart, m_GradientMiddle, m_GradientEnd);
         }
 
         private void LateUpdate()
