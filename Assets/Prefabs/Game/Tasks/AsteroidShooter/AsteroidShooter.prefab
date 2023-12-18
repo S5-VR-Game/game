@@ -272,13 +272,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec490f15d64f904893ce809bb3a7dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playFailureSoundManager: {fileID: 0}
+  playSuccessSoundManager: {fileID: 0}
   asteroidShooterScene: {fileID: 8557072923420806920}
   spawnAsteroidsScript: {fileID: 7924681591478478125}
   countSpaceStationHitsScript: {fileID: 6053558553958656985}
   shootProjectile: {fileID: 3790864744464189540}
   crosshairMouseMovement: {fileID: 4032180597314399965}
-  playerProfileService: {fileID: 0}
-  locomotiveSystemMove: {fileID: 0}
 --- !u!1 &4501447066227644689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,10 +1100,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
@@ -1111,7 +1115,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5001328368701837688}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 62482901900528034}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
@@ -1119,11 +1131,23 @@ PrefabInstance:
       value: StartTaskAsteroidShooter
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySound
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Game.Tasks.AsteroidsShooter.StartAsteroidShooterTaskButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Sound.SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3181961886979028394, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
@@ -1177,6 +1201,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 673825428107623475, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5001328368701837688}
+    - targetCorrespondingSourceObject: {fileID: 673825428107623475, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62482901900528034}
   m_SourcePrefab: {fileID: 100100000, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
 --- !u!4 &5995135297348460344 stripped
 Transform:
@@ -1201,3 +1228,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startAsteroidShooterScript: {fileID: 7070919542467976534}
+--- !u!114 &62482901900528034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8521811153814410913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
+  volumeSound: 0.8
+  playSoundTrigger: 0
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
