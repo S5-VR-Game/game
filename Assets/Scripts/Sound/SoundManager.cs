@@ -112,7 +112,10 @@ namespace Sound
             // plays sound on collision
             if (playSoundTrigger.Equals(PlaySoundTrigger.Collision))
             {
-                _audioSource.Play();
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.Play();
+                }
             }
         }
         
