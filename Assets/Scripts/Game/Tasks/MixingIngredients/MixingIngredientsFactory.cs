@@ -25,7 +25,7 @@ namespace Game.Tasks.MixingIngredients
             
             // spawn main task
             MixingIngredients mixingIngredientsTask = Instantiate(mixingIngredientsPrefab, spawnPoint.GetSpawnPosition(),
-                Quaternion.identity);
+                spawnPoint.GetRotation());
 
             // spawn recipe text
             RecipeText recipeText = Instantiate(recipeTextPrefab, spawnPoint.recipeSpawnPoint.position, spawnPoint.recipeSpawnPoint.rotation);

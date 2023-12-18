@@ -8,7 +8,7 @@ namespace Game.Tasks.MedicalDisaster
         
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
-            return Instantiate(medicalDisasterPrefab, spawnPoint.GetSpawnPosition(), Quaternion.identity);
+            return Instantiate(medicalDisasterPrefab, spawnPoint.GetSpawnPosition(), spawnPoint.GetRotation());
         }
     }
 }

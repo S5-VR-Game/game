@@ -12,7 +12,8 @@ namespace Game.Tasks.MedicalDisaster
     {
         private const string TaskName = "Medical Disaster";
         private const string TaskDescription = "Medical Disaster Description";
-        private const float InitialTimerTime = 600;
+        private const float InitialTimerTime = 180;
+        private const float TaskStartPlayerDistance = 3;
 
         // parameters for different difficulties
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
@@ -23,6 +24,11 @@ namespace Game.Tasks.MedicalDisaster
         /// List of all available valves, which is used to pick random valves, that the user has to close. 
         /// </summary>
         [SerializeField] private List<Valve> openValves;
+
+        [SerializeField] private GameObject leftPipeTop;
+        [SerializeField] private GameObject leftPipeBottom;
+        [SerializeField] private GameObject rightPipeTop;
+        [SerializeField] private GameObject rightPipeBottom;
         
         public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription)
         {
@@ -56,6 +62,15 @@ namespace Game.Tasks.MedicalDisaster
 
         protected override void BeforeStateCheck()
         {
+            // update time indicator
+            var remainingTimePercent = remainingTime / InitialTimerTime;
+            if (remainingTimePercent is >= 0 and <= 1)
+            {
+                leftPipeBottom.transform.localScale = new Vector3(remainingTimePercent, 1, 1);
+                rightPipeBottom.transform.localScale = new Vector3(remainingTimePercent, 1, 1);
+                rightPipeTop.transform.localScale = new Vector3(-1+remainingTimePercent, 1, 1);
+                leftPipeTop.transform.localScale = new Vector3(-1+remainingTimePercent, 1, 1);
+            }
         }
 
         protected override TaskState CheckTaskState()
@@ -75,6 +90,42 @@ namespace Game.Tasks.MedicalDisaster
             {
                 DestroyTask();
             }
+        }
+
+        protected override bool TimerStartCondition()
+        {
+            // start time, when player is near the task
+            return Vector3.Distance(
+                playerProfileService.GetPlayerGameObject().transform.position,
+                transform.position
+                ) <= TaskStartPlayerDistance;
+        }
+
+        /// <summary>
+        /// Builds a gradient using the given colors. The gradient is linear and evenly distributed.
+        /// The gradient does not contain any changes in alpha value.
+        /// </summary>
+        /// <param name="colors">Colors to build the gradient. The order effects the order of the colors in the gradient</param>
+        /// <returns>the created gradient object</returns>
+        public static Gradient BuildSimpleGradient(params Color[] colors)
+        {
+            var gradient = new Gradient();
+            
+            var gradientColorKeys = new GradientColorKey[colors.Length];
+            // add color to gradient color keys
+            for (var i = 0; i < colors.Length; i++)
+            {
+                gradientColorKeys[i] = new GradientColorKey(colors[i], i / (float) (colors.Length - 1));
+            }
+
+            // add alpha values
+            var alphas = new GradientAlphaKey[2];
+            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
+            alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
+
+            // assign to gradient
+            gradient.SetKeys(gradientColorKeys, alphas);
+            return gradient;
         }
     }
 }
