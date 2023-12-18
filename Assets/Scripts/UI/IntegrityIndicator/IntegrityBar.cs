@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using Logging;
 using UnityEngine;
 
 public class IntegrityBar : MonoBehaviour
 {
+    private readonly Logger m_LOG = new Logger(new LogHandler());
+    private const string LOGTag = "IntegrityBar";
+    
     private RectTransform transform;
     // Start is called before the first frame update
     void Start()
@@ -11,18 +13,12 @@ public class IntegrityBar : MonoBehaviour
         transform = gameObject.GetComponent<RectTransform>();
         if (transform != null)
         {
-            print("transform object ok!");
+            m_LOG.Log(LOGTag, "transform object ok!");
         }
         else
         {
-            print("transform not ok.");
+            m_LOG.Log(LOGTag, "transform not ok.");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public RectTransform getTransform()

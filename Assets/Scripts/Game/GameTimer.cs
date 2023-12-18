@@ -3,7 +3,6 @@ using Game.Observer;
 using Game.Tasks;
 using Logging;
 using PlayerController;
-using Sound;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -112,7 +111,7 @@ namespace Game
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySound();
-                    break;
+                    return;
                 }
             }
             m_LOG.Log(LOGTag, "all spawn points of all factories are occupied, no task was spawned");
