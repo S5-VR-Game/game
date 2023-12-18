@@ -3,6 +3,7 @@ using Game.Observer;
 using Game.Tasks;
 using Logging;
 using PlayerController;
+using Sound;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
