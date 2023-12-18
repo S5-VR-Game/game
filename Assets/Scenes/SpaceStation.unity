@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
+  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3514,6 +3514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479449975}
   - component: {fileID: 479449976}
+  - component: {fileID: 479449977}
   m_Layer: 0
   m_Name: MarbleSpawnPoint1
   m_TagString: Untagged
@@ -3548,7 +3549,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 479449977}
+--- !u!65 &479449977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479449974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9, y: 9, z: 1}
+  m_Center: {x: 0, y: 0, z: 3}
 --- !u!1 &508178414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,6 +3581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508178416}
   - component: {fileID: 508178415}
+  - component: {fileID: 508178417}
   m_Layer: 0
   m_Name: ButtonSequenceSpawnPoint_1
   m_TagString: Untagged
@@ -3578,7 +3601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 508178417}
 --- !u!4 &508178416
 Transform:
   m_ObjectHideFlags: 0
@@ -3594,6 +3617,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 870113291}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &508178417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508178414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &508525434 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5223054260023913691, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -9562,17 +9606,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1792608899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &854990189 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2766555538743404404, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 1344499814}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da4c362a0024bc880cbe437f4f3ae7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &857875185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13797,6 +13830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007129471}
   - component: {fileID: 1007129472}
+  - component: {fileID: 1007129473}
   m_Layer: 0
   m_Name: AsteroidsShooterSpawnPoint2
   m_TagString: Untagged
@@ -13831,7 +13865,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1007129473}
+--- !u!65 &1007129473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007129470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 7}
+  m_Center: {x: 0, y: -1.1, z: -3}
 --- !u!1 &1013114009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1920449188707948386, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -15785,6 +15840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019451437}
   - component: {fileID: 1019451438}
+  - component: {fileID: 1019451439}
   m_Layer: 0
   m_Name: MarbleSpawnPoint3
   m_TagString: Untagged
@@ -15819,7 +15875,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1019451439}
+--- !u!65 &1019451439
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019451436}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 7, z: 1}
+  m_Center: {x: 0, y: 0, z: 1.1}
 --- !u!1001 &1029942698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16081,7 +16158,6 @@ MonoBehaviour:
   - {fileID: 981956603}
   - {fileID: 1829666315}
   leakPrefab: {fileID: 8838157312175166357, guid: 0bbb1605d16045ac389a6e3c633f4e8f, type: 3}
-  difficulty: {fileID: 854990189}
 --- !u!4 &1091244115
 Transform:
   m_ObjectHideFlags: 0
@@ -16335,6 +16411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201133355}
   - component: {fileID: 1201133356}
+  - component: {fileID: 1201133357}
   m_Layer: 0
   m_Name: MarbleSpawnPoint2
   m_TagString: Untagged
@@ -16369,7 +16446,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1201133357}
+--- !u!65 &1201133357
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201133354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 1}
+  m_Center: {x: 0, y: 1, z: 2}
 --- !u!1 &1236737386
 GameObject:
   m_ObjectHideFlags: 0
@@ -18230,6 +18328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460663188}
   - component: {fileID: 1460663189}
+  - component: {fileID: 1460663190}
   m_Layer: 10
   m_Name: LeaksRiddleSpawnPoint
   m_TagString: Untagged
@@ -18264,6 +18363,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 1460663190}
+--- !u!65 &1460663190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460663187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9, y: 1, z: 9}
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!1001 &1473242413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18391,6 +18512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476240404}
   - component: {fileID: 1476240405}
+  - component: {fileID: 1476240406}
   m_Layer: 0
   m_Name: MarbleSpawnPoint4
   m_TagString: Untagged
@@ -18425,7 +18547,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1476240406}
+--- !u!65 &1476240406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476240403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 7, z: 1}
+  m_Center: {x: 0, y: 2, z: 1.5}
 --- !u!1001 &1477313347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19129,6 +19272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509960686}
   - component: {fileID: 1509960687}
+  - component: {fileID: 1509960688}
   m_Layer: 0
   m_Name: MarbleSpawnPoint5
   m_TagString: Untagged
@@ -19163,7 +19307,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1509960688}
+--- !u!65 &1509960688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509960685}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6, y: 6, z: 1}
+  m_Center: {x: 0.5, y: 3, z: 1.5}
 --- !u!1001 &1511840716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19291,6 +19456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1523855226}
   - component: {fileID: 1523855227}
+  - component: {fileID: 1523855228}
   m_Layer: 0
   m_Name: MarbleSpawnPoint6
   m_TagString: Untagged
@@ -19325,7 +19491,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1523855228}
+--- !u!65 &1523855228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523855225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 7, z: 1}
+  m_Center: {x: 0, y: 3, z: 1.5}
 --- !u!1 &1530439221
 GameObject:
   m_ObjectHideFlags: 0
@@ -20979,6 +21166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692252441}
   - component: {fileID: 1692252442}
+  - component: {fileID: 1692252443}
   m_Layer: 0
   m_Name: BookRiddleSpawnPoint1
   m_TagString: Untagged
@@ -21013,7 +21201,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1692252443}
+--- !u!65 &1692252443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692252440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 1, y: -1.5, z: 2}
 --- !u!1001 &1700595996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22065,6 +22274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704425379}
   - component: {fileID: 1704425380}
+  - component: {fileID: 1704425381}
   m_Layer: 0
   m_Name: StorageRiddleSpawnpoint
   m_TagString: Untagged
@@ -22099,7 +22309,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1704425381}
+--- !u!65 &1704425381
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704425378}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 1, z: 30}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1719076931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
@@ -22246,6 +22477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761435585}
   - component: {fileID: 1761435586}
+  - component: {fileID: 1761435587}
   m_Layer: 0
   m_Name: AsteroidsShooterSpawnPoint1
   m_TagString: Untagged
@@ -22280,7 +22512,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 1761435587}
+--- !u!65 &1761435587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761435584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 1, z: 7}
+  m_Center: {x: 0, y: -1.5, z: -3}
 --- !u!1 &1767264025
 GameObject:
   m_ObjectHideFlags: 0
@@ -23885,6 +24138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029090400}
   - component: {fileID: 2029090399}
+  - component: {fileID: 2029090401}
   m_Layer: 0
   m_Name: EnergyCoreSpawnpoint1
   m_TagString: Untagged
@@ -23904,7 +24158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNearbyCollider: {fileID: 0}
+  playerNearbyCollider: {fileID: 2029090401}
 --- !u!4 &2029090400
 Transform:
   m_ObjectHideFlags: 0
@@ -23920,6 +24174,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 982813677}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &2029090401
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029090398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 1, z: 13}
+  m_Center: {x: -5, y: 1, z: 5}
 --- !u!1001 &2036612748
 PrefabInstance:
   m_ObjectHideFlags: 0
