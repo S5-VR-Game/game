@@ -26,6 +26,7 @@ public class ObjectiveMarker : MonoBehaviour
     {
         task = newTask;
         taskLocation = newLocation;
+        SetColor(type);
     }
 
     private void SetColor(TaskType type)
