@@ -61,21 +61,25 @@ public class UINavigator : MonoBehaviour
     {
         if (marker.GetTaskLocation().z > playerLocation.z + zThreshold)
         {
-            marker.EnablePointer(marker.pointerUp);
-        }
-        else
-        {
-            marker.DisablePointer(marker.pointerUp);
+            marker.EnableMarkerPart(marker.pointerUp);
+            marker.DisableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerDown);
         }
 
-        if (marker.GetTaskLocation().z > playerLocation.z - zThreshold)
+        else if (marker.GetTaskLocation().z > playerLocation.z - zThreshold)
         {
-            marker.EnablePointer(marker.pointerDown);
+            marker.EnableMarkerPart(marker.pointerDown);
+            marker.DisableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerUp);
         }
+
         else
         {
-            marker.DisablePointer(marker.pointerDown);
+            marker.EnableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerUp);
+            marker.DisableMarkerPart(marker.pointerDown);
         }
+
     }
 
 

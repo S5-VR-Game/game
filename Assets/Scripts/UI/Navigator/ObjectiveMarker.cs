@@ -7,6 +7,7 @@ public class ObjectiveMarker : MonoBehaviour
     private GameTask task;
     private Vector3 taskLocation;
 
+    public Image markerDot;
     public Image pointerUp;
     public Image pointerDown;
 
@@ -30,12 +31,12 @@ public class ObjectiveMarker : MonoBehaviour
     }
     
 
-    public void EnablePointer(Image pointer)
+    public void EnableMarkerPart(Image part)
     {
-        pointer.enabled = true;
+        part.enabled = true;
     }
 
-    public void DisablePointer(Image pointer)
+    public void DisableMarkerPart(Image pointer)
     {
         pointer.enabled = false;
     }
