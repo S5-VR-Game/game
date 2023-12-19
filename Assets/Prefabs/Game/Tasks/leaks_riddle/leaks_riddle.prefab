@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c3f1a807604dc6ad332b6b34cb15d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 1
   buttonNode: {fileID: 7015635544690766661}
   confirmedMaterial: {fileID: 2100000, guid: 9e77252e85fcd4b0da6281ffd6620c35, type: 2}
 --- !u!1 &1406489708261303622

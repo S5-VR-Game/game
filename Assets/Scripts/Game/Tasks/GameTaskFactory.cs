@@ -87,7 +87,7 @@ namespace Game.Tasks
                 spawnPoint.Allocate(newTask);
                 
                 // send task to HUD
-                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition());
+                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
             
                 // initialize task with its own logic
                 newTask.Initialize();

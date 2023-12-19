@@ -548,7 +548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentHUD: {fileID: 3555470008446915081}
   markerPrefab: {fileID: 1280322235931492572, guid: 8942cf3965dbbc280a198a211e8cb25b, type: 3}
-  zThreshold: 3
+  yOffset: 3
 --- !u!1 &2584474801789352342
 GameObject:
   m_ObjectHideFlags: 0
