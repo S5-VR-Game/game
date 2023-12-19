@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UINavigator : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UINavigator : MonoBehaviour
 
     private Camera parent_cam;
 
-    public float zThreshold;
+    public float yOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -59,14 +60,14 @@ public class UINavigator : MonoBehaviour
 
     void CheckPointer(ObjectiveMarker marker, Vector3 playerLocation)
     {
-        if (marker.GetTaskLocation().z > playerLocation.z + zThreshold)
+        if (marker.GetTaskLocation().y > (playerLocation.y + yOffset / 2))
         {
             marker.EnableMarkerPart(marker.pointerUp);
             marker.DisableMarkerPart(marker.markerDot);
             marker.DisableMarkerPart(marker.pointerDown);
         }
 
-        else if (marker.GetTaskLocation().z > playerLocation.z - zThreshold)
+        else if (marker.GetTaskLocation().y < (playerLocation.y - yOffset))
         {
             marker.EnableMarkerPart(marker.pointerDown);
             marker.DisableMarkerPart(marker.markerDot);
