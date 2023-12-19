@@ -1,3 +1,4 @@
+using Sound;
 using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
@@ -7,7 +8,7 @@ namespace Game.Tasks.AsteroidsShooter
     {
         // this is the object the asteroid will break into
         public GameObject fractured;
-
+        
         // function replaces the collided asteroid with the fractured one
         private void FractureObject()
         {

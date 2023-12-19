@@ -282,6 +282,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1018664272722485354, guid: 2e0f58430db5b0d7dac717b91a626713, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5951162653391441259}
+    - targetCorrespondingSourceObject: {fileID: -1018664272722485354, guid: 2e0f58430db5b0d7dac717b91a626713, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2291257168199575973}
   m_SourcePrefab: {fileID: 100100000, guid: 2e0f58430db5b0d7dac717b91a626713, type: 3}
 --- !u!1 &1235517578491058424 stripped
 GameObject:
@@ -427,6 +430,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2291257168199575973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574059976754993689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: cefb72c77840f3340a16677647e9e030, type: 3}
+  volumeSound: 0.4
+  playSoundTrigger: 1
+  playerProfileService: {fileID: 0}
+  playerDistance: 0
 --- !u!1 &3785834509740557418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 2e0f58430db5b0d7dac717b91a626713, type: 3}
@@ -605,6 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aea9a779c4ee8a7dc18ca78d9e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playFailureSoundManager: {fileID: 0}
+  playSuccessSoundManager: {fileID: 0}
   taskPrefab: {fileID: 5513548819844806878}
 --- !u!1 &6175049408469308909 stripped
 GameObject:
