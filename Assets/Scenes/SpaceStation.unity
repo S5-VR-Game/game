@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
+  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -1704,7 +1704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -2961,7 +2961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -3254,7 +3254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -3907,7 +3907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -6837,7 +6837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 9e042556e56b7104891bfd880376bb7b, type: 3}
-  volumeSound: 1
+  volumeSound: 0.5
   playSoundTrigger: 0
   playerProfileService: {fileID: 0}
   playerDistance: 0
@@ -9214,7 +9214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -9250,7 +9250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -14254,7 +14254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -14340,7 +14340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -14527,7 +14527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -14561,7 +14561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: dd45ecfe7f8ba7c41a3d252544d09466, type: 3}
-  volumeSound: 1
+  volumeSound: 0.5
   playSoundTrigger: 0
   playerProfileService: {fileID: 0}
   playerDistance: 0
@@ -17173,7 +17173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -18170,7 +18170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -18208,7 +18208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -20316,7 +20316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -24199,7 +24199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -24235,7 +24235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -24563,7 +24563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -25035,7 +25035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -25071,7 +25071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -25730,7 +25730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
@@ -27106,7 +27106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
-  volumeSound: 0.6
+  volumeSound: 0.4
   playSoundTrigger: 0
   playerProfileService: {fileID: 1140929251}
   playerDistance: 0
