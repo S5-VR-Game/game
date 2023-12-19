@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5641128852e151e78bbb5aeee7018cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  markerDot: {fileID: 4930379070639676337}
   pointerUp: {fileID: 5735307732908928501}
   pointerDown: {fileID: 1825857088001286732}
   canvas: {fileID: 7004393170522231940}

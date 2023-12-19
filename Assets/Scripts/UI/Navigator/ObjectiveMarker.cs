@@ -14,10 +14,40 @@ public class ObjectiveMarker : MonoBehaviour
     private Vector3 location;
     public Canvas canvas;
 
-    public void Initialize(GameTask newTask, Vector3 newLocation)
+    public enum TaskType
+    {
+        Normal,
+        Timed,
+        TimeCritical,
+        
+    }
+
+    public void Initialize(GameTask newTask, Vector3 newLocation, TaskType type)
     {
         task = newTask;
         taskLocation = newLocation;
+    }
+
+    private void SetColor(TaskType type)
+    {
+        Color color = new Color();
+        
+        switch (type)
+        {
+            case TaskType.Normal:
+                color = new Color(0.0f, 0.5f, 0.0f);
+                break;
+            case TaskType.Timed:
+                color = new Color(1.0f, 0.6f, 0.0f);
+                break;
+            case TaskType.TimeCritical:
+                color = Color.red;
+                break;
+        }
+        
+        markerDot.color = color;
+        pointerUp.color = color;
+        pointerDown.color = color;
     }
 
     public GameTask GetTask()
