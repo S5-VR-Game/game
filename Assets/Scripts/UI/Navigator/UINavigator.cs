@@ -83,7 +83,7 @@ public class UINavigator : MonoBehaviour
     }
 
 
-    public void InitializeMarker(GameTask task, Vector3 location)
+    public void InitializeMarker(GameTask task, Vector3 location, ObjectiveMarker.TaskType type)
     {
         GameObject marker = Instantiate(markerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         marker.transform.position = GetComponentInParent<Transform>().position;
@@ -94,7 +94,7 @@ public class UINavigator : MonoBehaviour
         
         newMarker.transform.SetParent(gameObject.transform);
         
-        newMarker.Initialize(task, location);
+        newMarker.Initialize(task, location, type);
         
         markers.Add(newMarker);
     }
