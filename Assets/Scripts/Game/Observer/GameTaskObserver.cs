@@ -21,13 +21,13 @@ namespace Game.Observer
         protected override void OnTaskSuccessful(GameTask task)
         {
             m_LOG.Log(LOGTag,"task successful: " + task.taskName);
-            taskSuccessSoundManager.PlaySound();
+            taskSuccessSoundManager.PlaySoundFunctionCall();
         }
         
         protected override void OnTaskFailed(GameTask task)
         {
             m_LOG.Log(LOGTag,"task failed: " + task.taskName);
-            taskFailureSoundManager.PlaySound();
+            taskFailureSoundManager.PlaySoundFunctionCall();
         }
         
         protected override void OnTaskGameObjectDestroyed(GameTask task)

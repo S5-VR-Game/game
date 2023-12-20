@@ -111,7 +111,7 @@ namespace Game
                 bool spawnSuccess = factory.TrySpawnTask();
                 if (spawnSuccess)
                 {
-                    _taskSpawningSoundManager.PlaySound();
+                    _taskSpawningSoundManager.PlaySoundFunctionCall();
                     return;
                 }
             }

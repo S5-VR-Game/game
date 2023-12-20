@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
+  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1499,8 +1499,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &102153082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1524,6 +1523,10 @@ PrefabInstance:
     - target: {fileID: 2868798834813906343, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_Name
       value: TimelineManagerGameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868798834813906343, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3675745017860404239, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1604,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: cameraOrientation
       value: 
-      objectReference: {fileID: 933204721}
+      objectReference: {fileID: 0}
     - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: playerProfileService
       value: 
@@ -1675,8 +1678,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &117140800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,8 +2854,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &246960871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,8 +3146,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &286741785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5914438819300591039, guid: 56da4def130910545ab17d1512c74c99, type: 3}
@@ -3181,8 +3181,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &313386752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3597,8 +3596,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &478703568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,8 +3796,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &513062369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,8 +3982,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 44a735d88c9d3f242b0d7f1742bf51d3, type: 3}
   volumeSound: 1
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 1
 --- !u!4 &549245273
 Transform:
   m_ObjectHideFlags: 0
@@ -6678,8 +6674,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 9e042556e56b7104891bfd880376bb7b, type: 3}
   volumeSound: 0.5
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 1
 --- !u!4 &593124737
 Transform:
   m_ObjectHideFlags: 0
@@ -8984,8 +8979,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &664234623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3695969936192043295, guid: e3faab8014708ed4ead18834d2c70c3b, type: 3}
@@ -9020,8 +9014,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &681463012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9333,11 +9326,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1508342293}
   m_SourcePrefab: {fileID: 100100000, guid: af517388b7c1d66438296d26358fd99d, type: 3}
---- !u!4 &701024368 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 408362, guid: 3fb07e96bb0cae643a28994c86ddc64e, type: 3}
-  m_PrefabInstance: {fileID: 1939334534}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13813,8 +13801,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &925368535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5799755776235764077, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -13849,28 +13836,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
---- !u!1 &933204714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-  m_PrefabInstance: {fileID: 2005136588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &933204721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933204714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207a7d65aa3c48a289f0f621a3034a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startSceneGameObjectTransform: {fileID: 701024368}
-  endSceneLoseGameObjectTransform: {fileID: 701024368}
-  endSceneWinGameObjectTransform: {fileID: 701024368}
+  playSoundGlobal: 0
 --- !u!4 &981568901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -14056,8 +14022,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1013268335
 GameObject:
   m_ObjectHideFlags: 0
@@ -14090,8 +14055,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: dd45ecfe7f8ba7c41a3d252544d09466, type: 3}
   volumeSound: 0.5
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 1
 --- !u!4 &1013268337
 Transform:
   m_ObjectHideFlags: 0
@@ -16528,8 +16492,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: c23241da2bd46804fac92cff3c5e57c9, type: 3}
   volumeSound: 0.1
   playSoundTrigger: 3
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 10
+  playSoundGlobal: 0
 --- !u!1 &1119440443
 GameObject:
   m_ObjectHideFlags: 0
@@ -16631,8 +16594,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!114 &1140929251 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
@@ -17557,8 +17519,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!114 &1267852994 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -17606,8 +17567,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1296902296
 GameObject:
   m_ObjectHideFlags: 0
@@ -19263,8 +19223,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1509960685
 GameObject:
   m_ObjectHideFlags: 0
@@ -22528,8 +22487,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1893868735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5583167009216503732, guid: 8a6ae147575027641b26a622efdae75e, type: 3}
@@ -22564,8 +22522,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &1898750960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22700,8 +22657,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &1939334534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23172,8 +23128,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1945710878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5310102290046030302, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -23208,8 +23163,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1968192312
 GameObject:
   m_ObjectHideFlags: 0
@@ -23353,6 +23307,14 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2866054978039735607, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: playSoundTrigger
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389726810833500967, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3389726810833500967, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -23376,6 +23338,10 @@ PrefabInstance:
     - target: {fileID: 6811413919242231336, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: far clip plane
       value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811413919242231338, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_TagString
@@ -23420,6 +23386,14 @@ PrefabInstance:
     - target: {fileID: 7447489329516643809, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724476148349669813, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: playSoundGlobal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724476148349669813, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: playSoundTrigger
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7866051922799391981, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: far clip plane
@@ -23483,15 +23457,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 933204721}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
 --- !u!1 &2029090398
 GameObject:
@@ -23828,8 +23799,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &2051827025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25204,8 +25174,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: ab3793476f749d5499cb41deb9ee760d, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 1140929251}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1001 &2121563772
 PrefabInstance:
   m_ObjectHideFlags: 0
