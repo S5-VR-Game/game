@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Timeline 
 {
+    // class used to manage the correct play of the timelines and to set the player up before and after playing it
     public class TimelineManager : MonoBehaviour
     {
         // stores the game-objects of the used timelines 
@@ -35,7 +36,7 @@ namespace Timeline
             _endSceneLoseDirector = endSceneLoseSceneGameObject.GetComponent<PlayableDirector>();
             _endSceneWinDirector = endSceneWinSceneGameObject.GetComponent<PlayableDirector>();
             
-            PlayStartScene();
+            PlayStartScene(); // plays the start-scene at the begin of the game
         }
         
         
@@ -44,11 +45,12 @@ namespace Timeline
         {
             SetupPlayerBeforeTimeline(startScenePlayerTransform.position);
             _startSceneDirector.Play(); // starts the timeline
-            gameTimer.PauseTimer();
+            gameTimer.PauseTimer(); // stops the game-timer for the starting timeline
 
             _startSceneDirector.stopped += SetupAfterStartTimeline; // adds event listener to call function when timeline is over
         }
 
+        // function to start the timeline at the end of the game, if the player loses
         public void PlayEndSceneLose()
         {
             SetupPlayerBeforeTimeline(endSceneLosePlayerTransform.position);
@@ -58,6 +60,7 @@ namespace Timeline
             _endSceneLoseDirector.stopped += SetupAfterEndTimeline; // adds event listener to call function when timeline is over
         }
         
+        // function to start the timeline at the end of the game, if the player wins
         public void PlayEndSceneWin()
         {
             SetupPlayerBeforeTimeline(endSceneWinPlayerTransform.position);
@@ -78,7 +81,7 @@ namespace Timeline
         // function used to setup the player after the end timeline
         private void SetupAfterEndTimeline(PlayableDirector playableDirector)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0); // loads the main-menu
         }
         
         // function used to setup the player after the timeline
@@ -87,7 +90,7 @@ namespace Timeline
             playerProfileService.transform.position = new Vector3(0, -1f, 0); // moves the player's position to its original position
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = true; // activates the hud
             playerProfileService.SetVRMovementActive(true); // activates the movement
-            gameTimer.ResumeTimer();
+            gameTimer.ResumeTimer(); // resumes the timer
         }
     }
 }
