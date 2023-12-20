@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
+  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9333,11 +9333,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1508342293}
   m_SourcePrefab: {fileID: 100100000, guid: af517388b7c1d66438296d26358fd99d, type: 3}
---- !u!4 &701024368 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 408362, guid: 3fb07e96bb0cae643a28994c86ddc64e, type: 3}
-  m_PrefabInstance: {fileID: 1939334534}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -13868,9 +13863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207a7d65aa3c48a289f0f621a3034a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneGameObjectTransform: {fileID: 701024368}
-  endSceneLoseGameObjectTransform: {fileID: 701024368}
-  endSceneWinGameObjectTransform: {fileID: 701024368}
 --- !u!4 &981568901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -17805,7 +17797,7 @@ PrefabInstance:
       objectReference: {fileID: 549245272}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 600
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size

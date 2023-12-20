@@ -44,7 +44,9 @@ namespace Timeline
         private void PlayStartScene()
         {
             SetupPlayerBeforeTimeline(startScenePlayerTransform.position);
+            
             _startSceneDirector.Play(); // starts the timeline
+            
             gameTimer.PauseTimer(); // stops the game-timer for the starting timeline
 
             _startSceneDirector.stopped += SetupAfterStartTimeline; // adds event listener to call function when timeline is over
@@ -73,7 +75,10 @@ namespace Timeline
         // function used to setup the player for the timeline
         private void SetupPlayerBeforeTimeline(Vector3 timelinePosition)
         {
-            playerProfileService.transform.position = timelinePosition; // moves the player's position to the timeline
+            var playerTransform = playerProfileService.transform;
+            
+            playerTransform.eulerAngles = new Vector3(0, 180, 0); // sets the rotation of the player to 180° on y-axis
+            playerTransform.position = timelinePosition; // moves the player's position to the timeline
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = false; // deactivates the hud
             playerProfileService.SetVRMovementActive(false); // deactivates the movement
         }
