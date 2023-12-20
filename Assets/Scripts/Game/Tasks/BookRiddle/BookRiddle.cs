@@ -16,9 +16,11 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolution solution { get; set; }
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
-        public BookRiddle() : base("Book Riddle", "Solve this book riddle\n" +
-                                                       "find a cluster in the book and type in the correct code.", 5)
+        public BookRiddle() : base("Book Riddle", "", 5)
         {
+            taskDescription = "Some security features need to be disabled.\n" +
+                              "You need to press these buttons a certain amount of times.\n" +
+                              "These books sure look suspicious...";
         }
 
         public override void Initialize()
