@@ -1,4 +1,3 @@
-using Sound;
 using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter

@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37081145feb9587458d9dafdeeac69e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fractured: {fileID: 6516070941938034013, guid: 7fbe87ae54e3a8e4da7ac444490fa02d, type: 3}
+  fractured: {fileID: 6516070941938034013, guid: 7fbe87ae54e3a8e4da7ac444490fa02d,
+    type: 3}
 --- !u!114 &-2174718574190793696
 MonoBehaviour:
   m_ObjectHideFlags: 0
