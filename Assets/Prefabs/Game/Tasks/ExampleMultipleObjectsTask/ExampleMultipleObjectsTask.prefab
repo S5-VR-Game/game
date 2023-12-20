@@ -150,5 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cef2982a579465dbd05fbce527e0f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskName: ExampleMultipleObjectsTask
-  integrityValue: 5
+  taskType: 2

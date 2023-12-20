@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class UINavigator : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UINavigator : MonoBehaviour
 
     private Camera parent_cam;
 
-    public float zThreshold;
+    public float yOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -59,27 +60,31 @@ public class UINavigator : MonoBehaviour
 
     void CheckPointer(ObjectiveMarker marker, Vector3 playerLocation)
     {
-        if (marker.GetTaskLocation().z > playerLocation.z + zThreshold)
+        if (marker.GetTaskLocation().y > (playerLocation.y + yOffset / 2))
         {
-            marker.EnablePointer(marker.pointerUp);
-        }
-        else
-        {
-            marker.DisablePointer(marker.pointerUp);
+            marker.EnableMarkerPart(marker.pointerUp);
+            marker.DisableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerDown);
         }
 
-        if (marker.GetTaskLocation().z > playerLocation.z - zThreshold)
+        else if (marker.GetTaskLocation().y < (playerLocation.y - yOffset))
         {
-            marker.EnablePointer(marker.pointerDown);
+            marker.EnableMarkerPart(marker.pointerDown);
+            marker.DisableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerUp);
         }
+
         else
         {
-            marker.DisablePointer(marker.pointerDown);
+            marker.EnableMarkerPart(marker.markerDot);
+            marker.DisableMarkerPart(marker.pointerUp);
+            marker.DisableMarkerPart(marker.pointerDown);
         }
+
     }
 
 
-    public void InitializeMarker(GameTask task, Vector3 location)
+    public void InitializeMarker(GameTask task, Vector3 location, ObjectiveMarker.TaskType type)
     {
         GameObject marker = Instantiate(markerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         marker.transform.position = GetComponentInParent<Transform>().position;
@@ -90,7 +95,7 @@ public class UINavigator : MonoBehaviour
         
         newMarker.transform.SetParent(gameObject.transform);
         
-        newMarker.Initialize(task, location);
+        newMarker.Initialize(task, location, type);
         
         markers.Add(newMarker);
     }
