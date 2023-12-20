@@ -17805,7 +17805,7 @@ PrefabInstance:
       objectReference: {fileID: 549245272}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 20
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
@@ -23375,7 +23375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811413919242231336, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: far clip plane
-      value: 2000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 6811413919242231342, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_TagString
@@ -23423,7 +23423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7866051922799391981, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: far clip plane
-      value: 2000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 8214628122643337786, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_Pivot.x
