@@ -18,7 +18,7 @@ namespace Game
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTimer";
 
-        [Header("Timer settings (every value in seconds)")] 
+        [Header("Timer settings")] 
         
         [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
@@ -27,6 +27,8 @@ namespace Game
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
         [SerializeField] private float randomTimeIntervalSize = 15;
+        
+        [SerializeField] private float taskSpawnPointTimeout = 10;
 
         [Header("Game dependencies")] 
         [SerializeField] private Difficulty difficulty;
@@ -62,7 +64,7 @@ namespace Game
 
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
-                gameTaskObserver, integrityObserver);
+                gameTaskObserver, integrityObserver, taskSpawnPointTimeout);
             foreach (var factory in factories)
             {
                 factory.Initialize(factoryInitializationData);
