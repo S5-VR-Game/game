@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
+  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1509,6 +1509,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37026576208180886, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+      propertyPath: m_InitialState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 250349228363658608, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1609,6 +1613,14 @@ PrefabInstance:
       propertyPath: playerProfileService
       value: 
       objectReference: {fileID: 1140929251}
+    - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+      propertyPath: endSceneLosePlayerTransform
+      value: 
+      objectReference: {fileID: 489821912}
+    - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+      propertyPath: endSceneLoseSceneGameObject
+      value: 
+      objectReference: {fileID: 515875939}
     - target: {fileID: 7114766267371233572, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3697,6 +3709,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9, y: 9, z: 1}
   m_Center: {x: 0, y: 0, z: 3}
+--- !u!4 &489821912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3321104155792716351, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+  m_PrefabInstance: {fileID: 102153082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &508178414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3853,11 @@ Transform:
   - {fileID: 724296295}
   m_Father: {fileID: 18968943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &515875939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8645907303572623212, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+  m_PrefabInstance: {fileID: 102153082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &540507537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17796,10 +17818,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 549245272}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-      propertyPath: initialGameTime
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -17906,6 +17924,10 @@ PrefabInstance:
     - target: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327690461323679888, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: integrityValue
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

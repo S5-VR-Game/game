@@ -41,15 +41,18 @@ namespace Timeline
         
         
         // function to start the timeline at the start of the game
-        private void PlayStartScene()
+        public void PlayStartScene()
         {
             SetupPlayerBeforeTimeline(startScenePlayerTransform.position);
+
+            playerProfileService.transform.rotation = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("CameraDirection"),0));
             
             _startSceneDirector.Play(); // starts the timeline
             
             gameTimer.PauseTimer(); // stops the game-timer for the starting timeline
 
             _startSceneDirector.stopped += SetupAfterStartTimeline; // adds event listener to call function when timeline is over
+            _startSceneDirector.stopped += ActivateVRMovement;
         }
 
         // function to start the timeline at the end of the game, if the player loses
@@ -77,7 +80,6 @@ namespace Timeline
         {
             var playerTransform = playerProfileService.transform;
             
-            playerTransform.eulerAngles = new Vector3(0, 180, 0); // sets the rotation of the player to 180° on y-axis
             playerTransform.position = timelinePosition; // moves the player's position to the timeline
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = false; // deactivates the hud
             playerProfileService.SetVRMovementActive(false); // deactivates the movement
@@ -94,8 +96,12 @@ namespace Timeline
         {
             playerProfileService.transform.position = new Vector3(0, -1f, 0); // moves the player's position to its original position
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = true; // activates the hud
-            playerProfileService.SetVRMovementActive(true); // activates the movement
             gameTimer.ResumeTimer(); // resumes the timer
+        }
+
+        private void ActivateVRMovement(PlayableDirector playableDirector)
+        {
+            playerProfileService.SetVRMovementActive(true); // activates the movement
         }
     }
 }

@@ -1,3 +1,4 @@
+using PlayerController;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,10 +15,12 @@ namespace MainMenu
         public GameObject height;
         public GameObject backButton;
 
-        private void OnEnable()
+        public PlayerProfileService playerProfileService;
+        
+        private void Start()
         {
-            Debug.Log("MAIN MENU LOADED!");
             SetupMainMenu();
+            playerProfileService.SetVRMovementActive(false);
         }
 
         // function to change the render-mode depending on the selected profile
@@ -44,6 +47,9 @@ namespace MainMenu
 
         public void PlayGame()
         {
+            var cameraDirection = playerProfileService.GetPlayerCamera().transform.rotation.y;
+            PlayerPrefs.SetFloat("CameraDirection", cameraDirection);
+            
             //loads the next scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
