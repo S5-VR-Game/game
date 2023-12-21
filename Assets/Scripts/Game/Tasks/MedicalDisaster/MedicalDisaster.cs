@@ -32,6 +32,9 @@ namespace Game.Tasks.MedicalDisaster
         
         public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription)
         {
+            taskDescription = "The medical bay is leaking!\n" +
+                              "The substances sure are not tasty!\n" +
+                              "You need to close the valves immediately to stop the leak!\n";
         }
 
         public override void Initialize()

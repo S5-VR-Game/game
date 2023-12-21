@@ -31,12 +31,22 @@ namespace Game.Tasks
         /// Keeps track of the current allocated task. Can be null, if no task is allocated currently.
         /// </summary>
         private GameTask m_AllocatedTask;
-        
+
+        private float m_Timeout;
+        private System.DateTime lastDeallocateTime;
+
         /// <summary>
-        /// Returns true, if this spawn point is occupied by a game task and should not be used to spawn another task
-        /// currently
+        /// Returns true, if this spawn point is not occupied by a game task and is not blocked by the
+        /// <see cref="m_Timeout"/>.
         /// </summary>
-        public bool isOccupied => m_AllocatedTask != null;
+        public bool CanBeAllocated()
+        {
+            // check if blocked time is passed since last deallocate time
+            var isBlocked = (System.DateTime.UtcNow - lastDeallocateTime).TotalSeconds < m_Timeout;
+            var isAllocated = m_AllocatedTask != null;
+
+            return !isAllocated && !isBlocked;
+        }
         
         private void Start()
         {
@@ -71,6 +81,7 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
+            lastDeallocateTime = System.DateTime.UtcNow;
         }
         
         /// <summary>
@@ -109,6 +120,16 @@ namespace Game.Tasks
                 // dismiss task description on HUD
                 m_AllocatedTask.playerProfileService.GetHUD().DismissText();
             }
+        }
+
+        /// <summary>
+        /// Sets the timout for this spawn point. The timeout determines, how long a spawn point will be blocked
+        /// before a new task can be allocated.
+        /// </summary>
+        /// <param name="timeout"></param>
+        public void SetTimeout(float timeout)
+        {
+            m_Timeout = timeout;
         }
     }
 }

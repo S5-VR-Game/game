@@ -18,7 +18,7 @@ namespace Game
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTimer";
 
-        [Header("Timer settings (every value in seconds)")] 
+        [Header("Timer settings")] 
         
         [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
@@ -27,6 +27,9 @@ namespace Game
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
         [SerializeField] private float randomTimeIntervalSize = 15;
+        
+        [SerializeField] private float taskSpawnPointTimeout = 10;
+        [SerializeField] private float concurrentTasksLimit = 5;
 
         [Header("Game dependencies")] 
         [SerializeField] private Difficulty difficulty;
@@ -62,7 +65,7 @@ namespace Game
 
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
-                gameTaskObserver, integrityObserver);
+                gameTaskObserver, integrityObserver, taskSpawnPointTimeout);
             foreach (var factory in factories)
             {
                 factory.Initialize(factoryInitializationData);
@@ -78,11 +81,18 @@ namespace Game
                     remainingTime -= Time.deltaTime;
                     OnTimeChanged?.Invoke(remainingTime);
 
-                    // check whether new game task is reached
+                    // check whether new game task time is reached
                     if (remainingTime < m_NextGameTaskTime)
                     {
-                        TrySpawnRandomTask();
-
+                        // check if task limit is not reached yet
+                        if (gameTaskObserver.GetActiveTaskCount() < concurrentTasksLimit)
+                        {
+                            TrySpawnRandomTask();
+                        }
+                        else
+                        {
+                            m_LOG.Log(LOGTag, "concurrent task limit reached, no task was spawned");
+                        }
                         // update next game task time
                         m_NextGameTaskTime = GetNextTimeInterval();
                     }
@@ -111,7 +121,8 @@ namespace Game
                 bool spawnSuccess = factory.TrySpawnTask();
                 if (spawnSuccess)
                 {
-                    _taskSpawningSoundManager.PlaySoundFunctionCall();
+                    _taskSpawningSoundManager.PlaySound();
+                    gameTaskObserver.IncrementActiveTask();
                     return;
                 }
             }
