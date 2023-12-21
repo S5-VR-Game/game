@@ -29,6 +29,7 @@ namespace Game
         [SerializeField] private float randomTimeIntervalSize = 15;
         
         [SerializeField] private float taskSpawnPointTimeout = 10;
+        [SerializeField] private float concurrentTasksLimit = 5;
 
         [Header("Game dependencies")] 
         [SerializeField] private Difficulty difficulty;
@@ -80,11 +81,18 @@ namespace Game
                     remainingTime -= Time.deltaTime;
                     OnTimeChanged?.Invoke(remainingTime);
 
-                    // check whether new game task is reached
+                    // check whether new game task time is reached
                     if (remainingTime < m_NextGameTaskTime)
                     {
-                        TrySpawnRandomTask();
-
+                        // check if task limit is not reached yet
+                        if (gameTaskObserver.GetActiveTaskCount() < concurrentTasksLimit)
+                        {
+                            TrySpawnRandomTask();
+                        }
+                        else
+                        {
+                            m_LOG.Log(LOGTag, "concurrent task limit reached, no task was spawned");
+                        }
                         // update next game task time
                         m_NextGameTaskTime = GetNextTimeInterval();
                     }
@@ -114,6 +122,7 @@ namespace Game
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySound();
+                    gameTaskObserver.IncrementActiveTask();
                     return;
                 }
             }
