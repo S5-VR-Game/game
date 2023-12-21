@@ -1,6 +1,7 @@
 using System;
 using PlayerController;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Game.Tasks.MedicalDisaster
@@ -12,6 +13,7 @@ namespace Game.Tasks.MedicalDisaster
     /// </summary>
     public class Valve : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem valveSmokeParticleSystem;
         [SerializeField] private MeshRenderer valveMeshRenderer;
         [SerializeField] private XRGrabInteractable valve;
         [NonSerialized] public PlayerProfileService playerProfileService;
@@ -32,6 +34,7 @@ namespace Game.Tasks.MedicalDisaster
         private readonly Color m_GradientEnd = Color.green;
         private readonly Color m_FinishedColor = Color.white;
         private Gradient m_ValveGradient;
+        private ParticleSystem.MinMaxCurve m_InitialParticleEmissionRate;
 
         /// <summary>
         /// Determines the transform, which is used to rotate the valve
@@ -45,21 +48,14 @@ namespace Game.Tasks.MedicalDisaster
         private void Start()
         {
             valveMeshRenderer.material.color = m_GradientStart;
+            var particleSystemMain = valveSmokeParticleSystem.main;
+            particleSystemMain.startColor = m_GradientStart;
+            
             m_LastControllerRotation = GetRotationController().rotation;
+            m_InitialParticleEmissionRate = valveSmokeParticleSystem.emission.rateOverTime;
             
             // build gradient
-            m_ValveGradient = new Gradient();
-            
-            var colors = new GradientColorKey[3];
-            colors[0] = new GradientColorKey(m_GradientStart, 0.0f);
-            colors[1] = new GradientColorKey(m_GradientMiddle, 0.5f);
-            colors[2] = new GradientColorKey(m_GradientEnd, 1.0f);
-
-            var alphas = new GradientAlphaKey[2];
-            alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
-            alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
-
-            m_ValveGradient.SetKeys(colors, alphas);
+            m_ValveGradient = MedicalDisaster.BuildSimpleGradient(m_GradientStart, m_GradientMiddle, m_GradientEnd);
         }
 
         private void LateUpdate()
@@ -71,9 +67,8 @@ namespace Game.Tasks.MedicalDisaster
                 var rotationDifference = Quaternion.Inverse(m_LastControllerRotation * Quaternion.Inverse(currentRotation));
                 // update valve transform
                 valve.transform.Rotate(new Vector3(rotationDifference.eulerAngles.z * ControllerRotationFactor, 0, 0));
-
-                CheckValveRotation();
             }
+            CheckValveRotation();
 
             m_LastControllerRotation = GetRotationController().rotation;
         }
@@ -122,8 +117,15 @@ namespace Game.Tasks.MedicalDisaster
             // add half circle to progress
             m_CompleteRotationProgress += 1f/(requiredRotationCount*2);
 
-            // apply current gradient value
-            valveMeshRenderer.material.color = m_ValveGradient.Evaluate(m_CompleteRotationProgress);
+            // linear reduce particle emission and speed according to progress
+            var emission = valveSmokeParticleSystem.emission;
+            var particleSystemMain = valveSmokeParticleSystem.main;
+            emission.rateOverTime = m_InitialParticleEmissionRate.constant-m_InitialParticleEmissionRate.constant * m_CompleteRotationProgress;
+                
+            // apply current gradient value to valve material and particle color
+            var currentGradientValue = m_ValveGradient.Evaluate(m_CompleteRotationProgress);
+            valveMeshRenderer.material.color = currentGradientValue;
+            particleSystemMain.startColor = currentGradientValue;
         }
     }
 }

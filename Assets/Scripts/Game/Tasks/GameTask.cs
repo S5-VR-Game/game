@@ -34,6 +34,11 @@ namespace Game.Tasks
         /// </summary>
         [NonSerialized]
         public PlayerProfileService playerProfileService;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObjectiveMarker.TaskType taskType;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;

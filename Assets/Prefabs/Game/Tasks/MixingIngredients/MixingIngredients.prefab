@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f0192f2388446990a6b61680632bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 1
   ingredientsDetection: {fileID: 8545377065235067732}
   wateringBottleNearbyCheck: {fileID: 7426655267699701929}
   liquidColorAdaption: {fileID: 9096223240422473235}
