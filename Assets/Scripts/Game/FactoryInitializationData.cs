@@ -10,11 +10,13 @@ namespace Game
     /// <param name="playerProfileService">player profile service reference</param>
     /// <param name="gameTaskObserver">game task observer reference</param>
     /// <param name="integrityObserver">integrity observer reference</param>
-    public record FactoryInitializationData(Difficulty difficulty, PlayerProfileService playerProfileService, GameTaskObserver gameTaskObserver, IntegrityObserver integrityObserver)
+    public record FactoryInitializationData(Difficulty difficulty, PlayerProfileService playerProfileService, GameTaskObserver gameTaskObserver, IntegrityObserver integrityObserver, float taskSpawnPointTimeout)
     {
         public Difficulty difficulty { get; } = difficulty;
         public PlayerProfileService playerProfileService { get; } = playerProfileService;
         public GameTaskObserver gameTaskObserver { get; } = gameTaskObserver;
         public IntegrityObserver integrityObserver { get; } = integrityObserver;
+        
+        public float taskSpawnPointTimeout { get; } = taskSpawnPointTimeout;
     }
 }

@@ -42,7 +42,7 @@ namespace Game.Tasks.MixingIngredients
 
         private const float WateringBottleFillDistance = 0.5f;
 
-        [NonSerialized] public Color wateringLiquidColor;
+        private Color m_WateringLiquidColor;
 
         /// <summary>
         /// All available ingredient types. A specific number of ingredients will be randomly selected from this array
@@ -67,11 +67,14 @@ namespace Game.Tasks.MixingIngredients
         private bool m_AllIngredientsDetected;
         private bool m_WateringBottleFilledUp;
         private bool m_TaskCompleted;
-        private int validIngredientsCounter;
-        private int ingredientsCount;
 
         public MixingIngredients() : base(Name, Description)
         {
+            taskDescription = "You need just a little more oxygen to survive.\n" +
+                              "You need to mix the ingredients in the main container to create a super fertilizer.\n" +
+                              "Fill the vase with the right ingredients.\n" +
+                              "When you are done, fill the empty bottle with the fertilizer and water the plant.\n" +
+                              "The botanist said his recipe should be somewhere around here.\n";
         }
 
         public override void Initialize()
@@ -83,7 +86,7 @@ namespace Game.Tasks.MixingIngredients
             }
             
             // initialize watering color with random color
-            wateringLiquidColor = Random.ColorHSV();
+            m_WateringLiquidColor = Random.ColorHSV();
 
             DetermineValidIngredients();
             
@@ -100,8 +103,6 @@ namespace Game.Tasks.MixingIngredients
             // check if ingredient is valid
             if (m_ValidIngredients.ContainsKey(ingredient))
             {
-                validIngredientsCounter++;
-                
                 // decrement ingredient quantity to keep track of the remaining ingredients
                 m_ValidIngredients[ingredient]--;
                 
@@ -111,14 +112,13 @@ namespace Game.Tasks.MixingIngredients
                     m_ValidIngredients.Remove(ingredient);
                 }
                 
-                // apply new average color
-                liquidColorAdaption.UpdateColor(wateringLiquidColor.WithAlpha(validIngredientsCounter/(float)ingredientsCount));
-                
                 // check if all ingredients are detected
                 if (m_ValidIngredients.Count == 0)
                 {
                     // colorize liquid of main container
                     m_AllIngredientsDetected = true;
+                    liquidColorAdaption.SetActive(true);
+                    liquidColorAdaption.UpdateColor(m_WateringLiquidColor);
                 }
             }
             else
@@ -137,7 +137,7 @@ namespace Game.Tasks.MixingIngredients
             if (!m_WateringBottleFilledUp && m_AllIngredientsDetected)
             {
                 m_WateringBottleFilledUp = true;
-                wateringLiquidSpawner.FillLiquid(wateringLiquidColor);
+                wateringLiquidSpawner.FillLiquid(m_WateringLiquidColor);
             }
         }
 
@@ -167,7 +167,6 @@ namespace Game.Tasks.MixingIngredients
             {
                 var randomQuantity = Random.Range(MinIngredientQuantity, MaxIngredientQuantity);
                 m_ValidIngredients.Add(IngredientTypes[index], 1 + (int)(randomQuantity * difficultyPercentage));
-                ingredientsCount += randomQuantity;
             }
         }
 
