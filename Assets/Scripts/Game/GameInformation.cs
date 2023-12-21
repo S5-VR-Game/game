@@ -52,19 +52,8 @@ namespace Game
                 // if time over, evaluate depending on integrity value
                 currentGameState = integrity.GetCurrentIntegrity() > IntegrityLostThreshold ? GameState.GameWon : GameState.GameLost;
 
-                switch (currentGameState)
-                {
-                    case GameState.GameLost:
-                        timelineManager.PlayEndSceneLose();
-                        break;
-                    case GameState.GameWon:
-                        timelineManager.PlayEndSceneWin();
-                        break;
-                    case GameState.Ongoing:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                // plays the timeline at the end of the game, when the player lost
+                if(currentGameState == GameState.GameLost) timelineManager.PlayEndSceneLose();
             }
             else
             { 
