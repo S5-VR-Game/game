@@ -9,10 +9,9 @@ namespace Game.Tasks.TutorialGameTask
         private const int CountNeeded = 5;
         private int _currentCount;
         
-        public TutorialGameTask(string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue) : base("Tutorial Aufgabe", "Jemand war anscheinend zu doof\n" +
-            "und hat die Knöpfe nicht gedrückt. Drücke sie fünf Mal.", 20)
+        public TutorialGameTask() : base("Tutorial Aufgabe", "Jemand war anscheinend zu doof\n" +
+            "und hat die Knöpfe nicht gedrückt. \nDrücke sie fünf Mal.", 20)
         {
-            
         }
 
         public override void Initialize()

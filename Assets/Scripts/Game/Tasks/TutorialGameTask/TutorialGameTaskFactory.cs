@@ -12,7 +12,7 @@ namespace Game.Tasks.TutorialGameTask
         // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
         {
-            var instance = Instantiate(tutorialTask.gameObject, spawnPoint.GetSpawnPosition(), new Quaternion());
+            var instance = Instantiate(tutorialTask.gameObject, spawnPoint.GetSpawnPosition(), spawnPoint.GetRotation());
             var storageRiddleGameTask = instance.GetComponent<TutorialGameTask>();
             
             return storageRiddleGameTask;
