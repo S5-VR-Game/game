@@ -7,26 +7,26 @@ namespace Evaluation
 {
     public class EvaluationData
     {
-        private string name { get; }
-        private int runNumber { get; }
-        private DateTime timeStarted { get; }
-        private float ranDistance { get; set; }
-        private Dictionary<DateTime, string> _tasksStarted;
-        private Dictionary<string, int> _gotInTouchTasks;
-        private Dictionary<string, int> _wonTasks;
-        private Dictionary<string, int> _failedTasks;
+        public string Name { get; }
+        public int RunNumber { get; }
+        public DateTime TimeStarted { get; }
+        public float RanDistance { get; set; }
+        public Dictionary<DateTime, string> TasksStarted { get; }
+        public Dictionary<string, int> GotInTouchTasks { get; }
+        public Dictionary<string, int> WonTasks { get; }
+        public Dictionary<string, int> FailedTasks { get; }
 
 
         public EvaluationData(string name, int runNumber)
         {
-            this.name = name;
-            this.runNumber = runNumber;
-            timeStarted = DateTime.Now;
-            ranDistance = 0.0f;
-            _tasksStarted = new Dictionary<DateTime, string>();
-            _gotInTouchTasks = new Dictionary<string, int>();
-            _wonTasks = new Dictionary<string, int>();
-            _failedTasks = new Dictionary<string, int>();
+            Name = name;
+            RunNumber = runNumber;
+            TimeStarted = DateTime.Now;
+            RanDistance = 0.0f;
+            TasksStarted = new Dictionary<DateTime, string>();
+            GotInTouchTasks = new Dictionary<string, int>();
+            WonTasks = new Dictionary<string, int>();
+            FailedTasks = new Dictionary<string, int>();
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Evaluation
         /// <param name="distance">The new Distance.</param>
         public void UpdateDistance(float distance)
         {
-            ranDistance = distance;
+            RanDistance = distance;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Evaluation
         /// <param name="task">The Reference for the specific GameTask</param>
         public void AddTaskStarted(GameTask task)
         {
-            _tasksStarted.Add(DateTime.Now, task.taskName);
+            TasksStarted.Add(DateTime.Now, task.taskName);
         }
 
         /// <summary>
@@ -78,15 +78,13 @@ namespace Evaluation
         {
             return dictType switch
             {
-                DictTypes.TaskFailed => _failedTasks,
-                DictTypes.TaskWon => _wonTasks,
-                DictTypes.TaskTouched => _gotInTouchTasks,
+                DictTypes.TaskFailed => FailedTasks,
+                DictTypes.TaskWon => WonTasks,
+                DictTypes.TaskTouched => GotInTouchTasks,
                 _ => throw new ArgumentOutOfRangeException(nameof(dictType), dictType, null)
             };
         }
         
-        
-
         /// <summary>
         /// Converts this Data Object into a beautifully formatted JSON-String
         /// </summary>
