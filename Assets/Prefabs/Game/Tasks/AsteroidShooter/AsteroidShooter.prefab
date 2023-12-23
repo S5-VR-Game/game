@@ -1131,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlaySound
+      value: PlaySoundFunctionCall
       objectReference: {fileID: 0}
     - target: {fileID: 449299808108818467, guid: f099873d2cb5bb442b2684a96e5bd6e7, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
