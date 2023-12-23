@@ -52,6 +52,7 @@ namespace Game.Tasks
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
 
         private EvaluationDataWrapper _evaluationDataWrapper;
+        private bool _alreadyTouched;
         
         /// <summary>
         /// Constructor to set initial values for this task.
@@ -170,6 +171,29 @@ namespace Game.Tasks
         {
             _evaluationDataWrapper = evaluationDataWrapper;
             _evaluationDataWrapper.AddTaskStarted(this);
+        }
+
+        /// <summary>
+        /// Getter-Method for the EvaluationDataWrapper
+        /// </summary>
+        /// <returns></returns>
+        public EvaluationDataWrapper GetEvaluationDataWrapper()
+        {
+            return _evaluationDataWrapper;
+        }
+
+        /// <summary>
+        /// Emits a touch event to the EvaluationDataWrapper,
+        /// which forwards it to the actual Evaluation Data Object.
+        /// </summary>
+        public void EmitTouched()
+        {
+            if (_alreadyTouched)
+            {
+                return;
+            }
+            _evaluationDataWrapper.IncrementMapEntry(this, DictTypes.TaskTouched);
+            _alreadyTouched = true;
         }
     }
 }

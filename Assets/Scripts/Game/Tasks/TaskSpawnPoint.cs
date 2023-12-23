@@ -108,7 +108,9 @@ namespace Game.Tasks
             if (m_AllocatedTask != null && other.CompareTag(PlayerProfileService.k_PlayerGameObjectTag))
             {
                 // show task description on HUD
+                m_AllocatedTask.EmitTouched();
                 m_AllocatedTask.playerProfileService.GetHUD().ChangeText(m_AllocatedTask.taskDescription);
+                m_AllocatedTask.playerProfileService.GetHUD().uiTextBox.RegisterCurrentTask(m_AllocatedTask);
             }
         }
 
@@ -119,6 +121,7 @@ namespace Game.Tasks
             {
                 // dismiss task description on HUD
                 m_AllocatedTask.playerProfileService.GetHUD().DismissText();
+                m_AllocatedTask.playerProfileService.GetHUD().uiTextBox.DeregisterCurrentTask();
             }
         }
 

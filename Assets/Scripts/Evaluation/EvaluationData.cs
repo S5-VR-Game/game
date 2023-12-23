@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Game.Tasks;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 namespace Evaluation
 {
@@ -13,6 +14,7 @@ namespace Evaluation
         public float RanDistance { get; set; }
         public Dictionary<DateTime, string> TasksStarted { get; }
         public Dictionary<string, int> GotInTouchTasks { get; }
+        public Dictionary<string, int> HUDInteractions { get; }
         public Dictionary<string, int> WonTasks { get; }
         public Dictionary<string, int> FailedTasks { get; }
 
@@ -27,6 +29,7 @@ namespace Evaluation
             GotInTouchTasks = new Dictionary<string, int>();
             WonTasks = new Dictionary<string, int>();
             FailedTasks = new Dictionary<string, int>();
+            HUDInteractions = new FlexibleDictionary<string, int>();
         }
 
         /// <summary>
@@ -81,6 +84,7 @@ namespace Evaluation
                 DictTypes.TaskFailed => FailedTasks,
                 DictTypes.TaskWon => WonTasks,
                 DictTypes.TaskTouched => GotInTouchTasks,
+                DictTypes.HUDUsed => HUDInteractions,
                 _ => throw new ArgumentOutOfRangeException(nameof(dictType), dictType, null)
             };
         }
