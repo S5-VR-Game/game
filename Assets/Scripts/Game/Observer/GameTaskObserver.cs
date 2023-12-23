@@ -13,8 +13,7 @@ namespace Game.Observer
     {
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskObserver";
-        public EvaluationDataWrapper evaluationDataWrapper;
-
+        
         private int m_ActiveTasks;
         
         // sound-manager-scripts to play sounds for tasks

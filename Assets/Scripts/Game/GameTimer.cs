@@ -1,4 +1,5 @@
 using System;
+using Evaluation;
 using Game.Observer;
 using Game.Tasks;
 using Logging;
@@ -57,6 +58,8 @@ namespace Game
         public bool timerPaused { get; private set; }
         public float remainingTime { get; private set; }
         public bool timeOver { get; private set; }
+
+        public EvaluationDataWrapper evaluationDataWrapper;
 
         private void Start()
         {
@@ -118,7 +121,7 @@ namespace Game
             // try to spawn a task and abort loop if succeeded
             foreach (var factory in factories)
             {
-                bool spawnSuccess = factory.TrySpawnTask();
+                bool spawnSuccess = factory.TrySpawnTask(evaluationDataWrapper);
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySoundFunctionCall();

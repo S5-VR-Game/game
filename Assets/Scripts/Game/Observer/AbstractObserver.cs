@@ -1,3 +1,4 @@
+using Evaluation;
 using Game.Tasks;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ namespace Game.Observer
 {
     public abstract class AbstractObserver : MonoBehaviour
     {
+        public EvaluationDataWrapper evaluationDataWrapper;
         /// <summary>
         /// Called when a game task is completed
         /// </summary>

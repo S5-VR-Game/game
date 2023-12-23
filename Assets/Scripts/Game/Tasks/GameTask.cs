@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Evaluation;
 using PlayerController;
 using Sound;
 using UnityEngine;
@@ -50,6 +51,8 @@ namespace Game.Tasks
         /// by the <see cref="DestroyTask"/> method.
         /// </summary>
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
+
+        private EvaluationDataWrapper _evaluationDataWrapper;
         
         /// <summary>
         /// Constructor to set initial values for this task.
@@ -158,6 +161,16 @@ namespace Game.Tasks
             m_LinkedGameObjects.Clear();
             
             Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// Adds the Evaluation Wrapper Object to the class. It also registers that the Task has been started.
+        /// </summary>
+        /// <param name="evaluationDataWrapper">the Wrapper that needs to be assigned to this GameTask</param>
+        public void SetEvaluationWrapper(EvaluationDataWrapper evaluationDataWrapper)
+        {
+            _evaluationDataWrapper = evaluationDataWrapper;
+            _evaluationDataWrapper.AddTaskStarted(this);
         }
     }
 }

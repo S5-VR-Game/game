@@ -1,3 +1,4 @@
+using Evaluation;
 using Game.Observer;
 using Logging;
 using PlayerController;
@@ -26,7 +27,7 @@ namespace Game.Tasks
         /// Furthermore the new task is also registered to the observer instances.
         /// </summary>
         /// <returns>true, if a game task is spawned and false, if no task was created due to no available spawn points</returns>
-        public abstract bool TrySpawnTask();
+        public abstract bool TrySpawnTask(EvaluationDataWrapper evaluationDataWrapper);
         
         /// <summary>
         /// Initializes the factory with the given game initialization data
@@ -70,7 +71,7 @@ namespace Game.Tasks
             }
         }
         
-        public override bool TrySpawnTask()
+        public override bool TrySpawnTask(EvaluationDataWrapper evaluationDataWrapper)
         {
             // shuffle list to get random spawn points
             spawnPoints.Shuffle();
@@ -84,6 +85,7 @@ namespace Game.Tasks
                 
                 // create task to spawn at this spawn point
                 GameTask newTask = CreateTask(spawnPoint);
+                newTask.SetEvaluationWrapper(evaluationDataWrapper);
                 
                 // assign game related data to task
                 newTask.difficulty = mDifficulty;
