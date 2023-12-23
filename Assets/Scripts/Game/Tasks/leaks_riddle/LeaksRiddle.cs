@@ -14,7 +14,7 @@ namespace Game.Tasks.leaks_riddle
         private bool _finished;
         
         
-        public LeaksRiddle() : base(120, "Leaks Riddle", "")
+        public LeaksRiddle() : base(120, "Leaks Riddle", "", GameTaskType.LeaksRiddle)
         {
             taskDescription = "Someone added some cracks to the hallway windows.\n" +
                               "This seems structurally unsafe, and rather fatal, because the air is leaking out.\n" +

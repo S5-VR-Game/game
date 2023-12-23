@@ -11,8 +11,9 @@ namespace Game.Tasks
             float initialTimerTime,
             string taskName,
             string taskDescription,
+            GameTaskType taskType,
             int integrityValue = k_DefaultIntegrityValue
-        ) : base(taskName: taskName, taskDescription: taskDescription, integrityValue: integrityValue)
+        ) : base(taskName: taskName, taskDescription: taskDescription, taskType: taskType, integrityValue: integrityValue)
         {
             remainingTime = initialTimerTime;
         }
@@ -43,6 +44,7 @@ namespace Game.Tasks
             if (remainingTime < 0 && currentTaskState == TaskState.Ongoing)
             {                    
                 // IMPORTANT NOTE: If the time is up, there needs to be Failed in Future!!!
+                remainingTime = 0;
                 UpdateTaskState(TaskState.Failed);
             }
             else
@@ -53,6 +55,11 @@ namespace Game.Tasks
                 remainingTime -= Time.deltaTime;
             }
             AfterStateCheck();
+        }
+        
+        public float GetRemainingTime()
+        {
+            return remainingTime;
         }
     }
 }

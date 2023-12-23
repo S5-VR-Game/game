@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using PlayerController;
-using Sound;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Tasks
 {
@@ -19,6 +19,7 @@ namespace Game.Tasks
     {
         protected const int k_DefaultIntegrityValue = 5;
 
+        public GameTaskType taskType { get; protected set; }
         public string taskName { get; protected set; }
         public string taskDescription { get; protected set; }
         public int integrityValue { get; protected set; }
@@ -38,7 +39,7 @@ namespace Game.Tasks
         /// <summary>
         /// 
         /// </summary>
-        public ObjectiveMarker.TaskType taskType;
+        [FormerlySerializedAs("taskType")] public ObjectiveMarker.TaskPriority taskPriority;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
@@ -56,11 +57,13 @@ namespace Game.Tasks
         /// </summary>
         /// <param name="taskName">name for this task</param>
         /// <param name="taskDescription">description for this task</param>
+        /// <param name="taskType">type of this task</param>
         /// <param name="integrityValue">integrity value, which is added/subtracted to global integrity on task success/failuire</param>
-        protected GameTask(string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue)
+        protected GameTask(string taskName, string taskDescription, GameTaskType taskType, int integrityValue = k_DefaultIntegrityValue)
         {
             this.taskName = taskName;
             this.taskDescription = taskDescription;
+            this.taskType = taskType;
             this.integrityValue = integrityValue;
         }
 

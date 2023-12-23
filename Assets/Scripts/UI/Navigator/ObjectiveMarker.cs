@@ -14,7 +14,7 @@ public class ObjectiveMarker : MonoBehaviour
     private Vector3 location;
     public Canvas canvas;
 
-    public enum TaskType
+    public enum TaskPriority
     {
         Normal,
         Timed,
@@ -22,26 +22,26 @@ public class ObjectiveMarker : MonoBehaviour
         
     }
 
-    public void Initialize(GameTask newTask, Vector3 newLocation, TaskType type)
+    public void Initialize(GameTask newTask, Vector3 newLocation, TaskPriority priority)
     {
         task = newTask;
         taskLocation = newLocation;
-        SetColor(type);
+        SetColor(priority);
     }
 
-    private void SetColor(TaskType type)
+    private void SetColor(TaskPriority priority)
     {
         Color color = new Color();
         
-        switch (type)
+        switch (priority)
         {
-            case TaskType.Normal:
+            case TaskPriority.Normal:
                 color = new Color(0.0f, 0.5f, 0.0f);
                 break;
-            case TaskType.Timed:
+            case TaskPriority.Timed:
                 color = new Color(1.0f, 0.6f, 0.0f);
                 break;
-            case TaskType.TimeCritical:
+            case TaskPriority.TimeCritical:
                 color = Color.red;
                 break;
         }
