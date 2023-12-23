@@ -17,7 +17,7 @@ namespace Evaluation
 
         private void Update()
         {
-            Console.WriteLine(_evaluationData.ToJson());
+            Debug.Log(_evaluationData.ToJson());
         }
 
         /// <summary>
