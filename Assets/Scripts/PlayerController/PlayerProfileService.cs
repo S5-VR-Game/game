@@ -1,3 +1,5 @@
+using System;
+using Evaluation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +23,28 @@ namespace PlayerController
         [SerializeField] private GameObject locomotiveSystemMove;
         [SerializeField] private HUD vrPlayerHUD;
         [SerializeField] private HUD keyboardPlayerHUD;
-        
+        [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
+
+        private Vector3 lastPos; // the last position the player was assigned to.
+        private float playerRunDistance; // the distance the player has run the entire game.
+
+        private void Start()
+        {
+            lastPos = GetPlayerGameObject().transform.position;
+        }
+
+        private void Update()
+        {
+            var currentPlayerPos = GetPlayerGameObject().transform.position;
+            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, lastPos);
+            lastPos = GetPlayerGameObject().transform.position;
+
+            playerRunDistance += currentPosLastPosDistance;
+
+
+            evaluationDataWrapper.UpdateDistance(playerRunDistance);
+        }
+
         /// <summary>
         /// Deactivates the player that should not be used during the game.
         /// </summary>
