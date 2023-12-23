@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game.Tasks;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Evaluation
 {
