@@ -1,3 +1,4 @@
+using Evaluation;
 using Game.Tasks;
 using Logging;
 using Sound;
@@ -12,6 +13,7 @@ namespace Game.Observer
     {
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskObserver";
+        public EvaluationDataWrapper evaluationDataWrapper;
 
         private int m_ActiveTasks;
         
@@ -24,6 +26,7 @@ namespace Game.Observer
         {
             m_LOG.Log(LOGTag,"task successful: " + task.taskName);
             taskSuccessSoundManager.PlaySoundFunctionCall();
+            evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskWon);
             m_ActiveTasks--;
         }
         
@@ -31,6 +34,7 @@ namespace Game.Observer
         {
             m_LOG.Log(LOGTag,"task failed: " + task.taskName);
             taskFailureSoundManager.PlaySoundFunctionCall();
+            evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskFailed);
             m_ActiveTasks--;
         }
         
