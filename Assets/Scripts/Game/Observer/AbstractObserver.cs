@@ -31,7 +31,7 @@ namespace Game.Observer
         /// Lets this observer listen to events of the given game task
         /// </summary>
         /// <param name="task">game task to observe</param>
-        public void RegisterGameTask(GameTask task)
+        public virtual void RegisterGameTask(GameTask task)
         {
             task.TaskFailed += OnTaskFailed;
             task.TaskSuccessful += OnTaskSuccessful;

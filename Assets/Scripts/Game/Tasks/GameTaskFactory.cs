@@ -1,3 +1,4 @@
+using Game.Metrics;
 using Game.Observer;
 using Logging;
 using PlayerController;
@@ -53,6 +54,7 @@ namespace Game.Tasks
         private PlayerProfileService m_PlayerProfileService;
         private GameTaskObserver m_GameTaskObserver;
         private IntegrityObserver m_IntegrityObserver;
+        private MetricCollector m_MetricCollector;
         
         [SerializeField] private T[] spawnPoints;
 
@@ -62,6 +64,7 @@ namespace Game.Tasks
             m_PlayerProfileService = initializationData.playerProfileService;
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
+            m_MetricCollector = initializationData.metricCollector;
 
             // set timeout values of all spawn points
             foreach (var spawnPoint in spawnPoints)
@@ -93,7 +96,7 @@ namespace Game.Tasks
                 spawnPoint.Allocate(newTask);
                 
                 // send task to HUD
-                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
+                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskPriority);
             
                 // initialize task with its own logic
                 newTask.Initialize();
@@ -101,6 +104,7 @@ namespace Game.Tasks
                 // register the new task
                 m_GameTaskObserver.RegisterGameTask(newTask);
                 m_IntegrityObserver.RegisterGameTask(newTask);
+                m_MetricCollector.RegisterGameTask(newTask);
 
                 m_LOG.Log(LOGTag, "task spawned successfully");
                 return true;
