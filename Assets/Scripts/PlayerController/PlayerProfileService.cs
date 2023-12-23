@@ -25,19 +25,19 @@ namespace PlayerController
         [SerializeField] private HUD keyboardPlayerHUD;
         [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
 
-        private Vector3 lastPos; // the last position the player was assigned to.
+        private Vector3 oldPos; // the last position the player was assigned to.
         private float playerRunDistance; // the distance the player has run the entire game.
 
         private void Start()
         {
-            lastPos = GetPlayerGameObject().transform.position;
+            oldPos = GetPlayerGameObject().transform.position;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             var currentPlayerPos = GetPlayerGameObject().transform.position;
-            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, lastPos);
-            lastPos = GetPlayerGameObject().transform.position;
+            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, oldPos);
+            oldPos = GetPlayerGameObject().transform.position;
 
             playerRunDistance += currentPosLastPosDistance;
 
