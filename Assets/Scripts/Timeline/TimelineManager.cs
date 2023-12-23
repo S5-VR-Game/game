@@ -113,7 +113,7 @@ namespace Timeline
         /// <param name="playableDirector"></param>
         private void SetupAfterStartTimeline(PlayableDirector playableDirector)
         {
-            playerProfileService.transform.position = new Vector3(0, -1f, 0); // moves the player's position to its original position
+            playerProfileService.transform.position = new Vector3(0, 0, 0); // moves the player's position to its original position
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = true; // activates the hud
             gameTimer.ResumeTimer(); // resumes the timer
         }
