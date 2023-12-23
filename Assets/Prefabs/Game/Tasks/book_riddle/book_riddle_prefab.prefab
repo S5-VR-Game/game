@@ -448,7 +448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6457175040738411962}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1347,7 +1347,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509981432842183012}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2180,7 +2180,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5096387956644169441}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2877,7 +2877,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7118495821755177993}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4405,7 +4405,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5359879281648957905}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4648,7 +4648,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3271885598014598217}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5647,7 +5647,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2083445177404801840}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5923,7 +5923,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7755888750063046611}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7221,7 +7221,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9032545780207983287}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7464,7 +7464,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1867829979227959753}
         m_TargetAssemblyTypeName: Sound.SoundManager, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: PlaySoundFunctionCall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
