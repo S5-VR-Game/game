@@ -13,7 +13,7 @@ namespace Game.Metrics
     public class MetricData
     {
         private const char CsvDelimiter = ';';
-        private const string ExportFileName = "metrics.csv";
+        private const string ExportFileName = "collected_game_metrics.csv";
         
         private readonly Dictionary<SingleValueMetric, object> m_Metrics = new();
         
