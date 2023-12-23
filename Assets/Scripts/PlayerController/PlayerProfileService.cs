@@ -41,7 +41,6 @@ namespace PlayerController
 
             playerRunDistance += currentPosLastPosDistance;
 
-
             evaluationDataWrapper.UpdateDistance(playerRunDistance);
         }
 
