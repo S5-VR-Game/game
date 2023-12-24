@@ -93,7 +93,7 @@ public class ButtonSequenceLogic : GameTask
         ButtonCheck((ColorCode)color);
     }
 
-    public ButtonSequenceLogic() : base("ButtonSequence", "description")
+    public ButtonSequenceLogic() : base("ButtonSequence", "description", GameTaskType.ButtonSequencePuzzle)
     {
     }
 }

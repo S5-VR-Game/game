@@ -1,5 +1,6 @@
 using Evaluation;
 using Game.Tasks;
+using System;
 using UnityEngine;
 
 namespace UI
@@ -17,6 +18,8 @@ namespace UI
 
         private bool active = false;
         private bool alert_dismissed = false;
+
+        public event Action OnTextOpened;
 
         private GameTask _gameTask;
     
@@ -64,6 +67,12 @@ namespace UI
             if (animator != null && active)
             {
                 animator.SetBool("open", !animator.GetBool("open"));
+                
+                // notify listeners that text panel was opened
+                if (animator.GetBool("open"))
+                {
+                    OnTextOpened?.Invoke();
+                }
                 if (animator.GetBool("blink") == true)
                 {
                     animator.SetBool("blink", false);

@@ -30,7 +30,7 @@ namespace Game.Tasks.MedicalDisaster
         [SerializeField] private GameObject rightPipeTop;
         [SerializeField] private GameObject rightPipeBottom;
         
-        public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription)
+        public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription, GameTaskType.MedicalDisaster)
         {
             taskDescription = "The medical bay is leaking!\n" +
                               "The substances sure are not tasty!\n" +

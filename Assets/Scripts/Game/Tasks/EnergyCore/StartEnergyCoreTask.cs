@@ -8,7 +8,7 @@ namespace Game.Tasks.EnergyCore
         public int finishedEnergyCoreCounter;
         
         public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
-            integrityValue : 10)
+            taskType: GameTaskType.EnergyCore, integrityValue : 10)
         {
         }
 

@@ -68,7 +68,7 @@ namespace Game.Tasks.MixingIngredients
         private bool m_WateringBottleFilledUp;
         private bool m_TaskCompleted;
 
-        public MixingIngredients() : base(Name, Description)
+        public MixingIngredients() : base(Name, Description, GameTaskType.MixingIngredients)
         {
             taskDescription = "You need just a little more oxygen to survive.\n" +
                               "You need to mix the ingredients in the main container to create a super fertilizer.\n" +

@@ -17,7 +17,7 @@ namespace Game.Tasks.StorageRiddle
         public SpawnBoxes spawnBoxesScript;
         
         public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
-            taskDescription: "", integrityValue: 10)
+            taskDescription: "", taskType: GameTaskType.StorageRiddle, integrityValue: 10)
         {
             taskDescription = "Someone misplaced the storage boxes!\n" +
                               "You need to place all of them on the platform.\n" +

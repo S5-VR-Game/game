@@ -1,5 +1,6 @@
 using System;
 using Evaluation;
+using Game.Metrics;
 using Game.Observer;
 using Game.Tasks;
 using Logging;
@@ -37,6 +38,7 @@ namespace Game
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private GameTaskObserver gameTaskObserver;
         [SerializeField] private IntegrityObserver integrityObserver;
+        [SerializeField] private MetricCollector metricCollector;
         
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
@@ -68,7 +70,7 @@ namespace Game
 
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
-                gameTaskObserver, integrityObserver, taskSpawnPointTimeout);
+                gameTaskObserver, integrityObserver, taskSpawnPointTimeout, metricCollector);
             foreach (var factory in factories)
             {
                 factory.Initialize(factoryInitializationData);

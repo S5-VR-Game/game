@@ -16,7 +16,7 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolution solution { get; set; }
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
-        public BookRiddle() : base("Book Riddle", "", 5)
+        public BookRiddle() : base("Book Riddle", "", GameTaskType.BookRiddle, 5)
         {
             taskDescription = "Some security features need to be disabled.\n" +
                               "You need to press these buttons a certain amount of times.\n" +

@@ -90,9 +90,9 @@ public class HUD : MonoBehaviour
     }
 
 
-    public void registerNewTask(GameTask task, Vector3 spawnLocation, ObjectiveMarker.TaskType type)
+    public void registerNewTask(GameTask task, Vector3 spawnLocation, ObjectiveMarker.TaskPriority priority)
     {
-        navigator.InitializeMarker(task, spawnLocation, type);
+        navigator.InitializeMarker(task, spawnLocation, priority);
         
         task.GameObjectDestroyed += (gameTask) =>
         {

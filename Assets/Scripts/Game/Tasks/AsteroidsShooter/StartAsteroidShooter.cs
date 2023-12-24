@@ -14,7 +14,7 @@ namespace Game.Tasks.AsteroidsShooter
         
         private bool _started;
         
-        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description")
+        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description", GameTaskType.AsteroidShooter)
         {
         }
 
