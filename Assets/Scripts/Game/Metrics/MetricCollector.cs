@@ -52,9 +52,10 @@ namespace Game.Metrics
             }
             m_LastPlayerPosition = playerProfileService.GetPlayerGameObject().transform.position;
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 m_MetricData.WriteToFile();
+                Debug.Log(m_MetricData.ToJson());
             }
         }
 

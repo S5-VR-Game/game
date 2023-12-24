@@ -15,11 +15,6 @@ namespace Evaluation
             _evaluationData = new EvaluationData(probandName, runNumber);
         }
 
-        private void Update()
-        {
-            Debug.Log(_evaluationData.ToJson());
-        }
-
         /// <summary>
         /// Wrapper method that calls the Same method
         /// on the Data Object <see cref="EvaluationData"/>

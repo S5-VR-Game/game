@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Game.Tasks;
+using Newtonsoft.Json;
 using Unity.VisualScripting;
 
 namespace Game.Metrics
@@ -15,12 +16,12 @@ namespace Game.Metrics
         private const char CsvDelimiter = ';';
         private const string ExportFileName = "collected_game_metrics.csv";
         
-        private readonly Dictionary<SingleValueMetric, object> m_Metrics = new();
+        public readonly Dictionary<SingleValueMetric, object> m_Metrics = new();
         
-        private readonly Dictionary<GameTaskType, TaskMetrics> m_TaskMetrics = new();
+        public readonly Dictionary<GameTaskType, TaskMetrics> m_TaskMetrics = new();
         
-        private readonly StatisticMetric m_TimerTaskRemainingSeconds = new("timerTaskRemainingSeconds");
-        private readonly StatisticMetric m_SecondsBetweenTaskSpawn = new("secondsBetweenTaskSpawn");
+        public readonly StatisticMetric m_TimerTaskRemainingSeconds = new("timerTaskRemainingSeconds");
+        public readonly StatisticMetric m_SecondsBetweenTaskSpawn = new("secondsBetweenTaskSpawn");
         
         public MetricData()
         {
@@ -178,6 +179,15 @@ namespace Game.Metrics
         public void AddSecondsBetweenTaskSpawnValue(float secondsBetweenTaskSpawns)
         {
             m_SecondsBetweenTaskSpawn.AddValue(secondsBetweenTaskSpawns);
+        }
+
+        /// <summary>
+        /// Calculates an JSON-Representation of this Object and returns it.
+        /// </summary>
+        /// <returns>This Object as JSON-String.</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
 }
