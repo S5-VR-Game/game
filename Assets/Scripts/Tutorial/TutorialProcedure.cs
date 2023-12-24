@@ -15,6 +15,7 @@ namespace Tutorial
         [SerializeField] private TutorialDoorController[] doorControllers;
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private GameObject game;
+        [SerializeField] private TutorialGameTimer tutorialGameTimer;
         
         [Header("Teleport Positions")]
         [SerializeField] private Transform basicsTeleportPosition;
@@ -64,9 +65,14 @@ namespace Tutorial
             switch (m_TutorialState)
             {
                 case TutorialState.HUD:
-                    // enable HUD and game for HUD tutorial sequence
+                    // enable HUD and game for HUD tutorial sequence and spawn the HUD task
                     game.SetActive(true);
                     playerProfileService.GetHUD().gameObject.SetActive(true);
+                    tutorialGameTimer.SpawnOpenHUDTask();
+                    break;
+                case TutorialState.Tasks:
+                    // spawn the tutorial task
+                    tutorialGameTimer.SpawnTutorialTask();
                     break;
                 case TutorialState.Completed:
                     // open all doors on completion to allow the player move freely in the tutorial scene

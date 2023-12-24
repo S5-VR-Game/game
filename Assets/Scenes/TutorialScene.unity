@@ -905,12 +905,12 @@ MonoBehaviour:
   m_margin: {x: 7.5226164, y: 0, z: 8.799341, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 69844670}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 69844670}
+  m_maskType: 0
 --- !u!23 &69844670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4509,12 +4509,12 @@ MonoBehaviour:
   m_margin: {x: 7.5226164, y: 0, z: 8.799341, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 392327202}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 392327202}
+  m_maskType: 0
 --- !u!23 &392327202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6496,12 +6496,12 @@ MonoBehaviour:
   m_margin: {x: 7.5226164, y: 0, z: 8.799341, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 520705530}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 520705530}
+  m_maskType: 0
 --- !u!23 &520705530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7037,7 +7037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: playerProfileService
@@ -7132,9 +7132,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6719862717524418656, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: gameTimer
+      value: 
+      objectReference: {fileID: 759774414}
+    - target: {fileID: 6719862717524418656, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: playerProfileService
       value: 
       objectReference: {fileID: 2004019403}
+    - target: {fileID: 7562419852456309897, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: gameTimer
+      value: 
+      objectReference: {fileID: 759774414}
     - target: {fileID: 7562419852456309897, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: timelineManager
       value: 
@@ -7143,7 +7151,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -7161,7 +7170,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1951987441}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 759774414}
   m_SourcePrefab: {fileID: 100100000, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
 --- !u!4 &579457991 stripped
 Transform:
@@ -7844,12 +7856,12 @@ MonoBehaviour:
   m_margin: {x: 7.5226164, y: 0, z: 8.799341, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 679837522}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 679837522}
+  m_maskType: 0
 --- !u!23 &679837522
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7892,6 +7904,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &727231148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8919326314240518745, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c1c7f01acf4a07b37368f229a4090a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &732246668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8090,6 +8113,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
   m_PrefabInstance: {fileID: 579457990}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &759774413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2766555538743404404, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536993067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da4c362a0024bc880cbe437f4f3ae7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &759774414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536993067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3020f697a04b5dba6ec66892fba681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialGameTime: 3600
+  difficultyTimeModifier: 10
+  minTimeIntervalBetweenTasks: 1
+  randomTimeIntervalSize: 1
+  taskSpawnPointTimeout: 10
+  concurrentTasksLimit: 5
+  difficulty: {fileID: 759774413}
+  playerProfileService: {fileID: 2004019403}
+  gameTaskObserver: {fileID: 872682494}
+  integrityObserver: {fileID: 727231148}
+  factories:
+  - {fileID: 1951987442}
+  - {fileID: 672393600}
+  _taskSpawningSoundManager: {fileID: 147872666}
 --- !u!1001 &764864109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11246,6 +11306,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerService: {fileID: 2004019403}
   distance: 5
+--- !u!114 &872682494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9419b1dca02e94ea1891786639e032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &880300358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11693,12 +11764,12 @@ MonoBehaviour:
   m_margin: {x: 7.5226164, y: 0, z: 8.799341, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 954254635}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 954254635}
+  m_maskType: 0
 --- !u!23 &954254635
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12245,12 +12316,12 @@ MonoBehaviour:
   m_margin: {x: 8.789921, y: 0.62035835, z: 10.319859, w: 3.9827638}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 983336798}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 983336798}
+  m_maskType: 0
 --- !u!23 &983336798
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20520,6 +20591,7 @@ MonoBehaviour:
   - {fileID: 486597320}
   playerProfileService: {fileID: 2004019403}
   game: {fileID: 536993067}
+  tutorialGameTimer: {fileID: 759774414}
   basicsTeleportPosition: {fileID: 1868000359}
   interactionTeleportPosition: {fileID: 1101483158}
   hudTeleportPosition: {fileID: 1019567672}

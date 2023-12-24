@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6260011655785156874}
   - component: {fileID: 124213701075102725}
   - component: {fileID: 3376810281096575647}
-  - component: {fileID: 8433775538350862795}
   - component: {fileID: 5648915478782185699}
   m_Layer: 10
   m_Name: hud-opening-puzzle
@@ -108,19 +107,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.64781, y: 1.0953836, z: 1.3869138}
   m_Center: {x: 0.00000011920929, y: 0.5426109, z: 0}
---- !u!114 &8433775538350862795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576726204608156538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba497a48b4044e3dba40eca645c6fecd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  taskType: 2
 --- !u!114 &5648915478782185699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,12 +285,12 @@ MonoBehaviour:
   m_margin: {x: 7.1583004, y: 0, z: 5.705459, w: 4.5172}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 4152015053087088370}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 4152015053087088370}
+  m_maskType: 0
 --- !u!1 &8970117927592096407
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,13 +5,13 @@ namespace Game.Tasks.TutorialGameTask
     /// <summary>
     /// This tasks represents just an task to open the HUD and closing it again.
     /// </summary>
-    public class OpenHUDTask : TimerTask
+    public class OpenHUDTask : GameTask
     {
         private const int CounterNeeded = 2;
         private const KeyCode TogglePanel = KeyCode.JoystickButton2; // vr controller button A
         private int _counter;
 
-        public OpenHUDTask() : base(60, "Open HUD", "Herzlichen Glückwunsch, du hast\n" +
+        public OpenHUDTask() : base("Open HUD", "Herzlichen Glückwunsch, du hast\n" +
                                                     "das HUD erfolgreich geöffnet. Du\n" +
                                                     "kannst es jetzt wieder schließen.", 20)
         {
