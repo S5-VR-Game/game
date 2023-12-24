@@ -17,8 +17,6 @@ namespace Game
 
         public GameState currentGameState;
         public event Action<GameState> OnGameStateChanged;
-
-        public TimelineManager timelineManager;
         
         /// <summary>
         /// If the integrity is lower than or equal to this threshold, the game will count as lost
@@ -44,27 +42,11 @@ namespace Game
             {
                 // if integrity lost threshold reached, evaluate to game lost
                 currentGameState = GameState.GameLost;
-                
-                timelineManager.PlayEndSceneLose();
             }
             else if (gameTimer.timeOver)
             {
                 // if time over, evaluate depending on integrity value
                 currentGameState = integrity.GetCurrentIntegrity() > IntegrityLostThreshold ? GameState.GameWon : GameState.GameLost;
-
-                switch (currentGameState)
-                {
-                    case GameState.GameLost:
-                        timelineManager.PlayEndSceneLose();
-                        break;
-                    case GameState.GameWon:
-                        timelineManager.PlayEndSceneWin();
-                        break;
-                    case GameState.Ongoing:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
             }
             else
             { 
