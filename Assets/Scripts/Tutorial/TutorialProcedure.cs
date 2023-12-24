@@ -80,6 +80,8 @@ namespace Tutorial
                     {
                         doorController.OpenDoor();
                     }
+                    // allow normal task spawning
+                    tutorialGameTimer.SetTaskSpawningEnabled(true);
                     break;
                 case TutorialState.Exit:
                     print("Tutorial completed!");
@@ -89,6 +91,18 @@ namespace Tutorial
             }
             
             TeleportPlayerAccordingToState();
+        }
+        
+        /// <summary>
+        /// Called when a tutorial task is successful completed. Continues the tutorial procedure, if procedure is
+        /// currently in <see cref="TutorialState.HUD"/> or <see cref="TutorialState.Tasks"/> state. 
+        /// </summary>
+        public void OnTutorialTaskSuccessful()
+        {
+            if (m_TutorialState is TutorialState.Tasks or TutorialState.HUD)
+            {
+                NextTutorialState();
+            }
         }
 
         /// <summary>

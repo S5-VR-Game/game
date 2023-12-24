@@ -7153,6 +7153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+    - {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -7174,6 +7175,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: 1
       addedObject: {fileID: 759774414}
+    - targetCorrespondingSourceObject: {fileID: 7811007272200654618, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1169253373}
   m_SourcePrefab: {fileID: 100100000, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
 --- !u!4 &579457991 stripped
 Transform:
@@ -8144,7 +8148,7 @@ MonoBehaviour:
   concurrentTasksLimit: 5
   difficulty: {fileID: 759774413}
   playerProfileService: {fileID: 2004019403}
-  gameTaskObserver: {fileID: 872682494}
+  gameTaskObserver: {fileID: 1169253373}
   integrityObserver: {fileID: 727231148}
   factories:
   - {fileID: 1951987442}
@@ -11306,17 +11310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerService: {fileID: 2004019403}
   distance: 5
---- !u!114 &872682494 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-  m_PrefabInstance: {fileID: 579457990}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9419b1dca02e94ea1891786639e032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &880300358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15963,6 +15956,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 464552, guid: 64b3f36e835346747865afbf6cf62acf, type: 3}
   m_PrefabInstance: {fileID: 1165216693}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1169253371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7811007272200654618, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1169253373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169253371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a639a91b31c43938349326c1574cfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskFailureSoundManager: {fileID: 544759182}
+  taskSuccessSoundManager: {fileID: 1084772915}
+  tutorialProcedure: {fileID: 1530644229}
 --- !u!1001 &1174882950
 PrefabInstance:
   m_ObjectHideFlags: 0
