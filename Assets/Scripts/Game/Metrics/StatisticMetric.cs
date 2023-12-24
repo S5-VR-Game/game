@@ -78,9 +78,9 @@ namespace Game.Metrics
             var quartile3 = GetMedian(m_Data.Where(x => x > quartile2).ToList()); 
             
             return new[] {
-                m_Data.Max(),
-                m_Data.Min(),
-                m_Data.Average(),
+                m_Data.Any() ? m_Data.Max() : 0,
+                m_Data.Any() ? m_Data.Min() : 0,
+                m_Data.Any() ? m_Data.Average() : 0,
                 quartile1,
                 quartile2,
                 quartile3,

@@ -41,7 +41,7 @@ namespace Game.Metrics
             m_LastTaskSpawnTimeSeconds = gameTimer.remainingTime;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             // track player walked distance
             var distance = Vector3.Distance(m_LastPlayerPosition, playerProfileService.GetPlayerGameObject().transform.position);
@@ -51,6 +51,11 @@ namespace Game.Metrics
                 m_MetricData.AddValueToMetric(SingleValueMetric.WalkedDistance, distance);
             }
             m_LastPlayerPosition = playerProfileService.GetPlayerGameObject().transform.position;
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                m_MetricData.WriteToFile();
+            }
         }
 
         /// <summary>
