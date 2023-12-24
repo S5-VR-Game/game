@@ -109,5 +109,6 @@ $RECYCLE.BIN/
 
 *.lnk
 
-# automatically generated game metrics csv file
+# automatically generated game metric files
 collected_game_metrics.csv
+collected_game_metrics.json

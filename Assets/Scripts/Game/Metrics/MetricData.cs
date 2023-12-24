@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Game.Tasks;
+using Logging;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Game.Metrics
 {
@@ -13,66 +15,61 @@ namespace Game.Metrics
     /// </summary>
     public class MetricData
     {
+        private readonly Logger m_LOG = new Logger(new LogHandler());
+        private const string LOGTag = "MetricData";
+        
         private const char CsvDelimiter = ';';
-        private const string ExportFileName = "collected_game_metrics.csv";
+        private const string ExportFileNameCsv = "collected_game_metrics.csv";
+        private const string ExportFileNameJson = "collected_game_metrics.json";
         
-        public readonly Dictionary<SingleValueMetric, object> m_Metrics = new();
+        [JsonProperty("generalMetrics")]
+        public readonly Dictionary<SingleValueMetric, object> metrics = new();
         
-        public readonly Dictionary<GameTaskType, TaskMetrics> m_TaskMetrics = new();
-        
-        public readonly StatisticMetric m_TimerTaskRemainingSeconds = new("timerTaskRemainingSeconds");
-        public readonly StatisticMetric m_SecondsBetweenTaskSpawn = new("secondsBetweenTaskSpawn");
+        [JsonProperty("taskMetrics")]
+        public readonly Dictionary<GameTaskType, TaskMetrics> taskMetrics = new();
+
+        [JsonProperty("timerTaskRemainingSeconds")]
+        public readonly StatisticMetric timerTaskRemainingSeconds = new("timerTaskRemainingSeconds");
+        [JsonProperty("secondsBetweenTaskSpawn")]
+        public readonly StatisticMetric secondsBetweenTaskSpawn = new("secondsBetweenTaskSpawn");
         
         public MetricData()
         {
             // initialize metrics
             foreach (var metric in Enum.GetValues(typeof(SingleValueMetric)))
             {
-               m_Metrics.Add((SingleValueMetric) metric, null); 
+               metrics.Add((SingleValueMetric) metric, null); 
             }
             // initialize task metrics
             foreach (var taskType in Enum.GetValues(typeof(GameTaskType)))
             {
-                m_TaskMetrics.Add((GameTaskType) taskType, new TaskMetrics((GameTaskType) taskType));
+                taskMetrics.Add((GameTaskType) taskType, new TaskMetrics((GameTaskType) taskType));
             }
         }
         
         /// <summary>
-        /// Writes the current metrics to a csv file. If no file with the <see cref="ExportFileName"/> exists, a new
-        /// file will be created and the metrics will be written as csv header row.
+        /// Writes the current metrics to different files types. The files will be written to the project root directory.
+        /// If a CSV file already exists, the current metrics will be appended to the file.
+        /// If a JSON file already exists, it will be overwritten.
         /// </summary>
-        public void WriteToFile()
+        /// <param name="csv">if true, a csv file will be generated</param>
+        /// <param name="json">if true, a json file will be generated</param>
+        public void WriteToFile(bool csv = true, bool json = true)
         {
-            StringBuilder csvText = new StringBuilder();
-            StringBuilder csvHeaderRow = new StringBuilder();
-            
-            // add metric names as header row
-            csvHeaderRow.Append(m_Metrics.Keys.ToSeparatedString(CsvDelimiter.ToString()));
-            
-            // add csv data row
-            csvText.AppendJoin(CsvDelimiter, m_Metrics.Values);
-            
-            // add statistic metrics
-            AppendMetricFormat(m_SecondsBetweenTaskSpawn, csvHeaderRow, csvText);
-            AppendMetricFormat(m_TimerTaskRemainingSeconds, csvHeaderRow, csvText);
-            // add task metrics
-            foreach (var taskMetrics in m_TaskMetrics.Values)
+            if (csv)
             {
-                AppendMetricFormat(taskMetrics, csvHeaderRow, csvText);
+                // write csv string to file, include csv header row, if file does not exist
+                File.AppendAllText(ExportFileNameCsv, ToCsv(includeHeader: !File.Exists(ExportFileNameCsv)));
+                m_LOG.Log(LOGTag, "metric data written to csv file");
             }
-
-            // add new line, to separate csv data from header row or from previous data in the file
-            csvText.Insert(0, System.Environment.NewLine);
-            // add csv header row to start, if file does not exist
-            if (!File.Exists(ExportFileName))
+            if (json)
             {
-                csvText.Insert(0, csvHeaderRow);
+                // write json string to file
+                File.WriteAllText(ExportFileNameJson, ToJson());
+                m_LOG.Log(LOGTag, "metric data written to json file");
             }
-            
-            // write csv string to file
-            File.AppendAllText(ExportFileName, csvText.ToString());
         }
-        
+
         /// <summary>
         /// Appends the metric to the given string builders and adds a csv delimiter before the metric.
         /// </summary>
@@ -96,7 +93,7 @@ namespace Game.Metrics
         /// <typeparam name="T">data type of the metric</typeparam>
         public void SetMetric<T>(SingleValueMetric singleValueMetric, T value)
         {
-            m_Metrics[singleValueMetric] = value;
+            metrics[singleValueMetric] = value;
         }
         
         /// <summary>
@@ -107,7 +104,7 @@ namespace Game.Metrics
         public void AddValueToMetric(SingleValueMetric singleValueMetric, double value)
         {
             var newValue = GetMetric<double>(singleValueMetric, 0) + value;
-            m_Metrics[singleValueMetric] = newValue;
+            metrics[singleValueMetric] = newValue;
         }
         
         /// <summary>
@@ -128,12 +125,12 @@ namespace Game.Metrics
         /// <returns>current stored value of the metric</returns>
         public T GetMetric<T>(SingleValueMetric singleValueMetric, T defaultValue)
         {
-            if (m_Metrics[singleValueMetric] == null)
+            if (metrics[singleValueMetric] == null)
             {
                 return defaultValue;
             }
 
-            return (T) m_Metrics[singleValueMetric];
+            return (T) metrics[singleValueMetric];
         }
         
         /// <summary>
@@ -142,7 +139,7 @@ namespace Game.Metrics
         /// <param name="taskType">task type, whose spawn count should be incremented</param>
         public void RegisterTaskSpawn(GameTaskType taskType)
         {
-            m_TaskMetrics[taskType].spawnCount++;
+            taskMetrics[taskType].spawnCount++;
         }
         
         /// <summary>
@@ -151,7 +148,7 @@ namespace Game.Metrics
         /// <param name="taskType">task type, whose completed counter should be incremented</param>
         public void RegisterTaskSuccess(GameTaskType taskType)
         {
-            m_TaskMetrics[taskType].successCount++;
+            taskMetrics[taskType].successCount++;
         }
         
         /// <summary>
@@ -160,7 +157,7 @@ namespace Game.Metrics
         /// <param name="taskType">task type, whose failed counter should be incremented</param>
         public void RegisterTaskFailure(GameTaskType taskType)
         {
-            m_TaskMetrics[taskType].failedCount++;
+            taskMetrics[taskType].failedCount++;
         }
         
         /// <summary>
@@ -169,7 +166,7 @@ namespace Game.Metrics
         /// <param name="remainingSeconds">value to be added</param>
         public void AddTimerTaskRemainingSecondsValue(float remainingSeconds)
         {
-            m_TimerTaskRemainingSeconds.AddValue(remainingSeconds);
+            timerTaskRemainingSeconds.AddValue(remainingSeconds);
         }
         
         /// <summary>
@@ -178,7 +175,7 @@ namespace Game.Metrics
         /// <param name="secondsBetweenTaskSpawns">value to be added</param>
         public void AddSecondsBetweenTaskSpawnValue(float secondsBetweenTaskSpawns)
         {
-            m_SecondsBetweenTaskSpawn.AddValue(secondsBetweenTaskSpawns);
+            secondsBetweenTaskSpawn.AddValue(secondsBetweenTaskSpawns);
         }
 
         /// <summary>
@@ -187,7 +184,52 @@ namespace Game.Metrics
         /// <returns>This Object as JSON-String.</returns>
         public string ToJson()
         {
+            secondsBetweenTaskSpawn.EvaluateDataSet();
+            timerTaskRemainingSeconds.EvaluateDataSet();
             return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Converts the current metrics to a csv string.
+        /// </summary>
+        /// <param name="includeHeader">if true, a csv header line will be included</param>
+        /// <param name="prependNewLine">
+        /// if true and <see cref="includeHeader"/> is false, a new line will be prepended.
+        /// This can be used to separate the new line from the last line of the previous csv file.
+        /// </param>
+        /// <returns></returns>
+        private string ToCsv(bool includeHeader = true, bool prependNewLine = true)
+        {
+            var csvText = new StringBuilder();
+            var csvHeaderRow = new StringBuilder();
+            
+            // add metric names as header row
+            csvHeaderRow.Append(metrics.Keys.ToSeparatedString(CsvDelimiter.ToString()));
+            
+            // add csv data row
+            csvText.AppendJoin(CsvDelimiter, metrics.Values);
+            
+            // add statistic metrics
+            AppendMetricFormat(secondsBetweenTaskSpawn, csvHeaderRow, csvText);
+            AppendMetricFormat(timerTaskRemainingSeconds, csvHeaderRow, csvText);
+            // add task metrics
+            foreach (var taskMetrics in taskMetrics.Values)
+            {
+                AppendMetricFormat(taskMetrics, csvHeaderRow, csvText);
+            }
+
+            if (includeHeader)
+            {
+                // add csv header row and new line to start, if file does not exist
+                csvText.Insert(0, csvHeaderRow + System.Environment.NewLine);
+            }
+            else if(prependNewLine)
+            {
+                // prepend new line, if parameter is set
+                csvText.Insert(0, System.Environment.NewLine);
+            }
+
+            return csvText.ToString();
         }
     }
 }
