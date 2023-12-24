@@ -20,15 +20,7 @@ namespace Game.Metrics
         
         private float m_LastIntegrityValue;
         private float m_LastTaskSpawnTimeSeconds;
-        private Vector3 m_LastPlayerPosition;
         private GameState m_LastGameState;
-        
-        /// <summary>
-        /// Threshold for the player to walk the distance and not teleport.
-        /// If the position difference is greater than this value, the player probably teleported and the distance
-        /// is not counted.
-        /// </summary>
-        private const float MaxPlayerWalkDistanceThreshold = 5f;
         
         private void Start()
         {
@@ -39,18 +31,6 @@ namespace Game.Metrics
             
             m_LastIntegrityValue = integrity.GetCurrentIntegrity();
             m_LastTaskSpawnTimeSeconds = gameTimer.remainingTime;
-        }
-
-        private void FixedUpdate()
-        {
-            // track player walked distance
-            var distance = Vector3.Distance(m_LastPlayerPosition, playerProfileService.GetPlayerGameObject().transform.position);
-            // ensure, that the player walked the distance and was not teleported
-            if (distance < MaxPlayerWalkDistanceThreshold)
-            {
-                m_MetricData.AddValueToMetric(SingleValueMetric.WalkedDistance, distance);
-            }
-            m_LastPlayerPosition = playerProfileService.GetPlayerGameObject().transform.position;
         }
 
         /// <summary>
@@ -98,6 +78,7 @@ namespace Game.Metrics
             OnIntegrityChanged(integrity.GetCurrentIntegrity());
             
             // if game is over, set final integrity, difficulty and game won metric values and write metrics to file
+            m_MetricData.SetMetric(SingleValueMetric.WalkedDistance, playerProfileService.GetPlayerRunDistance());
             m_MetricData.SetMetric(SingleValueMetric.FinalIntegrity, integrity.GetCurrentIntegrity());
             m_MetricData.SetMetric(SingleValueMetric.GameWon, gameState == GameState.GameWon);
             m_MetricData.SetMetric(SingleValueMetric.Difficulty, difficulty.GetValue());

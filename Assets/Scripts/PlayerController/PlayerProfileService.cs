@@ -24,24 +24,35 @@ namespace PlayerController
         [SerializeField] private HUD vrPlayerHUD;
         [SerializeField] private HUD keyboardPlayerHUD;
         [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
-
-        private Vector3 oldPos; // the last position the player was assigned to.
-        private float playerRunDistance; // the distance the player has run the entire game.
+        
+        /// <summary>
+        /// Threshold for the player to walk the distance and not teleport.
+        /// If the position difference is greater than this value, the player probably teleported and the distance
+        /// is not counted.
+        /// </summary>
+        private const float MaxPlayerWalkDistanceThreshold = 5f;
+        private Vector3 m_OldPos; // the last position the player was assigned to.
+        private float m_PlayerRunDistance; // the distance the player has run the entire game.
 
         private void Start()
         {
-            oldPos = GetPlayerGameObject().transform.position;
+            m_OldPos = GetPlayerGameObject().transform.position;
         }
 
         private void FixedUpdate()
         {
+            // calculate player run distance
             var currentPlayerPos = GetPlayerGameObject().transform.position;
-            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, oldPos);
-            oldPos = GetPlayerGameObject().transform.position;
+            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, m_OldPos);
+            m_OldPos = currentPlayerPos;
+            
+            // ensure, that the player run the distance and was not teleported
+            if (currentPosLastPosDistance < MaxPlayerWalkDistanceThreshold)
+            {
+                m_PlayerRunDistance += currentPosLastPosDistance;
+            }
 
-            playerRunDistance += currentPosLastPosDistance;
-
-            evaluationDataWrapper.UpdateDistance(playerRunDistance);
+            evaluationDataWrapper.UpdateDistance(m_PlayerRunDistance);
         }
 
         /// <summary>
@@ -146,6 +157,15 @@ namespace PlayerController
                 return vrPlayerHUD;
             }
             return keyboardPlayerHUD;
+        }
+        
+        /// <summary>
+        /// Returns the distance the player walked since the start of the game.
+        /// </summary>
+        /// <returns>walked player distance sum</returns>
+        public float GetPlayerRunDistance()
+        {
+            return m_PlayerRunDistance;
         }
     }
 }
