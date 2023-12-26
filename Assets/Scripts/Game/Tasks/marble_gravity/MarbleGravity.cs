@@ -7,14 +7,14 @@ namespace Game.Tasks.marble_gravity
     /// This class represents the MarbleGravityRiddle which can
     /// be done in the Unity-Game
     /// </summary>
-    public class MarbleGravity : TimerTask
+    public class MarbleGravity : GameTask
     {
         public GameObject taskPrefab;
         private bool _isFinished;
         private const float RotationSpeed = 50.0f;
         private const float ControlDistance = 4.0f;
 
-        public MarbleGravity() : base(120, "Marble Gravity :)", "", 10)
+        public MarbleGravity() : base("Marble Gravity :)", "", 15)
         {
             taskDescription = "You need to activate a flux compensator.\n" +
                               "The activator is located inside this rotating maze.\n" +
