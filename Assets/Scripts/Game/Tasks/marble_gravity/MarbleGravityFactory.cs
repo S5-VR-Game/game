@@ -22,6 +22,10 @@ namespace Game.Tasks.marble_gravity
             return task;
         }
 
+        /// <summary>
+        /// Calculates the right marble acc to the difficulty.
+        /// </summary>
+        /// <returns>The right marble</returns>
         private MarbleGravity CalculateMarbleAccordingToDifficulty()
         {
             return mDifficulty.GetSeparatedDifficulty() switch
