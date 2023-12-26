@@ -16,6 +16,9 @@ namespace Game.Tasks.BookRiddle
         [SerializeField] private Material[] allBookMaterials;
 
         private const int MaxDigitsAndColors = 4;
+        private const int MaxBooksEasy = 8;
+        private const int MaxBooksMedium = 16;
+        private const int MaxBooksHard = 32;
 
         // ReSharper disable Unity.PerformanceAnalysis
         protected override GameTask CreateTask(TaskSpawnPoint spawnPoint)
@@ -23,10 +26,47 @@ namespace Game.Tasks.BookRiddle
             var transform1 = spawnPoint.transform;
             var riddle = Instantiate(bookRiddlePrefab, transform1.position, transform1.rotation);
             var bookRiddle = riddle.GetComponent<BookRiddle>();
-            SpawnBooks(bookSpawnPoints, riddle.transform, bookRiddle);
+            var bookSpawnPointsNeeded = CalculateAllNeededBookSpawns();
+            SpawnBooks(bookSpawnPointsNeeded, riddle.transform, bookRiddle);
             return bookRiddle;
         }
+        
+        /// <summary>
+        /// Calculates all necessary book spawn points and returns them.
+        /// </summary>
+        /// <returns>All the necessary book spawn points.</returns>
+        private Transform[] CalculateAllNeededBookSpawns()
+        {
+            var amount = CalculateAmountOfBooksAccordingToDifficulty();
+            var neededBookSpawnPoints = new Transform[amount];
+            for (var i = 0; i < neededBookSpawnPoints.Length; i++)
+            {
+                neededBookSpawnPoints[i] = bookSpawnPoints[i];
+            }
+            return neededBookSpawnPoints;
+        }
 
+        /// <summary>
+        /// Calculates the amount of books needed and returns it.
+        /// </summary>
+        /// <returns>The amount of books that will spawn.</returns>
+        private int CalculateAmountOfBooksAccordingToDifficulty()
+        {
+            return mDifficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => MaxBooksEasy,
+                SeparatedDifficulty.Medium => MaxBooksMedium,
+                SeparatedDifficulty.Hard => MaxBooksHard,
+                _ => MaxBooksEasy
+            };
+        }
+        
+        /// <summary>
+        /// Spawns all necessary books.
+        /// </summary>
+        /// <param name="spawnPoints">Spawnpoints that get shuffled.</param>
+        /// <param name="parent">the parent transform of the object.</param>
+        /// <param name="bookRiddle">The Book riddle itself to provide the solution.</param>
         private void SpawnBooks(Transform[] spawnPoints, Transform parent, BookRiddle bookRiddle)
         {
             spawnPoints.Shuffle();
@@ -49,7 +89,7 @@ namespace Game.Tasks.BookRiddle
         /// <param name="parent">The parent Object</param>
         /// <param name="index">The current Spawn-point Index</param>
         /// <param name="bookRiddleSolution">The Solution that gets constructed.</param>
-        /// <returns></returns>
+        /// <returns>An book instance.</returns>
         private GameObject SetUpCurrentBook(Transform spawnPoint, Transform parent, int index, BookRiddleSolution bookRiddleSolution)
         {
             var currentNewBook = Instantiate(bookPrefab, spawnPoint.position, spawnPoint.rotation, parent);
