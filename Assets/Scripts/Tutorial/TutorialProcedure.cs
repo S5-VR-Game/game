@@ -10,7 +10,7 @@ namespace Tutorial
     /// </summary>
     public class TutorialProcedure : MonoBehaviour
     {
-        private TutorialState m_TutorialState = TutorialState.Basics;
+        private TutorialState m_TutorialState = TutorialState.Initialize;
 
         [SerializeField] private TutorialDoorController[] doorControllers;
         [SerializeField] private PlayerProfileService playerProfileService;
@@ -25,13 +25,17 @@ namespace Tutorial
         [SerializeField] private Transform completedTeleportPosition;
         
         private const String FollowingSceneName = "MainMenuScene";
+        
+        public event Action<TutorialState> OnTutorialStateChanged;  
 
         private void Start()
         {
-            TeleportPlayerAccordingToState();
             // disable components on start
             game.SetActive(false);
             playerProfileService.GetHUD().gameObject.SetActive(false);
+            
+            // start tutorial procedure
+            NextTutorialState();
         }
         
         private void Update()
@@ -53,6 +57,7 @@ namespace Tutorial
             // change to next state
             m_TutorialState = m_TutorialState switch
             {
+                TutorialState.Initialize => TutorialState.Basics,
                 TutorialState.Basics => TutorialState.Interaction,
                 TutorialState.Interaction => TutorialState.HUD,
                 TutorialState.HUD => TutorialState.Tasks,
@@ -91,6 +96,7 @@ namespace Tutorial
             }
             
             TeleportPlayerAccordingToState();
+            OnTutorialStateChanged?.Invoke(m_TutorialState);
         }
         
         /// <summary>

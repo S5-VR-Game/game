@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Tutorial
 {
+    /// <summary>
+    /// Proceeds to the next tutorial state when a tutorial task is successfully completed.
+    /// </summary>
     public class TutorialGameTaskObserver : GameTaskObserver
     {
         [SerializeField] private TutorialProcedure tutorialProcedure;

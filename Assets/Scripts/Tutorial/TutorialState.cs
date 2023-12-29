@@ -1,7 +1,10 @@
 namespace Tutorial
 {
+    /// <summary>
+    /// Represents the current state of the tutorial procedure.
+    /// </summary>
     public enum TutorialState
     {
-        Basics, Interaction, HUD, Tasks, Completed, Exit
+        Initialize, Basics, Interaction, HUD, Tasks, Completed, Exit
     }
 }
