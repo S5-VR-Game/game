@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNearbyCollider: {fileID: 0}
+  marker: {fileID: 0}
   customSpawnPoint1: {fileID: 1262234999}
   customSpawnPointList:
   - {fileID: 892689488}
@@ -405,9 +406,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 214866324584874997, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+      propertyPath: marker
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 214866324584874997, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
       propertyPath: allocatableTasks.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 667422167245276032, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333383724179163494, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+      propertyPath: marker
+      value: 
+      objectReference: {fileID: 895912761}
     - target: {fileID: 7660693972446692800, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -495,6 +508,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 564648941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &895912761 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3420182531665421472, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+  m_PrefabInstance: {fileID: 611592833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1076246738
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +755,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &1305375610 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6750972998596893429, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+  m_PrefabInstance: {fileID: 1506944510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1336976194
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNearbyCollider: {fileID: 0}
+  marker: {fileID: 0}
   customSpawnPoint1: {fileID: 1699575894}
   customSpawnPointList:
   - {fileID: 1336976194}
@@ -1123,9 +1147,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 564648941}
     - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1918373266}
@@ -1187,6 +1208,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+      propertyPath: marker
+      value: 
+      objectReference: {fileID: 1305375610}
     - target: {fileID: 7852855500837519620, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
       propertyPath: m_Name
       value: Alt_marker
@@ -1585,6 +1610,10 @@ PrefabInstance:
       propertyPath: allocatableTasks.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 667422167245276032, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7660693972446692800, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1655,3 +1684,4 @@ SceneRoots:
   - {fileID: 1279412761}
   - {fileID: 1394966726}
   - {fileID: 1506944510}
+  - {fileID: 564648940}

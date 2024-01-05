@@ -64,8 +64,6 @@ namespace Game.Tasks
                 ((BoxCollider) playerNearbyCollider).size = DefaultPlayerNearbyColliderSize;
             }
             
-            marker.marker.enabled = false;
-            
             // set collider to trigger to not block player movement
             playerNearbyCollider.isTrigger = true;
         }
@@ -81,7 +79,11 @@ namespace Game.Tasks
         {
             m_AllocatedTask = gameTask;
             gameTask.spawnPoint = this;
-            marker.marker.enabled = true;
+            
+            Debug.Log("Setting spawn marker to active!");
+            marker.marker.SetActive(true);
+            Debug.Log(marker.marker.activeSelf);
+            
             gameTask.GameObjectDestroyed += Deallocate;
         }
 
@@ -91,7 +93,11 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
-            marker.marker.enabled = false;
+            
+            Debug.Log("Setting spawn marker to INactive!");
+            marker.marker.SetActive(false);
+            Debug.Log(marker.marker.activeSelf);
+            
             gameTask.spawnPoint = null;
             lastDeallocateTime = System.DateTime.UtcNow;
         }
@@ -152,7 +158,7 @@ namespace Game.Tasks
         {
             if (marker != null)
             {
-                var markerTransform = marker.transform;
+                var markerTransform = marker.marker.transform;
                 markerTransform.LookAt(playerPosition);
             }
         }

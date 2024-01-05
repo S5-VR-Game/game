@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7660693972446692800
 Transform:
   m_ObjectHideFlags: 0
@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+      propertyPath: marker
+      value: 
+      objectReference: {fileID: 3420182531665421472}
     - target: {fileID: 7852855500837519620, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
       propertyPath: m_Name
       value: Alt_marker
@@ -104,6 +108,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+--- !u!223 &3420182531665421472 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6750972998596893429, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+  m_PrefabInstance: {fileID: 8270486644674985557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7197211796194612446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1235967857466583691, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
