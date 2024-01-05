@@ -10,7 +10,7 @@ namespace Game.Tasks.EnergyCore
         
         private void OnCollisionEnter(Collision other)
         {
-            soundManager.PlaySound(); // plays sound
+            soundManager.PlaySoundFunctionCall(); // plays sound
         }
     }
 }

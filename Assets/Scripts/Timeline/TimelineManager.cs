@@ -24,10 +24,11 @@ namespace Timeline
         private PlayableDirector _endSceneLoseDirector;
         private PlayableDirector _endSceneWinDirector;
         
-        // stores the player profile service
         public PlayerProfileService playerProfileService;
-
+        
         public GameTimer gameTimer;
+
+        public GameInformation gameInformation;
         
         private void Start()
         {
@@ -36,22 +37,34 @@ namespace Timeline
             _endSceneLoseDirector = endSceneLoseSceneGameObject.GetComponent<PlayableDirector>();
             _endSceneWinDirector = endSceneWinSceneGameObject.GetComponent<PlayableDirector>();
             
+            gameInformation.OnGameStateChanged += state => {
+                if(state == GameState.GameLost) PlayEndSceneLose();
+            };
+            
             PlayStartScene(); // plays the start-scene at the begin of the game
         }
         
-        
-        // function to start the timeline at the start of the game
-        private void PlayStartScene()
+        /// <summary>
+        /// start the timeline at the start of the game
+        /// </summary>
+        public void PlayStartScene()
         {
             SetupPlayerBeforeTimeline(startScenePlayerTransform.position);
+
+            playerProfileService.transform.rotation = Quaternion.Euler(new Vector3(0, PlayerPrefs.GetFloat("CameraDirection"),0));
+            
             _startSceneDirector.Play(); // starts the timeline
+            
             gameTimer.PauseTimer(); // stops the game-timer for the starting timeline
 
             _startSceneDirector.stopped += SetupAfterStartTimeline; // adds event listener to call function when timeline is over
+            _startSceneDirector.stopped += ActivateVRMovement;
         }
 
-        // function to start the timeline at the end of the game, if the player loses
-        public void PlayEndSceneLose()
+        /// <summary>
+        /// start the timeline at the end of the game, if the player loses
+        /// </summary>
+        private void PlayEndSceneLose()
         {
             SetupPlayerBeforeTimeline(endSceneLosePlayerTransform.position);
             
@@ -60,7 +73,9 @@ namespace Timeline
             _endSceneLoseDirector.stopped += SetupAfterEndTimeline; // adds event listener to call function when timeline is over
         }
         
-        // function to start the timeline at the end of the game, if the player wins
+        /// <summary>
+        /// start the timeline at the end of the game, if the player wins
+        /// </summary>
         public void PlayEndSceneWin()
         {
             SetupPlayerBeforeTimeline(endSceneWinPlayerTransform.position);
@@ -70,27 +85,46 @@ namespace Timeline
             _endSceneWinDirector.stopped += SetupAfterEndTimeline; // adds event listener to call function when timeline is over
         }
 
-        // function used to setup the player for the timeline
+        /// <summary>
+        /// sets up the player before the timeline
+        /// </summary>
+        /// <param name="timelinePosition"></param>
         private void SetupPlayerBeforeTimeline(Vector3 timelinePosition)
         {
-            playerProfileService.transform.position = timelinePosition; // moves the player's position to the timeline
+            var playerTransform = playerProfileService.transform;
+            
+            playerTransform.position = timelinePosition; // moves the player's position to the timeline
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = false; // deactivates the hud
             playerProfileService.SetVRMovementActive(false); // deactivates the movement
         }
 
-        // function used to setup the player after the end timeline
+        /// <summary>
+        /// sets up the player after the starting timeline 
+        /// </summary>
+        /// <param name="playableDirector"></param>
         private void SetupAfterEndTimeline(PlayableDirector playableDirector)
         {
             SceneManager.LoadScene(0); // loads the main-menu
         }
         
-        // function used to setup the player after the timeline
+        /// <summary>
+        /// sets up the player after the ending timeline
+        /// </summary>
+        /// <param name="playableDirector"></param>
         private void SetupAfterStartTimeline(PlayableDirector playableDirector)
         {
-            playerProfileService.transform.position = new Vector3(0, -1f, 0); // moves the player's position to its original position
+            playerProfileService.transform.position = new Vector3(0, 0, 0); // moves the player's position to its original position
             playerProfileService.GetHUD().GetComponent<Canvas>().enabled = true; // activates the hud
-            playerProfileService.SetVRMovementActive(true); // activates the movement
             gameTimer.ResumeTimer(); // resumes the timer
+        }
+
+        /// <summary>
+        /// activates vr-movement after function event call
+        /// </summary>
+        /// <param name="playableDirector"></param>
+        private void ActivateVRMovement(PlayableDirector playableDirector)
+        {
+            playerProfileService.SetVRMovementActive(true); // activates the movement
         }
     }
 }
