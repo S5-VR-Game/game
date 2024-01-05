@@ -51,6 +51,10 @@ namespace Game.Tasks
         /// </summary>
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
         
+        public TaskSpawnPoint spawnPoint;
+        
+        private bool altMarkerActive = true;
+        
         /// <summary>
         /// Constructor to set initial values for this task.
         /// </summary>
@@ -98,6 +102,10 @@ namespace Game.Tasks
         protected virtual void Update()
         {
             BeforeStateCheck();
+            if (altMarkerActive)
+            {
+                spawnPoint.UpdateRotation(playerProfileService.GetPlayerCamera().transform.position);
+            }
             UpdateTaskState(CheckTaskState());
             AfterStateCheck();
         }

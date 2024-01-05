@@ -26,6 +26,12 @@ namespace Game.Tasks
         /// determined by the constant <see cref="DefaultPlayerNearbyColliderSize"/>.
         /// </summary>
         [SerializeField] protected Collider playerNearbyCollider;
+
+        /// <summary>
+        /// Can be used to set an alternate marker for this spawn point.
+        /// This is intended to be used as a marker in 3D space to indicate the position of this spawn point.
+        /// </summary>
+        [SerializeField] private AltMarkerBehaviour marker;
         
         /// <summary>
         /// Keeps track of the current allocated task. Can be null, if no task is allocated currently.
@@ -58,6 +64,8 @@ namespace Game.Tasks
                 ((BoxCollider) playerNearbyCollider).size = DefaultPlayerNearbyColliderSize;
             }
             
+            marker.marker.enabled = false;
+            
             // set collider to trigger to not block player movement
             playerNearbyCollider.isTrigger = true;
         }
@@ -72,6 +80,8 @@ namespace Game.Tasks
         public void Allocate(GameTask gameTask)
         {
             m_AllocatedTask = gameTask;
+            gameTask.spawnPoint = this;
+            marker.marker.enabled = true;
             gameTask.GameObjectDestroyed += Deallocate;
         }
 
@@ -81,6 +91,8 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
+            marker.marker.enabled = false;
+            gameTask.spawnPoint = null;
             lastDeallocateTime = System.DateTime.UtcNow;
         }
         
@@ -131,5 +143,19 @@ namespace Game.Tasks
         {
             m_Timeout = timeout;
         }
+
+        /// <summary>
+        /// Updates the rotation of this spawn points alternative marker to always face the player.
+        /// </summary>
+        /// <param name="playerPosition">Current position of the player</param>
+        public void UpdateRotation(Vector3 playerPosition)
+        {
+            if (marker != null)
+            {
+                var markerTransform = marker.transform;
+                markerTransform.LookAt(playerPosition);
+            }
+        }
+        
     }
 }
