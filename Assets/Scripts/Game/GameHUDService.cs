@@ -39,9 +39,12 @@ namespace Game
             playerProfileService.GetHUD().UpdateIntegrityIndicator(integrity.GetCurrentIntegrityPercentage());
         }
 
+        /// <summary>
+        /// Changes the navigation of the HUD.
+        /// </summary>
         private void ChangeNavigation()
         {
-            playerProfileService.GetHUD().ChangeNavigation(!playerProfileService.IsAltMarkerActive());
+            playerProfileService.GetHUD().ChangeNavigation(playerProfileService.IsAltMarkerActive());
         }
     }
 }

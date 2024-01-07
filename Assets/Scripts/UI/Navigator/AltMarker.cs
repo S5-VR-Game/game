@@ -20,8 +20,8 @@ public class AltMarker : MonoBehaviour
     
     public void Update()
     {
+        // make marker look at player camera
         marker.transform.LookAt(_playerProfileService.GetPlayerCamera().transform.position);
-        
     }
 
     public void setPlayerProfile(PlayerProfileService profileService)

@@ -100,6 +100,7 @@ namespace Game.Tasks
                 // initialize task with its own logic
                 newTask.Initialize();
                 
+                // if alternative marker is set active, attach alternative marker to task
                 if (m_PlayerProfileService.IsAltMarkerActive())
                 {
                     newTask.attachMarker(altMarkerPrefab);

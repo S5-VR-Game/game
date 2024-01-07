@@ -162,7 +162,10 @@ namespace Game.Tasks
             Destroy(gameObject);
         }
 
-
+        /// <summary>
+        /// Adds a nav marker to the linkedGameObjects and attaches it to the task
+        /// </summary>
+        /// <param name="marker">Reference to the marker Prefab. Needs to be set in Editor per TaskFactory!</param>
         public void attachMarker(AltMarker marker)
         {
             Vector3 newPosition = transform.position;

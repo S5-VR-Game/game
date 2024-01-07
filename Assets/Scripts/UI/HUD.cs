@@ -100,10 +100,14 @@ public class HUD : MonoBehaviour
         };
     }
     
-    
+    /// <summary>
+    /// Activates or deactivates the navigation bar.
+    /// If alternative navigation is active, the navigation bar will be deactivated.
+    /// </summary>
+    /// <param name="active">State of alternative navigation. true == active</param>
     public void ChangeNavigation(bool active)
     {
-        navigator.gameObject.SetActive(active);
+        navigator.gameObject.SetActive(!active);
     }
     
 
