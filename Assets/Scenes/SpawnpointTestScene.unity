@@ -248,6 +248,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1394966727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &334104930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7333383724179163494, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+  m_PrefabInstance: {fileID: 564648940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51c0495d74685009d2076b83f272d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410746956
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNearbyCollider: {fileID: 0}
-  marker: {fileID: 0}
+  marker: {fileID: 334104930}
   customSpawnPoint1: {fileID: 1262234999}
   customSpawnPointList:
   - {fileID: 892689488}
@@ -408,7 +419,7 @@ PrefabInstance:
     - target: {fileID: 214866324584874997, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
       propertyPath: marker
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1163191992}
     - target: {fileID: 214866324584874997, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
       propertyPath: allocatableTasks.Array.size
       value: 1
@@ -621,6 +632,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b181e3559f17afeea3275f99602e3a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1163191992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7333383724179163494, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+  m_PrefabInstance: {fileID: 611592833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51c0495d74685009d2076b83f272d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1178015761
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +844,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1394966727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356089486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7333383724179163494, guid: bb91465ce6182f542ad4039a510e8b05, type: 3}
+  m_PrefabInstance: {fileID: 1394966726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51c0495d74685009d2076b83f272d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1373908408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1021,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNearbyCollider: {fileID: 0}
-  marker: {fileID: 0}
+  marker: {fileID: 1356089486}
   customSpawnPoint1: {fileID: 1699575894}
   customSpawnPointList:
   - {fileID: 1336976194}

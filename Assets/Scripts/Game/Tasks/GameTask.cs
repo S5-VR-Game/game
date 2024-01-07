@@ -53,8 +53,6 @@ namespace Game.Tasks
         
         public TaskSpawnPoint spawnPoint;
         
-        private bool altMarkerActive = true;
-        
         /// <summary>
         /// Constructor to set initial values for this task.
         /// </summary>
@@ -102,10 +100,6 @@ namespace Game.Tasks
         protected virtual void Update()
         {
             BeforeStateCheck();
-            if (altMarkerActive)
-            {
-                spawnPoint.UpdateRotation(playerProfileService.GetPlayerCamera().transform.position);
-            }
             UpdateTaskState(CheckTaskState());
             AfterStateCheck();
         }
@@ -166,6 +160,17 @@ namespace Game.Tasks
             m_LinkedGameObjects.Clear();
             
             Destroy(gameObject);
+        }
+
+
+        public void attachMarker(AltMarker marker)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.y = newPosition.y % 4 + 1;
+            AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
+            
+            m_LinkedGameObjects.Add(altMarker.gameObject);
+            altMarker.setPlayerProfile(playerProfileService);
         }
     }
 }

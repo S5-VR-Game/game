@@ -26,12 +26,6 @@ namespace Game.Tasks
         /// determined by the constant <see cref="DefaultPlayerNearbyColliderSize"/>.
         /// </summary>
         [SerializeField] protected Collider playerNearbyCollider;
-
-        /// <summary>
-        /// Can be used to set an alternate marker for this spawn point.
-        /// This is intended to be used as a marker in 3D space to indicate the position of this spawn point.
-        /// </summary>
-        [SerializeField] private AltMarkerBehaviour marker;
         
         /// <summary>
         /// Keeps track of the current allocated task. Can be null, if no task is allocated currently.
@@ -79,11 +73,6 @@ namespace Game.Tasks
         {
             m_AllocatedTask = gameTask;
             gameTask.spawnPoint = this;
-            
-            Debug.Log("Setting spawn marker to active!");
-            marker.marker.SetActive(true);
-            Debug.Log(marker.marker.activeSelf);
-            
             gameTask.GameObjectDestroyed += Deallocate;
         }
 
@@ -93,11 +82,6 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
-            
-            Debug.Log("Setting spawn marker to INactive!");
-            marker.marker.SetActive(false);
-            Debug.Log(marker.marker.activeSelf);
-            
             gameTask.spawnPoint = null;
             lastDeallocateTime = System.DateTime.UtcNow;
         }
@@ -148,19 +132,6 @@ namespace Game.Tasks
         public void SetTimeout(float timeout)
         {
             m_Timeout = timeout;
-        }
-
-        /// <summary>
-        /// Updates the rotation of this spawn points alternative marker to always face the player.
-        /// </summary>
-        /// <param name="playerPosition">Current position of the player</param>
-        public void UpdateRotation(Vector3 playerPosition)
-        {
-            if (marker != null)
-            {
-                var markerTransform = marker.marker.transform;
-                markerTransform.LookAt(playerPosition);
-            }
         }
         
     }
