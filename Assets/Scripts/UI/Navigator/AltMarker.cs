@@ -7,6 +7,8 @@ public class AltMarker : MonoBehaviour
 {
     public GameObject marker;
     
+    public Material innerMaterial;
+    
     private PlayerProfileService _playerProfileService;
 
 

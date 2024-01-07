@@ -129,7 +129,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2344119015551696528}
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marker: {fileID: 6750972998596893429}
+  innerMaterial: {fileID: 2100000, guid: fec001f1f4d40ca7f824c975d6f628e3, type: 2}
+  outerMaterial: {fileID: 2100000, guid: 87ab4b16f4761a0a39d5b2f0b8d33660, type: 2}
 --- !u!1001 &8199621719087229726
 PrefabInstance:
   m_ObjectHideFlags: 0

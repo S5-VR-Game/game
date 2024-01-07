@@ -168,6 +168,23 @@ namespace Game.Tasks
             Vector3 newPosition = transform.position;
             newPosition.y = newPosition.y % 4 + 1;
             AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
+
+            // Color markerColor = Color.magenta;
+            // switch (taskType)
+            // {
+            //     case ObjectiveMarker.TaskType.Normal:
+            //         markerColor = new Color(0.0f, 0.5f, 0.0f);
+            //         break;
+            //     case ObjectiveMarker.TaskType.Timed:
+            //         markerColor = new Color(1.0f, 0.6f, 0.0f);
+            //         break;
+            //     case ObjectiveMarker.TaskType.TimeCritical:
+            //         markerColor = Color.red;
+            //         break;
+            // }
+            //
+            // altMarker.innerMaterial.color = markerColor;
+            // altMarker.innerMaterial.SetColor("_EmissionColor", markerColor);
             
             m_LinkedGameObjects.Add(altMarker.gameObject);
             altMarker.setPlayerProfile(playerProfileService);
