@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
+  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3503,6 +3503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1692252442}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   bookRiddlePrefab: {fileID: 3163423363439133189, guid: deaeb87f859f1aba6adb161c4f6fbeb8, type: 3}
   bookSpawnPoints:
   - {fileID: 1242265451}
@@ -3596,6 +3597,7 @@ MonoBehaviour:
   - {fileID: 1119440446}
   - {fileID: 1015334034}
   - {fileID: 565472320}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   medicalDisasterPrefab: {fileID: 6458550353022305103, guid: 568f8d78403b76e4fbeae209365517cd, type: 3}
 --- !u!1 &425140062
 GameObject:
@@ -10232,6 +10234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 508178415}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   prefab: {fileID: 1045738858118613738, guid: a139f71e70912dc4b8bc343ac81a251e, type: 3}
 --- !u!1001 &883443637
 PrefabInstance:
@@ -14330,6 +14333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 2029090399}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   energyCorePrefab: {fileID: 9140300854230221813, guid: c41a6fb3aabf8fa478bd8e51df1efaea, type: 3}
 --- !u!1 &999128873
 GameObject:
@@ -16827,6 +16831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1460663189}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   leaksRiddlePrefab: {fileID: 378838516378439920, guid: 4d9ee92338d0941cca870d758f2d3427, type: 3}
   leakSpawnPoints:
   - {fileID: 1905599436}
@@ -17268,6 +17273,7 @@ MonoBehaviour:
   - {fileID: 1476240405}
   - {fileID: 1509960687}
   - {fileID: 1523855227}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   easyMarble: {fileID: 1323076247505946667, guid: edab33b2298459b7da2ec24af5fe1b0c, type: 3}
   mediumMarble: {fileID: 702938237374738363, guid: 595839a8091dc6a339612e2c41fe214c, type: 3}
   hardMarble: {fileID: 2610378861606336938, guid: e1e99c33b27093786a3c1ebac60c42ff, type: 3}
@@ -18612,6 +18618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoints:
   - {fileID: 1704425380}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   storageRiddleGameObject: {fileID: 4064352481182374652, guid: 514fa0331b6147547898be6c434961c1, type: 3}
 --- !u!1001 &1368011408
 PrefabInstance:
@@ -23467,6 +23474,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1532761269}
   - {fileID: 18968945}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   mixingIngredientsPrefab: {fileID: 3974128553709942076, guid: 9c9a3fd5d99cead489838726b18e8c01, type: 3}
   recipeTextPrefab: {fileID: 1671545363823382011, guid: 0b852887d7044d543a76b1679953e6b2, type: 3}
   ingredientSpawnerPrefab: {fileID: 2726632616850120493, guid: a475dcebacd0e894895b02a4d08c0a1d, type: 3}
@@ -24542,6 +24550,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: isVrPlayerActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: isAltMarkerActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -26285,6 +26297,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1761435586}
   - {fileID: 1007129472}
+  altMarkerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
   asteroidShooterTaskPrefab: {fileID: 7070919542467976534, guid: cbc13aea1e9d7ef44ba8a9d008a79adc, type: 3}
   leftController: 4
 --- !u!1001 &2113061972
