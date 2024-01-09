@@ -148,10 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marker: {fileID: 9010437674959935055}
-  innerMaterialRed: {fileID: 2100000, guid: fec001f1f4d40ca7f824c975d6f628e3, type: 2}
-  innerMaterialOrange: {fileID: 2100000, guid: 416bf57659928f92bb1a324b3795cee5, type: 2}
-  innerMaterialGreen: {fileID: 2100000, guid: d69b45d25352e2c22b47926cbb48734b, type: 2}
   _innerCircle: {fileID: 4860442947366069534}
+  _outerCircle: {fileID: 571294491702053421}
+  shader: {fileID: 4800000, guid: e4e1b8dbfb499ae0180b74182bd40ef1, type: 3}
 --- !u!1001 &8199621719087229726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CylinderInner
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2577548232221058511, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.036
@@ -252,15 +255,28 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8513859187771203891, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
       propertyPath: m_Name
       value: CylinderOuter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
+--- !u!1 &571294491702053421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}
+  m_PrefabInstance: {fileID: 8199621719087229726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4860442947366069534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 5b000c33e0f92dc3cb0120b6c513d18a, type: 3}

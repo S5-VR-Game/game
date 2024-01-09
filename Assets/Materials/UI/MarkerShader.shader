@@ -12,12 +12,13 @@ Shader "Custom/MarkerInner"
     SubShader
     {
         ZTest Always
-        Tags { "RenderType"="Opaque" }
+        Tags { "Queue"="AlphaTest" "IgnoreProjector"="True" "RenderType"="Transparent" }
+        Blend SrcAlpha OneMinusSrcAlpha
         LOD 200
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
+        #pragma surface surf Standard fullforwardshadows multi_compile_fwdbase alpha:fade
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
