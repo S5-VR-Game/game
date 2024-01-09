@@ -169,7 +169,7 @@ namespace Game.Tasks
         public void attachMarker(AltMarker marker)
         {
             Vector3 newPosition = transform.position;
-            newPosition.y = newPosition.y % 4 + 1;
+            newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
             AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
 
             altMarker.SetColor(taskType);
