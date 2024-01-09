@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fc31ef241642808e70265053db124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isVrPlayerActive: 0
+  isVrPlayerActive: 1
   vrPlayer: {fileID: 5107246403631356085}
   xrOrigin: {fileID: 5282834843901216626}
   keyBoardPlayer: {fileID: 2990651091329455635}
@@ -198,8 +198,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 44000667476316a46ba3cf6164556c73, type: 3}
   volumeSound: 0.7
   playSoundTrigger: 2
-  playerProfileService: {fileID: 8560886455523369257}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!114 &2866054978039735607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,8 +214,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 29ebed5fe207f7d40b78c35f1f06674f, type: 3}
   volumeSound: 0.6
   playSoundTrigger: 4
-  playerProfileService: {fileID: 8560886455523369257}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!20 &7866051922799391981 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6939289303528413074, guid: 79ec5913d0f76524cad289aaf2df60f1,
@@ -334,6 +332,11 @@ PrefabInstance:
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2,
@@ -444,8 +447,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 44000667476316a46ba3cf6164556c73, type: 3}
   volumeSound: 0.7
   playSoundTrigger: 2
-  playerProfileService: {fileID: 8560886455523369257}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!114 &7724476148349669813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,8 +463,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 29ebed5fe207f7d40b78c35f1f06674f, type: 3}
   volumeSound: 0.6
   playSoundTrigger: 4
-  playerProfileService: {fileID: 8560886455523369257}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!4 &6811413919338249902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9014170783705847996, guid: 895f6f3c2d334633b5800312285058d2,

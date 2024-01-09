@@ -14,10 +14,11 @@ namespace Game.Tasks.leaks_riddle
         private bool _finished;
         
         
-        public LeaksRiddle() : base(120, "Leaks Riddle", "Clear the leaks\n" +
-                                                       "and reset the pressure.")
+        public LeaksRiddle() : base(120, "Leaks Riddle", "")
         {
-            
+            taskDescription = "Someone added some cracks to the hallway windows.\n" +
+                              "This seems structurally unsafe, and rather fatal, because the air is leaking out.\n" +
+                              "Take this duct tape to fix the leaks!";
         }
 
         /// <summary>

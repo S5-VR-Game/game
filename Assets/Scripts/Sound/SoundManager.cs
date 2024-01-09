@@ -1,52 +1,57 @@
-﻿using PlayerController;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Sound
 {
     // class used to play sounds depending on the chosen value of playSoundTrigger
     public class SoundManager : MonoBehaviour
     {
-        public AudioClip audioClip;  // stores the played audio file
-        private AudioSource _audioSource; // stores the audio-source (needed to play the sound)
-        
-        [Tooltip("sets the volume (from 0 (silent) to 1 (loud)")]
-        public float volumeSound; //sets the volume
-        
         // enum to decide when the sound should be played
-        public enum PlaySoundTrigger
+        private enum PlaySoundTrigger
         {
             FunctionCall, // plays sound after calling PlaySound() in another script
             Collision, // plays sound after the game-object collides with something
             PlayerMovement, // plays sound when the player is moving
-            PlayerDistance, // plays sound when the player is a given range to the game-object
             Permanent // plays sound permanently
         }
+        
+        [SerializeField] private AudioClip audioClip;  // stores the played audio file
+        
+        [Tooltip("sets the volume (from 0 (silent) to 1 (loud)")]
+        [SerializeField] private float volumeSound; // sets the volume of a sound
 
-        public PlaySoundTrigger playSoundTrigger; // value how the sound should be played
+        [SerializeField] private PlaySoundTrigger playSoundTrigger; // value how the sound should be played
+
+        [Tooltip("False: makes the sound audible in a distance of 15; True: makes the sound audible in the whole scene")]
+        [SerializeField] private bool playSoundGlobal; // variable to make the sound audible local (range of 15) or global
         
-        private bool _isPlaying; // value to stop the sound for the enum PlayerMovement
+        private AudioSource _audioSource; // stores the audio-source (needed to play the sound)
         
-        
-        [Tooltip("You only need to set a value here if you are using the Play Sound Trigger 'Player Distance'.")]
-        public PlayerProfileService playerProfileService; // stores the reference to the player
-        
-        [Tooltip("You only need to set a value here if you are using the Play Sound Trigger 'Player Distance'.")]
-        public float playerDistance; // threshold value for the distance between the game-object and the player
-                                     // real distance > threshold -> no sound
-                                     // real distance <= threshold -> sound
         private void Start()
         {
             // adds the audio-source to all game-objects who has this script
             _audioSource = gameObject.AddComponent<AudioSource>();
-            if (audioClip != null)
+
+            if (audioClip == null) return;
+            
+            _audioSource.clip = audioClip;
+            _audioSource.volume = volumeSound;
+            _audioSource.playOnAwake = false;
+            
+            if (playSoundGlobal) // if the sound should be audible global
             {
-                _audioSource.clip = audioClip;
-                _audioSource.volume = volumeSound;
-                _audioSource.playOnAwake = false;
+                // makes the sound audible in a distance of 0 and 5000 units
+                _audioSource.maxDistance = 5000f;
+                _audioSource.minDistance = 0f;
             }
-            else
+            else // if the sound should be audible local
             {
-                Debug.LogError("No Sound found!");
+                // makes the sound audible in a distance of 0 and 15 units
+                _audioSource.maxDistance = 15f;
+                _audioSource.minDistance = 0f;
+                
+                _audioSource.spatialBlend = 1f; // makes the sound 3D to make the sound louder/quieter depending on the
+                                                // distance between the game-object and the audio listener from the player
+                _audioSource.rolloffMode = AudioRolloffMode.Linear; // uses linear control of distance/volume
             }
         }
 
@@ -58,40 +63,13 @@ namespace Sound
             {
                 var movement = Input.GetAxis("Vertical") + Input.GetAxis("Horizontal");
 
-                if (movement != 0f) // if the player is not standing still
+                if (movement != 0f) // if the player is walking
                 {
-                    if (!_audioSource.isPlaying)
-                    {
-                        _audioSource.Play();
-                    }
+                    StartPlayingSound(); // plays sound
                 }
-                else
+                else // if the player is standing still
                 {
-                    if (_audioSource.isPlaying)
-                    {
-                        _audioSource.Stop();
-                    }
-                }
-            }
-
-            // PlaySoundTrigger = PlayerDistance
-            // plays sound if the player has a specific distance to the game-object
-            if (playSoundTrigger.Equals(PlaySoundTrigger.PlayerDistance))
-            {
-                if (Vector3.Distance(gameObject.transform.position,
-                        playerProfileService.GetPlayerGameObject().transform.position) <= playerDistance && !_isPlaying)
-                {
-                    if (!_audioSource.isPlaying)
-                    {
-                        _audioSource.Play();
-                    }
-                }
-                else
-                {
-                    if (_audioSource.isPlaying)
-                    {
-                        _audioSource.Stop();
-                    }
+                    StopPlayingSound(); // stops sound
                 }
             }
 
@@ -99,32 +77,45 @@ namespace Sound
             // plays sound permanently
             if (playSoundTrigger.Equals(PlaySoundTrigger.Permanent))
             {
-                if (!_audioSource.isPlaying)
-                {
-                    _audioSource.Play();
-                }
+                StartPlayingSound(); // plays sound
             }
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter()
         {
-            // PlaySoundTrigger = Permanent
+            // PlaySoundTrigger = Collision
             // plays sound on collision
             if (playSoundTrigger.Equals(PlaySoundTrigger.Collision))
             {
-                if (!_audioSource.isPlaying)
-                {
-                    _audioSource.Play();
-                }
+                StartPlayingSound(); // plays sound
             }
         }
         
-        public void PlaySound()
+        public void PlaySoundFunctionCall()
         {
-            // PlaySoundTrigger = Permanent
+            // PlaySoundTrigger = FunctionCall
             // plays sound with function call
             if (!playSoundTrigger.Equals(PlaySoundTrigger.FunctionCall)) return;
-            _audioSource.Play();
+            
+            StartPlayingSound(); // plays sound
+        }
+
+        // plays sound
+        private void StartPlayingSound()
+        {
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+        }
+
+        // stops sound
+        private void StopPlayingSound()
+        {
+            if (_audioSource.isPlaying)
+            {
+                _audioSource.Stop();
+            }
         }
     }
 }

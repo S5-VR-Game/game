@@ -62,6 +62,12 @@ namespace Game.Tasks
             m_PlayerProfileService = initializationData.playerProfileService;
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
+
+            // set timeout values of all spawn points
+            foreach (var spawnPoint in spawnPoints)
+            {
+                spawnPoint.SetTimeout(initializationData.taskSpawnPointTimeout);
+            }
         }
         
         public override bool TrySpawnTask()
@@ -71,7 +77,7 @@ namespace Game.Tasks
             // search for non-occupied spawn point
             foreach (var spawnPoint in spawnPoints)
             {
-                if (spawnPoint.isOccupied)
+                if (!spawnPoint.CanBeAllocated())
                 {
                     continue;
                 }

@@ -26,6 +26,8 @@ namespace Game.Tasks.AsteroidsShooter
             spawnAsteroidsScript.difficulty = difficulty;
 
             asteroidShooterScene.SetActive(false); // deactivates the asteroid-shooter at the beginning
+            
+            taskDescription = "Oh no!\n Asteroids are flying towards the station!\n Shoot them before they hit the space station!\n Use the left stick to control the crosshair and the right trigger to shoot a nuclear ball!";
         }
 
         protected override void BeforeStateCheck()

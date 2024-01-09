@@ -7,7 +7,7 @@ namespace UI
         private Animator animator;
     
         // block for defining used inputs
-        private KeyCode togglePanel = KeyCode.I;
+        private KeyCode togglePanel = KeyCode.JoystickButton2; // vr controller button A
         private KeyCode dismiss = KeyCode.D;
 
         public GameObject textField;

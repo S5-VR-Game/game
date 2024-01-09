@@ -172,7 +172,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1610008612406352, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1744068169883194, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Name
@@ -225,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 23009453789200548, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2f13ad6aff544ed48b01ef8f65194a76, type: 2}
+      objectReference: {fileID: 2100000, guid: 631afe924832f2347aab091027beec84, type: 2}
     - target: {fileID: 23091174126897196, guid: ba04b8d03f30146f58b58231278be18f, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -14,6 +14,10 @@ namespace Game.Tasks.EnergyCore
 
         public override void Initialize()
         {
+            taskDescription = "The reactor is not producing enough energy!\n" +
+                              "You need to place the energy cells in the correct cores.\n" +
+                              "But be careful, you can only move one at a time!";
+            
             // sets the starting time depending on the used difficulty
             remainingTime = difficulty.GetSeparatedDifficulty() switch
             {

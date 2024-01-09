@@ -31,7 +31,7 @@ namespace Environment
             if (shouldOpen == _isDoorOpen) return;
             
             _isDoorOpen = shouldOpen;
-            _soundManager.PlaySound();
+            _soundManager.PlaySoundFunctionCall();
         }
     }
 }
