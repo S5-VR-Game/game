@@ -14,9 +14,9 @@ public class AltMarker : MonoBehaviour
     private PlayerProfileService _playerProfileService;
 
     // distance when fading should start
-    private float _fadeTriggerDistance = 5.0f;
+    private float _fadeTriggerDistance = 6.0f;
     // distance when marker should be invisible
-    private float _invisDistance = 2.5f;
+    private float _invisDistance = 3.0f;
     
     
     public void Start()
@@ -92,7 +92,7 @@ public class AltMarker : MonoBehaviour
         switch (type)
         {
             case ObjectiveMarker.TaskType.Normal:
-                innerColor = new Color(0.0f, 0.5f, 0.0f);
+                innerColor = new Color(0.0f, 0.75f, 0.0f);
                 break;
             case ObjectiveMarker.TaskType.Timed:
                 innerColor = new Color(1.0f, 0.6f, 0.0f);
