@@ -28,10 +28,17 @@ public class AltMarker : MonoBehaviour
         marker.transform.LookAt(_playerProfileService.GetPlayerCamera().transform.position);
     }
 
+    /// <summary>
+    /// Lets the marker change its color according to the given task type
+    /// Normal == Green
+    /// Timed == Orange
+    /// TimeCritical == Red
+    /// </summary>
+    /// <param name="type">Type to set color for</param>
     public void SetColor(ObjectiveMarker.TaskType type)
     {
         Material innerMat = innerMaterialGreen;
-        
+
         switch (type)
         {
             case ObjectiveMarker.TaskType.Timed:
