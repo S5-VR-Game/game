@@ -93,9 +93,14 @@ namespace Game.Tasks
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
+
+                // only register task to HUD navigation bar if alternative marker is not active
+                if (!m_PlayerProfileService.IsAltMarkerActive())
+                {
+                    // send task to HUD
+                    m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
+                }
                 
-                // send task to HUD
-                m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
             
                 // initialize task with its own logic
                 newTask.Initialize();
