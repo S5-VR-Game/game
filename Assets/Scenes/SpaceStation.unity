@@ -18248,7 +18248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e3b65c996c467aab85fad42d59e6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evaluationDataWrapper: {fileID: 0}
   gameInformation: {fileID: 753573976}
   integrity: {fileID: 1267852995}
   difficulty: {fileID: 1267852996}
@@ -18531,7 +18530,7 @@ PrefabInstance:
       objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 1
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: metricCollector
