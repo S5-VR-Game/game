@@ -72,7 +72,6 @@ namespace Game.Tasks
         public void Allocate(GameTask gameTask)
         {
             m_AllocatedTask = gameTask;
-            gameTask.spawnPoint = this;
             gameTask.GameObjectDestroyed += Deallocate;
         }
 
