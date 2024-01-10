@@ -111,4 +111,4 @@ $RECYCLE.BIN/
 
 # automatically generated game metric files
 collected_game_metrics.csv
-collected_game_metrics.json
+collected_game_metrics_*.json

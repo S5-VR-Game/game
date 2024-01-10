@@ -5,6 +5,7 @@ namespace Game.Metrics
     /// </summary>
     public enum SingleValueMetric
     {
+        GameID, 
         GameWon, // whether the game was won or lost
         FinalIntegrity, // final integrity of the ship, when the game is over
         IntegrityIncreaseSum, // sum of all additions to the integrity of the ship

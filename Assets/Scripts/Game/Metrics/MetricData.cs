@@ -6,7 +6,10 @@ using Game.Tasks;
 using Logging;
 using Newtonsoft.Json;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using Random = System.Random;
+using System.Security.Cryptography;
 
 namespace Game.Metrics
 {
@@ -20,7 +23,7 @@ namespace Game.Metrics
         
         private const char CsvDelimiter = ';';
         private const string ExportFileNameCsv = "collected_game_metrics.csv";
-        private const string ExportFileNameJson = "collected_game_metrics.json";
+        private const string ExportFileNameJson = "collected_game_metrics_{0}.json";
         
         [JsonProperty("generalMetrics")]
         public readonly Dictionary<SingleValueMetric, object> metrics = new();
@@ -45,8 +48,33 @@ namespace Game.Metrics
             {
                 taskMetrics.Add((GameTaskType) taskType, new TaskMetrics((GameTaskType) taskType));
             }
+            
+            SetMetric(SingleValueMetric.GameID, GetHashID());
         }
-        
+
+        /// <summary>
+        /// Generates a id based on the hashed unix time
+        /// </summary>
+        /// <returns>the generated id as string</returns>
+        private string GetHashID()
+        {
+            // Get the current Unix timestamp
+            long unixTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            // Convert the Unix timestamp to a byte array
+            byte[] unixBytes = BitConverter.GetBytes(unixTimestamp);
+
+            // Hash the byte array using SHA256
+            SHA256 sha256Hash = SHA256.Create();
+            byte[] hashedBytes = sha256Hash.ComputeHash(unixBytes);
+
+            // Convert the hashed bytes to a hexadecimal string
+            string hashedId = BitConverter.ToString(hashedBytes).Replace("-", String.Empty);
+
+            // Take only the first 5 characters of the hashed string
+            return hashedId.Substring(0, 5);
+        }
+
         /// <summary>
         /// Writes the current metrics to different files types. The files will be written to the project root directory.
         /// If a CSV file already exists, the current metrics will be appended to the file.
@@ -65,7 +93,7 @@ namespace Game.Metrics
             if (json)
             {
                 // write json string to file
-                File.WriteAllText(ExportFileNameJson, ToJson());
+                File.WriteAllText(string.Format(ExportFileNameJson, GetMetric(SingleValueMetric.GameID, "")), ToJson());
                 m_LOG.Log(LOGTag, "metric data written to json file");
             }
         }
