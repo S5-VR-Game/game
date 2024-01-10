@@ -53,7 +53,7 @@ namespace PlayerController
                 m_PlayerRunDistance += currentPosLastPosDistance;
             }
 
-            evaluationDataWrapper.UpdateDistance(m_PlayerRunDistance);
+            if (evaluationDataWrapper != null) evaluationDataWrapper.UpdateDistance(m_PlayerRunDistance);
         }
 
         /// <summary>
