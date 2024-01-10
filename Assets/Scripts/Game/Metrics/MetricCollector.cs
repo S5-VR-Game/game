@@ -120,7 +120,8 @@ namespace Game.Metrics
         private void UpdateTimerTaskRemainingSecondsMetric(GameTask task)
         {
             // if the task is a timer task, add the remaining seconds value to the metric
-            if (task is TimerTask timerTask)
+            // ignore the value, if the remaining time is 0 or less
+            if (task is TimerTask timerTask && timerTask.GetRemainingTime() > 0)
             {
                 m_MetricData.AddTimerTaskRemainingSecondsValue(timerTask.GetRemainingTime());
             }
