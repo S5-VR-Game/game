@@ -85,6 +85,7 @@ namespace Game.Metrics
             m_MetricData.SetMetric(SingleValueMetric.FinalIntegrity, integrity.GetCurrentIntegrity());
             m_MetricData.SetMetric(SingleValueMetric.GameWon, gameState == GameState.GameWon);
             m_MetricData.SetMetric(SingleValueMetric.Difficulty, difficulty.GetValue());
+            m_MetricData.SetMetric(SingleValueMetric.AltMarkerActive, playerProfileService.IsAltMarkerActive());
             m_MetricData.WriteToFile();
             
         }
