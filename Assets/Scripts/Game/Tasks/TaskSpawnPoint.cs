@@ -81,7 +81,6 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
-            gameTask.spawnPoint = null;
             lastDeallocateTime = System.DateTime.UtcNow;
         }
         
