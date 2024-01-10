@@ -14,7 +14,7 @@ public class AltMarker : MonoBehaviour
     private PlayerProfileService _playerProfileService;
 
     // distance when fading should start
-    private float _fadeTriggerDistance = 6.0f;
+    private const float FadeTriggerDistance = 6.0f;
     // distance when marker should be invisible
     private float _invisDistance = 3.0f;
     
