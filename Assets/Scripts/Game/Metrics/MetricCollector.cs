@@ -72,6 +72,9 @@ namespace Game.Metrics
             {
                 return;
             }
+            
+            // update game id pref to allow displaying in main menu end scene
+            PlayerPrefs.SetString("GameID", m_MetricData.GetMetric(SingleValueMetric.GameID, ""));
 
             // update integrity metric value manually because the last integrity
             // changed event is invoked after the game over event

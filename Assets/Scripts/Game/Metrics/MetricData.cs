@@ -49,10 +49,7 @@ namespace Game.Metrics
                 taskMetrics.Add((GameTaskType) taskType, new TaskMetrics((GameTaskType) taskType));
             }
             
-            var gameID = GetHashID();
-            SetMetric(SingleValueMetric.GameID, gameID);
-            // update game id pref to allow displaying in main menu end scene
-            PlayerPrefs.SetString("GameID", gameID);
+            SetMetric(SingleValueMetric.GameID, GetHashID());
         }
 
         /// <summary>
