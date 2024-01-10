@@ -3767,7 +3767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please go upstairs to continue the tutorial
+  m_text: Bitte gehe nach oben, um das Tutorial fortzusetzen.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4522,7 +4522,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Approach this text, to get to the next tutorial section
+  m_text: "Gehe hier zu diesem Text hin, um zur n\xE4chsten Sektion des Tutorials
+    zu gelangen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4821,7 +4822,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Bock auf Treppensteigen?
 
-    This way ===>'
+    Hier entlang ===>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12264,8 +12265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleFactor: {x: 0, y: 0, z: 0}
-  minScale: {x: 0, y: 0, z: 0}
-  maxScale: {x: 0, y: 0, z: 0}
   playerProfileService: {fileID: 2004019403}
 --- !u!1001 &952405937
 PrefabInstance:
@@ -21774,7 +21773,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Approach this text, to get to the next tutorial section
+  m_text: "Gehe hier zu diesem Text hin, um zur n\xE4chsten Sektion des Tutorials
+    zu gelangen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23817,7 +23817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Please go upstairs to continue the tutorial
+  m_text: Bitte gehe nach oben, um das Tutorial fortzusetzen.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24065,7 +24065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2b917f756b4e8f9c711b549eb9ca89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 1
   playerProfileService: {fileID: 2004019403}
 --- !u!1001 &2014101130
 PrefabInstance:
