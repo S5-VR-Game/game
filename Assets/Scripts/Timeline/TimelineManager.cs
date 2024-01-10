@@ -107,7 +107,7 @@ namespace Timeline
         /// <param name="playableDirector"></param>
         private void SetupAfterEndTimeline(PlayableDirector playableDirector)
         {
-            SceneManager.LoadScene(0); // loads the main-menu
+            SceneManager.LoadScene(2); // loads the main-menu
         }
         
         /// <summary>
