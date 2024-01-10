@@ -18,9 +18,9 @@ namespace Game.Tasks.StorageRiddle
         public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
             taskDescription: "", integrityValue: 10)
         {
-            taskDescription = "Someone misplaced the storage boxes!\n" +
-                              "You need to place all of them on the green glowing platform.\n" +
-                              "One of them contains the towel you need to survive the journey!";
+            taskDescription = "Jemand hat die Lagerkisten verlegt!\n" +
+                              "Du musst alle auf die grün leuchtende Lagerfläche legen.\n" +
+                              "Eine davon enthält das Handtuch, das du zum Überleben brauchst!";
         }
         
         public override void Initialize()

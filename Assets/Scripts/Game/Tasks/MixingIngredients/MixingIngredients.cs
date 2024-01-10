@@ -70,11 +70,11 @@ namespace Game.Tasks.MixingIngredients
 
         public MixingIngredients() : base(Name, Description)
         {
-            taskDescription = "You need just a little more oxygen to survive.\n" +
-                              "You need to mix the ingredients in the main container to create a super fertilizer.\n" +
-                              "Fill the vase with the right ingredients.\n" +
-                              "When you are done, fill the empty bottle with the fertilizer and water the plant.\n" +
-                              "The botanist said his recipe should be somewhere around here.\n";
+            taskDescription = "Du brauchst nur etwas mehr Sauerstoff um zu überleben.\n" +
+                              "Du musst die richtigen Zutaten in dem Hauptbehälter mischen, um einen Superdünger zu erstellen.\n" +
+                              "Fülle die Vase mit den richtigen Zutaten.\n" +
+                              "Wenn du fertig bist, fülle die leere Flasche mit dem Dünger und gieße die Pflanze.\n" +
+                              "Der Botaniker sagte, sein Rezept sollte hier irgendwo sein.\n";
         }
 
         public override void Initialize()
