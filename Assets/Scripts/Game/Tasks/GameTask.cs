@@ -180,7 +180,7 @@ namespace Game.Tasks
             newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
             AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
 
-            altMarker.InitiateMarker(taskType);
+            altMarker.InitiateMarker(taskPriority);
             
             m_LinkedGameObjects.Add(altMarker.gameObject);
             altMarker.SetPlayerProfile(playerProfileService);

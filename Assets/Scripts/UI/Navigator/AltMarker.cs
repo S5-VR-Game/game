@@ -78,7 +78,7 @@ public class AltMarker : MonoBehaviour
     /// TimeCritical == Red
     /// </summary>
     /// <param name="type">Type to set color for</param>
-    public void InitiateMarker(ObjectiveMarker.TaskType type)
+    public void InitiateMarker(ObjectiveMarker.TaskPriority type)
     {
         Material innerMat = new Material(shader);
         Material outerMat = new Material(shader);
@@ -91,13 +91,13 @@ public class AltMarker : MonoBehaviour
 
         switch (type)
         {
-            case ObjectiveMarker.TaskType.Normal:
+            case ObjectiveMarker.TaskPriority.Normal:
                 innerColor = new Color(0.0f, 0.75f, 0.0f);
                 break;
-            case ObjectiveMarker.TaskType.Timed:
+            case ObjectiveMarker.TaskPriority.Timed:
                 innerColor = new Color(1.0f, 0.6f, 0.0f);
                 break;
-            case ObjectiveMarker.TaskType.TimeCritical:
+            case ObjectiveMarker.TaskPriority.TimeCritical:
                 innerColor = Color.red;
                 break;
         }

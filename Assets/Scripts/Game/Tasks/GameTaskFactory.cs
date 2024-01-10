@@ -105,7 +105,7 @@ namespace Game.Tasks
                 if (!m_PlayerProfileService.IsAltMarkerActive())
                 {
                     // send task to HUD
-                    m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
+                    m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskPriority);
                 }
                 
             
