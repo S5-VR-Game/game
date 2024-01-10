@@ -22,6 +22,8 @@ namespace Game.Metrics
         private const string LOGTag = "MetricData";
         
         private const char CsvDelimiter = ';';
+        // export directory (./ as relative path to the project folder)
+        private const string ExportDirectory = "./Generated/CollectedMetrics";
         private const string ExportFileNameCsv = "collected_game_metrics.csv";
         private const string ExportFileNameJson = "collected_game_metrics_{0}.json";
         
@@ -60,17 +62,25 @@ namespace Game.Metrics
         /// <param name="json">if true, a json file will be generated</param>
         public void WriteToFile(string gameId, bool csv = true, bool json = true)
         {
+            // create export folder, if it does not exist
+            if (!Directory.Exists(ExportDirectory))
+            {
+                Directory.CreateDirectory(ExportDirectory);
+            }
+            
             if (csv)
             {
+                var exportFilePathCsv = Path.Join(ExportDirectory, ExportFileNameCsv);
                 // write csv string to file, include csv header row, if file does not exist
-                File.AppendAllText(ExportFileNameCsv, ToCsv(includeHeader: !File.Exists(ExportFileNameCsv)));
-                m_LOG.Log(LOGTag, "metric data written to csv file");
+                File.AppendAllText(exportFilePathCsv, ToCsv(includeHeader: !File.Exists(exportFilePathCsv)));
+                m_LOG.Log(LOGTag, $"metric data written to csv file at: {Path.GetFullPath(exportFilePathCsv)}");
             }
             if (json)
             {
+                var exportFilePathJson = Path.Join(ExportDirectory, string.Format(ExportFileNameJson, gameId));
                 // write json string to file
-                File.WriteAllText(string.Format(ExportFileNameJson, gameId), ToJson());
-                m_LOG.Log(LOGTag, "metric data written to json file");
+                File.WriteAllText(exportFilePathJson, ToJson());
+                m_LOG.Log(LOGTag, $"metric data written to json file at: {Path.GetFullPath(exportFilePathJson)}");
             }
         }
 

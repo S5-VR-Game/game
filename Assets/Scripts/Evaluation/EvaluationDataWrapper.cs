@@ -12,7 +12,9 @@ namespace Evaluation
         public int runNumber;
         private EvaluationData _evaluationData;
         [SerializeField] private GameInformation gameInformation;
-        
+
+        // export directory (./ as relative path to the project folder)
+        private const string ExportDirectory = "./Generated/EvaluationData";
         private const string ExportFileNameJson = "evaluation_data_{0}.json";
 
         private void Start()
@@ -23,8 +25,16 @@ namespace Evaluation
             {
                 if (state != GameState.Ongoing)
                 {
+                    // create export folder, if it does not exist
+                    if (!Directory.Exists(ExportDirectory))
+                    {
+                        Directory.CreateDirectory(ExportDirectory);
+                    }
+
+                    var filePath = Path.Join(ExportDirectory,
+                        string.Format(ExportFileNameJson, gameInformation.GetGameID()));
                     // write json string to file
-                    File.WriteAllText(string.Format(ExportFileNameJson, gameInformation.GetGameID()), _evaluationData.ToJson());
+                    File.WriteAllText(filePath, _evaluationData.ToJson());
                 }
             };
         }
