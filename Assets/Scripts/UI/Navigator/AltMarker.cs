@@ -110,7 +110,7 @@ public class AltMarker : MonoBehaviour
         _outerCircle.GetComponent<MeshRenderer>().material = outerMat;
     }
 
-    public void setPlayerProfile(PlayerProfileService profileService)
+    public void SetPlayerProfile(PlayerProfileService profileService)
     {
         _playerProfileService = profileService;
     }
