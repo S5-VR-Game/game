@@ -23,6 +23,7 @@ namespace PlayerController
         [SerializeField] private GameObject locomotiveSystemMove;
         [SerializeField] private HUD vrPlayerHUD;
         [SerializeField] private HUD keyboardPlayerHUD;
+        [SerializeField] private bool isAltMarkerActive;
         [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
         
         /// <summary>
@@ -157,6 +158,11 @@ namespace PlayerController
                 return vrPlayerHUD;
             }
             return keyboardPlayerHUD;
+        }
+
+        public bool IsAltMarkerActive()
+        {
+            return isAltMarkerActive;
         }
         
         /// <summary>

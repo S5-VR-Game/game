@@ -20,9 +20,9 @@ public class ButtonSequenceLogic : GameTask
     
     public override void Initialize()
     {
-        taskDescription = "The captain put the radio amplifier inside this console.\n" +
-                          "You need to press the color coded buttons in the correct order to activate it.\n" +
-                          "There must be a clue somewhere...";
+        taskDescription = "Der Kapitän hat den Radiowellen-verstärker in diese Konsole eingebaut.\n" +
+                          "Du musst die farbigen Knöpfe in der richtigen Reihenfolge drücken.\n" +
+                          "Es muss doch irgendwo einen Hinweis geben...";
         
         // crates sequence lenght based on difficulty
         _sequenceLenght = difficulty.GetSeparatedDifficulty() switch

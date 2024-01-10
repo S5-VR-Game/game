@@ -43,6 +43,7 @@ namespace Game
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
         [SerializeField] private SoundManager _taskSpawningSoundManager;
+        [SerializeField] private AltMarker markerPrefab;
         
         private float m_NextGameTaskTime; // if this time is reached, a new game task starts
 
@@ -70,7 +71,7 @@ namespace Game
 
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
-                gameTaskObserver, integrityObserver, taskSpawnPointTimeout, metricCollector);
+                gameTaskObserver, integrityObserver, taskSpawnPointTimeout, metricCollector, markerPrefab);
             foreach (var factory in factories)
             {
                 factory.Initialize(factoryInitializationData);

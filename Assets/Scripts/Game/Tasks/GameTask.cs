@@ -56,6 +56,7 @@ namespace Game.Tasks
         private EvaluationDataWrapper _evaluationDataWrapper;
         private bool _alreadyTouched;
         
+        
         /// <summary>
         /// Constructor to set initial values for this task.
         /// </summary>
@@ -165,6 +166,24 @@ namespace Game.Tasks
             m_LinkedGameObjects.Clear();
             
             Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// Adds a nav marker to the linkedGameObjects and attaches it to the task
+        /// </summary>
+        /// <param name="marker">Reference to the marker Prefab. Needs to be set in Editor per TaskFactory!</param>
+        public void AttachMarker(AltMarker marker)
+        {
+            Vector3 newPosition = transform.position;
+            // set height of gps marker
+            // divide task height by floor height
+            newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
+            AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
+
+            altMarker.InitiateMarker(taskType);
+            
+            m_LinkedGameObjects.Add(altMarker.gameObject);
+            altMarker.SetPlayerProfile(playerProfileService);
         }
 
         /// <summary>
