@@ -10,6 +10,7 @@ namespace Game.Observer
     /// </summary>
     public class GameTaskObserver : AbstractObserver
     {
+        public EvaluationDataWrapper evaluationDataWrapper;
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskObserver";
         

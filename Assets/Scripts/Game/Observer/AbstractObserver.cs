@@ -6,7 +6,6 @@ namespace Game.Observer
 {
     public abstract class AbstractObserver : MonoBehaviour
     {
-        public EvaluationDataWrapper evaluationDataWrapper;
         /// <summary>
         /// Called when a game task is completed
         /// </summary>

@@ -1,3 +1,4 @@
+using System;
 using Game.Tasks;
 using PlayerController;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Game.Metrics
         [SerializeField] private GameTimer gameTimer;
         [SerializeField] private PlayerProfileService playerProfileService;
 
-        private readonly MetricData m_MetricData = new();
+        private MetricData m_MetricData;
         
         private float m_LastIntegrityValue;
         private float m_LastTaskSpawnTimeSeconds;
@@ -24,6 +25,7 @@ namespace Game.Metrics
         
         private void Start()
         {
+            m_MetricData = new MetricData();
             // register to events
             gameInformation.OnGameStateChanged += OnGameStateChanged;
             integrity.OnIntegrityChanged += OnIntegrityChanged;
@@ -31,6 +33,9 @@ namespace Game.Metrics
             
             m_LastIntegrityValue = integrity.GetCurrentIntegrity();
             m_LastTaskSpawnTimeSeconds = gameTimer.remainingTime;
+            
+            // set game start timestamp
+            m_MetricData.SetMetric(SingleValueMetric.GameStartTimeStamp, DateTimeOffset.UtcNow.ToUnixTimeSeconds());
         }
 
         /// <summary>
@@ -80,13 +85,15 @@ namespace Game.Metrics
             // changed event is invoked after the game over event
             OnIntegrityChanged(integrity.GetCurrentIntegrity());
             
-            // if game is over, set final integrity, difficulty and game won metric values and write metrics to file
+            // if game is over, update metrics and write metrics to file
+            m_MetricData.SetMetric(SingleValueMetric.GameID, gameInformation.GetGameID());
             m_MetricData.SetMetric(SingleValueMetric.WalkedDistance, playerProfileService.GetPlayerRunDistance());
             m_MetricData.SetMetric(SingleValueMetric.FinalIntegrity, integrity.GetCurrentIntegrity());
             m_MetricData.SetMetric(SingleValueMetric.GameWon, gameState == GameState.GameWon);
             m_MetricData.SetMetric(SingleValueMetric.Difficulty, difficulty.GetValue());
             m_MetricData.SetMetric(SingleValueMetric.AltMarkerActive, playerProfileService.IsAltMarkerActive());
-            m_MetricData.WriteToFile();
+            m_MetricData.SetMetric(SingleValueMetric.GameEndTimeStamp, DateTimeOffset.UtcNow.ToUnixTimeSeconds());
+            m_MetricData.WriteToFile(gameInformation.GetGameID());
             
         }
         

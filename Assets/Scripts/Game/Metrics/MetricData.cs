@@ -48,31 +48,6 @@ namespace Game.Metrics
             {
                 taskMetrics.Add((GameTaskType) taskType, new TaskMetrics((GameTaskType) taskType));
             }
-            
-            SetMetric(SingleValueMetric.GameID, GetHashID());
-        }
-
-        /// <summary>
-        /// Generates a id based on the hashed unix time
-        /// </summary>
-        /// <returns>the generated id as string</returns>
-        private string GetHashID()
-        {
-            // Get the current Unix timestamp
-            long unixTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-
-            // Convert the Unix timestamp to a byte array
-            byte[] unixBytes = BitConverter.GetBytes(unixTimestamp);
-
-            // Hash the byte array using SHA256
-            SHA256 sha256Hash = SHA256.Create();
-            byte[] hashedBytes = sha256Hash.ComputeHash(unixBytes);
-
-            // Convert the hashed bytes to a hexadecimal string
-            string hashedId = BitConverter.ToString(hashedBytes).Replace("-", String.Empty);
-
-            // Take only the first 5 characters of the hashed string
-            return hashedId.Substring(0, 5);
         }
 
         /// <summary>
@@ -80,9 +55,10 @@ namespace Game.Metrics
         /// If a CSV file already exists, the current metrics will be appended to the file.
         /// If a JSON file already exists, it will be overwritten.
         /// </summary>
+        /// <param name="gameId">game id of the current game, which is used to store the json file with an unique filename</param>
         /// <param name="csv">if true, a csv file will be generated</param>
         /// <param name="json">if true, a json file will be generated</param>
-        public void WriteToFile(bool csv = true, bool json = true)
+        public void WriteToFile(string gameId, bool csv = true, bool json = true)
         {
             if (csv)
             {
@@ -93,7 +69,7 @@ namespace Game.Metrics
             if (json)
             {
                 // write json string to file
-                File.WriteAllText(string.Format(ExportFileNameJson, GetMetric(SingleValueMetric.GameID, "")), ToJson());
+                File.WriteAllText(string.Format(ExportFileNameJson, gameId), ToJson());
                 m_LOG.Log(LOGTag, "metric data written to json file");
             }
         }
@@ -241,9 +217,9 @@ namespace Game.Metrics
             AppendMetricFormat(secondsBetweenTaskSpawn, csvHeaderRow, csvText);
             AppendMetricFormat(timerTaskRemainingSeconds, csvHeaderRow, csvText);
             // add task metrics
-            foreach (var taskMetrics in taskMetrics.Values)
+            foreach (var taskMetricsEntry in taskMetrics.Values)
             {
-                AppendMetricFormat(taskMetrics, csvHeaderRow, csvText);
+                AppendMetricFormat(taskMetricsEntry, csvHeaderRow, csvText);
             }
 
             if (includeHeader)

@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using Game;
 using Game.Tasks;
 using UnityEngine;
 
@@ -9,10 +11,22 @@ namespace Evaluation
         public string probandName;
         public int runNumber;
         private EvaluationData _evaluationData;
+        [SerializeField] private GameInformation gameInformation;
+        
+        private const string ExportFileNameJson = "evaluation_data_{0}.json";
 
         private void Start()
         {
             _evaluationData = new EvaluationData(probandName, runNumber);
+            // subscribe to game state change event, to write the data to file when the game is over
+            gameInformation.OnGameStateChanged += state =>
+            {
+                if (state != GameState.Ongoing)
+                {
+                    // write json string to file
+                    File.WriteAllText(string.Format(ExportFileNameJson, gameInformation.GetGameID()), _evaluationData.ToJson());
+                }
+            };
         }
 
         /// <summary>

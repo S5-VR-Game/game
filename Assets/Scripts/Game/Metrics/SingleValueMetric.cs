@@ -5,7 +5,9 @@ namespace Game.Metrics
     /// </summary>
     public enum SingleValueMetric
     {
-        GameID, 
+        GameID, // generated game id
+        GameStartTimeStamp, // unix timestamp of the game start time 
+        GameEndTimeStamp, // unix timestamp of the game end time 
         AltMarkerActive, // whether the game was won or lost
         GameWon, // whether the game was won or lost
         FinalIntegrity, // final integrity of the ship, when the game is over
