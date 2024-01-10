@@ -165,7 +165,7 @@ namespace Game.Tasks
         /// Adds a nav marker to the linkedGameObjects and attaches it to the task
         /// </summary>
         /// <param name="marker">Reference to the marker Prefab. Needs to be set in Editor per TaskFactory!</param>
-        public void attachMarker(AltMarker marker)
+        public void AttachMarker(AltMarker marker)
         {
             Vector3 newPosition = transform.position;
             newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
