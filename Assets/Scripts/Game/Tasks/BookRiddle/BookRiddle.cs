@@ -18,9 +18,9 @@ namespace Game.Tasks.BookRiddle
         
         public BookRiddle() : base("Book Riddle", "", 35)
         {
-            taskDescription = "Some security features need to be disabled.\n" +
-                              "You need to press these buttons a certain amount of times.\n" +
-                              "These books sure look suspicious...";
+            taskDescription = "Einige Sicherheitsmaßnahmen müssen deaktiviert werden.\n" +
+                              "Du musst diese Schalter bestimmt oft drücken.\n" +
+                              "Die Bücher sehen aber seltsam aus...";
         }
 
         public override void Initialize()
