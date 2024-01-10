@@ -1,4 +1,5 @@
 using PlayerController;
+using TMPro;
 using UnityEngine;
 
 namespace MainMenu
@@ -8,12 +9,16 @@ namespace MainMenu
         public Canvas canvas;
         
         public PlayerProfileService playerProfileService;
+
+        public GameObject idText;
         
         private void Start()
         {
-            
             SetupMainMenu();
             playerProfileService.SetVRMovementActive(false);
+            
+            SetIDText(PlayerPrefs.GetString("GameID", "Missing!"));
+            Debug.Log(PlayerPrefs.GetString("GameID", "Missing!"));
         }
 
         // function to change the render-mode depending on the selected profile
@@ -34,11 +39,9 @@ namespace MainMenu
             }
         }
 
-        public void QuitGame()
+        private void SetIDText(string id)
         {
-            // ends the application in the editor
-            UnityEditor.EditorApplication.isPlaying = false;
-            Application.Quit();
+            idText.GetComponent<TextMeshProUGUI>().SetText(id);
         }
     }
 }
