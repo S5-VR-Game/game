@@ -1,3 +1,5 @@
+using Evaluation;
+using Game.Metrics;
 using Game.Observer;
 using Logging;
 using PlayerController;
@@ -26,7 +28,7 @@ namespace Game.Tasks
         /// Furthermore the new task is also registered to the observer instances.
         /// </summary>
         /// <returns>true, if a game task is spawned and false, if no task was created due to no available spawn points</returns>
-        public abstract bool TrySpawnTask();
+        public abstract bool TrySpawnTask(EvaluationDataWrapper evaluationDataWrapper);
         
         /// <summary>
         /// Initializes the factory with the given game initialization data
@@ -53,6 +55,7 @@ namespace Game.Tasks
         private PlayerProfileService m_PlayerProfileService;
         private GameTaskObserver m_GameTaskObserver;
         private IntegrityObserver m_IntegrityObserver;
+        private MetricCollector m_MetricCollector;
         private AltMarker altMarkerPrefab;
         
         [SerializeField] private T[] spawnPoints;
@@ -65,6 +68,7 @@ namespace Game.Tasks
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
             altMarkerPrefab = initializationData.markerPrefab;
+            m_MetricCollector = initializationData.metricCollector;
 
             // set timeout values of all spawn points
             foreach (var spawnPoint in spawnPoints)
@@ -73,7 +77,7 @@ namespace Game.Tasks
             }
         }
         
-        public override bool TrySpawnTask()
+        public override bool TrySpawnTask(EvaluationDataWrapper evaluationDataWrapper)
         {
             // shuffle list to get random spawn points
             spawnPoints.Shuffle();
@@ -87,6 +91,7 @@ namespace Game.Tasks
                 
                 // create task to spawn at this spawn point
                 GameTask newTask = CreateTask(spawnPoint);
+                newTask.SetEvaluationWrapper(evaluationDataWrapper);
                 
                 // assign game related data to task
                 newTask.difficulty = mDifficulty;
@@ -94,12 +99,13 @@ namespace Game.Tasks
                 
                 // allocate spawn point with newly created task
                 spawnPoint.Allocate(newTask);
+                
 
                 // only register task to HUD navigation bar if alternative marker is not active
                 if (!m_PlayerProfileService.IsAltMarkerActive())
                 {
                     // send task to HUD
-                    m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskType);
+                    m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskPriority);
                 }
                 
             
@@ -116,6 +122,7 @@ namespace Game.Tasks
                 // register the new task
                 m_GameTaskObserver.RegisterGameTask(newTask);
                 m_IntegrityObserver.RegisterGameTask(newTask);
+                m_MetricCollector.RegisterGameTask(newTask);
 
                 m_LOG.Log(LOGTag, "task spawned successfully");
                 return true;

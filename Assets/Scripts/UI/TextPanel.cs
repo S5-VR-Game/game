@@ -1,3 +1,6 @@
+using Evaluation;
+using Game.Tasks;
+using System;
 using UnityEngine;
 
 namespace UI
@@ -15,12 +18,17 @@ namespace UI
 
         private bool active = false;
         private bool alert_dismissed = false;
+
+        public event Action OnTextOpened;
+
+        private GameTask _gameTask;
     
         // Start is called before the first frame update
         void Start()
         {
             animator = gameObject.GetComponentInParent<Animator>();
             textControls = textField.GetComponent<HUD_Text_Controls>();
+            _gameTask = null;
         }
 
         // Update is called once per frame
@@ -30,6 +38,7 @@ namespace UI
             if (Input.GetKeyUp(togglePanel))
             {
                 ToggleShow();
+                IncrementHUDUsage();
             }
 
             if (Input.GetKeyUp(dismiss))
@@ -37,7 +46,19 @@ namespace UI
                 DismissText();
             }
         }
-        
+
+        /// <summary>
+        /// Increments the HUD-Usage for a specific Task Type
+        /// </summary>
+        private void IncrementHUDUsage()
+        {
+            if (_gameTask == null)
+            {
+                return;
+            }
+            _gameTask.GetEvaluationDataWrapper().IncrementMapEntry(_gameTask, DictTypes.TaskFailed);
+        }
+
         /// <summary>
         /// This method toggles the text panel visibility
         /// </summary>
@@ -46,6 +67,12 @@ namespace UI
             if (animator != null && active)
             {
                 animator.SetBool("open", !animator.GetBool("open"));
+                
+                // notify listeners that text panel was opened
+                if (animator.GetBool("open"))
+                {
+                    OnTextOpened?.Invoke();
+                }
                 if (animator.GetBool("blink") == true)
                 {
                     animator.SetBool("blink", false);
@@ -91,6 +118,23 @@ namespace UI
                 animator.SetBool("blink", false);
             }
             active = false;
+        }
+
+        /// <summary>
+        /// Registers the Current Task by Collision
+        /// </summary>
+        /// <param name="task">the new Task for this text panel.</param>
+        public void RegisterCurrentTask(GameTask task)
+        {
+            _gameTask = task;
+        }
+
+        /// <summary>
+        /// Removes that specific task when the Player leaves the collision.
+        /// </summary>
+        public void DeregisterCurrentTask()
+        {
+            _gameTask = null;
         }
     }
 }

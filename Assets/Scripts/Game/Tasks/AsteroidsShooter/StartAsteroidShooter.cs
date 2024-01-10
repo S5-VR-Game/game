@@ -25,7 +25,7 @@ namespace Game.Tasks.AsteroidsShooter
         // stores the value of the variable if the task is started
         private bool _started;
         
-        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description")
+        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description", GameTaskType.AsteroidShooter)
         {
         }
 

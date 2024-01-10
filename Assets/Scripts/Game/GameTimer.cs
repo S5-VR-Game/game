@@ -1,4 +1,6 @@
 using System;
+using Evaluation;
+using Game.Metrics;
 using Game.Observer;
 using Game.Tasks;
 using Logging;
@@ -36,6 +38,7 @@ namespace Game
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private GameTaskObserver gameTaskObserver;
         [SerializeField] private IntegrityObserver integrityObserver;
+        [SerializeField] private MetricCollector metricCollector;
         
         [SerializeField] private GeneralGameTaskFactory[] factories;
 
@@ -59,6 +62,8 @@ namespace Game
         public float remainingTime { get; private set; }
         public bool timeOver { get; private set; }
 
+        public EvaluationDataWrapper evaluationDataWrapper;
+
         private void Start()
         {
             remainingTime = initialGameTime;
@@ -66,7 +71,7 @@ namespace Game
 
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
-                gameTaskObserver, integrityObserver, taskSpawnPointTimeout, markerPrefab);
+                gameTaskObserver, integrityObserver, taskSpawnPointTimeout, metricCollector, markerPrefab);
             foreach (var factory in factories)
             {
                 factory.Initialize(factoryInitializationData);
@@ -119,7 +124,7 @@ namespace Game
             // try to spawn a task and abort loop if succeeded
             foreach (var factory in factories)
             {
-                bool spawnSuccess = factory.TrySpawnTask();
+                bool spawnSuccess = factory.TrySpawnTask(evaluationDataWrapper);
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySoundFunctionCall();

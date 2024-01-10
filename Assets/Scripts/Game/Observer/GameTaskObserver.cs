@@ -1,3 +1,4 @@
+using Evaluation;
 using Game.Tasks;
 using Logging;
 using UnityEngine;
@@ -9,20 +10,23 @@ namespace Game.Observer
     /// </summary>
     public class GameTaskObserver : AbstractObserver
     {
+        public EvaluationDataWrapper evaluationDataWrapper;
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "GameTaskObserver";
-
+        
         private int m_ActiveTasks;
         
         protected override void OnTaskSuccessful(GameTask task)
         {
             m_LOG.Log(LOGTag,"task successful: " + task.taskName);
+            evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskWon);
             m_ActiveTasks--;
         }
         
         protected override void OnTaskFailed(GameTask task)
         {
             m_LOG.Log(LOGTag,"task failed: " + task.taskName);
+            evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskFailed);
             m_ActiveTasks--;
         }
         

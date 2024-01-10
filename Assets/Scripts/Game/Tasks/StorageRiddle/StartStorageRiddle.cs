@@ -16,7 +16,7 @@ namespace Game.Tasks.StorageRiddle
         [SerializeField] private SpawnBoxes spawnBoxesScript;
         
         public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
-            taskDescription: "", integrityValue: 10)
+            taskDescription: "", taskType: GameTaskType.StorageRiddle, integrityValue: 10)
         {
             taskDescription = "Jemand hat die Lagerkisten verlegt!\n" +
                               "Du musst alle auf die grün leuchtende Lagerfläche legen.\n" +

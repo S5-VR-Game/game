@@ -14,7 +14,7 @@ namespace Game.Tasks.marble_gravity
         private const float RotationSpeed = 50.0f;
         private const float ControlDistance = 4.0f;
 
-        public MarbleGravity() : base("Marble Gravity :)", "", 15)
+        public MarbleGravity() : base("Marble Gravity :)", "", GameTaskType.MarbleGravity, 15)
         {
             taskDescription = "Du musst den Fluxkompensator aktivieren.\n" +
                               "Der Aktivator befindet sich in diesem rotierenden Labyrinth.\n" +

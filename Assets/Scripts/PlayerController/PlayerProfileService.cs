@@ -1,3 +1,5 @@
+using System;
+using Evaluation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +24,38 @@ namespace PlayerController
         [SerializeField] private HUD vrPlayerHUD;
         [SerializeField] private HUD keyboardPlayerHUD;
         [SerializeField] private bool isAltMarkerActive;
+        [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
         
+        /// <summary>
+        /// Threshold for the player to walk the distance and not teleport.
+        /// If the position difference is greater than this value, the player probably teleported and the distance
+        /// is not counted.
+        /// </summary>
+        private const float MaxPlayerWalkDistanceThreshold = 5f;
+        private Vector3 m_OldPos; // the last position the player was assigned to.
+        private float m_PlayerRunDistance; // the distance the player has run the entire game.
+
+        private void Start()
+        {
+            m_OldPos = GetPlayerGameObject().transform.position;
+        }
+
+        private void FixedUpdate()
+        {
+            // calculate player run distance
+            var currentPlayerPos = GetPlayerGameObject().transform.position;
+            var currentPosLastPosDistance = Vector3.Distance(currentPlayerPos, m_OldPos);
+            m_OldPos = currentPlayerPos;
+            
+            // ensure, that the player run the distance and was not teleported
+            if (currentPosLastPosDistance < MaxPlayerWalkDistanceThreshold)
+            {
+                m_PlayerRunDistance += currentPosLastPosDistance;
+            }
+
+            if (evaluationDataWrapper != null) evaluationDataWrapper.UpdateDistance(m_PlayerRunDistance);
+        }
+
         /// <summary>
         /// Deactivates the player that should not be used during the game.
         /// </summary>
@@ -132,5 +165,13 @@ namespace PlayerController
             return isAltMarkerActive;
         }
         
+        /// <summary>
+        /// Returns the distance the player walked since the start of the game.
+        /// </summary>
+        /// <returns>walked player distance sum</returns>
+        public float GetPlayerRunDistance()
+        {
+            return m_PlayerRunDistance;
+        }
     }
 }
