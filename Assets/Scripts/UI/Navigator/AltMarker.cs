@@ -16,7 +16,7 @@ public class AltMarker : MonoBehaviour
     // distance when fading should start
     private const float FadeTriggerDistance = 6.0f;
     // distance when marker should be invisible
-    private float _invisDistance = 3.0f;
+    private const  float InvisDistance = 3.0f;
     
     
     public void Start()
