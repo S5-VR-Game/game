@@ -50,7 +50,6 @@ namespace Game.Tasks
         /// </summary>
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
         
-        public TaskSpawnPoint spawnPoint;
         
         /// <summary>
         /// Constructor to set initial values for this task.
