@@ -16,9 +16,9 @@ namespace Game.Tasks.marble_gravity
 
         public MarbleGravity() : base("Marble Gravity :)", "", 15)
         {
-            taskDescription = "You need to activate a flux compensator.\n" +
-                              "The activator is located inside this rotating maze.\n" +
-                              "Navigate the marble to trigger the trigger!";
+            taskDescription = "Du musst den Fluxkompensator aktivieren.\n" +
+                              "Der Aktivator befindet sich in diesem rotierenden Labyrinth.\n" +
+                              "Navigiere die Kugel durch das Labyrinth um den Aktivator zu aktivieren!";
         }
 
         public override void Initialize()
