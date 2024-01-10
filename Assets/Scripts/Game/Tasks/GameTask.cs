@@ -167,13 +167,15 @@ namespace Game.Tasks
         public void AttachMarker(AltMarker marker)
         {
             Vector3 newPosition = transform.position;
+            // set height of gps marker
+            // divide task height by floor height
             newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
             AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
 
             altMarker.InitiateMarker(taskType);
             
             m_LinkedGameObjects.Add(altMarker.gameObject);
-            altMarker.setPlayerProfile(playerProfileService);
+            altMarker.SetPlayerProfile(playerProfileService);
         }
     }
 }

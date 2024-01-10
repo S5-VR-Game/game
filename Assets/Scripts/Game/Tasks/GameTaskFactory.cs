@@ -53,10 +53,10 @@ namespace Game.Tasks
         private PlayerProfileService m_PlayerProfileService;
         private GameTaskObserver m_GameTaskObserver;
         private IntegrityObserver m_IntegrityObserver;
+        private AltMarker altMarkerPrefab;
         
         [SerializeField] private T[] spawnPoints;
-
-        [SerializeField] private AltMarker altMarkerPrefab;
+        
 
         public override void Initialize(FactoryInitializationData initializationData)
         {
@@ -64,6 +64,7 @@ namespace Game.Tasks
             m_PlayerProfileService = initializationData.playerProfileService;
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
+            altMarkerPrefab = initializationData.markerPrefab;
 
             // set timeout values of all spawn points
             foreach (var spawnPoint in spawnPoints)
@@ -108,7 +109,7 @@ namespace Game.Tasks
                 // if alternative marker is set active, attach alternative marker to task
                 if (m_PlayerProfileService.IsAltMarkerActive())
                 {
-                    newTask.attachMarker(altMarkerPrefab);
+                    newTask.AttachMarker(altMarkerPrefab);
                 }
                 
             

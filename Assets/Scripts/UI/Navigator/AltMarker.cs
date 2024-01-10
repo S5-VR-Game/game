@@ -35,10 +35,10 @@ public class AltMarker : MonoBehaviour
 
         
         // fade marker if player is close
-        if (distance < _fadeTriggerDistance)
+        if (distance < FadeTriggerDistance)
         {
-            float fadingDistance = _fadeTriggerDistance - _invisDistance;
-            float distancePercent = Mathf.Clamp((distance - _invisDistance), 0.0f, fadingDistance) / fadingDistance;
+            float fadingDistance = FadeTriggerDistance - InvisDistance;
+            float distancePercent = Mathf.Clamp((distance - InvisDistance), 0.0f, fadingDistance) / fadingDistance;
             
             Material innermat = _innerCircle.GetComponent<MeshRenderer>().material;
             Material outermat = _outerCircle.GetComponent<MeshRenderer>().material;
