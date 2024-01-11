@@ -17,7 +17,7 @@ namespace Game.Tasks.MedicalDisaster
         private const float InitialTimerTimeHard = 100;
         private const float TaskStartPlayerDistance = 3;
         
-        private readonly float _initialTimerTime;
+        private float _initialTimerTime;
 
         // parameters for different difficulties
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
@@ -39,7 +39,10 @@ namespace Game.Tasks.MedicalDisaster
             taskDescription =   "Leitungen zur Krankenstation sind undicht!\n" +
                                 "Die Substanzen sind sicher nicht genießbar!\n" +
                                 "Du musst die Ventile sofort schließen, um das Leck abzudichten!\n";
+        }
 
+        public override void Initialize()
+        {
             remainingTime = difficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => InitialTimerTimeEasy,
@@ -49,10 +52,7 @@ namespace Game.Tasks.MedicalDisaster
             };
 
             _initialTimerTime = remainingTime;
-        }
-
-        public override void Initialize()
-        {
+            
             // shuffle for random valve order
             openValves.Shuffle();
             // obtain parameters based on difficulty
