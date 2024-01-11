@@ -26,6 +26,7 @@ namespace Game
         [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
         [SerializeField] private float minTimeIntervalBetweenTasks = 10;
+        [SerializeField] private float initialTaskSpawnDelay = 3;
 
         // Timer Section for decrementing the Integrity-value permanently.
         private const float TimeWhenDecrementEasy = 5.0f;
@@ -81,7 +82,7 @@ namespace Game
         private void Start()
         {
             remainingTime = initialGameTime;
-            m_NextGameTaskTime = GetNextTimeInterval();
+            m_NextGameTaskTime = initialGameTime - initialTaskSpawnDelay;
             _defaultTimeDecrement = 1.0f;
             _decrementValue = DifficultyToDecrementVal();
             _decrementTimer = _defaultTimeDecrement;
