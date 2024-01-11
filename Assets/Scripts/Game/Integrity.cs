@@ -11,11 +11,11 @@ namespace Game
     {
         private readonly Logger m_LOG = new Logger(new LogHandler());
         private const string LOGTag = "Integrity";
-        public event Action<int> OnIntegrityChanged;
+        public event Action<float> OnIntegrityChanged;
 
-        private int m_InitialIntegrityValue;
+        private float m_InitialIntegrityValue;
 
-        [SerializeField] private int integrityValue = 100;
+        [SerializeField] private float integrityValue = 100;
 
         private void Start()
         {
@@ -27,7 +27,7 @@ namespace Game
         /// displayed on the UI later on.
         /// </summary>
         /// <returns>The integrity-value that represents the game score</returns>
-        public int GetCurrentIntegrity()
+        public float GetCurrentIntegrity()
         {
             return this.integrityValue;
         }
@@ -46,7 +46,7 @@ namespace Game
         /// Decrements the integrityValue of the game.
         /// </summary>
         /// <param name="value">The operand for the subtraction</param>
-        public void DecrementIntegrity(int value)
+        public void DecrementIntegrity(float value)
         {
             integrityValue -= value;
             NotifyScoreChanged();

@@ -58,6 +58,8 @@ MonoBehaviour:
   locomotiveSystemMove: {fileID: 6793859753166770643}
   vrPlayerHUD: {fileID: 2086237186137108589}
   keyboardPlayerHUD: {fileID: 6920882131679449626}
+  isAltMarkerActive: 0
+  evaluationDataWrapper: {fileID: 0}
 --- !u!114 &306473422507416854
 MonoBehaviour:
   m_ObjectHideFlags: 0

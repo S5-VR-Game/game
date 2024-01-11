@@ -34,7 +34,7 @@ namespace Game
         /// Event listener for integrity changes. Updates the integrity indicator on the HUD.
         /// </summary>
         /// <param name="integrityValue">new integrity value</param>
-        private void OnIntegrityChanged(int integrityValue)
+        private void OnIntegrityChanged(float integrityValue)
         {
             playerProfileService.GetHUD().UpdateIntegrityIndicator(integrity.GetCurrentIntegrityPercentage());
         }

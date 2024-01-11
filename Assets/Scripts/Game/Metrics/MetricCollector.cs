@@ -51,7 +51,7 @@ namespace Game.Metrics
         /// Event listener for the integrity changed event. Updates the integrity increase/decrease sum metric values.
         /// </summary>
         /// <param name="newIntegrity"></param>
-        private void OnIntegrityChanged(int newIntegrity)
+        private void OnIntegrityChanged(float newIntegrity)
         {
             float integrityChange = newIntegrity - m_LastIntegrityValue;
             if (integrityChange > 0)

@@ -34,6 +34,8 @@ namespace Game
         
         // The Timer for the Decrement and its default value
         private float _defaultTimeDecrement;
+        private const float _defaultDecrementVal = 0.16666f;
+        private float _decrementValue;
         private float _decrementTimer;
 
         [FormerlySerializedAs("decrementValue")] [SerializeField] private int integrityDecrementValue;
@@ -80,7 +82,8 @@ namespace Game
         {
             remainingTime = initialGameTime;
             m_NextGameTaskTime = GetNextTimeInterval();
-            _defaultTimeDecrement = DetermineTimeAccordingToDifficulty();
+            _defaultTimeDecrement = 1.0f;
+            _decrementValue = DifficultyToDecrementVal();
             _decrementTimer = _defaultTimeDecrement;
             
             // initialize factories
@@ -92,13 +95,13 @@ namespace Game
             }
         }
 
-        private float DetermineTimeAccordingToDifficulty()
+        private float DifficultyToDecrementVal()
         {
             return difficulty.GetSeparatedDifficulty() switch
             {
-                SeparatedDifficulty.Easy => TimeWhenDecrementEasy,
-                SeparatedDifficulty.Medium => TimeWhenDecrementMedium,
-                SeparatedDifficulty.Hard => TimeWhenDecrementHard,
+                SeparatedDifficulty.Easy => _defaultDecrementVal,
+                SeparatedDifficulty.Medium => 2 * _defaultDecrementVal,
+                SeparatedDifficulty.Hard => 3 * _defaultDecrementVal,
                 _ => TimeWhenDecrementEasy
             };
         }
@@ -151,7 +154,7 @@ namespace Game
 
             if (_decrementTimer <= 0.0f)
             {
-                integrityObserver.integrity.DecrementIntegrity(integrityDecrementValue);
+                integrityObserver.integrity.DecrementIntegrity(_decrementValue);
                 Debug.Log("Should have decremented the integrity value");
                 Debug.Log("Integrity-Value: " + integrityObserver.integrity.GetCurrentIntegrity());
                 _decrementTimer = _defaultTimeDecrement;
