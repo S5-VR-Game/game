@@ -12,8 +12,12 @@ namespace Game.Tasks.MedicalDisaster
     {
         private const string TaskName = "Medical Disaster";
         private const string TaskDescription = "Medical Disaster Description";
-        private const float InitialTimerTime = 180;
+        private const float InitialTimerTimeEasy = 35;
+        private const float InitialTimerTimeMedium = 50;
+        private const float InitialTimerTimeHard = 100;
         private const float TaskStartPlayerDistance = 3;
+        
+        private readonly float _initialTimerTime;
 
         // parameters for different difficulties
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
@@ -30,11 +34,21 @@ namespace Game.Tasks.MedicalDisaster
         [SerializeField] private GameObject rightPipeTop;
         [SerializeField] private GameObject rightPipeBottom;
         
-        public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription, GameTaskType.MedicalDisaster)
+        public MedicalDisaster() : base(40, TaskName, TaskDescription, GameTaskType.MedicalDisaster)
         {
             taskDescription =   "Leitungen zur Krankenstation sind undicht!\n" +
                                 "Die Substanzen sind sicher nicht genießbar!\n" +
                                 "Du musst die Ventile sofort schließen, um das Leck abzudichten!\n";
+
+            remainingTime = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => InitialTimerTimeEasy,
+                SeparatedDifficulty.Medium => InitialTimerTimeMedium,
+                SeparatedDifficulty.Hard => InitialTimerTimeHard,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
+            _initialTimerTime = remainingTime;
         }
 
         public override void Initialize()
@@ -66,7 +80,7 @@ namespace Game.Tasks.MedicalDisaster
         protected override void BeforeStateCheck()
         {
             // update time indicator
-            var remainingTimePercent = remainingTime / InitialTimerTime;
+            var remainingTimePercent = remainingTime / _initialTimerTime;
             if (remainingTimePercent is >= 0 and <= 1)
             {
                 leftPipeBottom.transform.localScale = new Vector3(remainingTimePercent, 1, 1);
