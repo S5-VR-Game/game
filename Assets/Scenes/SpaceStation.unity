@@ -18520,6 +18520,30 @@ PrefabInstance:
       propertyPath: taskSuccessSoundManager
       value: 
       objectReference: {fileID: 549245272}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: markerPrefab
+      value: 
+      objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: metricCollector
+      value: 
+      objectReference: {fileID: 1267852998}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: playerProfileService
+      value: 
+      objectReference: {fileID: 1140929251}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: evaluationDataWrapper
+      value: 
+      objectReference: {fileID: 1464383682}
+    - target: {fileID: 2018411904853680882, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018411904853680882, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: m_Size.z
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2766555538743404404, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialDifficultyValue
       value: 1
@@ -18530,7 +18554,7 @@ PrefabInstance:
       objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: metricCollector
@@ -18655,6 +18679,18 @@ PrefabInstance:
     - target: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: m_Name
       value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262002781171710141, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262002781171710141, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262002781171710141, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42
       objectReference: {fileID: 0}
     - target: {fileID: 8327690461323679888, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: integrityValue
