@@ -1533,7 +1533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2868798834813906343, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3675745017860404239, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1612,6 +1612,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1267852994}
     - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517748670032772896, guid: 0ab9be9d67a1c7f499755c2dc66228dd, type: 3}
       propertyPath: gameInformation
       value: 
       objectReference: {fileID: 753573976}
@@ -1678,7 +1682,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104993390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891469c809c05a84a881f75fdb1bd21f, type: 3}
   m_Name: 
@@ -9407,7 +9411,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664234623}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891469c809c05a84a881f75fdb1bd21f, type: 3}
   m_Name: 
@@ -14263,7 +14267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916321864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891469c809c05a84a881f75fdb1bd21f, type: 3}
   m_Name: 
@@ -18180,7 +18184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261689347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891469c809c05a84a881f75fdb1bd21f, type: 3}
   m_Name: 
@@ -18522,7 +18526,7 @@ PrefabInstance:
       objectReference: {fileID: 549245272}
     - target: {fileID: 2766555538743404404, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialDifficultyValue
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: markerPrefab
@@ -18530,7 +18534,7 @@ PrefabInstance:
       objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 100000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: metricCollector
@@ -18538,11 +18542,11 @@ PrefabInstance:
       objectReference: {fileID: 1267852998}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: concurrentTasksLimit
-      value: 1000
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: playerProfileService
@@ -18554,48 +18558,48 @@ PrefabInstance:
       objectReference: {fileID: 1464383682}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: taskSpawnPointTimeout
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: difficultyTimeModifier
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: randomTimeIntervalSize
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[0]
       value: 
-      objectReference: {fileID: 420801823}
+      objectReference: {fileID: 982813678}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[1]
       value: 
-      objectReference: {fileID: 1861841856}
+      objectReference: {fileID: 1345857081}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[2]
       value: 
-      objectReference: {fileID: 1200780093}
+      objectReference: {fileID: 2103604246}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[3]
       value: 
-      objectReference: {fileID: 392388215}
+      objectReference: {fileID: 870113292}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[4]
       value: 
-      objectReference: {fileID: 982813678}
+      objectReference: {fileID: 1861841856}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[5]
       value: 
-      objectReference: {fileID: 1345857081}
+      objectReference: {fileID: 1200780093}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[6]
       value: 
-      objectReference: {fileID: 2103604246}
+      objectReference: {fileID: 392388215}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[7]
       value: 
-      objectReference: {fileID: 870113292}
+      objectReference: {fileID: 1091244114}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.data[8]
       value: 
@@ -18606,7 +18610,7 @@ PrefabInstance:
       objectReference: {fileID: 593124736}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: minTimeIntervalBetweenTasks
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18662,7 +18666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8327690461323679888, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: integrityValue
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8919326314240518745, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: evaluationDataWrapper
