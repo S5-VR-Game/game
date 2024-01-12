@@ -117,7 +117,7 @@ namespace Game
                     if (remainingTime < m_NextGameTaskTime)
                     {
                         // check if task limit is not reached yet
-                        if (gameTaskObserver.GetActiveTaskCount() < concurrentTasksLimit)
+                        if (gameTaskObserver.GetActiveTasks().Count < concurrentTasksLimit)
                         {
                             TrySpawnRandomTask();
                         }
@@ -172,7 +172,6 @@ namespace Game
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySoundFunctionCall();
-                    gameTaskObserver.IncrementActiveTask();
                     return;
                 }
             }

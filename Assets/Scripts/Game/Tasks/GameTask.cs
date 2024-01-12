@@ -155,7 +155,7 @@ namespace Game.Tasks
         /// <summary>
         /// Removes the game object and all its linked game objects from the scene
         /// </summary>
-        protected void DestroyTask()
+        public void DestroyTask()
         {
             GameObjectDestroyed?.Invoke(this);
             

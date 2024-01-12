@@ -21,7 +21,7 @@ namespace Game.Tasks.BookRiddle
         {
             taskDescription = "Einige Sicherheitsmaßnahmen müssen deaktiviert werden.\n" +
                               "Du musst diese Schalter bestimmt oft drücken.\n" +
-                              "Die Bücher sehen aber seltsam aus...";
+                              "Die Bücher sehen aber seltsam aus... zu öffnen sind sie mit der Zeigefinger-Taste";
         }
 
         public override void Initialize()

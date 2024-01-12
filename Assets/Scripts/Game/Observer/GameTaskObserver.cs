@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.Generic;
 using Evaluation;
 using Game.Tasks;
 using Logging;
@@ -20,13 +22,13 @@ namespace Game.Observer
         
         [SerializeField] private SoundManager taskSuccessSoundManager;
         
-        private int m_ActiveTasks;
+        private readonly List<GameTask> m_ActiveTasks = new();
         
         protected override void OnTaskSuccessful(GameTask task)
         {
             m_LOG.Log(LOGTag,"task successful: " + task.taskName);
             evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskWon);
-            m_ActiveTasks--;
+            m_ActiveTasks.Remove(task);
             taskSuccessSoundManager.PlaySoundFunctionCall();
         }
         
@@ -34,7 +36,7 @@ namespace Game.Observer
         {
             m_LOG.Log(LOGTag,"task failed: " + task.taskName);
             evaluationDataWrapper.IncrementMapEntry(task, DictTypes.TaskFailed);
-            m_ActiveTasks--;
+            m_ActiveTasks.Remove(task);
             taskFailureSoundManager.PlaySoundFunctionCall();
         }
         
@@ -44,21 +46,20 @@ namespace Game.Observer
             m_LOG.Log(LOGTag,"task game object destroyed: " + task.taskName);
         }
 
-        /// <summary>
-        /// Returns the current active task count.
-        /// </summary>
-        /// <returns>the number of active tasks</returns>
-        public int GetActiveTaskCount()
+        public override void RegisterGameTask(GameTask task)
         {
-            return m_ActiveTasks;
+            base.RegisterGameTask(task);
+            m_ActiveTasks.Add(task);
         }
 
         /// <summary>
-        /// Increments the active task counter by 1. Should be called once every time a new task is spawned.
+        /// Returns the current active tasks. Active means, that the task is not <see cref="TaskState.Failed"/> or
+        /// <see cref="TaskState.Successful"/>.
         /// </summary>
-        public void IncrementActiveTask()
+        /// <returns>all currently active tasks</returns>
+        public List<GameTask> GetActiveTasks()
         {
-            m_ActiveTasks++;
+            return m_ActiveTasks;
         }
     }
 }

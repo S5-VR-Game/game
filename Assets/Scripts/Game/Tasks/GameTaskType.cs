@@ -11,5 +11,6 @@ namespace Game.Tasks
         MedicalDisaster,
         MixingIngredients,
         StorageRiddle,
+        GameExitTask,
     }
 }
