@@ -127,6 +127,15 @@ MonoBehaviour:
   spawnPos6: {fileID: 6712090101913382743}
   spawnPos7: {fileID: 2570697566829215969}
   spawnPos8: {fileID: 4926998457775306907}
+  _spawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   endPoint1: {fileID: 4946551809789222245}
   endPoint2: {fileID: 6695752633821170682}
   endPoint3: {fileID: 4419350537335611543}
@@ -272,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec490f15d64f904893ce809bb3a7dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 2
+  taskPriority: 2
   asteroidShooterScene: {fileID: 8557072923420806920}
   spawnAsteroidsScript: {fileID: 7924681591478478125}
   countSpaceStationHitsScript: {fileID: 6053558553958656985}
@@ -718,7 +727,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7058737211264273361, guid: 3a6373cf70282a443a9648fd5d4ae6ed, type: 3}
   camera: {fileID: 0}
   projectileSpeed: 10
-  controller: 0
+  controller: 5
 --- !u!1 &5855159233309315551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,5 +1251,4 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0

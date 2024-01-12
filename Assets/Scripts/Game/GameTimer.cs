@@ -27,11 +27,6 @@ namespace Game
         [SerializeField] private float difficultyTimeModifier = 10;
         [SerializeField] private float minTimeIntervalBetweenTasks = 10;
         [SerializeField] private float initialTaskSpawnDelay = 3;
-
-        // Timer Section for decrementing the Integrity-value permanently.
-        private const float TimeWhenDecrementEasy = 5.0f;
-        private const float TimeWhenDecrementMedium = 3.0f;
-        private const float TimeWhenDecrementHard = 2.0f;
         
         // The Timer for the Decrement and its default value
         private float _defaultTimeDecrement;
@@ -101,9 +96,9 @@ namespace Game
             return difficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => _defaultDecrementVal,
-                SeparatedDifficulty.Medium => 2 * _defaultDecrementVal,
-                SeparatedDifficulty.Hard => 3 * _defaultDecrementVal,
-                _ => TimeWhenDecrementEasy
+                SeparatedDifficulty.Medium => 1.5f * _defaultDecrementVal,
+                SeparatedDifficulty.Hard => 2.5f * _defaultDecrementVal,
+                _ => _defaultDecrementVal
             };
         }
 
