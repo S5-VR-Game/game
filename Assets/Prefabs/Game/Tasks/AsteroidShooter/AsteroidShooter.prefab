@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec490f15d64f904893ce809bb3a7dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskPriority: 2
+  taskPriority: 0
   asteroidShooterScene: {fileID: 8557072923420806920}
   spawnAsteroidsScript: {fileID: 7924681591478478125}
   countSpaceStationHitsScript: {fileID: 6053558553958656985}

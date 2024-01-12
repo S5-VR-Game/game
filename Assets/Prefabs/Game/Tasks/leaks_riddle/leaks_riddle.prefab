@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c3f1a807604dc6ad332b6b34cb15d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 1
+  taskPriority: 2
   buttonNode: {fileID: 7015635544690766661}
   confirmedMaterial: {fileID: 2100000, guid: 9e77252e85fcd4b0da6281ffd6620c35, type: 2}
 --- !u!1 &1406489708261303622
@@ -461,8 +461,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.4
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &3642535169352433831
 GameObject:
   m_ObjectHideFlags: 0

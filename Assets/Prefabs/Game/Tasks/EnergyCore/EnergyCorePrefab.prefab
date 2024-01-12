@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1edda0ea6c481a8c758d5a58bf5e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 0
+  taskPriority: 2
   finishedEnergyCoreCounter: 0
 --- !u!114 &123846879647733316
 MonoBehaviour:
