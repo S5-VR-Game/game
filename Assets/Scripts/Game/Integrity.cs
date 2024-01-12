@@ -36,7 +36,7 @@ namespace Game
         /// Increments the integrityValue of the game.
         /// </summary>
         /// <param name="value">The operand for the addition</param>
-        public void IncrementIntegrity(int value)
+        public void IncrementIntegrity(float value)
         {
             integrityValue += value;
             NotifyScoreChanged();

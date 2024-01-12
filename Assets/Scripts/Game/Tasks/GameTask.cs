@@ -18,12 +18,12 @@ namespace Game.Tasks
     /// </summary>
     public abstract class GameTask : MonoBehaviour
     {
-        protected const int k_DefaultIntegrityValue = 5;
+        protected const float k_DefaultIntegrityValue = 5;
 
         public GameTaskType taskType { get; protected set; }
         public string taskName { get; protected set; }
         public string taskDescription { get; protected set; }
-        public int integrityValue { get; protected set; }
+        public float integrityValue { get; protected set; }
         
         /// <summary>
         /// Provides the current game difficulty value. The difficulty of the task should adapt on this value.
@@ -64,7 +64,7 @@ namespace Game.Tasks
         /// <param name="taskDescription">description for this task</param>
         /// <param name="taskType">type of this task</param>
         /// <param name="integrityValue">integrity value, which is added/subtracted to global integrity on task success/failuire</param>
-        protected GameTask(string taskName, string taskDescription, GameTaskType taskType, int integrityValue = k_DefaultIntegrityValue)
+        protected GameTask(string taskName, string taskDescription, GameTaskType taskType, float integrityValue = k_DefaultIntegrityValue)
         {
             this.taskName = taskName;
             this.taskDescription = taskDescription;
