@@ -28,8 +28,8 @@ namespace Game
                                            "Begib dich jezt zum Ausgangspunkt, um vom Raumschiff abgeholt zu werden " +
                                            "und das Spiel zu beenden.\nDer Ausgangspunkt ist als {0} markiert.";
 
-        private const string NormalMarker = "Marker auf der Navigationsleiste oben markiert";
-        private const string AltMarker = "grüner Punkt im Sichtfeld markiert";
+        private const string NormalMarker = "Marker auf der Navigationsleiste oben";
+        private const string AltMarker = "grüner Punkt im Sichtfeld";
 
         private void Start()
         {
