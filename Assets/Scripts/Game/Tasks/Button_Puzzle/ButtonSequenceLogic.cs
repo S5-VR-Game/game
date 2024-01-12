@@ -9,9 +9,9 @@ using Random = UnityEngine.Random;
 public class ButtonSequenceLogic : GameTask
 {
     
-    public GameObject cube;
+    public RubicsCube cube;
     
-    public static int[] colorSequence;
+    public int[] colorSequence;
     private bool _done;
     private int _level;
     private int _sequenceLenght;
@@ -43,6 +43,7 @@ public class ButtonSequenceLogic : GameTask
         }
 
         progressBar.ChangeValue(0f);
+        cube.Initialize(colorSequence);
     }
 
     protected override void BeforeStateCheck()
