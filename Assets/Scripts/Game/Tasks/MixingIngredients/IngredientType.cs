@@ -7,10 +7,10 @@ namespace Game.Tasks.MixingIngredients
     /// </summary>
     public class IngredientType
     {
-        public static readonly IngredientType Green = new IngredientType("Green", Color.green);
-        public static readonly IngredientType Blue = new IngredientType("Blue", Color.blue);
-        public static readonly IngredientType Yellow = new IngredientType("Yellow", Color.yellow);
-        public static readonly IngredientType Cyan = new IngredientType("Cyan", Color.cyan);
+        public static readonly IngredientType Green = new IngredientType("Grün", Color.green);
+        public static readonly IngredientType Blue = new IngredientType("Blau", Color.blue);
+        public static readonly IngredientType Yellow = new IngredientType("Orange", Color.yellow);
+        public static readonly IngredientType Cyan = new IngredientType("Türkis", Color.cyan);
         public static readonly IngredientType Magenta = new IngredientType("Magenta", Color.magenta);
 
         public string name { get; }

@@ -13,7 +13,7 @@ namespace Game.Tasks.MixingIngredients
     {
         private const string Name = "Mixing ingredients";
         private const string Description = "Task decsription";
-        private const string RecipeHeaderText = "Recipe";
+        private const string RecipeHeaderText = "Zutaten";
         
         /// <summary>
         /// Line format for the recipe text. First parameter is the quantity, second parameter is the ingredient name.
