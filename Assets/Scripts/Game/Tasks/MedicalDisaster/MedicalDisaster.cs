@@ -12,9 +12,12 @@ namespace Game.Tasks.MedicalDisaster
     {
         private const string TaskName = "Medical Disaster";
         private const string TaskDescription = "Medical Disaster Description";
-        private const float InitialTimerTimeEasy = 35;
-        private const float InitialTimerTimeMedium = 50;
-        private const float InitialTimerTimeHard = 100;
+        private const float InitialTimerTimeEasy = 60;
+        private const float InitialTimerTimeMedium = 90;
+        private const float InitialTimerTimeHard = 150;
+        private const float IntegrityEasy = 10;
+        private const float IntegrityMedium = 15;
+        private const float IntegrityHard = 25;
         private const float TaskStartPlayerDistance = 3;
         
         private float _initialTimerTime;
@@ -43,6 +46,7 @@ namespace Game.Tasks.MedicalDisaster
 
         public override void Initialize()
         {
+            // sets the remaining time base on difficulty
             remainingTime = difficulty.GetSeparatedDifficulty() switch
             {
                 SeparatedDifficulty.Easy => InitialTimerTimeEasy,
@@ -50,8 +54,17 @@ namespace Game.Tasks.MedicalDisaster
                 SeparatedDifficulty.Hard => InitialTimerTimeHard,
                 _ => throw new ArgumentOutOfRangeException()
             };
-
+            
             _initialTimerTime = remainingTime;
+
+            // sets the integrity based on difficulty
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => IntegrityEasy,
+                SeparatedDifficulty.Medium => IntegrityMedium,
+                SeparatedDifficulty.Hard => IntegrityHard,
+                _ => throw new ArgumentOutOfRangeException()
+            };
             
             // shuffle for random valve order
             openValves.Shuffle();
@@ -92,6 +105,7 @@ namespace Game.Tasks.MedicalDisaster
 
         protected override TaskState CheckTaskState()
         {
+            Debug.Log("remaining time:" + remainingTime);
             // if all valves are closed, the task is completed
             if (openValves.Count == 0)
             {
