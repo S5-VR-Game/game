@@ -6,7 +6,7 @@ namespace Game.Tasks.StorageRiddle
     /// <summary>
     /// manage the process of the task Storage Riddle
     /// </summary>
-    public class StartStorageRiddle : TimerTask
+    public class StartStorageRiddle : GameTask
     {
         // amount how many boxes should be spawned in
         private int _maxAmountDeliveryBoxes; 
@@ -15,8 +15,8 @@ namespace Game.Tasks.StorageRiddle
         [SerializeField] private HandleBoxDelivery handleBoxDeliveryScript;
         [SerializeField] private SpawnBoxes spawnBoxesScript;
         
-        public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
-            taskDescription: "", taskType: GameTaskType.StorageRiddle, integrityValue: 10)
+        public StartStorageRiddle() : base(taskName: "Storage Riddle", 
+            taskDescription: "", taskType: GameTaskType.StorageRiddle, integrityValue: 53.1f)
         {
             taskDescription = "Jemand hat die Lagerkisten verlegt!\n" +
                               "Du musst alle auf die grün leuchtende Lagerfläche legen.\n" +

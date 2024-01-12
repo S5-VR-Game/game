@@ -12,7 +12,7 @@ namespace Game.Tasks.EnergyCore
         [SerializeField] private int finishedEnergyCoreCounter;
         
         public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
-            taskType: GameTaskType.EnergyCore, integrityValue : 10)
+            taskType: GameTaskType.EnergyCore, integrityValue : 7.5f)
         {
         }
 
