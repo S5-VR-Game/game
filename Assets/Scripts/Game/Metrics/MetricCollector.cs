@@ -22,6 +22,8 @@ namespace Game.Metrics
         private float m_LastIntegrityValue;
         private float m_LastTaskSpawnTimeSeconds;
         private GameState m_LastGameState;
+
+        private bool metricsExported;
         
         private void Start()
         {
@@ -73,10 +75,12 @@ namespace Game.Metrics
         /// <param name="gameState">new game state</param>
         private void OnGameStateChanged(GameState gameState)
         {
-            if (gameState == GameState.Ongoing)
+            if (gameState == GameState.Ongoing || metricsExported)
             {
                 return;
             }
+
+            metricsExported = true;
             
             // update game id pref to allow displaying in main menu end scene
             PlayerPrefs.SetString("GameID", gameInformation.GetGameID());
