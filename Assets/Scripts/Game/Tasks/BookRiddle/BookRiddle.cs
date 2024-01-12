@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Tasks.BookRiddle
@@ -26,6 +27,14 @@ namespace Game.Tasks.BookRiddle
         public override void Initialize()
         {
             bookRiddleSolutionListener.SetBookRiddleSolution(solution);
+            
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 15,
+                SeparatedDifficulty.Medium => 23,
+                SeparatedDifficulty.Hard => 30,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         public void SetBookRiddleState(TaskState taskState)
