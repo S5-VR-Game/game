@@ -105,7 +105,6 @@ namespace Game.Tasks.MedicalDisaster
 
         protected override TaskState CheckTaskState()
         {
-            Debug.Log("remaining time:" + remainingTime);
             // if all valves are closed, the task is completed
             if (openValves.Count == 0)
             {
