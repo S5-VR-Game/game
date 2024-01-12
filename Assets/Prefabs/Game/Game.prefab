@@ -116,12 +116,13 @@ MonoBehaviour:
   gameInformation: {fileID: 7562419852456309897}
   gameTaskObserver: {fileID: 822869670583254559}
   gameExitTaskFactory: {fileID: 3310778169007922015}
-  evaluationDataWrapper: {fileID: 0}
-  playerProfileService: {fileID: 0}
   difficulty: {fileID: 2766555538743404404}
   integrityObserver: {fileID: 8919326314240518745}
+  evaluationDataWrapper: {fileID: 0}
+  playerProfileService: {fileID: 0}
   metricCollector: {fileID: 0}
   markerPrefab: {fileID: 0}
+  gameTimer: {fileID: 3769836651817287872}
 --- !u!114 &3310778169007922015
 MonoBehaviour:
   m_ObjectHideFlags: 0

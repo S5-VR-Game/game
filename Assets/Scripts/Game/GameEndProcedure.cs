@@ -18,11 +18,11 @@ namespace Game
         [SerializeField] private GameExitTaskFactory gameExitTaskFactory;
         [SerializeField] private Difficulty difficulty;
         [SerializeField] private IntegrityObserver integrityObserver;
+        [SerializeField] private GameTimer gameTimer;
         [SerializeField] private EvaluationDataWrapper evaluationDataWrapper;
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private MetricCollector metricCollector;
         [SerializeField] private AltMarker markerPrefab;
-        [SerializeField] private GameTimer gameTimer;
 
         private const string GameWonText = "Du hast die Raumstation erfolgreich instand gehalten!\n" +
                                            "Begib dich jezt zum Ausgangspunkt, um vom Raumschiff abgeholt zu werden " +
