@@ -6,9 +6,6 @@ namespace Tutorial
     public class ScaleObject : MonoBehaviour
     {
         private const float ScalingSpeed = 50.0f;
-        
-        // The scale factor you want to apply
-        public Vector3 scaleFactor = new Vector3(1f, 1f, 1f) * ScalingSpeed * Time.deltaTime;
 
         // Minimum and maximum scale values
         private const float ControlDistance = 4.0f;
