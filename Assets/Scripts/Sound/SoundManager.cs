@@ -31,6 +31,8 @@ namespace Sound
         [SerializeField] private bool playSoundGlobal; // variable to make the sound audible local (range of 15) or global
         
         private AudioSource _audioSource; // stores the audio-source (needed to play the sound)
+
+        private const float RollThreshold = 0.2f;
         
         private void Start()
         {
@@ -109,7 +111,7 @@ namespace Sound
             
             var velocity = gameObject.GetComponent<Rigidbody>().velocity;
             
-            if (velocity.x + velocity.y + velocity.z != 0)
+            if (velocity.x + velocity.y + velocity.z > RollThreshold || velocity.x + velocity.y + velocity.z < -RollThreshold)
             {
                 StartPlayingSound();
             }
