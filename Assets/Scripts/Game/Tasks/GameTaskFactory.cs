@@ -104,7 +104,6 @@ namespace Game.Tasks
                 // only register task to HUD navigation bar if alternative marker is not active
                 if (!m_PlayerProfileService.IsAltMarkerActive())
                 {
-                    Debug.Log("IsAltMarkerActive true");
                     // send task to HUD
                     m_PlayerProfileService.GetHUD().registerNewTask(newTask, spawnPoint.GetSpawnPosition(), newTask.taskPriority);
                 }
