@@ -1,4 +1,5 @@
 using System;
+using Game;
 using PlayerController;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,7 @@ namespace Tutorial
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private GameObject game;
         [SerializeField] private TutorialGameTimer tutorialGameTimer;
+        [SerializeField] private TutorialSoundService tutorialSoundService;
         
         [Header("Teleport Positions")]
         [SerializeField] private Transform basicsTeleportPosition;
@@ -30,7 +32,9 @@ namespace Tutorial
 
         [SerializeField] private GameObject compass;
         [SerializeField] private GameObject waypoints;
-        
+
+        [Header("Evaluation Settings")]
+        [SerializeField] private bool playHUDSectionOnly;
 
         private void Start()
         {
@@ -38,9 +42,25 @@ namespace Tutorial
             game.SetActive(false);
             playerProfileService.GetHUD().gameObject.SetActive(false);
             
-            // start tutorial procedure
-            NextTutorialState();
+            // enable compass or waypoints
             handleCompassWaypointVisualization();
+            
+
+            if (playHUDSectionOnly)
+            {
+                // deactivate sound requests to skip room introduction sound playback
+                // when updating the state
+                tutorialSoundService.SetAcceptRequests(false);
+                // start with HUD state, if playHUDSectionOnly is enabled
+                UpdateTutorialState(TutorialState.HUD);
+                // reactivate sound requests
+                tutorialSoundService.SetAcceptRequests(true);
+            }
+            else
+            {
+                // start tutorial procedure
+                NextTutorialState();
+            }
         }
 
         private void handleCompassWaypointVisualization()
@@ -56,27 +76,27 @@ namespace Tutorial
             {
                 NextTutorialState();
             }
+            // debug input to skip current sound
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                tutorialSoundService.StopCurrentPlayBack();
+            }
         }
 
         /// <summary>
-        /// Changes the current tutorial state to the following state and executes state specific actions.
-        /// Teleports the player to the position according to the new tutorial state.
+        /// Updates the state variable and executes task specific actions.
         /// </summary>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void NextTutorialState()
+        /// <param name="newState">new state</param>
+        private void UpdateTutorialState(TutorialState newState)
         {
-            // change to next state
-            m_TutorialState = m_TutorialState switch
+            m_TutorialState = newState;
+            
+            // check if HUD section should be played only and exit tutorial, if the HUD scene if finished
+            if (playHUDSectionOnly &&  m_TutorialState != TutorialState.HUD && m_TutorialState != TutorialState.Exit)
             {
-                TutorialState.Initialize => TutorialState.Basics,
-                TutorialState.Basics => TutorialState.Interaction,
-                TutorialState.Interaction => TutorialState.HUD,
-                TutorialState.HUD => TutorialState.Tasks,
-                TutorialState.Tasks => TutorialState.Completed,
-                TutorialState.Completed => TutorialState.Exit,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-
+                UpdateTutorialState(TutorialState.Exit);
+                return;
+            }
             // execute state specific actions
             switch (m_TutorialState)
             {
@@ -108,6 +128,28 @@ namespace Tutorial
             
             TeleportPlayerAccordingToState();
             OnTutorialStateChanged?.Invoke(m_TutorialState);
+        }
+
+        /// <summary>
+        /// Changes the current tutorial state to the following state and executes state specific actions.
+        /// Teleports the player to the position according to the new tutorial state.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void NextTutorialState()
+        {
+            // determine next state
+            var nextState = m_TutorialState switch
+            {
+                TutorialState.Initialize => TutorialState.Basics,
+                TutorialState.Basics => TutorialState.Interaction,
+                TutorialState.Interaction => TutorialState.HUD,
+                TutorialState.HUD => TutorialState.Tasks,
+                TutorialState.Tasks => TutorialState.Completed,
+                TutorialState.Completed => TutorialState.Exit,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            
+            UpdateTutorialState(nextState);
         }
         
         /// <summary>

@@ -7854,6 +7854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game
       objectReference: {fileID: 0}
+    - target: {fileID: 8327690461323679888, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: integrityValue
+      value: 6000
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
     - {fileID: 822869670583254559, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
@@ -22028,6 +22032,7 @@ MonoBehaviour:
   playerProfileService: {fileID: 2004019403}
   game: {fileID: 536993067}
   tutorialGameTimer: {fileID: 759774414}
+  tutorialSoundService: {fileID: 1530644230}
   basicsTeleportPosition: {fileID: 1868000359}
   interactionTeleportPosition: {fileID: 1101483158}
   hudTeleportPosition: {fileID: 1019567672}
