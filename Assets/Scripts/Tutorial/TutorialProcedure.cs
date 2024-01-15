@@ -1,6 +1,6 @@
 using System;
-using Game;
 using PlayerController;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +14,7 @@ namespace Tutorial
         private TutorialState m_TutorialState = TutorialState.Initialize;
 
         [SerializeField] private TutorialDoorController[] doorControllers;
+        [SerializeField] private TextMeshPro[] turnAroundInfoTexts;
         [SerializeField] private PlayerProfileService playerProfileService;
         [SerializeField] private GameObject game;
         [SerializeField] private TutorialGameTimer tutorialGameTimer;
@@ -27,6 +28,7 @@ namespace Tutorial
         [SerializeField] private Transform completedTeleportPosition;
         
         private const String FollowingSceneName = "MainMenuScene";
+        private const String TurnAroundInfoText = "Bitte umdrehen";
         
         public event Action<TutorialState> OnTutorialStateChanged;
 
@@ -44,6 +46,12 @@ namespace Tutorial
             
             // enable compass or waypoints
             handleCompassWaypointVisualization();
+            
+            // initialize text of turn around info texts
+            foreach (var turnAroundInfoText in turnAroundInfoTexts)
+            {
+                turnAroundInfoText.text = TurnAroundInfoText;
+            }
             
 
             if (playHUDSectionOnly)
@@ -115,6 +123,11 @@ namespace Tutorial
                     foreach (var doorController in doorControllers)
                     {
                         doorController.OpenDoor();
+                    }
+                    // deactivate all turn around info texts
+                    foreach (var turnAroundInfoText in turnAroundInfoTexts)
+                    {
+                        turnAroundInfoText.gameObject.SetActive(false);
                     }
                     // allow normal task spawning
                     tutorialGameTimer.SetTaskSpawningEnabled(true);
