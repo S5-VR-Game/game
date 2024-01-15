@@ -126,7 +126,7 @@ namespace Game.Tasks.BookRiddle
         
         private static int GetRandomDigit()
         {
-            return Random.Range(0, 10);
+            return Random.Range(0, 6);
         }
     }
 }

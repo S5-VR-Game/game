@@ -50,7 +50,7 @@ namespace Game
         [SerializeField] private IntegrityObserver integrityObserver;
         [SerializeField] private MetricCollector metricCollector;
         
-        [SerializeField] private GeneralGameTaskFactory[] factories;
+        [SerializeField] protected GeneralGameTaskFactory[] factories;
 
         [SerializeField] private SoundManager _taskSpawningSoundManager;
         [SerializeField] private AltMarker markerPrefab;
@@ -69,14 +69,18 @@ namespace Game
         public event Action<float> OnTimeChanged;
 
         public bool timerPaused { get; private set; }
+        public bool spawningEnabled { get; private set; }
         public float remainingTime { get; private set; }
         public bool timeOver { get; private set; }
 
         public EvaluationDataWrapper evaluationDataWrapper;
 
-        private void Start()
+        protected virtual void Start()
         {
             remainingTime = initialGameTime;
+            m_NextGameTaskTime = GetNextTimeInterval();
+            spawningEnabled = true;
+
             m_NextGameTaskTime = initialGameTime - initialTaskSpawnDelay;
             _defaultTimeDecrement = 1.0f;
             _decrementValue = DifficultyToDecrementVal();
@@ -116,14 +120,17 @@ namespace Game
                     // check whether new game task time is reached
                     if (remainingTime < m_NextGameTaskTime)
                     {
-                        // check if task limit is not reached yet
-                        if (gameTaskObserver.GetActiveTasks().Count < concurrentTasksLimit)
+                        if (spawningEnabled)
                         {
-                            TrySpawnRandomTask();
-                        }
-                        else
-                        {
-                            m_LOG.Log(LOGTag, "concurrent task limit reached, no task was spawned");
+                            // check if task limit is not reached yet
+                            if (gameTaskObserver.GetActiveTasks().Count < concurrentTasksLimit)
+                            {
+                                TrySpawnRandomTask();
+                            }
+                            else
+                            {
+                                m_LOG.Log(LOGTag, "concurrent task limit reached, no task was spawned");
+                            }
                         }
                         // update next game task time
                         m_NextGameTaskTime = GetNextTimeInterval();
@@ -206,6 +213,15 @@ namespace Game
         public void ResumeTimer()
         {
             timerPaused = false;
+        }
+
+        /// <summary>
+        /// Enables or disables task spawning
+        /// </summary>
+        /// <param name="newSpawningEnabledValue">whether spawning should be enabled/disabled</param>
+        public void SetTaskSpawningEnabled(bool newSpawningEnabledValue)
+        {
+            spawningEnabled = newSpawningEnabledValue;
         }
     }
 }

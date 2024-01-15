@@ -70,6 +70,11 @@ namespace PlayerController
                 isVrPlayerActive = PlayerPrefs.GetString("CurrentPlayer").Equals("VR");
                 UpdateActivePlayer();
             }
+
+            if (SceneManager.GetActiveScene().name.Equals("SpaceStation"))
+            {
+                isAltMarkerActive = PlayerPrefs.GetString("isAltMarkerActive").Equals("Markers");
+            }
         }
 
         /// <summary>
@@ -113,8 +118,13 @@ namespace PlayerController
         {
             isVrPlayerActive = vrPlayerActive;
             PlayerPrefs.SetString("CurrentPlayer", isVrPlayerActive ? "VR" : "Keyboard");
-
             UpdateActivePlayer();
+        }
+
+        public void SetIsAltMarkerActive(bool altMarkerActive)
+        {
+            isAltMarkerActive = altMarkerActive;
+            PlayerPrefs.SetString("isAltMarkerActive", isAltMarkerActive ? "Markers" : "Compass");
         }
 
         /// <summary>

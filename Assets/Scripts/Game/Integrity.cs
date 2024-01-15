@@ -38,7 +38,14 @@ namespace Game
         /// <param name="value">The operand for the addition</param>
         public void IncrementIntegrity(float value)
         {
-            integrityValue += value;
+            // prevent the integrityValue from exceeding the initial value
+            var newIntegrityValue = integrityValue + value;
+            if (newIntegrityValue > m_InitialIntegrityValue)
+            {
+                return;
+            }
+            
+            integrityValue = newIntegrityValue;
             NotifyScoreChanged();
         }
 
