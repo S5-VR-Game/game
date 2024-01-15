@@ -26,7 +26,13 @@ namespace Tutorial
         
         private const String FollowingSceneName = "MainMenuScene";
         
-        public event Action<TutorialState> OnTutorialStateChanged;  
+        public event Action<TutorialState> OnTutorialStateChanged;
+
+        [SerializeField] private GameObject compass;
+        [SerializeField] private GameObject waypoints;
+
+        public bool isCompassActive;
+        
 
         private void Start()
         {
@@ -36,8 +42,14 @@ namespace Tutorial
             
             // start tutorial procedure
             NextTutorialState();
+            handleCompassWaypointVisualization();
         }
-        
+
+        private void handleCompassWaypointVisualization()
+        {
+            Destroy(isCompassActive ?  waypoints : compass);
+        }
+
         private void Update()
         {
             // debug input to change tutorial state
