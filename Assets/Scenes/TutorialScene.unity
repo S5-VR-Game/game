@@ -7710,6 +7710,30 @@ PrefabInstance:
       propertyPath: taskSuccessSoundManager
       value: 
       objectReference: {fileID: 1084772915}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: gameTimer
+      value: 
+      objectReference: {fileID: 759774414}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: markerPrefab
+      value: 
+      objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: metricCollector
+      value: 
+      objectReference: {fileID: 759774415}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: gameTaskObserver
+      value: 
+      objectReference: {fileID: 1169253373}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: playerProfileService
+      value: 
+      objectReference: {fileID: 2004019403}
+    - target: {fileID: 1356332582379908673, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: evaluationDataWrapper
+      value: 
+      objectReference: {fileID: 964860391}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
       value: 3600
@@ -7844,6 +7868,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1084772914}
+    - targetCorrespondingSourceObject: {fileID: 5180088002400095127, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 964860392}
     - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 672393599}
@@ -7854,6 +7881,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: 1
       addedObject: {fileID: 759774414}
+    - targetCorrespondingSourceObject: {fileID: 7935988648039381092, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 759774415}
     - targetCorrespondingSourceObject: {fileID: 7811007272200654618, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1169253373}
@@ -7863,6 +7893,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
   m_PrefabInstance: {fileID: 579457990}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &579457992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7562419852456309897, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536993067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3ef31ddc6a4f6b8bccabacc6644516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &579457993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8327690461323679888, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 579457990}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536993067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e107a092a654ae4a8ed5b0021864ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &601659182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9032,6 +9084,8 @@ MonoBehaviour:
   initialGameTime: 3600
   difficultyTimeModifier: 10
   minTimeIntervalBetweenTasks: 1
+  initialTaskSpawnDelay: 3
+  integrityDecrementValue: 0
   randomTimeIntervalSize: 1
   taskSpawnPointTimeout: 10
   concurrentTasksLimit: 5
@@ -9039,10 +9093,30 @@ MonoBehaviour:
   playerProfileService: {fileID: 2004019403}
   gameTaskObserver: {fileID: 1169253373}
   integrityObserver: {fileID: 727231148}
+  metricCollector: {fileID: 759774415}
   factories:
   - {fileID: 1951987442}
   - {fileID: 672393600}
   _taskSpawningSoundManager: {fileID: 147872666}
+  markerPrefab: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
+  evaluationDataWrapper: {fileID: 964860391}
+--- !u!114 &759774415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536993067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e3b65c996c467aab85fad42d59e6fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 579457992}
+  integrity: {fileID: 579457993}
+  difficulty: {fileID: 759774413}
+  gameTimer: {fileID: 759774414}
+  playerProfileService: {fileID: 2004019403}
 --- !u!1001 &764864109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12844,6 +12918,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
   m_PrefabInstance: {fileID: 959289764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &964860390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964860392}
+  - component: {fileID: 964860391}
+  m_Layer: 0
+  m_Name: EvaluationWrapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &964860391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964860390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e399963886f04d9c982b0b84fd5f5657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  probandName: Julius Emil Arendt
+  runNumber: 1
+  gameInformation: {fileID: 579457992}
+--- !u!4 &964860392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964860390}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759774409}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &967128459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17133,6 +17254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a639a91b31c43938349326c1574cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  evaluationDataWrapper: {fileID: 964860391}
   taskFailureSoundManager: {fileID: 544759182}
   taskSuccessSoundManager: {fileID: 1084772915}
   tutorialProcedure: {fileID: 1530644229}
@@ -21913,7 +22035,6 @@ MonoBehaviour:
   completedTeleportPosition: {fileID: 1193215949}
   compass: {fileID: 310136302}
   waypoints: {fileID: 219905843}
-  isCompassActive: 1
 --- !u!114 &1530644230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22638,6 +22759,14 @@ PrefabInstance:
       propertyPath: isVrPlayerActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: isAltMarkerActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560886455523369257, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: evaluationDataWrapper
+      value: 
+      objectReference: {fileID: 964860391}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

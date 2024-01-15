@@ -30,8 +30,6 @@ namespace Tutorial
 
         [SerializeField] private GameObject compass;
         [SerializeField] private GameObject waypoints;
-
-        public bool isCompassActive;
         
 
         private void Start()
@@ -47,7 +45,8 @@ namespace Tutorial
 
         private void handleCompassWaypointVisualization()
         {
-            Destroy(isCompassActive ?  waypoints : compass);
+            Destroy(playerProfileService.IsAltMarkerActive() ?  compass : waypoints);
+            playerProfileService.SetIsAltMarkerActive(playerProfileService.IsAltMarkerActive());
         }
 
         private void Update()

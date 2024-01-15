@@ -13,7 +13,7 @@ namespace Game.Tasks.TutorialGameTask
 
         public OpenHUDTask() : base("Open HUD", "Herzlichen Glückwunsch, du hast\n" +
                                                     "das HUD erfolgreich geöffnet. Du\n" +
-                                                    "kannst es jetzt wieder schließen.", 20)
+                                                    "kannst es jetzt wieder schließen.",GameTaskType.TutorialTask, 20)
         {
             
         }

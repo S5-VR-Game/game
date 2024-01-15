@@ -10,7 +10,7 @@ namespace Game.Tasks.TutorialGameTask
         private int _currentCount;
         
         public TutorialGameTask() : base("Tutorial Aufgabe", "Jemand war anscheinend zu doof\n" +
-            "und hat die Knöpfe nicht gedrückt. \nDrücke sie fünf Mal.", 20)
+            "und hat die Knöpfe nicht gedrückt. \nDrücke sie fünf Mal.",GameTaskType.TutorialTask, 20)
         {
         }
 

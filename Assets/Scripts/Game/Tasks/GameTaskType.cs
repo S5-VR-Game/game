@@ -12,5 +12,6 @@ namespace Game.Tasks
         MixingIngredients,
         StorageRiddle,
         GameExitTask,
+        TutorialTask
     }
 }

@@ -34,7 +34,7 @@ namespace Tutorial
         /// </summary>
         public void SpawnTutorialTask()
         {
-            factories[TutorialGameTaskFactoryIndex].TrySpawnTask();
+            factories[TutorialGameTaskFactoryIndex].TrySpawnTask(evaluationDataWrapper);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Tutorial
         /// </summary>
         public void SpawnOpenHUDTask()
         {
-            factories[OpenHUDTaskFactoryIndex].TrySpawnTask();
+            factories[OpenHUDTaskFactoryIndex].TrySpawnTask(evaluationDataWrapper);
         }
     }
 }
