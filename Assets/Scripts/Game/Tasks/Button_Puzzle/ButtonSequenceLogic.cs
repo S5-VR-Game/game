@@ -9,9 +9,9 @@ using Random = UnityEngine.Random;
 public class ButtonSequenceLogic : GameTask
 {
     
-    public GameObject cube;
+    public RubicsCube cube;
     
-    public static int[] colorSequence;
+    public int[] colorSequence;
     private bool _done;
     private int _level;
     private int _sequenceLenght;
@@ -20,9 +20,9 @@ public class ButtonSequenceLogic : GameTask
     
     public override void Initialize()
     {
-        taskDescription = "The captain put the radio amplifier inside this console.\n" +
-                          "You need to press the color coded buttons in the correct order to activate it.\n" +
-                          "There must be a clue somewhere...";
+        taskDescription = "Der Kapitän hat den Radiowellen-verstärker in diese Konsole eingebaut.\n" +
+                          "Du musst die farbigen Knöpfe in der richtigen Reihenfolge drücken.\n" +
+                          "Es muss doch irgendwo einen Hinweis geben...";
         
         // crates sequence lenght based on difficulty
         _sequenceLenght = difficulty.GetSeparatedDifficulty() switch
@@ -43,6 +43,7 @@ public class ButtonSequenceLogic : GameTask
         }
 
         progressBar.ChangeValue(0f);
+        cube.Initialize(colorSequence);
     }
 
     protected override void BeforeStateCheck()
@@ -93,7 +94,7 @@ public class ButtonSequenceLogic : GameTask
         ButtonCheck((ColorCode)color);
     }
 
-    public ButtonSequenceLogic() : base("ButtonSequence", "description")
+    public ButtonSequenceLogic() : base("ButtonSequence", "description", GameTaskType.ButtonSequencePuzzle, integrityValue: 11.3f)
     {
     }
 }

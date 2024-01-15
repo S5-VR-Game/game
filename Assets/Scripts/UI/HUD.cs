@@ -90,14 +90,24 @@ public class HUD : MonoBehaviour
     }
 
 
-    public void registerNewTask(GameTask task, Vector3 spawnLocation, ObjectiveMarker.TaskType type)
+    public void registerNewTask(GameTask task, Vector3 spawnLocation, ObjectiveMarker.TaskPriority priority)
     {
-        navigator.InitializeMarker(task, spawnLocation, type);
+        navigator.InitializeMarker(task, spawnLocation, priority);
         
         task.GameObjectDestroyed += (gameTask) =>
         {
             navigator.DismissMarker(gameTask);
         };
+    }
+    
+    /// <summary>
+    /// Activates or deactivates the navigation bar.
+    /// If alternative navigation is active, the navigation bar will be deactivated.
+    /// </summary>
+    /// <param name="active">State of alternative navigation. true == active</param>
+    public void ChangeNavigation(bool active)
+    {
+        navigator.gameObject.SetActive(!active);
     }
     
 

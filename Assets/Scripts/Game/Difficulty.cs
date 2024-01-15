@@ -26,8 +26,8 @@ namespace Game
 
         [Range(MinValue, MaxValue)]
         public float initialDifficultyValue = 0.5f;
-        
-        private void Start()
+
+        private void Awake()
         {
             m_DifficultyValue = initialDifficultyValue;
         }

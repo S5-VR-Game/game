@@ -3,18 +3,24 @@ using UnityEngine.XR;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to shoot projectiles from the crosshair
+    /// <summary>
+    /// class used to shoot projectiles from the crosshair
+    /// </summary>
     public class ShootProjectile : MonoBehaviour
     {
-        public GameObject projectilePrefab; // stores the prefab of the projectile
+        // stores the prefab of the projectile
+        [SerializeField] private GameObject projectilePrefab; 
         
-        public Camera camera; // stores the object of the camera 
+        // stores the object of the camera
+        [SerializeField] public new Camera camera;  
         
-        public float projectileSpeed = 20f; // movement-speed of the bullet 
+        // movement-speed of the bullet
+        [SerializeField] private float projectileSpeed = 20f;  
 
-        public XRNode controller;
-
-        private bool lastTrigger = false;
+        // stores the reference of the selected controller 
+        [SerializeField] public XRNode controller;
+        
+        private bool _lastTrigger;
         
         private void Update()
         {
@@ -30,25 +36,28 @@ namespace Game.Tasks.AsteroidsShooter
             // checks if current player is vr-profile and player uses trigger-button
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                bool triggered = false;
+                bool triggered;
 
                 var device = InputDevices.GetDeviceAtXRNode(controller);
                 triggered = (device.TryGetFeatureValue(CommonUsages.triggerButton,
                     out var triggerState) && triggerState);
                  
                 
-                if (triggered != lastTrigger)
+                if (triggered != _lastTrigger)
                 {
                     if (triggered)
                     {
                         CalculateProjectileDirection();
                     }
 
-                    lastTrigger = triggered;
+                    _lastTrigger = triggered;
                 }
             } 
         }
 
+        /// <summary>
+        /// calculates the direction the projectile should be flying to
+        /// </summary>
         private void CalculateProjectileDirection()
         {
             var crosshairPosition = transform.position; // stores the position of the crosshair-image

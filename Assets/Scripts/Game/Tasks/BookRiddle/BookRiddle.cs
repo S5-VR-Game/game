@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game.Tasks.BookRiddle
@@ -16,16 +17,24 @@ namespace Game.Tasks.BookRiddle
         public BookRiddleSolution solution { get; set; }
         public BookRiddleSolutionListener bookRiddleSolutionListener;
         
-        public BookRiddle() : base("Book Riddle", "", 5)
+        public BookRiddle() : base("Book Riddle", "", GameTaskType.BookRiddle, 35)
         {
-            taskDescription = "Some security features need to be disabled.\n" +
-                              "You need to press these buttons a certain amount of times.\n" +
-                              "These books sure look suspicious...";
+            taskDescription = "Einige Sicherheitsmaßnahmen müssen deaktiviert werden.\n" +
+                              "Du musst diese Schalter bestimmt oft drücken.\n" +
+                              "Die Bücher sehen aber seltsam aus... zu öffnen sind sie mit der Zeigefinger-Taste";
         }
 
         public override void Initialize()
         {
             bookRiddleSolutionListener.SetBookRiddleSolution(solution);
+            
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 15,
+                SeparatedDifficulty.Medium => 23,
+                SeparatedDifficulty.Hard => 30,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         public void SetBookRiddleState(TaskState taskState)

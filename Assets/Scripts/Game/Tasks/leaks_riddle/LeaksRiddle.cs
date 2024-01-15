@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,13 +13,17 @@ namespace Game.Tasks.leaks_riddle
         
         private bool _canPressButtonToFinishTask;
         private bool _finished;
+
+        private const int BaseIntegrityValueEasy = 15;
         
         
-        public LeaksRiddle() : base(120, "Leaks Riddle", "")
+        public LeaksRiddle() : base(135, "Leaks Riddle", "", GameTaskType.LeaksRiddle)
         {
-            taskDescription = "Someone added some cracks to the hallway windows.\n" +
-                              "This seems structurally unsafe, and rather fatal, because the air is leaking out.\n" +
-                              "Take this duct tape to fix the leaks!";
+            taskDescription = "Irgendjemand hat die Fenster der Gänge mit Rissen dekoriert.\n" +
+                              "Das scheint strukturell unsicher und ziemlich tödlich zu sein, weil die Luft entflieht.\n" +
+                              "Nimm dieses Klebeband, um die Risse zu reparieren!";
+
+            integrityValue = BaseIntegrityValueEasy;
         }
 
         /// <summary>

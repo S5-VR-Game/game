@@ -1,5 +1,5 @@
 using System;
-using Timeline;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace Game
@@ -16,9 +16,8 @@ namespace Game
         [SerializeField] private Difficulty difficulty;
 
         public GameState currentGameState;
+        private string m_GameID;
         public event Action<GameState> OnGameStateChanged;
-
-        public TimelineManager timelineManager;
         
         /// <summary>
         /// If the integrity is lower than or equal to this threshold, the game will count as lost
@@ -27,10 +26,42 @@ namespace Game
 
         private void Start()
         {
+            // generate game id
+            m_GameID = GenerateGameID();
             // invoke evaluation method, when time over or integrity change event occurs
             gameTimer.OnTimeOver += EvaluateGameState;
             integrity.OnIntegrityChanged += _ => EvaluateGameState();
             currentGameState = GameState.Ongoing;
+        }
+
+        /// <summary>
+        /// Returns the generated game id for this game instance.
+        /// For more information about the generation of the id, see <see cref="GenerateGameID"/> 
+        /// </summary>
+        /// <returns>generated id</returns>
+        public string GetGameID() => m_GameID;
+        
+        /// <summary>
+        /// Generates a id based on the hashed unix time.
+        /// </summary>
+        /// <returns>generated id</returns>
+        private static string GenerateGameID()
+        {
+            // Get the current Unix timestamp
+            long unixTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            // Convert the Unix timestamp to a byte array
+            byte[] unixBytes = BitConverter.GetBytes(unixTimestamp);
+
+            // Hash the byte array using SHA256
+            SHA256 sha256Hash = SHA256.Create();
+            byte[] hashedBytes = sha256Hash.ComputeHash(unixBytes);
+
+            // Convert the hashed bytes to a hexadecimal string
+            string hashedId = BitConverter.ToString(hashedBytes).Replace("-", String.Empty);
+
+            // Take only the first 5 characters of the hashed string
+            return hashedId.Substring(0, 5);
         }
 
         /// <summary>
@@ -44,27 +75,11 @@ namespace Game
             {
                 // if integrity lost threshold reached, evaluate to game lost
                 currentGameState = GameState.GameLost;
-                
-                timelineManager.PlayEndSceneLose();
             }
             else if (gameTimer.timeOver)
             {
                 // if time over, evaluate depending on integrity value
                 currentGameState = integrity.GetCurrentIntegrity() > IntegrityLostThreshold ? GameState.GameWon : GameState.GameLost;
-
-                switch (currentGameState)
-                {
-                    case GameState.GameLost:
-                        timelineManager.PlayEndSceneLose();
-                        break;
-                    case GameState.GameWon:
-                        timelineManager.PlayEndSceneWin();
-                        break;
-                    case GameState.Ongoing:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
             }
             else
             { 

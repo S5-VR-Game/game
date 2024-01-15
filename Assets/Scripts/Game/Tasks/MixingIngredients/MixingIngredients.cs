@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +13,7 @@ namespace Game.Tasks.MixingIngredients
     {
         private const string Name = "Mixing ingredients";
         private const string Description = "Task decsription";
-        private const string RecipeHeaderText = "Recipe";
+        private const string RecipeHeaderText = "Zutaten";
         
         /// <summary>
         /// Line format for the recipe text. First parameter is the quantity, second parameter is the ingredient name.
@@ -68,13 +67,13 @@ namespace Game.Tasks.MixingIngredients
         private bool m_WateringBottleFilledUp;
         private bool m_TaskCompleted;
 
-        public MixingIngredients() : base(Name, Description)
+        public MixingIngredients() : base(Name, Description, GameTaskType.MixingIngredients)
         {
-            taskDescription = "You need just a little more oxygen to survive.\n" +
-                              "You need to mix the ingredients in the main container to create a super fertilizer.\n" +
-                              "Fill the vase with the right ingredients.\n" +
-                              "When you are done, fill the empty bottle with the fertilizer and water the plant.\n" +
-                              "The botanist said his recipe should be somewhere around here.\n";
+            taskDescription = "Du brauchst nur etwas mehr Sauerstoff um zu überleben.\n" +
+                              "Du musst die richtigen Zutaten in dem Hauptbehälter mischen, um einen Superdünger zu erstellen.\n" +
+                              "Fülle die Vase mit den richtigen Zutaten.\n" +
+                              "Wenn du fertig bist, fülle die leere Flasche mit dem Dünger und gieße die Pflanze.\n" +
+                              "Der Botaniker sagte, sein Rezept sollte hier irgendwo sein.\n";
         }
 
         public override void Initialize()
@@ -84,7 +83,15 @@ namespace Game.Tasks.MixingIngredients
                 // MaxIngredients must not be greater than the length of available ingredients
                 throw new ArgumentOutOfRangeException();
             }
-            
+
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 7.5f,
+                SeparatedDifficulty.Medium => 12f,
+                SeparatedDifficulty.Hard => 20f,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
             // initialize watering color with random color
             m_WateringLiquidColor = Random.ColorHSV();
 

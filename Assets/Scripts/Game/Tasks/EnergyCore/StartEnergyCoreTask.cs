@@ -1,22 +1,26 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Game.Tasks.EnergyCore
 {
-    // control-script of the energycore-task
+    /// <summary>
+    /// Script to manage the task Energy Core
+    /// </summary>
     public class StartEnergyCoreTask : TimerTask
     {
-        public int finishedEnergyCoreCounter;
+        // variable to count the finished energy cores (energy core collided with right energy cell)
+        [SerializeField] private int finishedEnergyCoreCounter;
         
         public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
-            integrityValue : 10)
+            taskType: GameTaskType.EnergyCore, integrityValue : 7.5f)
         {
         }
 
         public override void Initialize()
         {
-            taskDescription = "The reactor is not producing enough energy!\n" +
-                              "You need to place the energy cells in the correct cores.\n" +
-                              "But be careful, you can only move one at a time!";
+            taskDescription = "Der Reaktor erzeugt nicht genug Energie!\n" +
+                              "Du musst die Energiezellen in die richtigen Kerne legen.\n" +
+                              "Aber Vorsicht! Du kannst nur eine Zelle auf einmal tragen.\n";
             
             // sets the starting time depending on the used difficulty
             remainingTime = difficulty.GetSeparatedDifficulty() switch
@@ -30,6 +34,7 @@ namespace Game.Tasks.EnergyCore
 
         protected override void BeforeStateCheck()
         {
+            // no implementation needed
         }
 
         protected override TaskState CheckTaskState()
@@ -44,6 +49,14 @@ namespace Game.Tasks.EnergyCore
             {
                 DestroyTask();
             }
+        }
+
+        /// <summary>
+        /// increments the value of finishedEnergyCoreCounter by 1
+        /// </summary>
+        public void IncrementFinishedEnergyCoreCounter()
+        {
+            finishedEnergyCoreCounter++;
         }
     }
 }

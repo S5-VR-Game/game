@@ -12,8 +12,15 @@ namespace Game.Tasks.MedicalDisaster
     {
         private const string TaskName = "Medical Disaster";
         private const string TaskDescription = "Medical Disaster Description";
-        private const float InitialTimerTime = 180;
+        private const float InitialTimerTimeEasy = 60;
+        private const float InitialTimerTimeMedium = 90;
+        private const float InitialTimerTimeHard = 150;
+        private const float IntegrityEasy = 10;
+        private const float IntegrityMedium = 15;
+        private const float IntegrityHard = 25;
         private const float TaskStartPlayerDistance = 3;
+        
+        private float _initialTimerTime;
 
         // parameters for different difficulties
         private readonly MedicalDisasterParameters m_EasyParameters = new(2, 1, 2);
@@ -30,15 +37,35 @@ namespace Game.Tasks.MedicalDisaster
         [SerializeField] private GameObject rightPipeTop;
         [SerializeField] private GameObject rightPipeBottom;
         
-        public MedicalDisaster() : base(InitialTimerTime, TaskName, TaskDescription)
+        public MedicalDisaster() : base(40, TaskName, TaskDescription, GameTaskType.MedicalDisaster)
         {
-            taskDescription = "The medical bay is leaking!\n" +
-                              "The substances sure are not tasty!\n" +
-                              "You need to close the valves immediately to stop the leak!\n";
+            taskDescription =   "Leitungen zur Krankenstation sind undicht!\n" +
+                                "Die Substanzen sind sicher nicht genießbar!\n" +
+                                "Du musst die Ventile sofort schließen, um das Leck abzudichten!\n";
         }
 
         public override void Initialize()
         {
+            // sets the remaining time base on difficulty
+            remainingTime = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => InitialTimerTimeEasy,
+                SeparatedDifficulty.Medium => InitialTimerTimeMedium,
+                SeparatedDifficulty.Hard => InitialTimerTimeHard,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            
+            _initialTimerTime = remainingTime;
+
+            // sets the integrity based on difficulty
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => IntegrityEasy,
+                SeparatedDifficulty.Medium => IntegrityMedium,
+                SeparatedDifficulty.Hard => IntegrityHard,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            
             // shuffle for random valve order
             openValves.Shuffle();
             // obtain parameters based on difficulty
@@ -66,7 +93,7 @@ namespace Game.Tasks.MedicalDisaster
         protected override void BeforeStateCheck()
         {
             // update time indicator
-            var remainingTimePercent = remainingTime / InitialTimerTime;
+            var remainingTimePercent = remainingTime / _initialTimerTime;
             if (remainingTimePercent is >= 0 and <= 1)
             {
                 leftPipeBottom.transform.localScale = new Vector3(remainingTimePercent, 1, 1);

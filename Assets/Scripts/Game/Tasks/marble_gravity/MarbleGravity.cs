@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -7,23 +8,29 @@ namespace Game.Tasks.marble_gravity
     /// This class represents the MarbleGravityRiddle which can
     /// be done in the Unity-Game
     /// </summary>
-    public class MarbleGravity : TimerTask
+    public class MarbleGravity : GameTask
     {
         public GameObject taskPrefab;
         private bool _isFinished;
         private const float RotationSpeed = 50.0f;
         private const float ControlDistance = 4.0f;
 
-        public MarbleGravity() : base(120, "Marble Gravity :)", "", 10)
+        public MarbleGravity() : base("Marble Gravity :)", "", GameTaskType.MarbleGravity, 15)
         {
-            taskDescription = "You need to activate a flux compensator.\n" +
-                              "The activator is located inside this rotating maze.\n" +
-                              "Navigate the marble to trigger the trigger!";
+            taskDescription = "Du musst den Fluxkompensator aktivieren.\n" +
+                              "Der Aktivator befindet sich in diesem rotierenden Labyrinth.\n" +
+                              "Navigiere die Kugel durch das Labyrinth um den Aktivator zu aktivieren!";
         }
 
         public override void Initialize()
         {
-            // no implementation required
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 8f,
+                SeparatedDifficulty.Medium => 9.5f,
+                SeparatedDifficulty.Hard => 15f,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         protected override void BeforeStateCheck()

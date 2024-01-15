@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Evaluation;
 using PlayerController;
-using Sound;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Tasks
 {
@@ -17,11 +18,12 @@ namespace Game.Tasks
     /// </summary>
     public abstract class GameTask : MonoBehaviour
     {
-        protected const int k_DefaultIntegrityValue = 5;
+        protected const float k_DefaultIntegrityValue = 5;
 
+        public GameTaskType taskType { get; protected set; }
         public string taskName { get; protected set; }
         public string taskDescription { get; protected set; }
-        public int integrityValue { get; protected set; }
+        public float integrityValue { get; protected set; }
         
         /// <summary>
         /// Provides the current game difficulty value. The difficulty of the task should adapt on this value.
@@ -38,7 +40,7 @@ namespace Game.Tasks
         /// <summary>
         /// 
         /// </summary>
-        public ObjectiveMarker.TaskType taskType;
+        [FormerlySerializedAs("taskType")] public ObjectiveMarker.TaskPriority taskPriority;
 
         protected TaskState currentTaskState;
         public event Action<GameTask> TaskSuccessful;
@@ -50,17 +52,23 @@ namespace Game.Tasks
         /// by the <see cref="DestroyTask"/> method.
         /// </summary>
         private readonly List<GameObject> m_LinkedGameObjects = new List<GameObject>();
+
+        private EvaluationDataWrapper _evaluationDataWrapper;
+        private bool _alreadyTouched;
+        
         
         /// <summary>
         /// Constructor to set initial values for this task.
         /// </summary>
         /// <param name="taskName">name for this task</param>
         /// <param name="taskDescription">description for this task</param>
+        /// <param name="taskType">type of this task</param>
         /// <param name="integrityValue">integrity value, which is added/subtracted to global integrity on task success/failuire</param>
-        protected GameTask(string taskName, string taskDescription, int integrityValue = k_DefaultIntegrityValue)
+        protected GameTask(string taskName, string taskDescription, GameTaskType taskType, float integrityValue = k_DefaultIntegrityValue)
         {
             this.taskName = taskName;
             this.taskDescription = taskDescription;
+            this.taskType = taskType;
             this.integrityValue = integrityValue;
         }
 
@@ -143,10 +151,11 @@ namespace Game.Tasks
             m_LinkedGameObjects.Remove(gameObjectToUnlink);
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Removes the game object and all its linked game objects from the scene
         /// </summary>
-        protected void DestroyTask()
+        public void DestroyTask()
         {
             GameObjectDestroyed?.Invoke(this);
             
@@ -158,6 +167,57 @@ namespace Game.Tasks
             m_LinkedGameObjects.Clear();
             
             Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// Adds a nav marker to the linkedGameObjects and attaches it to the task
+        /// </summary>
+        /// <param name="marker">Reference to the marker Prefab. Needs to be set in Editor per TaskFactory!</param>
+        public void AttachMarker(AltMarker marker)
+        {
+            Vector3 newPosition = transform.position;
+            // set height of gps marker
+            // divide task height by floor height
+            newPosition.y = Mathf.Floor(newPosition.y / 4) * 4 + 3.0f;
+            AltMarker altMarker = Instantiate(marker, newPosition, Quaternion.identity);
+
+            altMarker.InitiateMarker(taskPriority);
+            
+            m_LinkedGameObjects.Add(altMarker.gameObject);
+            altMarker.SetPlayerProfile(playerProfileService);
+        }
+
+        /// <summary>
+        /// Adds the Evaluation Wrapper Object to the class. It also registers that the Task has been started.
+        /// </summary>
+        /// <param name="evaluationDataWrapper">the Wrapper that needs to be assigned to this GameTask</param>
+        public void SetEvaluationWrapper(EvaluationDataWrapper evaluationDataWrapper)
+        {
+            _evaluationDataWrapper = evaluationDataWrapper;
+            _evaluationDataWrapper.AddTaskStarted(this);
+        }
+
+        /// <summary>
+        /// Getter-Method for the EvaluationDataWrapper
+        /// </summary>
+        /// <returns></returns>
+        public EvaluationDataWrapper GetEvaluationDataWrapper()
+        {
+            return _evaluationDataWrapper;
+        }
+
+        /// <summary>
+        /// Emits a touch event to the EvaluationDataWrapper,
+        /// which forwards it to the actual Evaluation Data Object.
+        /// </summary>
+        public void EmitTouched()
+        {
+            if (_alreadyTouched)
+            {
+                return;
+            }
+            _evaluationDataWrapper.IncrementMapEntry(this, DictTypes.TaskTouched);
+            _alreadyTouched = true;
         }
     }
 }

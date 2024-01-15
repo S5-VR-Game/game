@@ -18,6 +18,7 @@ namespace Game
             gameTimer.OnTimeChanged += OnTimeChanged;
             // deactivated due to workaround (see below)
             integrity.OnIntegrityChanged += OnIntegrityChanged;
+            ChangeNavigation();
         }
 
         /// <summary>
@@ -33,9 +34,17 @@ namespace Game
         /// Event listener for integrity changes. Updates the integrity indicator on the HUD.
         /// </summary>
         /// <param name="integrityValue">new integrity value</param>
-        private void OnIntegrityChanged(int integrityValue)
+        private void OnIntegrityChanged(float integrityValue)
         {
             playerProfileService.GetHUD().UpdateIntegrityIndicator(integrity.GetCurrentIntegrityPercentage());
+        }
+
+        /// <summary>
+        /// Changes the navigation of the HUD.
+        /// </summary>
+        private void ChangeNavigation()
+        {
+            playerProfileService.GetHUD().ChangeNavigation(playerProfileService.IsAltMarkerActive());
         }
     }
 }
