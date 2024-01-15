@@ -18,13 +18,13 @@ namespace Tutorial
                 return;
             }
             // Move the object up when the "MoveUp" button is pressed
-            if (Input.GetKeyDown(KeyCode.JoystickButton0))
+            if (Input.GetKey(KeyCode.JoystickButton0))
             {
                 MoveObject(Vector3.up * moveAmount * Time.deltaTime);
             }
 
             // Move the object down when the "MoveDown" button is pressed
-            if (Input.GetKeyDown(KeyCode.JoystickButton1))
+            if (Input.GetKey(KeyCode.JoystickButton1))
             {
                 MoveObject(Vector3.down * moveAmount * Time.deltaTime);
             }
