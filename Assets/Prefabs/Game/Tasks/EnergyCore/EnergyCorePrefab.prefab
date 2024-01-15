@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8398060387937097407}
   - component: {fileID: 686301748060212789}
   - component: {fileID: 5816873584670722959}
+  - component: {fileID: 3334080922534408602}
   m_Layer: 0
   m_Name: Sphere (5)
   m_TagString: EnergyCell
@@ -329,6 +330,22 @@ MonoBehaviour:
   volumeSound: 0.3
   playSoundTrigger: 1
   playSoundGlobal: 1
+--- !u!114 &3334080922534408602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451591024175403085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &2369937157403296292
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +362,7 @@ GameObject:
   - component: {fileID: 2659033129757995991}
   - component: {fileID: 6063192437908264494}
   - component: {fileID: 1092236964130719098}
+  - component: {fileID: 7920157444952746666}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: EnergyCell
@@ -658,6 +676,22 @@ MonoBehaviour:
   volumeSound: 0.3
   playSoundTrigger: 1
   playSoundGlobal: 0
+--- !u!114 &7920157444952746666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369937157403296292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &3931387091028677111
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +708,7 @@ GameObject:
   - component: {fileID: 1022096535029206721}
   - component: {fileID: 400274302768562910}
   - component: {fileID: 9102130443642450975}
+  - component: {fileID: 2212378948487392002}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: EnergyCell
@@ -987,6 +1022,22 @@ MonoBehaviour:
   volumeSound: 0.3
   playSoundTrigger: 1
   playSoundGlobal: 0
+--- !u!114 &2212378948487392002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931387091028677111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &4011211318707815045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1edda0ea6c481a8c758d5a58bf5e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 0
+  taskPriority: 2
   finishedEnergyCoreCounter: 0
 --- !u!114 &123846879647733316
 MonoBehaviour:
@@ -1116,6 +1167,7 @@ GameObject:
   - component: {fileID: 5626237645035895815}
   - component: {fileID: 2939019760446715349}
   - component: {fileID: 1992402680980941696}
+  - component: {fileID: 4709097819791621787}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: EnergyCell
@@ -1429,6 +1481,22 @@ MonoBehaviour:
   volumeSound: 0.3
   playSoundTrigger: 1
   playSoundGlobal: 0
+--- !u!114 &4709097819791621787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5460148014265557196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &7139874812771912732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1513,7 @@ GameObject:
   - component: {fileID: 1608221305189149708}
   - component: {fileID: 8783298329978440859}
   - component: {fileID: 1874914861847493672}
+  - component: {fileID: 820189671927394556}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: EnergyCell
@@ -1758,6 +1827,22 @@ MonoBehaviour:
   volumeSound: 0.3
   playSoundTrigger: 1
   playSoundGlobal: 0
+--- !u!114 &820189671927394556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139874812771912732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &8449385766029076724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,6 +1859,7 @@ GameObject:
   - component: {fileID: 4303937596673893282}
   - component: {fileID: 2891960355748424027}
   - component: {fileID: 5086558306022109279}
+  - component: {fileID: 6504333814373044493}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: EnergyCell
@@ -2086,6 +2172,22 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: cefb72c77840f3340a16677647e9e030, type: 3}
   volumeSound: 0.3
   playSoundTrigger: 1
+  playSoundGlobal: 0
+--- !u!114 &6504333814373044493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449385766029076724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
   playSoundGlobal: 0
 --- !u!1001 &16770827329338089
 PrefabInstance:

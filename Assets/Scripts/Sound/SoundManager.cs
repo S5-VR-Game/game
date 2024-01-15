@@ -1,17 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Sound
 {
-    // class used to play sounds depending on the chosen value of playSoundTrigger
+    /// <summary>
+    /// class used to play sounds depending on the chosen value of playSoundTrigger
+    /// </summary>
     public class SoundManager : MonoBehaviour
     {
-        // enum to decide when the sound should be played
+        /// <summary>
+        /// enum to decide when the sound should be played
+        /// </summary>
         private enum PlaySoundTrigger
         {
             FunctionCall, // plays sound after calling PlaySound() in another script
             Collision, // plays sound after the game-object collides with something
             PlayerMovement, // plays sound when the player is moving
-            Permanent // plays sound permanently
+            Permanent, // plays sound permanently
+            Rolling // plays sound while collision stays and game-object is moving
         }
         
         [SerializeField] private AudioClip audioClip;  // stores the played audio file
@@ -25,6 +31,8 @@ namespace Sound
         [SerializeField] private bool playSoundGlobal; // variable to make the sound audible local (range of 15) or global
         
         private AudioSource _audioSource; // stores the audio-source (needed to play the sound)
+
+        private const float RollThreshold = 0.2f;
         
         private void Start()
         {
@@ -81,26 +89,52 @@ namespace Sound
             }
         }
 
+        /// <summary>
+        /// PlaySoundTrigger = Collision
+        /// plays sound on collision
+        /// </summary>
         private void OnCollisionEnter()
         {
-            // PlaySoundTrigger = Collision
-            // plays sound on collision
             if (playSoundTrigger.Equals(PlaySoundTrigger.Collision))
             {
                 StartPlayingSound(); // plays sound
             }
         }
-        
+
+        /// <summary>
+        /// PlaySoundTrigger = Rolling
+        /// plays sound while collision stays and game-object is moving
+        /// </summary>
+        private void OnCollisionStay()
+        {
+            if (!playSoundTrigger.Equals(PlaySoundTrigger.Rolling)) return;
+            
+            var velocity = gameObject.GetComponent<Rigidbody>().velocity;
+            
+            if (velocity.x + velocity.y + velocity.z > RollThreshold || velocity.x + velocity.y + velocity.z < -RollThreshold)
+            {
+                StartPlayingSound();
+            }
+            else
+            {
+                StopPlayingSound();
+            }
+        }
+
+        /// <summary>
+        /// PlaySoundTrigger = FunctionCall
+        /// plays sound with function call
+        /// </summary>
         public void PlaySoundFunctionCall()
         {
-            // PlaySoundTrigger = FunctionCall
-            // plays sound with function call
             if (!playSoundTrigger.Equals(PlaySoundTrigger.FunctionCall)) return;
             
             StartPlayingSound(); // plays sound
         }
-
-        // plays sound
+        
+        /// <summary>
+        /// starts playing sound
+        /// </summary>
         private void StartPlayingSound()
         {
             if (!_audioSource.isPlaying)
@@ -109,7 +143,9 @@ namespace Sound
             }
         }
 
-        // stops sound
+        /// <summary>
+        /// stops playing sound
+        /// </summary>
         private void StopPlayingSound()
         {
             if (_audioSource.isPlaying)

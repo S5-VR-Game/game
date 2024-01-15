@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 118386}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 4.909996, y: -1.3600001, z: -0.44000053}
+  m_LocalPosition: {x: 4.909996, y: -1.92, z: -0.44000053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -577,8 +577,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &627025800445762591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,8 +1475,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &1243424155797324376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,8 +2307,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &2016052045372948494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,8 +3003,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &2397676642098698959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,8 +3334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1c0757d5684b4390bb5421605be147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playFailureSoundManager: {fileID: 0}
-  playSuccessSoundManager: {fileID: 0}
+  taskPriority: 0
   taskPrefab: {fileID: 3163423363439133189}
   bookRiddleSolutionListener: {fileID: 3291130546586517210}
 --- !u!114 &3291130546586517210
@@ -4534,8 +4529,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &5124201045053154123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,8 +4771,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &5163550751902482202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5776,8 +5769,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &6516082692045273492
 GameObject:
   m_ObjectHideFlags: 0
@@ -6052,8 +6044,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &6659762667150965186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,8 +7341,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &8490474671036744677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7593,8 +7583,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: d843f17c789e6c442ad007123fef0a34, type: 3}
   volumeSound: 0.8
   playSoundTrigger: 0
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
 --- !u!1 &8589798805454126450
 GameObject:
   m_ObjectHideFlags: 0

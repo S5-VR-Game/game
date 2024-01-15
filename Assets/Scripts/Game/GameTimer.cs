@@ -7,6 +7,7 @@ using Logging;
 using PlayerController;
 using Sound;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -25,6 +26,15 @@ namespace Game
         [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
         [SerializeField] private float minTimeIntervalBetweenTasks = 10;
+        [SerializeField] private float initialTaskSpawnDelay = 3;
+        
+        // The Timer for the Decrement and its default value
+        private float _defaultTimeDecrement;
+        private const float _defaultDecrementVal = 0.16666f;
+        private float _decrementValue;
+        private float _decrementTimer;
+
+        [FormerlySerializedAs("decrementValue")] [SerializeField] private int integrityDecrementValue;
         
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
@@ -67,8 +77,11 @@ namespace Game
         private void Start()
         {
             remainingTime = initialGameTime;
-            m_NextGameTaskTime = GetNextTimeInterval();
-
+            m_NextGameTaskTime = initialGameTime - initialTaskSpawnDelay;
+            _defaultTimeDecrement = 1.0f;
+            _decrementValue = DifficultyToDecrementVal();
+            _decrementTimer = _defaultTimeDecrement;
+            
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
                 gameTaskObserver, integrityObserver, taskSpawnPointTimeout, metricCollector, markerPrefab);
@@ -78,6 +91,17 @@ namespace Game
             }
         }
 
+        private float DifficultyToDecrementVal()
+        {
+            return difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => _defaultDecrementVal,
+                SeparatedDifficulty.Medium => 1.5f * _defaultDecrementVal,
+                SeparatedDifficulty.Hard => 2.5f * _defaultDecrementVal,
+                _ => _defaultDecrementVal
+            };
+        }
+
         private void Update()
         {
             if (remainingTime > 0)
@@ -85,13 +109,15 @@ namespace Game
                 if (!timerPaused)
                 {
                     remainingTime -= Time.deltaTime;
+                    HandleIntegrityValueDecrementOverTime();
+
                     OnTimeChanged?.Invoke(remainingTime);
 
                     // check whether new game task time is reached
                     if (remainingTime < m_NextGameTaskTime)
                     {
                         // check if task limit is not reached yet
-                        if (gameTaskObserver.GetActiveTaskCount() < concurrentTasksLimit)
+                        if (gameTaskObserver.GetActiveTasks().Count < concurrentTasksLimit)
                         {
                             TrySpawnRandomTask();
                         }
@@ -114,6 +140,24 @@ namespace Game
         }
 
         /// <summary>
+        /// Decrements the Integrity-Value if the timer for
+        /// it has run up and resets the timer if the integrity
+        /// value has changed.
+        /// </summary>
+        private void HandleIntegrityValueDecrementOverTime()
+        {
+            _decrementTimer -= Time.deltaTime;
+
+            if (_decrementTimer <= 0.0f)
+            {
+                integrityObserver.integrity.DecrementIntegrity(_decrementValue);
+                Debug.Log("Should have decremented the integrity value");
+                Debug.Log("Integrity-Value: " + integrityObserver.integrity.GetCurrentIntegrity());
+                _decrementTimer = _defaultTimeDecrement;
+            }
+        }
+
+        /// <summary>
         /// Tries to spawn a task by looping through a random order of factories and try if any factory can spawn a task
         /// </summary>
         private void TrySpawnRandomTask()
@@ -128,7 +172,6 @@ namespace Game
                 if (spawnSuccess)
                 {
                     _taskSpawningSoundManager.PlaySoundFunctionCall();
-                    gameTaskObserver.IncrementActiveTask();
                     return;
                 }
             }

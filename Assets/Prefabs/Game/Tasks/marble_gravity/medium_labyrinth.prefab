@@ -135,6 +135,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -9102117403313577056, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7132729842325223346}
+    - targetCorrespondingSourceObject: {fileID: -9102117403313577056, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1997157549315233809}
     - targetCorrespondingSourceObject: {fileID: 1486561467850519007, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2329931790800905419}
@@ -328,8 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852aea9a779c4ee8a7dc18ca78d9e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playFailureSoundManager: {fileID: 0}
-  playSuccessSoundManager: {fileID: 0}
+  taskPriority: 0
   taskPrefab: {fileID: 2839930189506935058}
 --- !u!1 &3028341816382269411 stripped
 GameObject:
@@ -397,10 +399,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: cefb72c77840f3340a16677647e9e030, type: 3}
-  volumeSound: 0.4
+  volumeSound: 0.2
   playSoundTrigger: 1
-  playerProfileService: {fileID: 0}
-  playerDistance: 0
+  playSoundGlobal: 0
+--- !u!114 &1997157549315233809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3028341816382269411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c91db3f83c48438d4a7d1e4849430d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 4533e071f7d54d6998778050593dfc88, type: 3}
+  volumeSound: 0.01
+  playSoundTrigger: 4
+  playSoundGlobal: 0
 --- !u!1 &4220214598328617623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7982302181041549612, guid: 94b4539facc65bdf2ba24458226ebdf4, type: 3}

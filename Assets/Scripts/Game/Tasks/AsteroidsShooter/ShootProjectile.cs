@@ -17,7 +17,7 @@ namespace Game.Tasks.AsteroidsShooter
         // movement-speed of the bullet
         [SerializeField] private float projectileSpeed = 20f;  
 
-        // stores the reference of the selected controller (left hand)
+        // stores the reference of the selected controller 
         [SerializeField] public XRNode controller;
         
         private bool _lastTrigger;
@@ -36,7 +36,7 @@ namespace Game.Tasks.AsteroidsShooter
             // checks if current player is vr-profile and player uses trigger-button
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
             {
-                bool triggered = false;
+                bool triggered;
 
                 var device = InputDevices.GetDeviceAtXRNode(controller);
                 triggered = (device.TryGetFeatureValue(CommonUsages.triggerButton,

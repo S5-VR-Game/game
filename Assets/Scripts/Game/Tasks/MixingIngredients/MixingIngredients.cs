@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +13,7 @@ namespace Game.Tasks.MixingIngredients
     {
         private const string Name = "Mixing ingredients";
         private const string Description = "Task decsription";
-        private const string RecipeHeaderText = "Recipe";
+        private const string RecipeHeaderText = "Zutaten";
         
         /// <summary>
         /// Line format for the recipe text. First parameter is the quantity, second parameter is the ingredient name.
@@ -84,7 +83,15 @@ namespace Game.Tasks.MixingIngredients
                 // MaxIngredients must not be greater than the length of available ingredients
                 throw new ArgumentOutOfRangeException();
             }
-            
+
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 7.5f,
+                SeparatedDifficulty.Medium => 12f,
+                SeparatedDifficulty.Hard => 20f,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
             // initialize watering color with random color
             m_WateringLiquidColor = Random.ColorHSV();
 

@@ -62,7 +62,7 @@ namespace UI
         /// <summary>
         /// This method toggles the text panel visibility
         /// </summary>
-        private void ToggleShow()
+        public void ToggleShow()
         {
             if (animator != null && active)
             {

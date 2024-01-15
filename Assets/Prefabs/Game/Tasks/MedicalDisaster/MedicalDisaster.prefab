@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a96352323140419a8f81ba9b2c7ad389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 2
+  taskPriority: 1
   openValves:
   - {fileID: 4882285338579299396}
   - {fileID: 4158161574837205843}

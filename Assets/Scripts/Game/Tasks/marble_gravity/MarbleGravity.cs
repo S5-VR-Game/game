@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -23,7 +24,13 @@ namespace Game.Tasks.marble_gravity
 
         public override void Initialize()
         {
-            // no implementation required
+            integrityValue = difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => 8f,
+                SeparatedDifficulty.Medium => 9.5f,
+                SeparatedDifficulty.Hard => 15f,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         protected override void BeforeStateCheck()

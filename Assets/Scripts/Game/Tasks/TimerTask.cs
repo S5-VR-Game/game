@@ -12,7 +12,7 @@ namespace Game.Tasks
             string taskName,
             string taskDescription,
             GameTaskType taskType,
-            int integrityValue = k_DefaultIntegrityValue
+            float integrityValue = k_DefaultIntegrityValue
         ) : base(taskName: taskName, taskDescription: taskDescription, taskType: taskType, integrityValue: integrityValue)
         {
             remainingTime = initialTimerTime;

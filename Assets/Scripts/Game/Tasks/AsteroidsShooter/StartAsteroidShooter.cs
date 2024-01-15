@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Tasks.AsteroidsShooter
 {
@@ -25,7 +26,7 @@ namespace Game.Tasks.AsteroidsShooter
         // stores the value of the variable if the task is started
         private bool _started;
         
-        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description", GameTaskType.AsteroidShooter)
+        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description", GameTaskType.AsteroidShooter, integrityValue: 14.6f)
         {
         }
 
