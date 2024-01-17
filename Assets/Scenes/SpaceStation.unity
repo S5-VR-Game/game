@@ -18558,7 +18558,7 @@ PrefabInstance:
       objectReference: {fileID: 1658382858628265779, guid: 91ed0b29403394112a099eb4037b235a, type: 3}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: initialGameTime
-      value: 10
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: metricCollector
@@ -24665,6 +24665,10 @@ PrefabInstance:
     - target: {fileID: 1262779641602169267, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: volumeSound
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679134457999072262, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 2284740934432811660, guid: bcc1e30d73ec3555187e78781e2f8be9, type: 3}
       propertyPath: m_RenderMode
