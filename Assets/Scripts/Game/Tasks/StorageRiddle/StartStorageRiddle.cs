@@ -62,20 +62,13 @@ namespace Game.Tasks.StorageRiddle
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void SetupDifficulty()
         {
-            switch (difficulty.GetSeparatedDifficulty())
+            _maxAmountDeliveryBoxes = difficulty.GetSeparatedDifficulty() switch
             {
-                case SeparatedDifficulty.Easy:
-                    _maxAmountDeliveryBoxes = 3;
-                    break;
-                case SeparatedDifficulty.Medium:
-                    _maxAmountDeliveryBoxes = 5;
-                    break;
-                case SeparatedDifficulty.Hard:
-                    _maxAmountDeliveryBoxes = 7;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+                SeparatedDifficulty.Easy => 3,
+                SeparatedDifficulty.Medium => 5,
+                SeparatedDifficulty.Hard => 7,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
     }
 }
