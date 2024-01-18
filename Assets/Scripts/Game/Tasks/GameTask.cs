@@ -24,6 +24,8 @@ namespace Game.Tasks
         public string taskName { get; protected set; }
         public string taskDescription { get; protected set; }
         public float integrityValue { get; protected set; }
+
+        public bool isPlayerInCollider;
         
         /// <summary>
         /// Provides the current game difficulty value. The difficulty of the task should adapt on this value.
@@ -157,6 +159,12 @@ namespace Game.Tasks
         /// </summary>
         public void DestroyTask()
         {
+            // dismiss hud text, if player is in collider of spawn point
+            if (isPlayerInCollider)
+            {
+                playerProfileService.GetHUD().DismissText();
+                playerProfileService.GetHUD().uiTextBox.DeregisterCurrentTask();
+            }
             GameObjectDestroyed?.Invoke(this);
             
             // destroy all linked game objects

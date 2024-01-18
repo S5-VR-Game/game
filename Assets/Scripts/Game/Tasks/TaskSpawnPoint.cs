@@ -111,6 +111,7 @@ namespace Game.Tasks
                 m_AllocatedTask.EmitTouched();
                 m_AllocatedTask.playerProfileService.GetHUD().ChangeText(m_AllocatedTask.taskDescription);
                 m_AllocatedTask.playerProfileService.GetHUD().uiTextBox.RegisterCurrentTask(m_AllocatedTask);
+                m_AllocatedTask.isPlayerInCollider = true;
             }
         }
 
@@ -122,6 +123,7 @@ namespace Game.Tasks
                 // dismiss task description on HUD
                 m_AllocatedTask.playerProfileService.GetHUD().DismissText();
                 m_AllocatedTask.playerProfileService.GetHUD().uiTextBox.DeregisterCurrentTask();
+                m_AllocatedTask.isPlayerInCollider = false;
             }
         }
 
