@@ -39,13 +39,7 @@ namespace Game
         public void IncrementIntegrity(float value)
         {
             // prevent the integrityValue from exceeding the initial value
-            var newIntegrityValue = integrityValue + value;
-            if (newIntegrityValue > m_InitialIntegrityValue)
-            {
-                return;
-            }
-            
-            integrityValue = newIntegrityValue;
+            integrityValue = Math.Min(integrityValue + value, m_InitialIntegrityValue);
             NotifyScoreChanged();
         }
 
