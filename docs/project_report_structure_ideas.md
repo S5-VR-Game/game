@@ -1,6 +1,6 @@
 # Themen Ideen
 
-## Einleitung (Projektname) (Julius, Jonas)
+## Einleitung (Projektname) (Marian)
 - Ausgangsbedingung
   - Rahmenbedingungen (Projekt im 5. Smester, etc), Zeitdauer
   - beteiligte Personen & Vorerfahrungen
